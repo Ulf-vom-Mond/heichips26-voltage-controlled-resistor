@@ -10,7 +10,7 @@ PDK_REPO_IHP_OPEN_PDK ?= https://github.com/iic-jku/IHP-Open-PDK.git
 PDK_COMMIT_IHP_OPEN_PDK ?= db70c13aa5dfe1dec1d286581fd1b9a2807ca331
 
 PDK_REPO_IHP_CMOS5L ?= https://github.com/iic-jku/ihp-sg13cmos5l.git
-PDK_COMMIT_IHP_CMOS5L ?= 11d3fee24f00d9117fe5e36aaf60c2ff141c70b3
+PDK_COMMIT_IHP_CMOS5L ?= 6b6b810feccd5534267cc9f441b9b6cf54e735d6
 
 KLAYOUT_PLUGINS = KLayoutPluginUtils \
                   AlignToolPlugin \

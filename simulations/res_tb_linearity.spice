@@ -1,0 +1,203 @@
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/testbenches/xschem/res_tb_linearity.sch
+**.subckt res_tb_linearity
+VDD VDD GND {VDD}
+VS vsweep GND 1.5
+Vmeas vd net1 0
+.save i(vmeas)
+E2 vd GND VOL=' {Vcm}+V(vsweep)/2 '
+E3 vb GND VOL=' {Vcm}-V(vsweep)/2 '
+vc vc_p GND 0
+x1 vc_p net1 vb VDD GND vcr_bisection
+**** begin user architecture code
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
+
+
+
+* .include ../../../netlist/pex/inverter_magic_pex_3.spice
+.param VDD=3.3
+.csparam VDD=VDD
+.param Vcm=2
+.csparam Vcm=Vcm
+.param temp=27
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.control
+let vcc = 0
+
+save all
+set appendwrite
+
+
+
+repeat 5
+  alter vc $&vcc
+
+  * DC Sweep
+  dc VS -1 1 1m
+  remzerovec
+  let vcc = vcc + 0.2
+end
+write res_tb_linearity.raw
+set appendwrite
+
+* Plotting
+plot dc1.v(vsweep)/(dc1.v.x1.Vmeas#branch) dc2.v(vsweep)/(dc2.v.x1.Vmeas#branch) dc3.v(vsweep)/(dc3.v.x1.Vmeas#branch) dc4.v(vsweep)/(dc4.v.x1.Vmeas#branch) dc5.v(vsweep)/(dc5.v.x1.Vmeas#branch) ylimit 0 10k
+
+plot dc1.v.x1.Vmeas#branch dc2.v.x1.Vmeas#branch dc3.v.x1.Vmeas#branch dc4.v.x1.Vmeas#branch dc5.v.x1.Vmeas#branch
+
+* Write Data
+unset appendwrite
+set wr_vecnames
+set wr_singlescale
+wrdata ../plot_simulations/data/res_tb_linearity.txt v(vc_p) dc1.v(vsweep)/(dc1.i(Vmeas)) dc2.v(vsweep)/(dc2.i(Vmeas)) dc3.v(vsweep)/(dc3.i(Vmeas)) dc4.v(vsweep)/(dc4.i(Vmeas)) dc5.v(vsweep)/(dc5.i(Vmeas))
+
+write res_tb_linearity.raw
+
+*quit
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection.sym # of pins=5
+** sym_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection.sym
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection.sch
+.subckt vcr_bisection Vctrl T1 T2 Vdd Vss
+*.ipin T1
+*.ipin T2
+*.ipin Vctrl
+*.ipin Vdd
+*.ipin Vss
+R1 vcm net3 10k
+R2 net2 vcm 10k
+Vmeas T1 net1 0
+.save i(vmeas)
+XM1 net1 Vctrl T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
+I0 vdd net4 25u
+I1 vdd net5 25u
+x1 Vdd net4 net3 net3 T1 vss Vss op_amp_ver_2
+x2 vdd net5 net2 net2 T2 vss vss op_amp_ver_2
+.ends
+
+
+* expanding   symbol:  macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym # of pins=7
+** sym_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sch
+.subckt op_amp_ver_2 POAVDD IOAIREF IOAM OOA IOAP POAVSS IOADISABLE
+*.iopin POAVDD
+*.ipin IOAM
+*.ipin IOAP
+*.opin OOA
+*.ipin IOAIREF
+*.iopin POAVSS
+*.ipin IOADISABLE
+XMP13 net1 net1 POAVDD POAVDD sg13_hv_pmos w=2.4u l=0.4u ng=1 m=1 mm_ok=1
+XMP14 ptlg ptlg net1 POAVDD sg13_hv_pmos w=2.4u l=0.4u ng=1 m=1 mm_ok=1
+XMN16 ptlg ncasc net2 POAVSS sg13_hv_nmos w=0.6u l=0.6u ng=1 m=1 mm_ok=1
+XMN13 net2 nbias POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XMN18 ntlg ntlg net3 POAVSS sg13_hv_nmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMN17 net3 net3 POAVSS POAVSS sg13_hv_nmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMP10 net11 pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=1 mm_ok=1
+XMP12 ntlg pcasc net11 POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMP1 net9 pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=4 mm_ok=1
+XMP2 net10 pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=4 mm_ok=1
+XMN1 net9 IOAM net5 POAVSS sg13_hv_nmos w=4.8u l=0.45u ng=1 m=1 mm_ok=1
+XMN2 net10 IOAP net5 POAVSS sg13_hv_nmos w=4.8u l=0.45u ng=1 m=1 mm_ok=1
+XMN3 net4 nbias POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=8 mm_ok=1
+XMN6 net5 ncasc net4 POAVSS sg13_hv_nmos w=0.6u l=0.6u ng=1 m=8 mm_ok=1
+XMN7 net8 ncasc net7 POAVSS sg13_hv_nmos w=0.6u l=0.6u ng=1 m=8 mm_ok=1
+XMN8 ndrive ncasc net6 POAVSS sg13_hv_nmos w=0.6u l=0.6u ng=1 m=8 mm_ok=1
+XMN4 net7 net8 POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=8 mm_ok=1
+XMN5 net6 net8 POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=8 mm_ok=1
+XMP3 net9 pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=4 mm_ok=1
+XMP5 net8 pcasc net9 POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=8 mm_ok=1
+XMP4 net10 pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=4 mm_ok=1
+XMP6 pdrive pcasc net10 POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=8 mm_ok=1
+XMP7 ndrive ptlg pdrive POAVDD sg13_hv_pmos w=2.4u l=0.4u ng=1 m=4 mm_ok=1
+XMN9 pdrive ntlg ndrive POAVSS sg13_hv_nmos w=1.2u l=0.6u ng=1 m=4 mm_ok=1
+XMP8 OOA pdrive POAVDD POAVDD sg13_hv_pmos w=2.4u l=0.4u ng=1 m=40 mm_ok=1
+XMN10 OOA ndrive POAVSS POAVSS sg13_hv_nmos w=1.2u l=0.6u ng=1 m=40 mm_ok=1
+XMN20 IOAIREF IOAIREF POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XMN21 pcasc IOAIREF POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XMN22 pbias IOAIREF POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XMN23 net19 ncasc POAVSS POAVSS sg13_hv_nmos w=0.4u l=10u ng=1 m=1 mm_ok=1
+XMN25 net13 nbias POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XMN24 ncasc ncasc net22 POAVSS sg13_hv_nmos w=0.4u l=10u ng=1 m=1 mm_ok=1
+XMN26 nbias ncasc net13 POAVSS sg13_hv_nmos w=0.6u l=0.6u ng=1 m=1 mm_ok=1
+XMP21 pcasc pcasc net18 POAVDD sg13_hv_pmos w=1u l=10u ng=1 m=1 mm_ok=1
+XMP20 net18 pcasc net17 POAVDD sg13_hv_pmos w=1u l=10.0u ng=1 m=1 mm_ok=1
+XMP22 net12 pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=1 mm_ok=1
+XMP25 pbias pcasc net12 POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMP26 ncasc pcasc net15 POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMP23 net15 pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=1 mm_ok=1
+XMP24 net14 pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=1 mm_ok=1
+XMP27 nbias pcasc net14 POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMP16 net17 pcasc net16 POAVDD sg13_hv_pmos w=1u l=10.0u ng=1 m=1 mm_ok=1
+XMN11 net20 ncasc net19 POAVSS sg13_hv_nmos w=0.4u l=10u ng=1 m=1 mm_ok=1
+XMP28 net16 pcasc POAVDD POAVDD sg13_hv_pmos w=1u l=10.0u ng=1 m=1 mm_ok=1
+XMN12 net21 ncasc net20 POAVSS sg13_hv_nmos w=0.4u l=10u ng=1 m=1 mm_ok=1
+XMN14 net22 ncasc net21 POAVSS sg13_hv_nmos w=0.4u l=10u ng=1 m=1 mm_ok=1
+XMDP1 POAVDD pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=1 mm_ok=1
+XMDP2 POAVDD pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=1 mm_ok=1
+XMDOP1 POAVDD pcasc POAVDD POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMDOP2 POAVDD pcasc POAVDD POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMDOP3 POAVDD pcasc POAVDD POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMDOP4 POAVDD pcasc POAVDD POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMDN1 POAVSS nbias POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XMDN2 POAVSS nbias POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XMDON1 nIOADISABLE IOADISABLE POAVSS POAVSS sg13_hv_nmos w=0.6u l=0.6u ng=1 m=1 mm_ok=1
+XMDON2 ntlg IOADISABLE POAVSS POAVSS sg13_hv_nmos w=0.6u l=0.6u ng=1 m=1 mm_ok=1
+XMDON3 ndrive IOADISABLE POAVSS POAVSS sg13_hv_nmos w=0.6u l=0.6u ng=1 m=1 mm_ok=1
+XMDON4 IOAIREF IOADISABLE POAVSS POAVSS sg13_hv_nmos w=0.6u l=0.6u ng=1 m=1 mm_ok=1
+XMDP7 POAVDD pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=1 mm_ok=1
+XMDP8 POAVDD pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=1 mm_ok=1
+XMDN7 POAVSS nbias POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XMDN8 POAVSS nbias POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XMDN9 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=1.2u l=0.45u ng=1 m=1 mm_ok=1
+XMDN10 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=1.2u l=0.45u ng=1 m=1 mm_ok=1
+XMDN11 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=1.2u l=0.45u ng=1 m=1 mm_ok=1
+XMDN12 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=1.2u l=0.45u ng=1 m=1 mm_ok=1
+XMDN13 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=2.4u l=0.45u ng=1 m=1 mm_ok=1
+XMDN14 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=2.4u l=0.45u ng=1 m=1 mm_ok=1
+XMDN15 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=2.4u l=0.45u ng=1 m=1 mm_ok=1
+XMDN16 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=2.4u l=0.45u ng=1 m=1 mm_ok=1
+XMDN17 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=1.2u l=0.45u ng=1 m=1 mm_ok=1
+XMDN18 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=1.2u l=0.45u ng=1 m=1 mm_ok=1
+XMDN19 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=1.2u l=0.45u ng=1 m=1 mm_ok=1
+XMDN20 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=1.2u l=0.45u ng=1 m=1 mm_ok=1
+XMDN21 POAVSS IOAIREF POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XMDN22 POAVSS IOAIREF POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XMDP9 POAVDD pcasc POAVDD POAVDD sg13_hv_pmos w=1u l=10u ng=1 m=1 mm_ok=1
+XMDN23 POAVSS ncasc POAVSS POAVSS sg13_hv_nmos w=0.4u l=10u ng=1 m=1 mm_ok=1
+XMDP10 POAVDD pcasc POAVDD POAVDD sg13_hv_pmos w=1u l=10u ng=1 m=1 mm_ok=1
+XMDN24 POAVSS ncasc POAVSS POAVSS sg13_hv_nmos w=0.4u l=10u ng=1 m=1 mm_ok=1
+XMDP11 POAVDD pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=1 mm_ok=1
+XMDP12 POAVDD pbias POAVDD POAVDD sg13_hv_pmos w=1.2u l=1.2u ng=1 m=1 mm_ok=1
+XMDP13 POAVDD pcasc POAVDD POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMDP14 POAVDD pcasc POAVDD POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMDN25 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XMDN26 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XMDN27 POAVSS ncasc POAVSS POAVSS sg13_hv_nmos w=0.6u l=0.6u ng=1 m=1 mm_ok=1
+XMDN28 POAVSS ncasc POAVSS POAVSS sg13_hv_nmos w=0.6u l=0.6u ng=1 m=1 mm_ok=1
+XMDP15 POAVDD POAVDD POAVDD POAVDD sg13_hv_pmos w=2.4u l=0.4u ng=1 m=8 mm_ok=1
+XMDN29 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=1.2u l=0.6u ng=1 m=8 mm_ok=1
+XMDP16 POAVDD POAVDD POAVDD POAVDD sg13_hv_pmos w=2.4u l=0.4u ng=1 m=2 mm_ok=1
+XMDN30 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=1.2u l=0.6u ng=1 m=2 mm_ok=1
+XMDP17 POAVDD POAVDD POAVDD POAVDD sg13_hv_pmos w=2.4u l=0.4u ng=1 m=8 mm_ok=1
+XMDN31 POAVSS POAVSS POAVSS POAVSS sg13_hv_nmos w=1.2u l=0.6u ng=1 m=8 mm_ok=1
+XMDOP5 nIOADISABLE IOADISABLE POAVDD POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMDOP6 ptlg nIOADISABLE POAVDD POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMDOP7 pdrive nIOADISABLE POAVDD POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XMDOP8 pcasc nIOADISABLE POAVDD POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
+XC1 pdrive OOA cap_cmomi w=40e-6 l=14e-6 mmin=1 mmax=3 feed=double subblock=0 m=1 mm_ok=1
+XC2 ndrive OOA cap_cmomi w=40e-6 l=14e-6 mmin=1 mmax=3 feed=double subblock=0 m=1 mm_ok=1
+.ends
+
+.GLOBAL GND
+.GLOBAL VDD
+.end
