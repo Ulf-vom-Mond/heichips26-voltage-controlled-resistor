@@ -6,45 +6,42 @@ S {}
 F {}
 E {}
 P 4 1 -340 -180 {}
-N 60 -60 60 -40 {lab=xxx}
-N 20 -40 60 -40 {lab=xxx}
-N -40 -60 -40 -40 {lab=xxx}
-N -40 -150 110 -150 {lab=#net1}
-N -40 -150 -40 -120 {lab=#net1}
-N -100 -150 -40 -150 {lab=#net1}
+N -40 -150 110 -150 {lab=vcm}
+N -40 -150 -40 -120 {lab=vcm}
+N -100 -150 -40 -150 {lab=vcm}
 N 170 -150 170 -0 {lab=T2}
 N 40 0 170 -0 {lab=T2}
 N -160 0 -120 0 {lab=T1}
 N -160 -150 -160 0 {lab=T1}
-N -60 0 -20 0 {lab=#net2}
+N -60 0 -20 0 {lab=#net1}
 N 10 -0 10 50 {lab=GND}
 N 170 -0 220 0 {lab=T2}
 N -200 0 -160 0 {lab=T1}
-N 60 -190 60 -120 {lab=Vctrl}
-N 20 -60 20 -40 {lab=xxx}
-N -40 -40 20 -40 {lab=xxx}
-C {sg13cmos5l_pr/sg13_hv_nmos.sym} -20 -10 0 0 {name=M1
+N 60 -190 60 -70 {lab=Vctrl}
+N 10 -70 10 -40 {lab=Vctrl}
+N 10 -70 60 -70 {lab=Vctrl}
+C {sg13cmos5l_pr/sg13_hv_nmos.sym} -200 80 1 0 {name=M1
 l=0.5u
-w=100000.0u
- ng=1
+w=100.0u
+ ng=10
  m=1
   mm_ok=1
  model=sg13_hv_nmos
 spiceprefix=X
-}
-C {capa.sym} -40 -90 0 0 {name=C1
+spice_ignore=true}
+C {capa.sym} -290 -130 0 0 {name=C1
 m=1
-value=10000n
+value=1p
 footprint=1206
 device="ceramic capacitor"
-}
+spice_ignore=true}
 C {res.sym} -130 -150 1 0 {name=R1
-value=1k
+value=10k
 footprint=1206
 device=resistor
 m=1}
 C {res.sym} 140 -150 1 0 {name=R2
-value=1k
+value=10k
 footprint=1206
 device=resistor
 m=1}
@@ -54,10 +51,13 @@ C {ipin.sym} 60 -190 1 0 {name=p3 lab=Vctrl
 }
 C {ipin.sym} 10 50 3 0 {name=p4 lab=GND}
 C {ammeter.sym} -90 0 3 0 {name=Vmeas savecurrent=true spice_ignore=0}
-C {capa.sym} 60 -90 0 0 {name=C2
+C {sg13cmos5l_pr/sg13_lv_nmos.sym} 10 -20 1 0 {name=M2
+l=10u
+w=20u
+ng=1
 m=1
-value=10000n
-footprint=1206
-device="ceramic capacitor"
+mm_ok=1
+model=sg13_lv_nmos
+spiceprefix=X
 }
-C {lab_pin.sym} 20 -60 0 0 {name=p5 sig_type=std_logic lab=vg}
+C {lab_pin.sym} 20 -150 0 0 {name=p6 sig_type=std_logic lab=vcm}
