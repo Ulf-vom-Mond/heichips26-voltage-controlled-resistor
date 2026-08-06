@@ -41,19 +41,8 @@ C {ipin.sym} -200 0 0 0 {name=p1 lab=T1}
 C {ipin.sym} 220 0 2 0 {name=p2 lab=T2}
 C {ipin.sym} 60 -190 1 0 {name=p3 lab=Vctrl
 }
-C {ipin.sym} -20 90 3 0 {name=p4 lab=GND
-spice_ignore=true}
 C {ammeter.sym} -90 0 3 0 {name=Vmeas savecurrent=true spice_ignore=0}
 C {lab_pin.sym} 20 -150 0 0 {name=p6 sig_type=std_logic lab=vcm}
-C {sg13cmos5l_pr/sg13_lv_pmos.sym} 150 110 1 0 {name=M3
-l=10u
-w=100u
-ng=10
-m=1
-mm_ok=1
-model=sg13_lv_pmos
-spiceprefix=X
-spice_ignore=true}
 C {sg13cmos5l_pr/sg13_hv_pmos.sym} 10 -20 1 0 {name=M1
 l=10u
 w=50u

@@ -43,7 +43,6 @@ N 980 -660 980 -590 {lab=GND}
 N 980 -750 980 -720 {lab=vc_p}
 N 860 -560 860 -530 {lab=vc_p}
 N 680 -470 710 -470 {lab=#net1}
-N 860 -410 860 -380 {lab=GND}
 N 1010 -470 1100 -470 {lab=vb}
 C {devices/launcher.sym} 1700 -1410 0 0 {name=h2
 descr="Simulate" 
@@ -125,4 +124,3 @@ descr="Annotate OP"
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
 C {devices/gnd.sym} 980 -590 0 0 {name=l6 lab=GND}
-C {devices/gnd.sym} 860 -380 0 0 {name=l10 lab=GND}
