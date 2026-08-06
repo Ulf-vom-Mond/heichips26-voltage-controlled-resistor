@@ -6,15 +6,15 @@ S {}
 F {}
 E {}
 B 2 1640 -820 2440 -420 {flags=graph
-y1=0.858
-y2=1.518
+y1=0.33
+y2=0.99
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.00325
-x2=0.00175
+x1=-0.004
+x2=0.001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -44,6 +44,8 @@ N 980 -750 980 -720 {lab=vc_p}
 N 860 -560 860 -530 {lab=vc_p}
 N 680 -470 710 -470 {lab=#net1}
 N 1010 -470 1100 -470 {lab=vb}
+N 780 -550 780 -530 {lab=VDD}
+N 780 -410 780 -390 {lab=GND}
 C {devices/launcher.sym} 1700 -1410 0 0 {name=h2
 descr="Simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
@@ -62,6 +64,7 @@ value="
 .lib cornerMOShv.lib mos_tt
 .lib cornerRES.lib res_typ
 .lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
 "}
 C {devices/gnd.sym} 1100 -370 0 0 {name=l4 lab=GND}
 C {devices/vsource.sym} 580 -640 0 0 {name=VS value=1.5}
@@ -123,4 +126,6 @@ descr="Annotate OP"
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
 C {devices/gnd.sym} 980 -590 0 0 {name=l6 lab=GND}
-C {/home/santi/heichips26-voltage-controlled-resistor/macros/vcr_bisection/schematic/xschem/vcr_bisection.sym} 860 -470 0 0 {name=x1}
+C {macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection.sym} 860 -470 0 0 {name=x1}
+C {vdd.sym} 780 -550 0 0 {name=l10 lab=VDD}
+C {devices/gnd.sym} 780 -390 0 0 {name=l11 lab=GND}
