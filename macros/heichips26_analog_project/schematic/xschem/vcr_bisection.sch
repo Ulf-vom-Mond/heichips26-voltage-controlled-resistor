@@ -21,15 +21,6 @@ N 10 -70 60 -70 {lab=Vctrl}
 N -30 50 10 50 {lab=vcm}
 N -30 -150 -30 50 {lab=vcm}
 N -100 -150 -30 -150 {lab=vcm}
-C {sg13cmos5l_pr/sg13_hv_nmos.sym} -310 -10 1 0 {name=M1
-l=0.5u
-w=100.0u
- ng=10
- m=1
-  mm_ok=1
- model=sg13_hv_nmos
-spiceprefix=X
-spice_ignore=true}
 C {capa.sym} -290 -130 0 0 {name=C1
 m=1
 value=1p
@@ -54,12 +45,21 @@ C {ipin.sym} -20 90 3 0 {name=p4 lab=GND
 spice_ignore=true}
 C {ammeter.sym} -90 0 3 0 {name=Vmeas savecurrent=true spice_ignore=0}
 C {lab_pin.sym} 20 -150 0 0 {name=p6 sig_type=std_logic lab=vcm}
-C {sg13cmos5l_pr/sg13_lv_pmos.sym} 10 -20 1 0 {name=M3
+C {sg13cmos5l_pr/sg13_lv_pmos.sym} 150 110 1 0 {name=M3
 l=10u
 w=100u
 ng=10
 m=1
 mm_ok=1
 model=sg13_lv_pmos
+spiceprefix=X
+spice_ignore=true}
+C {sg13cmos5l_pr/sg13_hv_pmos.sym} 10 -20 1 0 {name=M1
+l=10u
+w=50u
+ ng=20
+ m=1
+  mm_ok=1
+ model=sg13_hv_pmos
 spiceprefix=X
 }

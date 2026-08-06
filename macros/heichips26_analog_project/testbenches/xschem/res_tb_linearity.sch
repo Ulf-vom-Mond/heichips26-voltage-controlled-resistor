@@ -72,9 +72,9 @@ C {devices/code_shown.sym} 90 -1550 0 0 {name=NGSPICE
 only_toplevel=true 
 value="
 * .include ../../../netlist/pex/inverter_magic_pex_3.spice
-.param VDD=1.5
+.param VDD=3.3
 .csparam VDD=VDD
-.param Vcm=1
+.param Vcm=2
 .csparam Vcm=Vcm
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
@@ -90,7 +90,7 @@ repeat 5
   alter vc $&vcc
 
   * DC Sweep
-  dc VS -0.5 0.5 1m
+  dc VS -1 1 1m
   remzerovec
   let vcc = vcc + 0.2
 end
