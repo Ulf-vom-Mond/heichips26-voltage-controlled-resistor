@@ -1,0 +1,119 @@
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/testbenches/xschem/plm.sch
+**.subckt plm
+Vres net1 V1 0
+.save i(vres)
+vress net1 GND 0
+vcons net2 GND 0
+vdds net3 GND 3.3
+Vcon net2 Vc 0
+.save i(vcon)
+Vdd net3 P 0
+.save i(vdd)
+XM3 P V1 K1 GND sg13_lv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM13 net4 net4 P P sg13_lv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM1 K3 V1 net15 GND sg13_lv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM5 net13 K1 K2 GND sg13_lv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM2 net12 K1207 net14 GND sg13_lv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM16 K3 K3 P P sg13_lv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM7 net6 Vc GND GND sg13_lv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM6 K3 KZ K2 GND sg13_lv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM14 K4 net4 P P sg13_lv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM8 net16 Vc GND GND sg13_lv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM4 P K1207 KZ GND sg13_lv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM9 net5 net5 GND GND sg13_lv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
+XM10 net11 net5 GND GND sg13_lv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
+XM17 K1207 K3 P P sg13_lv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM18 net10 K3 P P sg13_lv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM11 K1203 K1203 GND GND sg13_lv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
+XM12 K121 K1203 GND GND sg13_lv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
+XM15 net7 net4 P P sg13_lv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+I0 K2 Ktheone 5u
+Vres1 Ktheone GND 0
+.save i(vres1)
+Vres2 K1 net6 0
+.save i(vres2)
+Vres3 net8 K121 0
+.save i(vres3)
+Vres4 net8 V1 0
+.save i(vres4)
+Vres5 net7 net8 0
+.save i(vres5)
+vress1 net9 GND 0.5
+Vres6 K1207 net9 0
+.save i(vres6)
+Vres7 net10 K1203 0
+.save i(vres7)
+Vres8 K1207 net11 0
+.save i(vres8)
+Vres9 K4 net5 0
+.save i(vres9)
+Vres10 net4 K5 0
+.save i(vres10)
+Vres11 K5 net13 0
+.save i(vres11)
+Vres12 K5 net12 0
+.save i(vres12)
+Vres13 net15 K2 0
+.save i(vres13)
+Vres14 net14 K2 0
+.save i(vres14)
+Vres15 KZ net16 0
+.save i(vres15)
+vress2 GND PULA 0
+**** begin user architecture code
+
+
+* .include ../../../netlist/pex/inverter_magic_pex_3.spice
+.param temp=27
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.control
+save all
+set appendwrite
+
+* DC Sweep
+* dc vcon 1 1.5 1m
+* remzerovec
+
+* plot v(vres)/i(Vres)
+*plot v(VStage1)
+*plot v(VStage2)
+
+
+
+let vcc = 0
+repeat 5
+  alter vress $&vcc
+
+  * DC Sweep
+  dc vcons 0.3 1 1m
+  remzerovec
+  let vcc = vcc + 0.25
+end
+set appendwrite
+
+* plot dc1.v(V1)/(dc1.i(Vres)) dc2.v(V1)/(dc2.i(Vres)) dc3.v(V1)/(dc3.i(Vres)) dc4.v(V1)/(dc4.i(Vres)) dc5.v(V1)/(dc5.i(Vres))
+
+plot (dc1.i(Vres)) (dc2.i(Vres)) (dc3.i(Vres)) (dc4.i(Vres)) (dc5.i(Vres))
+
+plot (dc1.i(Vres6)) (dc2.i(Vres6)) (dc3.i(Vres6)) (dc4.i(Vres6)) (dc5.i(Vres6))
+
+
+* Write Data
+unset appendwrite
+set wr_vecnames
+set wr_singlescale
+
+*quit
+.endc
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

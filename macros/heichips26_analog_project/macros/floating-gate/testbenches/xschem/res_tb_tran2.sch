@@ -42,11 +42,9 @@ N 570 -470 620 -470 {lab=vd}
 N 680 -470 740 -470 {lab=#net1}
 N 710 -610 710 -580 {lab=GND}
 N 710 -700 710 -670 {lab=vc_p}
-N 710 -510 740 -510 {lab=vc_p}
-N 850 -390 850 -350 {lab=GND}
-N 850 -590 850 -550 {lab=VDD}
-N 960 -470 1100 -470 {lab=vb}
-C {devices/launcher.sym} 1150 -520 0 0 {name=h2
+N 940 -470 1100 -470 {lab=vb}
+N 800 -470 880 -470 {lab=#net2}
+C {devices/launcher.sym} 1700 -1410 0 0 {name=h2
 descr="Simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
 }
@@ -66,6 +64,11 @@ value="
 .lib cornerDIO.lib dio_tt
 "}
 C {devices/gnd.sym} 1100 -370 0 0 {name=l4 lab=GND}
+C {res.sym} 770 -470 1 0 {name=R1
+value=1k
+footprint=1206
+device=resistor
+m=1}
 C {devices/vsource.sym} 580 -640 0 0 {name=VS value="PWL(0 -1.5 10m 1.5)"}
 C {devices/gnd.sym} 580 -580 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 580 -700 0 0 {name=l5 sig_type=std_logic lab=vsweep}
@@ -80,7 +83,7 @@ value="
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
 .control
-
+let vcc = 0.0
 
 save all
 set appendwrite
@@ -100,12 +103,20 @@ plot i(Vmeas)
 .endc
 "}
 C {ammeter.sym} 650 -470 3 0 {name=Vmeas savecurrent=true spice_ignore=0}
-C {vsource_arith.sym} 570 -420 0 0 {name=E2 VOL="V(vsweep)/2"}
-C {vsource_arith.sym} 1100 -420 0 0 {name=E3 VOL="V(vsweep)/2"}
-C {devices/vsource.sym} 710 -640 0 0 {name=vc value=10}
+C {vsource_arith.sym} 570 -420 0 0 {name=E2 VOL="\{Vcm\}+V(vsweep)/2"}
+C {vsource_arith.sym} 1100 -420 0 0 {name=E3 VOL="\{Vcm\}-V(vsweep)/2"}
+C {devices/vsource.sym} 710 -640 0 0 {name=vc value=0}
 C {devices/gnd.sym} 710 -580 0 0 {name=l6 lab=GND}
 C {devices/lab_pin.sym} 710 -700 0 0 {name=l8 sig_type=std_logic lab=vc_p}
-C {devices/lab_pin.sym} 710 -510 0 0 {name=l9 sig_type=std_logic lab=vc_p}
-C {/home/raiku/k/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/floating-gate/schematic/xschem/floating-gate.sym} 850 -470 0 0 {name=x1}
-C {devices/gnd.sym} 850 -350 0 0 {name=l10 lab=GND}
-C {vdd.sym} 850 -590 0 0 {name=l11 lab=VDD}
+C {res.sym} 910 -470 1 0 {name=R2
+value=1k
+footprint=1206
+device=resistor
+m=1}
+C {devices/lab_pin.sym} 830 -530 1 0 {name=l9 sig_type=std_logic lab=vc_p}
+C {res.sym} 830 -500 2 0 {name=R3
+value=10Meg
+footprint=1206
+device=resistor
+m=1}
+C {/home/raiku/k/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/floating-gate/schematic/xschem/floating-gate.sym} 880 -910 0 0 {name=x1}
