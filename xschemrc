@@ -45,4 +45,5 @@ set xschem_execute_scripts yes
 
 # Add current directory to xschem library path
 append_xschem_library_path_unique [file dirname [info script]]
-append_xschem_library_path_unique [file join [file dirname [info script]] ../../testbenches/xschem]
+append_xschem_library_path_unique [file join [file dirname [info script]] macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem]
+append_xschem_library_path_unique [file join [file dirname [info script]] macros/voltage_controlled_resistors/macros/vcr_bisection/testbench/xschem]
