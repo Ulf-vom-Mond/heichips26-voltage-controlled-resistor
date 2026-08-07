@@ -1,0 +1,13 @@
+{
+    "technology": "",
+    "statements": [
+        {
+            "lib_name": "op_amp_ver_2",
+            "lib_path": "$HOME/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/opamp/layout/op_amp_ver_2.gds"
+        },
+        {
+            "lib_name": "voltage_diff",
+            "lib_path": "$HOME/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/voltage_diff/layout/voltage_diff.klay.gds"
+        }
+    ]
+}
