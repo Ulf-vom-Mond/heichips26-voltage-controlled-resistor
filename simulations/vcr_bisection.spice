@@ -9,11 +9,12 @@ R1 vcm net3 10k
 R2 vcm net2 10k
 Vmeas T1 net1 0
 .save i(vmeas)
-XM1 net1 Vctrl T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
+XM1 net1 net6 T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
 I0 Vdd net4 25u
 I1 Vdd net5 25u
 x1 Vdd net4 net3 net3 T1 Vss Vss op_amp_ver_2
 x2 Vdd net5 net2 net2 T2 Vss Vss op_amp_ver_2
+E1 net6 Vss VOL=' v(vcm)-v(Vctrl) '
 **.ends
 
 * expanding   symbol:  macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym # of pins=7
