@@ -34,7 +34,6 @@ C {iopin.sym} 620 -240 2 0 {name=p5 lab=IOAIREF}
 C {iopin.sym} 350 -440 2 0 {name=p6 lab=V1
 }
 C {iopin.sym} 800 -380 0 0 {name=p7 lab=VOUT}
-C {/home/claforge/Documents/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/opamp/schematic/xschem/op_amp_ver_2.sym} 650 -380 0 0 {name=x1}
 C {iopin.sym} 350 -400 2 0 {name=p8 lab=V2
 }
 C {iopin.sym} 350 -360 2 0 {name=p9 lab=V3}
@@ -95,3 +94,4 @@ b=0
 value="expr_eng(  ( 70.0e-6 / @w + 260.0 * ( (@b + 1)* @l + ( 1.081*( @w + 6.0e-9 ) + 0.18e-6 )*@b ) / ( @w + 6.0e-9 ) ) / @m  )"
 }
 C {lab_pin.sym} 440 -620 0 0 {name=p4 sig_type=std_logic lab=POAVSS}
+C {macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym} 650 -380 0 0 {name=x1}

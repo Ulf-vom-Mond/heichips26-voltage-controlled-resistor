@@ -39,8 +39,8 @@ N 1100 -390 1100 -370 {lab=GND}
 N 580 -610 580 -580 {lab=GND}
 N 580 -700 580 -670 {lab=vsweep}
 N 570 -470 620 -470 {lab=vd}
-N 980 -660 980 -590 {lab=GND}
-N 980 -750 980 -720 {lab=vc_p}
+N 1220 -630 1220 -560 {lab=GND}
+N 1220 -720 1220 -690 {lab=vc_p}
 N 860 -560 860 -530 {lab=vc_p}
 N 680 -470 710 -470 {lab=#net1}
 N 1010 -470 1100 -470 {lab=vb}
@@ -81,7 +81,7 @@ value="
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
-let vcc = 0
+let vcc = 0.75
 
 save all
 set appendwrite
@@ -118,14 +118,14 @@ write res_tb_linearity.raw
 C {ammeter.sym} 650 -470 3 0 {name=Vmeas savecurrent=true spice_ignore=0}
 C {vsource_arith.sym} 570 -420 0 0 {name=E2 VOL="\{Vcm\}+V(vsweep)/2"}
 C {vsource_arith.sym} 1100 -420 0 0 {name=E3 VOL="\{Vcm\}-V(vsweep)/2"}
-C {devices/vsource.sym} 980 -690 0 0 {name=vc value=0}
-C {devices/lab_pin.sym} 980 -750 0 0 {name=l8 sig_type=std_logic lab=vc_p}
+C {devices/vsource.sym} 1220 -660 0 0 {name=vc value=0}
+C {devices/lab_pin.sym} 1220 -720 0 0 {name=l8 sig_type=std_logic lab=vc_p}
 C {devices/lab_pin.sym} 860 -560 1 0 {name=l9 sig_type=std_logic lab=vc_p}
 C {devices/launcher.sym} 1700 -1360 0 0 {name=h3
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
-C {devices/gnd.sym} 980 -590 0 0 {name=l6 lab=GND}
+C {devices/gnd.sym} 1220 -560 0 0 {name=l6 lab=GND}
 C {macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection.sym} 860 -470 0 0 {name=x1}
 C {vdd.sym} 780 -550 0 0 {name=l10 lab=VDD}
 C {devices/gnd.sym} 780 -390 0 0 {name=l11 lab=GND}

@@ -10,7 +10,6 @@ N 190 0 220 0 {lab=T2}
 N -60 0 -20 0 {lab=#net1}
 N 10 -0 10 50 {lab=vcm}
 N -150 0 -120 0 {lab=T1}
-N 10 -70 10 -40 {lab=Vctrl}
 N -30 50 10 50 {lab=vcm}
 N -30 -290 110 -290 {lab=vcm}
 N -150 -50 -150 0 {lab=T1}
@@ -40,6 +39,18 @@ N 30 -30 150 -30 {lab=#net2}
 N 30 -230 30 -30 {lab=#net2}
 N 30 -230 170 -230 {lab=#net2}
 N 170 -290 170 -230 {lab=#net2}
+N 110 -490 140 -490 {lab=Vctrl}
+N 350 -450 380 -450 {lab=#net6}
+N 10 -350 380 -350 {lab=#net6}
+N 10 -350 10 -40 {lab=#net6}
+N 200 -550 200 -520 {lab=Vss}
+N 280 -380 280 -330 {lab=Vss}
+N 220 -270 220 -250 {lab=Vdd}
+N 270 -550 270 -520 {lab=Vdd}
+N -30 -450 140 -450 {lab=vcm}
+N -30 -450 -30 -290 {lab=vcm}
+N 380 -450 380 -350 {lab=#net6}
+N 220 -380 220 -330 {lab=#net7}
 C {res.sym} -130 -290 1 0 {name=R1
 value=10k
 footprint=1206
@@ -52,10 +63,10 @@ device=resistor
 m=1}
 C {ipin.sym} -200 0 0 0 {name=p1 lab=T1}
 C {ipin.sym} 220 0 2 0 {name=p2 lab=T2}
-C {ipin.sym} 10 -70 1 0 {name=p3 lab=Vctrl
+C {ipin.sym} 110 -490 0 0 {name=p3 lab=Vctrl
 }
 C {ammeter.sym} -90 0 3 0 {name=Vmeas savecurrent=true spice_ignore=0}
-C {lab_pin.sym} 20 -290 0 0 {name=p6 sig_type=std_logic lab=vcm}
+C {lab_pin.sym} 80 -290 0 0 {name=p6 sig_type=std_logic lab=vcm}
 C {sg13cmos5l_pr/sg13_hv_pmos.sym} 10 -20 1 0 {name=M1
 l=10u
 w=50u
@@ -77,3 +88,12 @@ C {lab_pin.sym} 290 -30 0 0 {name=p11 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} -50 -30 0 0 {name=p12 sig_type=std_logic lab=Vdd}
 C {macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym} -170 -120 3 0 {name=x1}
 C {macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym} 170 -120 3 0 {name=x2}
+C {lab_pin.sym} 200 -550 3 1 {name=p14 sig_type=std_logic lab=Vss}
+C {lab_pin.sym} 280 -330 1 1 {name=p15 sig_type=std_logic lab=Vss}
+C {lab_pin.sym} 220 -250 3 0 {name=p16 sig_type=std_logic lab=Vdd}
+C {lab_pin.sym} 270 -550 1 0 {name=p17 sig_type=std_logic lab=Vdd}
+C {vsource_arith.sym} 490 -350 0 0 {name=E1 VOL=v(vcm)-v(Vctrl)
+spice_ignore=true}
+C {sg13g2_pr/annotate_fet_params.sym} 80 60 0 0 {name=annot1 ref=M1}
+C {macros/voltage_controlled_resistors/macros/voltage_diff/schematic/xschem/voltage_diff.sym} 250 -450 0 0 {name=x3}
+C {isource.sym} 220 -300 2 0 {name=I2 value=25u}
