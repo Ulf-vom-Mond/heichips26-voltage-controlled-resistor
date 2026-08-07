@@ -1,10 +1,11 @@
 ** sch_path: /home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/schematic/xschem/yadav.sch
-**.subckt yadav Vdd Rin Rout Vc Vss
+**.subckt yadav Vdd Rin Rout Vc Vss VBias
 *.ipin Vc
 *.iopin Vss
 *.iopin Vdd
 *.ipin Rin
 *.opin Rout
+*.ipin VBias
 XM3 Vdd Rin net2 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
 XM13 net1 net1 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
 XM1 net4 Rin net3 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
@@ -23,6 +24,6 @@ XM18 net6 net4 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
 XM11 net6 net6 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
 XM12 Rin net6 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
 XM15 Rin net1 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
-I0 net3 Vss 60u
+XM20 net3 VBias Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
 **.ends
 .end

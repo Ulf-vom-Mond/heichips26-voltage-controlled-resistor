@@ -1,18 +1,19 @@
 ** sch_path: /home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/testbenches/xschem/plm.sch
 **.subckt plm
-Vres net1 net5 0
+Vres net7 net4 0
 .save i(vres)
-vress net1 GND 0
-vcons net2 GND 0
+vcons net1 GND 0
 vdds net3 GND 3.3
-Vcon net2 net4 0
+Vcon net1 net8 0
 .save i(vcon)
-Vdd net3 net7 0
+Vdd net3 net2 0
 .save i(vdd)
-vress1 net8 GND 1.25
-x1 net7 net5 net6 net4 GND yadav
-Vres6 net6 net8 0
+x1 net2 net4 net5 net8 GND yadav
+Vres6 net5 net6 0
 .save i(vres6)
+E1 net7 GND VOL=' {Vcm} + v(Vdif)/2 '
+E2 net6 GND VOL=' {Vcm} - v(Vdif)/2 '
+Vdifs Vdif GND 0
 **** begin user architecture code
 
 
@@ -20,6 +21,8 @@ Vres6 net6 net8 0
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e10
 .control
+.param Vcm=1.25
+.csparam Vcm=Vcm
 save all
 set appendwrite
 
@@ -32,15 +35,16 @@ set appendwrite
 *plot v(VStage2)
 
 
+let vcc = 0.2
+let Vcm = 1.65
 
-let vcc = 0.4
 repeat 5
   alter vcons $&vcc
 
   * DC Sweep
-  dc vress 0.3 3.3 1m
+  dc Vdifs -0.8 0.8 1m
   remzerovec
-  let vcc = vcc + 0.15
+  let vcc = vcc + 0.3
 end
 set appendwrite
 
@@ -82,23 +86,22 @@ set wr_singlescale
 *.opin Rout
 XM3 Vdd Rin net2 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
 XM13 net1 net1 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
-XM1 net4 Rin net3 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM5 net1 net2 net3 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM2 net1 Rout net3 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM16 net4 net4 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM1 net3 Rin Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM5 net1 net2 Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM2 net1 Rout Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM16 net3 net3 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
 XM7 net2 Vc Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM6 net4 net7 net3 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM14 net5 net1 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
-XM8 net7 Vc Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM4 Vdd Rout net7 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM9 net5 net5 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
-XM10 Rout net5 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
-XM17 Rout net4 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
-XM18 net6 net4 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
-XM11 net6 net6 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
-XM12 Rin net6 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
+XM6 net3 net6 Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM14 net4 net1 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM8 net6 Vc Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM4 Vdd Rout net6 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM9 net4 net4 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
+XM10 Rout net4 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
+XM17 Rout net3 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM18 net5 net3 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM11 net5 net5 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
+XM12 Rin net5 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
 XM15 Rin net1 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
-I0 net3 Vss 60u
 .ends
 
 .GLOBAL GND
