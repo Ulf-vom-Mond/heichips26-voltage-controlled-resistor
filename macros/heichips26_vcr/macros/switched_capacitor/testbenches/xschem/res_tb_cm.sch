@@ -146,3 +146,5 @@ C {devices/lab_pin.sym} 460 -730 0 0 {name=l14 sig_type=std_logic lab=vcm_sweep}
 C {inverter.sym} 660 -480 0 0 {name=x2}
 C {vdd.sym} 660 -520 0 0 {name=l15 lab=VDD}
 C {devices/gnd.sym} 660 -440 0 0 {name=l16 lab=GND}
+C {devices/gnd.sym} 900 -420 0 0 {name=l10 lab=GND}
+C {vdd.sym} 900 -540 0 0 {name=l11 lab=VDD}

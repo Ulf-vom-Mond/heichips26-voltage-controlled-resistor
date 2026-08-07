@@ -44,12 +44,12 @@ w=\{tg_pgate_w*tg_ng\}
 spiceprefix=X
 }
 C {devices/ipin.sym} 1440 -540 0 0 {name=p2 lab=vctrl}
-C {lab_pin.sym} 1520 -760 3 0 {name=p4 sig_type=std_logic lab=VDD}
-C {lab_pin.sym} 1520 -640 1 0 {name=p5 sig_type=std_logic lab=VSS}
 C {devices/ipin.sym} 1440 -860 2 1 {name=p8 lab=nvctrl}
 C {code_shown.sym} 1760 -850 0 0 {name=s1 only_toplevel=false value="
 .param tg_ch_len=1u
 .param tg_ngate_w=1u
-.param tg_pgate_w=4.5u
+.param tg_pgate_w=5u
 .param tg_ng=40
 "}
+C {devices/iopin.sym} 1520 -760 1 0 {name=p11 lab=VDD}
+C {devices/iopin.sym} 1520 -640 3 0 {name=p1 lab=VSS}

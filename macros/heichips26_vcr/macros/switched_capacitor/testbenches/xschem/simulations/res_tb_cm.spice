@@ -5,7 +5,7 @@ VS vsweep GND 0
 Vmeas vd net1 0
 .save i(vmeas)
 vc vc_p GND 3.3
-x1 vc_p net1 vb net2 transmission_gate
+x1 vc_p net1 vb net2 VDD GND transmission_gate
 E2 vd GND VOL=' V(vcm_sweep)+V(vsweep)/2 '
 E3 vb GND VOL=' V(vcm_sweep)-V(vsweep)/2 '
 Vcm vcm_sweep GND 1
@@ -75,14 +75,16 @@ wrdata ../plot_simulations/data/res_tb_cm.txt v(vc_p) dc1.v(vsweep)/(dc1.i(Vmeas
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  transmission_gate.sym # of pins=4
+* expanding   symbol:  transmission_gate.sym # of pins=6
 ** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/transmission_gate.sym
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/transmission_gate.sch
-.subckt transmission_gate vctrl vin vout vinv
+.subckt transmission_gate vctrl vin vout nvctrl VDD VSS
 *.iopin vin
 *.iopin vout
 *.ipin vctrl
 *.ipin nvctrl
+*.iopin VDD
+*.iopin VSS
 XM3 vout vctrl vin VSS sg13_hv_nmos w={tg_ngate_w*tg_ng} l={tg_ch_len} ng={tg_ng} m=1 mm_ok=1
 XM4 vout nvctrl vin VDD sg13_hv_pmos w={tg_pgate_w*tg_ng} l={tg_ch_len} ng={tg_ng} m=1 mm_ok=1
 **** begin user architecture code
@@ -90,7 +92,7 @@ XM4 vout nvctrl vin VDD sg13_hv_pmos w={tg_pgate_w*tg_ng} l={tg_ch_len} ng={tg_n
 
 .param tg_ch_len=1u
 .param tg_ngate_w=1u
-.param tg_pgate_w=4.5u
+.param tg_pgate_w=5u
 .param tg_ng=40
 
 

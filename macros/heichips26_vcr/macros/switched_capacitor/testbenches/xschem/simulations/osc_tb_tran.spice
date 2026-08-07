@@ -1,0 +1,72 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/osc_tb_tran.sch
+**.subckt osc_tb_tran
+VDD VDD VSS 3.3
+x1 net2 net1 VSS VDD nmos_current_mirror2
+Vi1 net4 net2 0
+.save i(vi1)
+Vi2 net3 net1 0
+.save i(vi2)
+I1 VSS net3 20u
+VDD1 VDD net4 PULSE(0 2 0 10n 10n 500n 1000n)
+**** begin user architecture code
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+
+.include /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice
+
+
+
+* .include ../../../netlist/pex/inverter_magic_pex_3.spice
+.param VDD=3.3
+.csparam VDD=VDD
+.param Vcm=VDD/2
+.csparam Vcm=Vcm
+.param period=60n
+.csparam period=period
+.param temp=27
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.control
+
+save all
+set appendwrite
+
+tran 10n 3000n
+remzerovec
+
+save all
+set appendwrite
+
+write osc_tb_tran.raw
+set appendwrite
+
+* Plotting
+*plot v(vsweep)
+*plot i(Vmeas)
+*plot v(sw1)-4 v(sw2)-8
+*print mean(v(vd) - v(vb))/mean(i(Vmeas))
+plot i(Vi1) i(Vi2)
+
+*quit
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  nmos_current_mirror2.sym # of pins=4
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/nmos_current_mirror2.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/nmos_current_mirror2.sch
+.subckt nmos_current_mirror2 i_out1 i_in VSS i_out2
+*.ipin i_in
+*.opin i_out1
+*.iopin VSS
+*.opin i_out2
+XM1 i_out1 i_in VSS VSS sg13_hv_nmos w=5.0u l=5.0u ng=1 m=1 mm_ok=1
+XM2 i_in i_in VSS VSS sg13_hv_nmos w=5.0u l=5.0u ng=1 m=1 mm_ok=1
+XM3 i_out2 i_in VSS VSS sg13_hv_nmos w=20.0u l=5.0u ng=5 m=1 mm_ok=1
+.ends
+
+.end

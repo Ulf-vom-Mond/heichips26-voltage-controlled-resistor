@@ -1,0 +1,81 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/pmos_current_mirror2_tb_dc.schm
+**.subckt pmos_current_mirror2_tb_dc
+VDD VDD GND {VDD}
+Vgsp net1 GND 0
+I0 net2 GND 50u
+vout1 vin net1 0
+.save i(vout1)
+x1 vin net2 VDD net3 pmos_current_mirror2
+vout2 net3 net1 0
+.save i(vout2)
+**** begin user architecture code
+
+
+.include ../../../netlist/pex/inverter_magic_pex_3.spice
+.param VDD=3.3
+.csparam VDD=VDD
+.param Vcm=VDD/2
+.csparam Vcm=Vcm
+.param temp=27
+.param Cload=10p
+.param Rload=1k
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.control
+
+save all
+
+* Operating Point Analysis
+op
+remzerovec
+write pmos_current_mirror2_tb_dc.raw
+set appendwrite
+
+* DC Sweep
+dc Vgsp 0 $&VDD 1m
+remzerovec
+write pmos_current_mirror2_tb_dc.raw
+set appendwrite
+
+* Plotting
+plot i(vout1) i(vout2)
+*plot vin
+
+* Measurement
+*meas dc Vgsp_at_Vcm when vout=Vcm
+*print Vgsp_at_Vcm
+
+* Write Data
+*unset appendwrite
+*set wr_vecnames
+*set wr_singlescale
+*wrdata ../plot_simulations/data/pmos_current_mirror2_tb_dc.txt v(vin) v(vout)
+
+*quit
+.endc
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  pmos_current_mirror2.sym # of pins=4
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/pmos_current_mirror2.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/pmos_current_mirror2.sch
+.subckt pmos_current_mirror2 i_out1 i_in VDD i_out2
+*.ipin i_in
+*.opin i_out1
+*.iopin VDD
+*.opin i_out2
+XM2 i_out1 i_in VDD VDD sg13_hv_pmos w=80.0u l=10.0u ng=10 m=1 mm_ok=1
+XM1 i_in i_in VDD VDD sg13_hv_pmos w=80.0u l=10.0u ng=10 m=1 mm_ok=1
+XM3 i_out2 i_in VDD VDD sg13_hv_pmos w=80.0u l=10.0u ng=10 m=1 mm_ok=1
+.ends
+
+.GLOBAL GND
+.GLOBAL VDD
+.end
