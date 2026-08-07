@@ -23,11 +23,11 @@ N -170 -230 -170 -220 {lab=#net3}
 N -30 -290 -30 50 {lab=vcm}
 N -100 -290 -30 -290 {lab=vcm}
 N -270 -130 -220 -130 {lab=Vdd}
-N 100 -130 120 -130 {lab=vdd}
+N 100 -130 120 -130 {lab=Vdd}
 N -270 -90 -240 -90 {lab=Vss}
-N -120 -130 -90 -130 {lab=vss}
-N 220 -130 250 -130 {lab=vss}
-N 70 -90 100 -90 {lab=vss}
+N -120 -130 -90 -130 {lab=Vss}
+N 220 -130 250 -130 {lab=Vss}
+N 70 -90 100 -90 {lab=Vss}
 N -100 -90 -50 -90 {lab=#net4}
 N 240 -90 290 -90 {lab=#net5}
 N -190 -50 -190 -30 {lab=#net3}
@@ -45,7 +45,7 @@ value=10k
 footprint=1206
 device=resistor
 m=1}
-C {res.sym} 140 -290 1 0 {name=R2
+C {res.sym} 140 -290 3 0 {name=R2
 value=10k
 footprint=1206
 device=resistor
@@ -67,13 +67,13 @@ spiceprefix=X
 }
 C {ipin.sym} -270 -130 0 0 {name=p4 lab=Vdd}
 C {ipin.sym} -270 -90 0 0 {name=p5 lab=Vss}
-C {lab_pin.sym} 100 -130 0 0 {name=p7 sig_type=std_logic lab=vdd}
-C {lab_pin.sym} -90 -130 2 0 {name=p8 sig_type=std_logic lab=vss}
-C {lab_pin.sym} 250 -130 2 0 {name=p9 sig_type=std_logic lab=vss}
-C {lab_pin.sym} 70 -90 0 0 {name=p10 sig_type=std_logic lab=vss}
+C {lab_pin.sym} 100 -130 0 0 {name=p7 sig_type=std_logic lab=Vdd}
+C {lab_pin.sym} -90 -130 2 0 {name=p8 sig_type=std_logic lab=Vss}
+C {lab_pin.sym} 250 -130 2 0 {name=p9 sig_type=std_logic lab=Vss}
+C {lab_pin.sym} 70 -90 0 0 {name=p10 sig_type=std_logic lab=Vss}
 C {isource.sym} -50 -60 2 0 {name=I0 value=25u}
 C {isource.sym} 290 -60 2 0 {name=I1 value=25u}
-C {lab_pin.sym} 290 -30 0 0 {name=p11 sig_type=std_logic lab=vdd}
-C {lab_pin.sym} -50 -30 0 0 {name=p12 sig_type=std_logic lab=vdd}
+C {lab_pin.sym} 290 -30 0 0 {name=p11 sig_type=std_logic lab=Vdd}
+C {lab_pin.sym} -50 -30 0 0 {name=p12 sig_type=std_logic lab=Vdd}
 C {macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym} -170 -120 3 0 {name=x1}
 C {macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym} 170 -120 3 0 {name=x2}

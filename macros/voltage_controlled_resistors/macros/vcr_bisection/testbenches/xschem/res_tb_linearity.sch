@@ -79,7 +79,7 @@ value="
 .param Vcm=2
 .csparam Vcm=Vcm
 .param temp=27
-.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
 let vcc = 0
 
@@ -92,15 +92,15 @@ repeat 5
   alter vc $&vcc
 
   * DC Sweep
-  dc VS -1 1 1m
+  dc VS -0.7 0.7 1m
   remzerovec
-  let vcc = vcc + 0.2
+  let vcc = vcc + 0.25
 end
 write @schname\\\\.raw
 set appendwrite
 
 * Plotting
-plot dc1.v(vsweep)/(dc1.v.x1.Vmeas#branch) dc2.v(vsweep)/(dc2.v.x1.Vmeas#branch) dc3.v(vsweep)/(dc3.v.x1.Vmeas#branch) dc4.v(vsweep)/(dc4.v.x1.Vmeas#branch) dc5.v(vsweep)/(dc5.v.x1.Vmeas#branch) ylimit 0 10k
+plot dc1.v(vsweep)/(dc1.v.x1.Vmeas#branch) dc2.v(vsweep)/(dc2.v.x1.Vmeas#branch) dc3.v(vsweep)/(dc3.v.x1.Vmeas#branch) dc4.v(vsweep)/(dc4.v.x1.Vmeas#branch) dc5.v(vsweep)/(dc5.v.x1.Vmeas#branch) ylimit 0 15k
 
 plot dc1.v.x1.Vmeas#branch dc2.v.x1.Vmeas#branch dc3.v.x1.Vmeas#branch dc4.v.x1.Vmeas#branch dc5.v.x1.Vmeas#branch
 
