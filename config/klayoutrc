@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
+ <AlignToolPlugin__EditorOptions>
+consider_grid:false;
+consider_instances:true;
+consider_rulers:true;
+consider_shapes:true;
+grid_kind:global;
+grid_preview:true;
+grid_preview_mode:if_consider_grid;
+grid_value:'0.01'
+</AlignToolPlugin__EditorOptions>
  <KLayoutLibraryManager__lru_directory>/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/voltage_diff/layout</KLayoutLibraryManager__lru_directory>
  <absolute-units>false</absolute-units>
  <abstract-mode-enabled>false</abstract-mode-enabled>
@@ -68,11 +78,11 @@
  <drop-small-cells-condition>0</drop-small-cells-condition>
  <drop-small-cells-value>10</drop-small-cells-value>
  <edit-connect-angle-mode>ortho</edit-connect-angle-mode>
- <edit-grid/>
+ <edit-grid>global</edit-grid>
  <edit-hier-copy-mode>-1</edit-hier-copy-mode>
  <edit-inst-angle>0</edit-inst-angle>
  <edit-inst-array>false</edit-inst-array>
- <edit-inst-cell-name>ntap1</edit-inst-cell-name>
+ <edit-inst-cell-name>via_stack</edit-inst-cell-name>
  <edit-inst-column_x>0</edit-inst-column_x>
  <edit-inst-column_y>0</edit-inst-column_y>
  <edit-inst-columns>1</edit-inst-columns>
@@ -90,13 +100,13 @@
  <edit-path-ext-type>flush</edit-path-ext-type>
  <edit-path-ext-var-begin>0.0</edit-path-ext-var-begin>
  <edit-path-ext-var-end>0.0</edit-path-ext-var-end>
- <edit-path-width>0.61</edit-path-width>
+ <edit-path-width>1</edit-path-width>
  <edit-pcell-lazy-eval-mode>-1</edit-pcell-lazy-eval-mode>
  <edit-pcell-show-parameter-names>false</edit-pcell-show-parameter-names>
- <edit-recent-inst-param>SG13_dev,ntap1,'0',false,'1',false,'1','0','0','1','0','0','!',;voltage_diff,TOP,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,via_stack,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,rhigh,'0',false,'1',false,'1','0','0','1','0','0','!',;op_amp_ver_2,op_amp_ver_2,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,pmosHV,'0',false,'1',false,'1','0','0','1','0','0','!',;Basic,DONUT,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmos,'0',false,'1',false,'1','0','0','1','0','0','!',</edit-recent-inst-param>
- <edit-recent-path-param>'8/0','0.61',flush,'0.0','0.0',;'10/0','0.61',flush,'0.0','0.0',;'30/0','0.61',flush,'0.0','0.0',</edit-recent-path-param>
- <edit-recent-shape-param>'31/0',;'30/2',;'10/0',;'8/0',;'Metal1.drawing (8/0)',</edit-recent-shape-param>
- <edit-recent-text-param>'30/25',ABC,'0',left,bottom,</edit-recent-text-param>
+ <edit-recent-inst-param>SG13_dev,via_stack,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,rhigh,'0',false,'1',false,'1','0','0','1','0','0','!',;op_amp_ver_2,op_amp_ver_2,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,ntap1,'0',false,'1',false,'1','0','0','1','0','0','!',;voltage_diff,TOP,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,pmosHV,'0',false,'1',false,'1','0','0','1','0','0','!',;Basic,DONUT,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmos,'0',false,'1',false,'1','0','0','1','0','0','!',</edit-recent-inst-param>
+ <edit-recent-path-param>'30/0','0.61',flush,'0.0','0.0',;'10/0','0.61',flush,'0.0','0.0',;'10/0','1',flush,'0.0','0.0',;'8/0','1',flush,'0.0','0.0',;'8/0','0.61',flush,'0.0','0.0',</edit-recent-path-param>
+ <edit-recent-shape-param>'10/2',;'8/0',;'10/0',;'31/0',;'30/2',;'Metal1.drawing (8/0)',</edit-recent-shape-param>
+ <edit-recent-text-param>'10/25',ABC,'0',left,bottom,;'30/25',ABC,'0',left,bottom,</edit-recent-text-param>
  <edit-show-shapes-of-instances>true</edit-show-shapes-of-instances>
  <edit-snap-objects-to-grid>true</edit-snap-objects-to-grid>
  <edit-snap-to-objects>true</edit-snap-to-objects>
@@ -349,8 +359,8 @@ sg13cmos5l_menu.macro_in_menu_sg13cmos5l_lvs_options:F12;
  <transient-sel-line-style>-1</transient-sel-line-style>
  <transient-sel-line-width>1</transient-sel-line-width>
  <transient-sel-vertex-size>0</transient-sel-vertex-size>
- <window-geometry>AdnQywADAAAAAAAAAAAAAAAABZ8AAAOPAAAABwAAADQAAAMmAAACiwAAAAACAAAABaAAAAAGAAAAGwAABZkAAAOJ</window-geometry>
- <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAADEAAAB9vwCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAiQD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAATAAAADUAAAAQAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAhwAAALYAAAAQAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAAFDAAAA/wAAAJYA////AAAAAQAAAN4AAAH2/AIAAAAF+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAAQAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABMAAABpAAAABAA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAAfYAAABMAAAAEAD////7/////wAAAALcAAAAfQAAAH0A////+/////8AAAACoAAAALkAAAC5AP///wAAAXIAAAH2AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAHQAbwBvAGwAYgBhAHIBAAAAAP////8AAAAAAAAAAA==</window-state>
+ <window-geometry>AdnQywADAAAAAAAAAAAAAAAABZ8AAAOnAAAABwAAADQAAAMmAAACiwAAAAACAAAABaAAAAAGAAAAGwAABZkAAAOh</window-geometry>
+ <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAAEDAAAB9vwCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAiQD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAATAAAADUAAAAQAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAhwAAALYAAAAQAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAAFDAAAA/wAAAJYA////AAAAAQAAAN4AAAH2/AIAAAAE+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAAQAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABMAAABpwAAABAA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAAfkAAABJAAAAEAD////7/////wAAAALcAAAAfQAAAH0A////AAABMwAAAfYAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAAA4AdABvAG8AbABiAGEAcgEAAAAA/////wAAAAAAAAAA</window-state>
  <xor-anotb>false</xor-anotb>
  <xor-axorb>true</xor-axorb>
  <xor-bnota>false</xor-bnota>
