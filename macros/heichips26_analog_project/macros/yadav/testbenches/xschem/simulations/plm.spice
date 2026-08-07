@@ -1,64 +1,18 @@
 ** sch_path: /home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/testbenches/xschem/plm.sch
 **.subckt plm
-Vres net1 V1 0
+Vres net1 net5 0
 .save i(vres)
 vress net1 GND 0
 vcons net2 GND 0
 vdds net3 GND 3.3
-Vcon net2 Vc 0
+Vcon net2 net4 0
 .save i(vcon)
-Vdd net3 P 0
+Vdd net3 net7 0
 .save i(vdd)
-XM3 P V1 K1 GND sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM13 net4 net4 P P sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
-XM1 K3 V1 net16 GND sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM5 net14 K1 K2 GND sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM2 net13 K1207 net15 GND sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM16 K3 K3 P P sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
-XM7 net7 Vc GND GND sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM6 K3 net10 K2 GND sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM14 K4 net4 P P sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
-XM8 net17 Vc GND GND sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM4 P K1207 net10 GND sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
-XM9 net5 net5 GND GND sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
-XM10 net12 net5 GND GND sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
-XM17 K1207 K3 P P sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
-XM18 net11 K3 P P sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
-XM11 K1203 K1203 GND GND sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
-XM12 K121 K1203 GND GND sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
-XM15 net8 net4 P P sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
-I0 K2 net6 60u
-Vres1 net6 GND 0
-.save i(vres1)
-Vres2 K1 net7 0
-.save i(vres2)
-Vres3 net9 K121 0
-.save i(vres3)
-Vres4 net9 V1 0
-.save i(vres4)
-Vres5 net8 net9 0
-.save i(vres5)
-Vres7 net11 K1203 0
-.save i(vres7)
-Vres8 K1207 net12 0
-.save i(vres8)
-Vres9 K4 net5 0
-.save i(vres9)
-Vres10 net4 K5 0
-.save i(vres10)
-Vres11 K5 net14 0
-.save i(vres11)
-Vres12 K5 net13 0
-.save i(vres12)
-Vres13 net16 K2 0
-.save i(vres13)
-Vres14 net15 K2 0
-.save i(vres14)
-Vres15 net10 net17 0
-.save i(vres15)
-Vres6 K1207 net18 0
+vress1 net8 GND 1.25
+x1 net7 net5 net6 net4 GND yadav
+Vres6 net6 net8 0
 .save i(vres6)
-vress1 net18 GND 1.25
 **** begin user architecture code
 
 
@@ -116,5 +70,36 @@ set wr_singlescale
 
 **** end user architecture code
 **.ends
+
+* expanding   symbol:  yadav.sym # of pins=5
+** sym_path: /home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/schematic/xschem/yadav.sym
+** sch_path: /home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/schematic/xschem/yadav.sch
+.subckt yadav Vdd Rin Rout Vc Vss
+*.ipin Vc
+*.iopin Vss
+*.iopin Vdd
+*.ipin Rin
+*.opin Rout
+XM3 Vdd Rin net2 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM13 net1 net1 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM1 net4 Rin net3 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM5 net1 net2 net3 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM2 net1 Rout net3 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM16 net4 net4 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM7 net2 Vc Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM6 net4 net7 net3 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM14 net5 net1 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM8 net7 Vc Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM4 Vdd Rout net7 Vss sg13_hv_nmos w=0.72u l=4.14u ng=2 m=1 mm_ok=1
+XM9 net5 net5 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
+XM10 Rout net5 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
+XM17 Rout net4 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM18 net6 net4 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+XM11 net6 net6 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
+XM12 Rin net6 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
+XM15 Rin net1 Vdd Vdd sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
+I0 net3 Vss 60u
+.ends
+
 .GLOBAL GND
 .end
