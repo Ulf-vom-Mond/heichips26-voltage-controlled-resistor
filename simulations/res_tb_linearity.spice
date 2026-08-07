@@ -24,7 +24,7 @@ x1 vc_p net1 vb VDD GND vcr_bisection
 .param Vcm=2
 .csparam Vcm=Vcm
 .param temp=27
-.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
 let vcc = 0
 
@@ -37,15 +37,15 @@ repeat 5
   alter vc $&vcc
 
   * DC Sweep
-  dc VS -1 1 1m
+  dc VS -0.7 0.7 1m
   remzerovec
-  let vcc = vcc + 0.2
+  let vcc = vcc + 0.25
 end
 write res_tb_linearity.raw
 set appendwrite
 
 * Plotting
-plot dc1.v(vsweep)/(dc1.v.x1.Vmeas#branch) dc2.v(vsweep)/(dc2.v.x1.Vmeas#branch) dc3.v(vsweep)/(dc3.v.x1.Vmeas#branch) dc4.v(vsweep)/(dc4.v.x1.Vmeas#branch) dc5.v(vsweep)/(dc5.v.x1.Vmeas#branch) ylimit 0 10k
+plot dc1.v(vsweep)/(dc1.v.x1.Vmeas#branch) dc2.v(vsweep)/(dc2.v.x1.Vmeas#branch) dc3.v(vsweep)/(dc3.v.x1.Vmeas#branch) dc4.v(vsweep)/(dc4.v.x1.Vmeas#branch) dc5.v(vsweep)/(dc5.v.x1.Vmeas#branch) ylimit 0 15k
 
 plot dc1.v.x1.Vmeas#branch dc2.v.x1.Vmeas#branch dc3.v.x1.Vmeas#branch dc4.v.x1.Vmeas#branch dc5.v.x1.Vmeas#branch
 
@@ -74,14 +74,14 @@ write res_tb_linearity.raw
 *.ipin Vdd
 *.ipin Vss
 R1 vcm net3 10k
-R2 net2 vcm 10k
+R2 vcm net2 10k
 Vmeas T1 net1 0
 .save i(vmeas)
 XM1 net1 Vctrl T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
-I0 vdd net4 25u
-I1 vdd net5 25u
-x1 Vdd net4 net3 net3 T1 vss Vss op_amp_ver_2
-x2 vdd net5 net2 net2 T2 vss vss op_amp_ver_2
+I0 Vdd net4 25u
+I1 Vdd net5 25u
+x1 Vdd net4 net3 net3 T1 Vss Vss op_amp_ver_2
+x2 Vdd net5 net2 net2 T2 Vss Vss op_amp_ver_2
 .ends
 
 
