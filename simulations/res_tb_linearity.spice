@@ -45,9 +45,9 @@ write res_tb_linearity.raw
 set appendwrite
 
 * Plotting
-plot dc1.v(vsweep)/(dc1.v.x1.Vmeas#branch) dc2.v(vsweep)/(dc2.v.x1.Vmeas#branch) dc3.v(vsweep)/(dc3.v.x1.Vmeas#branch) dc4.v(vsweep)/(dc4.v.x1.Vmeas#branch) dc5.v(vsweep)/(dc5.v.x1.Vmeas#branch) ylimit 0 15k
+plot dc1.v(vsweep)/(dc1.i(vmeas)) dc2.v(vsweep)/(dc2.i(vmeas)) dc3.v(vsweep)/(dc3.i(vmeas)) dc4.v(vsweep)/(dc4.i(vmeas)) dc5.v(vsweep)/(dc5.i(vmeas)) ylimit 0 15k
 
-plot dc1.v.x1.Vmeas#branch dc2.v.x1.Vmeas#branch dc3.v.x1.Vmeas#branch dc4.v.x1.Vmeas#branch dc5.v.x1.Vmeas#branch
+plot dc1.i(vmeas) dc2.i(vmeas) dc3.i(vmeas) dc4.i(vmeas) dc5.i(vmeas)
 
 * Write Data
 unset appendwrite
@@ -73,17 +73,15 @@ write res_tb_linearity.raw
 *.ipin Vctrl
 *.ipin Vdd
 *.ipin Vss
-R1 vcm net3 10k
-R2 vcm net2 10k
-Vmeas T1 net1 0
-.save i(vmeas)
-XM1 net1 net6 T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
-I0 Vdd net4 25u
-I1 Vdd net5 25u
-x1 Vdd net4 net3 net3 T1 Vss Vss op_amp_ver_2
-x2 Vdd net5 net2 net2 T2 Vss Vss op_amp_ver_2
-x3 Vdd net7 net6 Vctrl Vss Vss vcm voltage_diff
-I2 Vdd net7 25u
+R1 vcm net2 10k
+R2 vcm net1 10k
+XM1 T1 net5 T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
+I0 Vdd net3 25u
+I1 Vdd net4 25u
+x1 Vdd net3 net2 net2 T1 Vss Vss op_amp_ver_2
+x2 Vdd net4 net1 net1 T2 Vss Vss op_amp_ver_2
+x3 Vdd net6 net5 Vctrl Vss Vss vcm voltage_diff
+I2 Vdd net6 25u
 .ends
 
 
