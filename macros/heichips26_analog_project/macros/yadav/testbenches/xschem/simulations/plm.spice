@@ -27,7 +27,7 @@ XM18 net11 K3 P P sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
 XM11 K1203 K1203 GND GND sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
 XM12 K121 K1203 GND GND sg13_hv_nmos w=0.72u l=2.16u ng=2 m=1 mm_ok=1
 XM15 net8 net4 P P sg13_hv_pmos w=18.5u l=2.16u ng=2 m=1 mm_ok=1
-I0 K2 net6 70u
+I0 K2 net6 60u
 Vres1 net6 GND 0
 .save i(vres1)
 Vres2 K1 net7 0
@@ -84,7 +84,7 @@ repeat 5
   alter vcons $&vcc
 
   * DC Sweep
-  dc vress 0.5 2.6 1m
+  dc vress 0.3 3.3 1m
   remzerovec
   let vcc = vcc + 0.15
 end

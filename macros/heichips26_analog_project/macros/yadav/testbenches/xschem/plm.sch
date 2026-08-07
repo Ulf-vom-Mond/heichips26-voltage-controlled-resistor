@@ -189,7 +189,7 @@ repeat 5
   alter vcons $&vcc
 
   * DC Sweep
-  dc vress 0.5 2.6 1m
+  dc vress 0.3 3.3 1m
   remzerovec
   let vcc = vcc + 0.15
 end
@@ -382,7 +382,7 @@ C {devices/lab_pin.sym} -23280 7890 2 0 {name=l15 sig_type=std_logic lab=P}
 C {devices/lab_pin.sym} -23420 7840 2 0 {name=l16 sig_type=std_logic lab=P}
 C {devices/lab_pin.sym} -23590 7890 2 1 {name=l17 sig_type=std_logic lab=P}
 C {devices/lab_pin.sym} -23970 7840 2 1 {name=l18 sig_type=std_logic lab=P}
-C {isource.sym} -23780 8220 0 0 {name=I0 value=70u}
+C {isource.sym} -23780 8220 0 0 {name=I0 value=60u}
 C {devices/lab_pin.sym} -25030 7950 0 0 {name=l32 sig_type=std_logic lab=P}
 C {devices/lab_pin.sym} -25140 7990 0 1 {name=l33 sig_type=std_logic lab=Vc}
 C {devices/lab_pin.sym} -25140 8030 0 1 {name=l34 sig_type=std_logic lab=V1}
