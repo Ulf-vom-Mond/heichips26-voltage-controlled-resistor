@@ -5,30 +5,30 @@ V {}
 S {}
 F {}
 E {}
-N -25360 8120 -25360 8150 {lab=GND}
-N -25360 8010 -25360 8060 {lab=#net1}
-N -25160 7840 -25130 7840 {lab=GND}
-N -25060 7920 -25060 7980 {lab=#net2}
-N -25060 8080 -25060 8130 {lab=GND}
-N -25070 7840 -25060 7840 {lab=#net3}
-N -25060 7840 -25060 7860 {lab=#net3}
-N -25160 8030 -25140 8030 {lab=#net4}
-N -24980 8030 -24960 8030 {lab=#net5}
-N -24960 8030 -24960 8050 {lab=#net5}
-N -25160 8030 -25160 8050 {lab=#net4}
-N -24960 8110 -24960 8120 {lab=#net6}
-N -25160 8110 -25160 8120 {lab=#net7}
-N -24960 8180 -24960 8190 {lab=GND}
-N -25160 8180 -25160 8190 {lab=GND}
-N -25240 8010 -25140 8010 {lab=#net8}
-N -25360 8010 -25300 8010 {lab=#net1}
+N -24960 8130 -24960 8180 {lab=GND}
+N -25080 7850 -25080 7870 {lab=#net1}
+N -25180 8030 -25140 8030 {lab=#net2}
+N -24860 8030 -24860 8050 {lab=#net3}
+N -25180 8030 -25180 8050 {lab=#net2}
+N -24860 8110 -24860 8120 {lab=#net4}
+N -25180 8110 -25180 8120 {lab=#net5}
+N -24860 8180 -24860 8190 {lab=GND}
+N -25180 8180 -25180 8190 {lab=GND}
 N -25270 7830 -25270 7840 {lab=GND}
 N -25270 7740 -25270 7770 {lab=Vdif}
-C {devices/launcher.sym} -24960 7880 0 0 {name=h3
+N -25080 7750 -25080 7790 {lab=GND}
+N -25080 7750 -25050 7750 {lab=GND}
+N -25050 7750 -25050 7760 {lab=GND}
+N -25020 7850 -25020 7870 {lab=#net6}
+N -25020 7750 -25020 7790 {lab=GND}
+N -25020 7750 -24990 7750 {lab=GND}
+N -24990 7750 -24990 7760 {lab=GND}
+N -24900 8030 -24860 8030 {lab=#net3}
+C {devices/launcher.sym} -24670 7920 0 0 {name=h3
 descr="Simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
 }
-C {devices/code_shown.sym} -26550 7710 0 0 {name=NGSPICE
+C {devices/code_shown.sym} -26690 7670 0 0 {name=NGSPICE
 only_toplevel=true 
 value="
 * .include ../../../netlist/pex/inverter_magic_pex_3.spice
@@ -56,7 +56,7 @@ repeat 5
   alter vcons $&vcc
 
   * DC Sweep
-  dc Vdifs -0.8 0.8 1m
+  dc Vdifs -1.6 1.6 1m
   remzerovec
   let vcc = vcc + 0.3
 end
@@ -79,8 +79,8 @@ set wr_singlescale
 *quit
 .endc
 "}
-C {ammeter.sym} -25160 8080 2 0 {name=Vres savecurrent=true spice_ignore=0}
-C {devices/code_shown.sym} -26030 7480 0 0 {name=MODEL only_toplevel=true
+C {ammeter.sym} -25180 8080 2 0 {name=Vres savecurrent=true spice_ignore=0}
+C {devices/code_shown.sym} -26710 7500 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value="
 .lib cornerMOSlv.lib mos_tt
@@ -88,20 +88,19 @@ value="
 .lib cornerRES.lib res_typ
 .lib cornerDIO.lib dio_tt
 "}
-C {devices/vsource.sym} -25360 8090 0 0 {name=vcons value=0}
-C {devices/vsource.sym} -25100 7840 1 0 {name=vdds value=3.3}
-C {devices/gnd.sym} -25360 8150 0 0 {name=l2 lab=GND}
-C {devices/gnd.sym} -25160 7840 1 0 {name=l5 lab=GND}
-C {ammeter.sym} -25270 8010 3 0 {name=Vcon savecurrent=true spice_ignore=0}
-C {ammeter.sym} -25060 7890 0 0 {name=Vdd savecurrent=true spice_ignore=0}
-C {bindkeys_cheatsheet.sym} -25270 7340 0 0 {}
-C {yadav.sym} -25060 8030 0 0 {name=x1}
-C {devices/gnd.sym} -25060 8130 0 0 {name=l32 lab=GND}
-C {ammeter.sym} -24960 8080 0 1 {name=Vres6 savecurrent=true spice_ignore=0}
-C {vsource_arith.sym} -25160 8150 0 0 {name=E1 VOL="\{Vcm\} + v(Vdif)/2"}
-C {vsource_arith.sym} -24960 8150 0 0 {name=E2 VOL="\{Vcm\} - v(Vdif)/2"}
-C {devices/gnd.sym} -25160 8190 0 0 {name=l3 lab=GND}
-C {devices/gnd.sym} -24960 8190 0 0 {name=l4 lab=GND}
+C {devices/vsource.sym} -25080 7820 2 0 {name=vdds value=3.3}
+C {devices/gnd.sym} -25050 7760 0 0 {name=l5 lab=GND}
+C {ammeter.sym} -25080 7900 0 0 {name=Vdd savecurrent=true spice_ignore=0}
+C {devices/gnd.sym} -24960 8180 0 0 {name=l32 lab=GND}
+C {ammeter.sym} -24860 8080 0 1 {name=Vres6 savecurrent=true spice_ignore=0}
+C {vsource_arith.sym} -25180 8150 0 0 {name=E1 VOL="\{Vcm\} + v(Vdif)/2"}
+C {vsource_arith.sym} -24860 8150 0 0 {name=E2 VOL="\{Vcm\} - v(Vdif)/2"}
+C {devices/gnd.sym} -25180 8190 0 0 {name=l3 lab=GND}
+C {devices/gnd.sym} -24860 8190 0 0 {name=l4 lab=GND}
 C {devices/vsource.sym} -25270 7800 0 0 {name=Vdifs value=0}
 C {devices/gnd.sym} -25270 7840 0 0 {name=l6 lab=GND}
 C {devices/lab_pin.sym} -25270 7740 0 0 {name=l7 sig_type=std_logic lab=Vdif}
+C {YadavVCR.sym} -25020 8030 0 0 {name=x1}
+C {devices/vsource.sym} -25020 7820 2 0 {name=vcons value=0}
+C {devices/gnd.sym} -24990 7760 0 0 {name=l8 lab=GND}
+C {ammeter.sym} -25020 7900 0 0 {name=Vcon savecurrent=true spice_ignore=0}

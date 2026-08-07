@@ -71,7 +71,7 @@
  <edit-hier-copy-mode>-1</edit-hier-copy-mode>
  <edit-inst-angle>0</edit-inst-angle>
  <edit-inst-array>false</edit-inst-array>
- <edit-inst-cell-name>nmosHV</edit-inst-cell-name>
+ <edit-inst-cell-name>pmosHV</edit-inst-cell-name>
  <edit-inst-column_x>0</edit-inst-column_x>
  <edit-inst-column_y>0</edit-inst-column_y>
  <edit-inst-columns>1</edit-inst-columns>
@@ -92,7 +92,7 @@
  <edit-path-width>0.2</edit-path-width>
  <edit-pcell-lazy-eval-mode>-1</edit-pcell-lazy-eval-mode>
  <edit-pcell-show-parameter-names>false</edit-pcell-show-parameter-names>
- <edit-recent-inst-param>SG13_dev,nmosHV,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmos,'0',false,'1',false,'1','0','0','1','0','0','!',</edit-recent-inst-param>
+ <edit-recent-inst-param>SG13_dev,pmosHV,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmosHV,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmos,'0',false,'1',false,'1','0','0','1','0','0','!',</edit-recent-inst-param>
  <edit-recent-path-param>'1/0','0.2',flush,'0.0','0.0',</edit-recent-path-param>
  <edit-recent-shape-param>'Activ.drawing (1/0)',</edit-recent-shape-param>
  <edit-show-shapes-of-instances>true</edit-show-shapes-of-instances>
@@ -137,6 +137,11 @@
  <keep-backups>0</keep-backups>
  <key-bindings>
 edit_menu.edit_options:'Shift+E';
+file_menu.reload:none;
+edit_menu.selection_menu.sel_rot_cw:'Ctrl+R';
+zoom_menu.max_hier_1:none;
+zoom_menu.max_hier_0:none;
+edit_menu.layout_menu.lay_rot_cw:'';
 edit_menu.copy:'';
 edit_menu.paste:'';
 '@secrets.select_next_item':'';
@@ -197,7 +202,6 @@ edit_menu.selection_menu.sel_flip_y:'';
 edit_menu.selection_menu.sel_move:'';
 edit_menu.selection_menu.sel_move_to:'';
 edit_menu.selection_menu.sel_rot_ccw:'';
-edit_menu.selection_menu.sel_rot_cw:'';
 edit_menu.selection_menu.union:'';
 edit_menu.selection_menu.intersection:'';
 edit_menu.undo:'';
@@ -210,7 +214,6 @@ file_menu.save:'';
 file_menu.save_hierarchical_layout:'';
 file_menu.save_as:'';
 file_menu.save_as_hierarchical_layout:'';
-file_menu.reload:'';
 file_menu.reload_cell_libraries:'';
 file_menu.manage_cell_library_map:'';
 view_menu.crosshair_cursor:'';
@@ -225,8 +228,6 @@ zoom_menu.zoom_fit:'';
 zoom_menu.zoom_fit_sel:'';
 zoom_menu.zoom_in:'';
 zoom_menu.zoom_out:'';
-zoom_menu.max_hier_0:'';
-zoom_menu.max_hier_1:'';
 zoom_menu.dec_max_hier:'';
 zoom_menu.inc_max_hier:'';
 sg13cmos5l_menu.macro_in_menu_sg13cmos5l_drc:'';
@@ -343,7 +344,6 @@ edit_menu.layout_menu.lay_flip_y:'';
 edit_menu.layout_menu.lay_free_rot:'';
 edit_menu.layout_menu.lay_move:'';
 edit_menu.layout_menu.lay_rot_ccw:'';
-edit_menu.layout_menu.lay_rot_cw:'';
 edit_menu.layout_menu.lay_scale:'';
 edit_menu.mode_menu:'';
 edit_menu.mode_menu.move:'';
@@ -546,7 +546,7 @@ zoom_menu.prev_display_state:''
  <macro-editor-current-macro/>
  <macro-editor-debugging-enabled>true</macro-editor-debugging-enabled>
  <macro-editor-file-watcher-enabled>true</macro-editor-file-watcher-enabled>
- <macro-editor-font-family>monospace</macro-editor-font-family>
+ <macro-editor-font-family>Noto Sans Mono</macro-editor-font-family>
  <macro-editor-font-size>9</macro-editor-font-size>
  <macro-editor-ignore-exception-list/>
  <macro-editor-indent>4</macro-editor-indent>
@@ -1029,8 +1029,8 @@ zoom_menu.zoom_out:false
  <transient-sel-line-style>-1</transient-sel-line-style>
  <transient-sel-line-width>1</transient-sel-line-width>
  <transient-sel-vertex-size>0</transient-sel-vertex-size>
- <window-geometry>AdnQywADAAAAAAABAAAAGQAAB3AAAASfAAAAAQAAABkAAAdwAAAEnwAAAAAAAAAAB4QAAAABAAAAGQAAB3AAAASf</window-geometry>
- <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAACrAAAEH/wCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAjwD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAUgAAAHEAAAATAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAyQAAAgQAAAATAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAALTAAABngAAAJYA////AAAAAQAAALgAAAQf/AIAAAAE+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAATAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABSAAADjgAAABMA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAA+YAAACLAAAAEwD////7/////wAAAAOmAAAAywAAAMsA////AAAGAQAABB8AAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAAA4AdABvAG8AbABiAGEAcgEAAAAA/////wAAAAAAAAAA</window-state>
+ <window-geometry>AdnQywADAAAAAAABAAAAGQAAA6cAAASdAAAAAQAAABkAAAOnAAAEnQAAAAAAAAAAB4QAAAABAAAAGQAAA6cAAASd</window-geometry>
+ <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAACrAAAEHfwCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAjwD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAUgAAAHEAAAATAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAyQAAAgMAAAATAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAALSAAABnQAAAJYA////AAAAAQAAANIAAAQd/AIAAAAF+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAATAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABSAAADjAAAABMA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAA+QAAACLAAAAEwD////7/////wAAAAOmAAAAywAAAMsA////+/////8AAAAD5QAAAIwAAACMAP///wAAAh4AAAQdAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAHQAbwBvAGwAYgBhAHIBAAAAAP////8AAAAAAAAAAA==</window-state>
  <xor-anotb>false</xor-anotb>
  <xor-axorb>true</xor-axorb>
  <xor-bnota>false</xor-bnota>

@@ -1,19 +1,19 @@
 ** sch_path: /home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/testbenches/xschem/plm.sch
 **.subckt plm
-Vres net7 net4 0
+Vres net5 net2 0
 .save i(vres)
-vcons net1 GND 0
-vdds net3 GND 3.3
-Vcon net1 net8 0
-.save i(vcon)
-Vdd net3 net2 0
+vdds net1 GND 3.3
+Vdd net1 net7 0
 .save i(vdd)
-x1 net2 net4 net5 net8 GND yadav
-Vres6 net5 net6 0
+Vres6 net3 net4 0
 .save i(vres6)
-E1 net7 GND VOL=' {Vcm} + v(Vdif)/2 '
-E2 net6 GND VOL=' {Vcm} - v(Vdif)/2 '
+E1 net5 GND VOL=' {Vcm} + v(Vdif)/2 '
+E2 net4 GND VOL=' {Vcm} - v(Vdif)/2 '
 Vdifs Vdif GND 0
+x1 net7 net2 net3 net8 GND YadavVCR
+vcons net6 GND 0
+Vcon net6 net8 0
+.save i(vcon)
 **** begin user architecture code
 
 
@@ -42,7 +42,7 @@ repeat 5
   alter vcons $&vcc
 
   * DC Sweep
-  dc Vdifs -0.8 0.8 1m
+  dc Vdifs -1.6 1.6 1m
   remzerovec
   let vcc = vcc + 0.3
 end
@@ -75,10 +75,10 @@ set wr_singlescale
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  yadav.sym # of pins=5
-** sym_path: /home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/schematic/xschem/yadav.sym
-** sch_path: /home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/schematic/xschem/yadav.sch
-.subckt yadav Vdd Rin Rout Vc Vss
+* expanding   symbol:  YadavVCR.sym # of pins=5
+** sym_path: /home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/schematic/xschem/YadavVCR.sym
+** sch_path: /home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/schematic/xschem/YadavVCR.sch
+.subckt YadavVCR Vdd Rin Rout Vc Vss
 *.ipin Vc
 *.iopin Vss
 *.iopin Vdd
