@@ -66,22 +66,24 @@ print mean(v(vd) - v(vb))/mean(i(Vmeas))
 *.iopin VDD
 *.iopin VSS
 *.ipin sw2
-x1 sw1 r1 net2 net3 transmission_gate
-x3 net1 r2 net2 sw2 transmission_gate
+x1 sw1 r1 net2 net3 net4 net5 transmission_gate
+x3 net1 r2 net2 sw2 net6 net7 transmission_gate
 C2 net2 VSS 1p
 x6 net3 sw1 VDD VSS sg13cmos5l_inv_1
 x2 net1 sw2 VDD VSS sg13cmos5l_inv_1
 .ends
 
 
-* expanding   symbol:  transmission_gate.sym # of pins=4
+* expanding   symbol:  transmission_gate.sym # of pins=6
 ** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/transmission_gate.sym
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/transmission_gate.sch
-.subckt transmission_gate vctrl vin vout vinv
+.subckt transmission_gate vctrl vin vout nvctrl VDD VSS
 *.iopin vin
 *.iopin vout
 *.ipin vctrl
 *.ipin nvctrl
+*.iopin VDD
+*.iopin VSS
 XM3 vout vctrl vin VSS sg13_hv_nmos w={tg_ngate_w*tg_ng} l={tg_ch_len} ng={tg_ng} m=1 mm_ok=1
 XM4 vout nvctrl vin VDD sg13_hv_pmos w={tg_pgate_w*tg_ng} l={tg_ch_len} ng={tg_ng} m=1 mm_ok=1
 **** begin user architecture code
@@ -89,7 +91,7 @@ XM4 vout nvctrl vin VDD sg13_hv_pmos w={tg_pgate_w*tg_ng} l={tg_ch_len} ng={tg_n
 
 .param tg_ch_len=1u
 .param tg_ngate_w=1u
-.param tg_pgate_w=4.5u
+.param tg_pgate_w=5u
 .param tg_ng=40
 
 
