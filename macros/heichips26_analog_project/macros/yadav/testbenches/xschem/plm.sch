@@ -117,53 +117,50 @@ N -23500 7980 -23500 7990 {lab=GND}
 N -23590 8100 -23590 8110 {lab=GND}
 N -23700 7980 -23700 7990 {lab=GND}
 N -23860 7980 -23860 7990 {lab=GND}
-N -23780 8250 -23780 8270 {lab=Ktheone}
+N -23780 8250 -23780 8270 {lab=#net6}
 N -23780 8420 -23500 8420 {lab=GND}
-N -24130 8250 -24130 8320 {lab=#net6}
+N -24130 8250 -24130 8320 {lab=#net7}
 N -24130 8100 -24130 8190 {lab=K1}
 N -24060 7920 -23040 7920 {lab=V1}
 N -23040 7920 -23040 7950 {lab=V1}
-N -22980 7860 -22980 7880 {lab=#net7}
-N -22980 7940 -22980 7990 {lab=#net8}
+N -22980 7860 -22980 7880 {lab=#net8}
+N -22980 7940 -22980 7990 {lab=#net9}
 N -22980 8050 -22980 8180 {lab=K121}
-N -23370 7980 -23280 7980 {lab=K1207}
 N -23280 7910 -23280 7980 {lab=K1207}
 N -23590 7740 -23590 7850 {lab=P}
 N -23970 7740 -23590 7740 {lab=P}
-N -23550 8100 -23500 8100 {lab=#net9}
-N -23120 7910 -23120 7990 {lab=#net10}
+N -23550 8100 -23500 8100 {lab=#net10}
+N -23120 7910 -23120 7990 {lab=#net11}
 N -23120 8050 -23120 8160 {lab=K1203}
 N -23280 7980 -23280 8040 {lab=K1207}
-N -23280 8100 -23280 8180 {lab=#net11}
+N -23280 8100 -23280 8180 {lab=#net12}
 N -23420 7860 -23420 8060 {lab=K4}
 N -23420 8120 -23420 8160 {lab=#net5}
 N -23970 7880 -23970 7890 {lab=#net4}
-N -23700 7940 -23700 7950 {lab=#net12}
+N -23700 7940 -23700 7950 {lab=#net13}
 N -23970 7950 -23930 7950 {lab=K5}
 N -23930 7940 -23930 7950 {lab=K5}
 N -23970 7950 -23970 8000 {lab=K5}
-N -23970 8060 -23970 8070 {lab=#net13}
+N -23970 8060 -23970 8070 {lab=#net14}
 N -23930 7940 -23820 7940 {lab=K5}
-N -23760 7940 -23700 7940 {lab=#net12}
-N -23700 8010 -23700 8060 {lab=#net14}
+N -23760 7940 -23700 7940 {lab=#net13}
+N -23700 8010 -23700 8060 {lab=#net15}
 N -23700 8120 -23700 8180 {lab=K2}
 N -23780 8180 -23700 8180 {lab=K2}
 N -23860 8120 -23860 8180 {lab=K2}
 N -23970 8180 -23860 8180 {lab=K2}
-N -23860 8010 -23860 8060 {lab=#net15}
-N -23500 8100 -23500 8180 {lab=#net9}
-N -23500 8240 -23500 8320 {lab=#net16}
-N -23710 8480 -23610 8480 {lab=PULA}
+N -23860 8010 -23860 8060 {lab=#net16}
+N -23500 8100 -23500 8180 {lab=#net10}
+N -23500 8240 -23500 8320 {lab=#net17}
 N -24130 8420 -23780 8420 {lab=GND}
 N -23780 8330 -23780 8420 {lab=GND}
-N -23500 8010 -23500 8100 {lab=#net9}
+N -23500 8010 -23500 8100 {lab=#net10}
 N -24950 8130 -24950 8160 {lab=GND}
-N -24950 8040 -24950 8070 {lab=#net17}
-N -24950 8040 -24910 8040 {lab=#net17}
+N -24950 8040 -24950 8070 {lab=#net18}
+N -24950 8040 -24910 8040 {lab=#net18}
 N -24850 8040 -24810 8040 {lab=K1207}
-N -23370 7980 -23370 8010 {lab=K1207}
-N -23460 7980 -23370 7980 {lab=K1207}
-C {devices/launcher.sym} -24970 7860 0 0 {name=h3
+N -23460 7980 -23280 7980 {lab=K1207}
+C {devices/launcher.sym} -23920 8240 0 0 {name=h3
 descr="Simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
 }
@@ -172,7 +169,7 @@ only_toplevel=true
 value="
 * .include ../../../netlist/pex/inverter_magic_pex_3.spice
 .param temp=27
-.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e10
 .control
 save all
 set appendwrite
@@ -192,17 +189,19 @@ repeat 5
   alter vcons $&vcc
 
   * DC Sweep
-  dc vress 0.3 3.3 1m
+  dc vress 0.5 2.6 1m
   remzerovec
-  let vcc = vcc + 0.2
+  let vcc = vcc + 0.15
 end
 set appendwrite
 
-* plot dc1.v(V1)/(dc1.i(Vres)) dc2.v(V1)/(dc2.i(Vres)) dc3.v(V1)/(dc3.i(Vres)) dc4.v(V1)/(dc4.i(Vres)) dc5.v(V1)/(dc5.i(Vres))
+*plot dc1.v(V1)/(dc1.i(Vres)) dc2.v(V1)/(dc2.i(Vres)) dc3.v(V1)/(dc3.i(Vres)) dc4.v(V1)/(dc4.i(Vres)) dc5.v(V1)/(dc5.i(Vres))
+
+*plot dc1.v(V1)/(dc1.i(Vres6)) dc2.v(V1)/(dc2.i(Vres6)) dc3.v(V1)/(dc3.i(Vres6)) dc4.v(V1)/(dc4.i(Vres6)) dc5.v(V1)/(dc5.i(Vres6))
 
 plot (dc1.i(Vres)) (dc2.i(Vres)) (dc3.i(Vres)) (dc4.i(Vres)) (dc5.i(Vres))
 
-plot (dc1.i(Vres6)) (dc2.i(Vres6)) (dc3.i(Vres6)) (dc4.i(Vres6))
+plot (dc1.i(Vres6)) (dc2.i(Vres6)) (dc3.i(Vres6)) (dc4.i(Vres6))  (dc5.i(Vres6))
 
 
 * Write Data
@@ -231,149 +230,149 @@ C {devices/gnd.sym} -25430 8150 0 0 {name=l5 lab=GND}
 C {ammeter.sym} -25270 7990 3 0 {name=Vcon savecurrent=true spice_ignore=0}
 C {ammeter.sym} -25320 7920 3 0 {name=Vdd savecurrent=true spice_ignore=0}
 C {bindkeys_cheatsheet.sym} -25270 7340 0 0 {}
-C {sg13_lv_nmos.sym} -24150 7980 0 0 {name=M3
+C {sg13_hv_nmos.sym} -24150 7980 0 0 {name=M3
 l=4.14u
 w=0.72u
 ng=2
 m=1
-model=sg13_lv_nmos
+model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13_lv_pmos.sym} -23950 7830 0 1 {name=M13
+C {sg13_hv_pmos.sym} -23950 7830 0 1 {name=M13
 l=2.16u
 w=18.5u
 ng=2
 m=1
-model=sg13_lv_pmos
+model=sg13_hv_pmos
 spiceprefix=X
 }
 C {devices/lab_pin.sym} -24270 7980 3 1 {name=l3 sig_type=std_logic lab=V1}
-C {sg13_lv_nmos.sym} -23880 7980 0 0 {name=M1
+C {sg13_hv_nmos.sym} -23880 7980 0 0 {name=M1
 l=4.14u
 w=0.72u
 ng=2
 m=1
-model=sg13_lv_nmos
+model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13_lv_nmos.sym} -23990 8100 0 0 {name=M5
+C {sg13_hv_nmos.sym} -23990 8100 0 0 {name=M5
 l=4.14u
 w=0.72u
 ng=2
 m=1
-model=sg13_lv_nmos
+model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13_lv_nmos.sym} -23680 7980 0 1 {name=M2
+C {sg13_hv_nmos.sym} -23680 7980 0 1 {name=M2
 l=4.14u
 w=0.72u
 ng=2
 m=1
-model=sg13_lv_nmos
+model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13_lv_pmos.sym} -23570 7880 0 1 {name=M16
+C {sg13_hv_pmos.sym} -23570 7880 0 1 {name=M16
 l=2.16u
 w=18.5u
 ng=2
 m=1
-model=sg13_lv_pmos
+model=sg13_hv_pmos
 spiceprefix=X
 }
-C {sg13_lv_nmos.sym} -24150 8350 0 0 {name=M7
+C {sg13_hv_nmos.sym} -24150 8350 0 0 {name=M7
 l=4.14u
 w=0.72u
 ng=2
 m=1
-model=sg13_lv_nmos
+model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13_lv_nmos.sym} -23570 8100 0 1 {name=M6
+C {sg13_hv_nmos.sym} -23570 8100 0 1 {name=M6
 l=4.14u
 w=0.72u
 ng=2
 m=1
-model=sg13_lv_nmos
+model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13_lv_pmos.sym} -23440 7830 0 0 {name=M14
+C {sg13_hv_pmos.sym} -23440 7830 0 0 {name=M14
 l=2.16u
 w=18.5u
 ng=2
 m=1
-model=sg13_lv_pmos
+model=sg13_hv_pmos
 spiceprefix=X
 }
-C {sg13_lv_nmos.sym} -23520 8350 0 0 {name=M8
+C {sg13_hv_nmos.sym} -23520 8350 0 0 {name=M8
 l=4.14u
 w=0.72u
 ng=2
 m=1
-model=sg13_lv_nmos
+model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13_lv_nmos.sym} -23480 7980 0 1 {name=M4
+C {sg13_hv_nmos.sym} -23480 7980 0 1 {name=M4
 l=4.14u
 w=0.72u
 ng=2
 m=1
-model=sg13_lv_nmos
+model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13_lv_nmos.sym} -23400 8210 0 1 {name=M9
+C {sg13_hv_nmos.sym} -23400 8210 0 1 {name=M9
 l=2.16u
 w=0.72u
 ng=2
 m=1
-model=sg13_lv_nmos
+model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13_lv_nmos.sym} -23300 8210 0 0 {name=M10
+C {sg13_hv_nmos.sym} -23300 8210 0 0 {name=M10
 l=2.16u
 w=0.72u
 ng=2
 m=1
-model=sg13_lv_nmos
+model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13_lv_pmos.sym} -23300 7880 0 0 {name=M17
+C {sg13_hv_pmos.sym} -23300 7880 0 0 {name=M17
 l=2.16u
 w=18.5u
 ng=2
 m=1
-model=sg13_lv_pmos
+model=sg13_hv_pmos
 spiceprefix=X
 }
-C {sg13_lv_pmos.sym} -23140 7880 0 0 {name=M18
+C {sg13_hv_pmos.sym} -23140 7880 0 0 {name=M18
 l=2.16u
 w=18.5u
 ng=2
 m=1
-model=sg13_lv_pmos
+model=sg13_hv_pmos
 spiceprefix=X
 }
-C {sg13_lv_nmos.sym} -23100 8210 0 1 {name=M11
+C {sg13_hv_nmos.sym} -23100 8210 0 1 {name=M11
 l=2.16u
 w=0.72u
 ng=2
 m=1
-model=sg13_lv_nmos
+model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13_lv_nmos.sym} -23000 8210 0 0 {name=M12
+C {sg13_hv_nmos.sym} -23000 8210 0 0 {name=M12
 l=2.16u
 w=0.72u
 ng=2
 m=1
-model=sg13_lv_nmos
+model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13_lv_pmos.sym} -23000 7830 0 0 {name=M15
+C {sg13_hv_pmos.sym} -23000 7830 0 0 {name=M15
 l=2.16u
 w=18.5u
 ng=2
 m=1
-model=sg13_lv_pmos
+model=sg13_hv_pmos
 spiceprefix=X
 }
 C {devices/lab_pin.sym} -22980 7740 2 0 {name=l10 sig_type=std_logic lab=P}
@@ -383,7 +382,7 @@ C {devices/lab_pin.sym} -23280 7890 2 0 {name=l15 sig_type=std_logic lab=P}
 C {devices/lab_pin.sym} -23420 7840 2 0 {name=l16 sig_type=std_logic lab=P}
 C {devices/lab_pin.sym} -23590 7890 2 1 {name=l17 sig_type=std_logic lab=P}
 C {devices/lab_pin.sym} -23970 7840 2 1 {name=l18 sig_type=std_logic lab=P}
-C {isource.sym} -23780 8220 0 0 {name=I0 value=40u}
+C {isource.sym} -23780 8220 0 0 {name=I0 value=70u}
 C {devices/lab_pin.sym} -25030 7950 0 0 {name=l32 sig_type=std_logic lab=P}
 C {devices/lab_pin.sym} -25140 7990 0 1 {name=l33 sig_type=std_logic lab=Vc}
 C {devices/lab_pin.sym} -25140 8030 0 1 {name=l34 sig_type=std_logic lab=V1}
@@ -424,10 +423,7 @@ C {ammeter.sym} -23790 7940 3 0 {name=Vres12 savecurrent=true spice_ignore=0}
 C {ammeter.sym} -23860 8090 0 0 {name=Vres13 savecurrent=true spice_ignore=0}
 C {ammeter.sym} -23700 8090 0 0 {name=Vres14 savecurrent=true spice_ignore=0}
 C {ammeter.sym} -23500 8210 0 0 {name=Vres15 savecurrent=true spice_ignore=0}
-C {devices/vsource.sym} -23710 8450 0 0 {name=vress2 value=0}
-C {devices/lab_pin.sym} -23610 8480 0 1 {name=l40 sig_type=std_logic lab=PULA}
-C {devices/lab_pin.sym} -23780 8260 0 1 {name=l41 sig_type=std_logic lab=Ktheone}
 C {devices/gnd.sym} -24950 8160 0 0 {name=l4 lab=GND}
-C {ammeter.sym} -24880 8040 3 0 {name=Vres6 savecurrent=true spice_ignore=0}
+C {ammeter.sym} -24880 8040 1 1 {name=Vres6 savecurrent=true spice_ignore=0}
 C {devices/vsource.sym} -24950 8100 0 0 {name=vress1 value=1.25}
 C {devices/lab_pin.sym} -24810 8040 0 1 {name=l42 sig_type=std_logic lab=K1207}
