@@ -1,0 +1,72 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/transmission_gate/testbenches/xschem/res_tb_tran.sch
+**.subckt res_tb_tran
+VDD VDD GND {VDD}
+VS vsweep GND PWL(0 -3.3 10m VDD)
+Vmeas vd net1 0
+.save i(vmeas)
+E2 vd GND VOL=' {Vcm}+V(vsweep)/2 '
+E3 vb GND VOL=' {Vcm}-V(vsweep)/2 '
+vc vc_p GND 0
+x1 VDD vc_p net1 vb GND transmission_gate
+**** begin user architecture code
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+
+
+
+* .include ../../../netlist/pex/inverter_magic_pex_3.spice
+.param VDD=3.3
+.csparam VDD=VDD
+.param Vcm=VDD/2
+.csparam Vcm=Vcm
+.param temp=27
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.control
+let vcc = 0.0
+
+save all
+set appendwrite
+
+* DC Sweep
+tran 10u 10m
+remzerovec
+end
+write res_tb_tran.raw
+set appendwrite
+
+* Plotting
+plot v(vsweep)
+plot i(Vmeas)
+
+*quit
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  transmission_gate.sym # of pins=5
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/transmission_gate/schematic/xschem/transmission_gate.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/transmission_gate/schematic/xschem/transmission_gate.sch
+.subckt transmission_gate VDD vctrl vin vout VSS
+*.iopin vin
+*.iopin VDD
+*.iopin VSS
+*.iopin vout
+*.ipin vctrl
+XMdummy1 VSS VSS VSS VSS sg13_lv_nmos w=2.0u l=1.0u ng=2 m=1 mm_ok=1
+XMdummy2 VDD VDD VDD VDD sg13_lv_pmos w=12.0u l=1.0u ng=2 m=1 mm_ok=1
+XM1 net1 vctrl VSS VSS sg13_lv_nmos w=20.0u l=1.0u ng=20 m=1 mm_ok=1
+XM2 net1 vctrl VDD VDD sg13_lv_pmos w=120.0u l=1.0u ng=20 m=1 mm_ok=1
+XM3 vout vctrl vin VSS sg13_hv_nmos w=16u l=2u ng=16 m=1 mm_ok=1
+XM4 vout net1 vin VDD sg13_hv_pmos w=48u l=2u ng=16 m=1 mm_ok=1
+XM5 vout vout vout VDD sg13_hv_pmos w=6u l=2u ng=2 m=1 mm_ok=1
+XM6 vout vout vout VSS sg13_hv_nmos w=2u l=2u ng=2 m=1 mm_ok=1
+.ends
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

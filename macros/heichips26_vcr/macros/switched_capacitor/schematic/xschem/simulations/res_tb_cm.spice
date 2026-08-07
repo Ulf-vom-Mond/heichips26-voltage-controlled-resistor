@@ -1,0 +1,107 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/transmission_gate/testbenches/xschem/res_tb_cm.sch
+**.subckt res_tb_cm
+VDD VDD GND {VDD}
+VS vsweep GND 0
+Vmeas vd net1 0
+.save i(vmeas)
+vc vc_p GND 3.3
+x1 VDD vc_p net1 vb GND vinv transmission_gate
+E2 vd GND VOL=' V(vcm_sweep)+V(vsweep)/2 '
+E3 vb GND VOL=' V(vcm_sweep)-V(vsweep)/2 '
+Vcm vcm_sweep GND 1
+**** begin user architecture code
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+
+
+
+* .include ../../../netlist/pex/inverter_magic_pex_3.spice
+.param VDD=3.3
+.csparam VDD=VDD
+.param Vcm=VDD/2
+.csparam Vcm=Vcm
+.param v1=0
+.csparam v1=v1
+.param v2=0
+.csparam v2=v2
+.param temp=27
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.control
+let vcc = 0.5
+
+save all
+set appendwrite
+
+
+
+repeat 5
+  alter Vcm $&vcc
+
+  * DC Sweep
+  dc VS -1 1 10m
+  remzerovec
+  let vcc = vcc + 0.460
+end
+write res_tb_cm.raw
+set appendwrite
+
+* Plotting
+plot dc1.i(Vmeas) dc2.i(Vmeas) dc3.i(Vmeas) dc4.i(Vmeas) dc5.i(Vmeas)
+plot dc1.v(vsweep)/dc1.i(Vmeas) dc2.v(vsweep)/dc2.i(Vmeas) dc3.v(vsweep)/dc3.i(Vmeas) dc4.v(vsweep)/dc4.i(Vmeas) dc5.v(vsweep)/dc5.i(Vmeas)
+*plot dc1.v(vinv) dc2.v(vinv) dc3.v(vinv) dc4.v(vinv) dc5.v(vinv)
+*plot dc1.v(vc_p) dc2.v(vc_p) dc3.v(vc_p) dc4.v(vc_p) dc5.v(vc_p)
+*plot dc1.v(vd) dc2.v(vd) dc3.v(vd) dc4.v(vd) dc5.v(vd)
+*plot dc1.v(vb) dc2.v(vb) dc3.v(vb) dc4.v(vb) dc5.v(vb)
+
+
+* Write Data
+unset appendwrite
+set wr_vecnames
+set wr_singlescale
+wrdata ../plot_simulations/data/res_tb_cm.txt v(vc_p) dc1.v(vsweep)/(dc1.i(Vmeas)) dc2.v(vsweep)/(dc2.i(Vmeas)) dc3.v(vsweep)/(dc3.i(Vmeas)) dc4.v(vsweep)/(dc4.i(Vmeas)) dc5.v(vsweep)/(dc5.i(Vmeas))
+
+
+
+*quit
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  transmission_gate.sym # of pins=6
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/transmission_gate/schematic/xschem/transmission_gate.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/transmission_gate/schematic/xschem/transmission_gate.sch
+.subckt transmission_gate VDD vctrl vin vout VSS vinv
+*.iopin vin
+*.iopin VDD
+*.iopin VSS
+*.iopin vout
+*.ipin vctrl
+*.opin vinv
+XMdummy1 VSS VSS VSS VSS sg13_lv_nmos w=2.0u l=1.0u ng=2 m=1 mm_ok=1
+XMdummy2 VDD VDD VDD VDD sg13_lv_pmos w=12.0u l=1.0u ng=2 m=1 mm_ok=1
+XM1 vinv vctrl VSS VSS sg13_lv_nmos w=20.0u l=1.0u ng=20 m=1 mm_ok=1
+XM2 vinv vctrl VDD VDD sg13_lv_pmos w=120.0u l=1.0u ng=20 m=1 mm_ok=1
+XM3 vout vctrl vin VSS sg13_hv_nmos w={tg_ngate_w*tg_ng} l={tg_ch_len} ng={tg_ng} m=1 mm_ok=1
+XM4 vout vinv vin VDD sg13_hv_pmos w={tg_pgate_w*tg_ng} l={tg_ch_len} ng={tg_ng} m=1 mm_ok=1
+XM5 vout vout vout VDD sg13_hv_pmos w={tg_pgate_w*2} l={tg_ch_len} ng=2 m=1 mm_ok=1
+XM6 vout vout vout VSS sg13_hv_nmos w={tg_ngate_w*2} l={tg_ch_len} ng=2 m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param tg_ch_len=1u
+.param tg_ngate_w=1u
+.param tg_pgate_w=5u
+.param tg_ng=40
+
+
+**** end user architecture code
+.ends
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

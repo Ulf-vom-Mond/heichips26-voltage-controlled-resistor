@@ -1,0 +1,58 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/tb_tran_deadtime.sch
+**.subckt tb_tran_deadtime
+vc vc_p GND PULSE(0 VDD 0 1p 1p 0.5u 1u)
+x4 vc_p out1 out2 deadtime_generator
+**** begin user architecture code
+
+
+* .include ../../../netlist/pex/inverter_magic_pex_3.spice
+.param VDD=3.3
+.csparam VDD=VDD
+.param temp=27
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.control
+
+save all
+set appendwrite
+
+* DC Sweep
+tran 100p 1u
+remzerovec
+end
+write tb_tran_deadtime.raw
+set appendwrite
+
+* Plotting
+plot v(out1) v(out2)+4 v(vc_p)-4
+
+*quit
+.endc
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+
+.include /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  deadtime_generator.sym # of pins=3
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/deadtime_generator.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/deadtime_generator.sch
+.subckt deadtime_generator in out1 out2
+*.ipin in
+*.opin out1
+*.opin out2
+x4 net2 out1 net1 VDD VSS sg13cmos5l_nor2_1
+x7 net1 in VDD VSS sg13cmos5l_inv_1
+x5 net3 in out2 VDD VSS sg13cmos5l_nor2_1
+x42 out1 net3 VDD VSS sg13cmos5l_dlygate4sd3_1
+x1 out2 net2 VDD VSS sg13cmos5l_dlygate4sd3_1
+.ends
+
+.GLOBAL GND
+.end

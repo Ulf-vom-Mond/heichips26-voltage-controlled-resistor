@@ -1,0 +1,101 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/res_tb_tran.sch
+**.subckt res_tb_tran
+VDD VDD GND {VDD}
+Vmeas vd net1 0
+.save i(vmeas)
+E2 vd GND VOL=' {Vcm}+V(vsweep)/2 '
+E3 vb GND VOL=' {Vcm}-V(vsweep)/2 '
+vc sw1 GND PULSE(0 3.3 {0.01*period} 100p 100p {0.48*period} {period})
+x1 sw1 VDD GND net1 vb sw2 switched_cap_cell
+VS1 vsweep GND 1
+vc1 sw2 GND PULSE(0 3.3 {-0.01*period} 100p 100p {0.52*period} {period})
+**** begin user architecture code
+
+
+* .include ../../../netlist/pex/inverter_magic_pex_3.spice
+.param VDD=3.3
+.csparam VDD=VDD
+.param Vcm=VDD/2
+.csparam Vcm=Vcm
+.param period=60n
+.csparam period=period
+.param temp=27
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.control
+
+save all
+set appendwrite
+
+tran 20p 300n
+remzerovec
+
+save all
+set appendwrite
+
+write res_tb_tran.raw
+set appendwrite
+
+* Plotting
+*plot v(vsweep)
+*plot i(Vmeas)
+*plot v(sw1)-4 v(sw2)-8
+print mean(v(vd) - v(vb))/mean(i(Vmeas))
+
+*quit
+.endc
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+
+.include /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  switched_cap_cell.sym # of pins=6
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/switched_cap_cell.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/switched_cap_cell.sch
+.subckt switched_cap_cell sw1 VDD VSS r2 r1 sw2
+*.ipin sw1
+*.iopin r1
+*.iopin r2
+*.iopin VDD
+*.iopin VSS
+*.ipin sw2
+x1 sw1 r1 net2 net3 transmission_gate
+x3 net1 r2 net2 sw2 transmission_gate
+C2 net2 VSS 1p
+x6 net3 sw1 VDD VSS sg13cmos5l_inv_1
+x2 net1 sw2 VDD VSS sg13cmos5l_inv_1
+.ends
+
+
+* expanding   symbol:  transmission_gate.sym # of pins=4
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/transmission_gate.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/transmission_gate.sch
+.subckt transmission_gate vctrl vin vout vinv
+*.iopin vin
+*.iopin vout
+*.ipin vctrl
+*.ipin nvctrl
+XM3 vout vctrl vin VSS sg13_hv_nmos w={tg_ngate_w*tg_ng} l={tg_ch_len} ng={tg_ng} m=1 mm_ok=1
+XM4 vout nvctrl vin VDD sg13_hv_pmos w={tg_pgate_w*tg_ng} l={tg_ch_len} ng={tg_ng} m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param tg_ch_len=1u
+.param tg_ngate_w=1u
+.param tg_pgate_w=4.5u
+.param tg_ng=40
+
+
+**** end user architecture code
+.ends
+
+.GLOBAL GND
+.GLOBAL VDD
+.end
