@@ -100,9 +100,9 @@ write @schname\\\\.raw
 set appendwrite
 
 * Plotting
-plot dc1.v(vsweep)/(dc1.v.x1.Vmeas#branch) dc2.v(vsweep)/(dc2.v.x1.Vmeas#branch) dc3.v(vsweep)/(dc3.v.x1.Vmeas#branch) dc4.v(vsweep)/(dc4.v.x1.Vmeas#branch) dc5.v(vsweep)/(dc5.v.x1.Vmeas#branch) ylimit 0 15k
+plot dc1.v(vsweep)/(dc1.i(vmeas)) dc2.v(vsweep)/(dc2.i(vmeas)) dc3.v(vsweep)/(dc3.i(vmeas)) dc4.v(vsweep)/(dc4.i(vmeas)) dc5.v(vsweep)/(dc5.i(vmeas)) ylimit 0 15k
 
-plot dc1.v.x1.Vmeas#branch dc2.v.x1.Vmeas#branch dc3.v.x1.Vmeas#branch dc4.v.x1.Vmeas#branch dc5.v.x1.Vmeas#branch
+plot dc1.i(vmeas) dc2.i(vmeas) dc3.i(vmeas) dc4.i(vmeas) dc5.i(vmeas)
 
 * Write Data
 unset appendwrite
