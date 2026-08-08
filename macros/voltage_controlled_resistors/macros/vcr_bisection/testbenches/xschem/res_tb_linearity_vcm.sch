@@ -129,3 +129,4 @@ tclcommand="set show_hidden_texts 1; xschem annotate_op"
 C {devices/gnd.sym} 980 -590 0 0 {name=l6 lab=GND}
 C {devices/gnd.sym} 780 -390 0 0 {name=l10 lab=GND}
 C {vdd.sym} 780 -550 0 0 {name=l11 lab=VDD}
+C {macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection_ideal_op.sym} 860 -470 0 0 {name=x2}

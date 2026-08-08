@@ -1,4 +1,4 @@
-** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/testbenches/xschem/res_tb_linearity.sch
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/testbenches/xschem/res_tb_linearity.sch
 **.subckt res_tb_linearity
 VDD VDD GND {VDD}
 VS vsweep GND 1.5

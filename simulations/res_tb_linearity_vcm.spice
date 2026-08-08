@@ -1,4 +1,4 @@
-** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/testbenches/xschem/res_tb_linearity_vcm.sch
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/testbenches/xschem/res_tb_linearity_vcm.sch
 **.subckt res_tb_linearity_vcm
 VDD VDD GND {VDD}
 VS vsweep GND 1.5
@@ -7,7 +7,7 @@ Vmeas vd net1 0
 E2 vd GND VOL=' V(vsweep)+{vdiff}/2 '
 E3 vb GND VOL=' V(vsweep)-{vdiff}/2 '
 vc vc_p GND 0
-x1 vc_p net1 vb VDD GND vcr_bisection
+x2 vc_p net1 vb VDD GND vcr_bisection_ideal_op
 **** begin user architecture code
 
 .lib cornerMOSlv.lib mos_tt
@@ -81,6 +81,28 @@ x1 Vdd net3 net2 net2 T1 Vss Vss op_amp_ver_2
 x2 Vdd net4 net1 net1 T2 Vss Vss op_amp_ver_2
 x3 Vdd net5 vg Vctrl Vss Vss vcm voltage_diff
 I2 Vdd net5 25u
+.ends
+
+
+* expanding   symbol:  macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection_ideal_op.sym # of
+*+ pins=5
+** sym_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection_ideal_op.sym
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection_ideal_op.sch
+.subckt vcr_bisection_ideal_op Vctrl T1 T2 Vdd Vss
+*.ipin T1
+*.ipin T2
+*.ipin Vctrl
+*.ipin Vdd
+*.ipin Vss
+R1 vcm net2 10k
+R2 vcm net1 10k
+XM1 T1 vg T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
+I0 Vdd net3 25u
+I1 Vdd net4 25u
+E1 vg Vss VOL=' v(vcm)-v(Vctrl) '
+I2 Vdd net5 25u
+E2 net2 Vss VOL=' v(T1) '
+E3 net1 Vss VOL=' v(T2) '
 .ends
 
 

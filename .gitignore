@@ -12,6 +12,7 @@ __pycache__/
 *.elf
 *.bin
 *.hex
+*.Identifier
 .DS_Store
 
 # Generated run folders and scripts
