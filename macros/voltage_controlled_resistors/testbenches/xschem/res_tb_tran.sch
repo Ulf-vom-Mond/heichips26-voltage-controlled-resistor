@@ -6,8 +6,8 @@ S {}
 F {}
 E {}
 B 2 1640 -820 2440 -420 {flags=graph
-y1=-0.70033333
-y2=-0.040333333
+y1=-2.3045
+y2=-1.6445
 ypos1=0
 ypos2=2
 divy=5
@@ -44,6 +44,8 @@ N 710 -700 710 -670 {lab=vc_p}
 N 1100 -470 1120 -470 {lab=vb}
 N 1040 -470 1100 -470 {lab=vb}
 N 890 -550 890 -530 {lab=vc_p}
+N 810 -410 810 -390 {lab=GND}
+N 810 -550 810 -530 {lab=VDD}
 C {devices/launcher.sym} 1700 -1410 0 0 {name=h2
 descr="Simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
@@ -62,6 +64,7 @@ value="
 .lib cornerMOShv.lib mos_tt
 .lib cornerRES.lib res_typ
 .lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
 "}
 C {devices/gnd.sym} 1100 -370 0 0 {name=l4 lab=GND}
 C {devices/vsource.sym} 580 -640 0 0 {name=VS value="PWL(0 -1.5 10m 1.5)"}
@@ -92,7 +95,7 @@ set appendwrite
 
 * Plotting
 plot v(vsweep) 
-plot v.x1.Vmeas#branch
+plot i(vmeas)
 
 *quit
 .endc
@@ -105,3 +108,5 @@ C {devices/gnd.sym} 710 -580 0 0 {name=l6 lab=GND}
 C {devices/lab_pin.sym} 710 -700 0 0 {name=l8 sig_type=std_logic lab=vc_p}
 C {devices/lab_pin.sym} 890 -550 1 0 {name=l9 sig_type=std_logic lab=vc_p}
 C {vcr_bisection.sym} 890 -470 0 0 {name=x1}
+C {vdd.sym} 810 -550 0 0 {name=l10 lab=VDD}
+C {devices/gnd.sym} 810 -390 0 0 {name=l11 lab=GND}

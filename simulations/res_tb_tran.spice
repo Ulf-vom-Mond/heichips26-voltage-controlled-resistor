@@ -1,7 +1,7 @@
-** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/testbenches/xschem/res_tb_linearity.sch
-**.subckt res_tb_linearity
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/testbenches/xschem/res_tb_tran.sch
+**.subckt res_tb_tran
 VDD VDD GND {VDD}
-VS vsweep GND 1.5
+VS vsweep GND PWL(0 -1.5 10m 1.5)
 Vmeas vd net1 0
 .save i(vmeas)
 E2 vd GND VOL=' {Vcm}+V(vsweep)/2 '
@@ -24,38 +24,23 @@ x1 vc_p net1 vb VDD GND vcr_bisection
 .param Vcm=2
 .csparam Vcm=Vcm
 .param temp=27
-.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
 .control
-let vcc = 0.75
+let vcc = 1
 
 save all
 set appendwrite
 
-
-
-repeat 5
-  alter vc $&vcc
-
-  * DC Sweep
-  dc VS -1 1 1m
-  remzerovec
-  let vcc = vcc + 0.25
+* DC Sweep
+tran 1u 10m
+remzerovec
 end
-write res_tb_linearity.raw
+write res_tb_tran.raw
 set appendwrite
 
 * Plotting
-plot dc1.v(vsweep)/(dc1.i(vmeas)) dc2.v(vsweep)/(dc2.i(vmeas)) dc3.v(vsweep)/(dc3.i(vmeas)) dc4.v(vsweep)/(dc4.i(vmeas)) dc5.v(vsweep)/(dc5.i(vmeas)) ylimit 0 10k
-
-plot dc1.i(vmeas) dc2.i(vmeas) dc3.i(vmeas) dc4.i(vmeas) dc5.i(vmeas)
-
-* Write Data
-unset appendwrite
-set wr_vecnames
-set wr_singlescale
-wrdata ../plot_simulations/data/res_tb_linearity.txt v(vc_p) dc1.v(vsweep)/(dc1.i(Vmeas)) dc2.v(vsweep)/(dc2.i(Vmeas)) dc3.v(vsweep)/(dc3.i(Vmeas)) dc4.v(vsweep)/(dc4.i(Vmeas)) dc5.v(vsweep)/(dc5.i(Vmeas))
-
-write res_tb_linearity.raw
+plot v(vsweep)
+plot i(vmeas)
 
 *quit
 .endc
