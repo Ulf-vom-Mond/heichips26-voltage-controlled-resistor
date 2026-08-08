@@ -44,6 +44,8 @@ N 980 -750 980 -720 {lab=vc_p}
 N 860 -560 860 -530 {lab=vc_p}
 N 680 -470 710 -470 {lab=#net1}
 N 1010 -470 1100 -470 {lab=vb}
+N 780 -550 780 -530 {lab=VDD}
+N 780 -410 780 -390 {lab=GND}
 C {devices/launcher.sym} 1700 -1410 0 0 {name=h2
 descr="Simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
@@ -62,6 +64,7 @@ value="
 .lib cornerMOShv.lib mos_tt
 .lib cornerRES.lib res_typ
 .lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
 "}
 C {devices/gnd.sym} 1100 -370 0 0 {name=l4 lab=GND}
 C {devices/vsource.sym} 580 -640 0 0 {name=VS value=1.5}
@@ -76,9 +79,9 @@ value="
 .param Vcm=2
 .csparam Vcm=Vcm
 .param temp=27
-.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
-let vcc = 0
+let vcc = 0.75
 
 save all
 set appendwrite
@@ -91,15 +94,15 @@ repeat 5
   * DC Sweep
   dc VS -1 1 1m
   remzerovec
-  let vcc = vcc + 0.2
+  let vcc = vcc + 0.25
 end
 write @schname\\\\.raw
 set appendwrite
 
 * Plotting
-plot dc1.v(vsweep)/(dc1.v.x1.Vmeas#branch) dc2.v(vsweep)/(dc2.v.x1.Vmeas#branch) dc3.v(vsweep)/(dc3.v.x1.Vmeas#branch) dc4.v(vsweep)/(dc4.v.x1.Vmeas#branch) dc5.v(vsweep)/(dc5.v.x1.Vmeas#branch) ylimit 0 10k
+plot (dc1.v(vd) - dc1.v(vb))/(dc1.i(vmeas)) (dc2.v(vd) - dc2.v(vb))/(dc2.i(vmeas)) (dc3.v(vd) - dc3.v(vb))/(dc3.i(vmeas)) (dc4.v(vd) - dc4.v(vb))/(dc4.i(vmeas)) (dc5.v(vd) - dc5.v(vb))/(dc5.i(vmeas)) ylimit 0 10k
 
-plot dc1.v.x1.Vmeas#branch dc2.v.x1.Vmeas#branch dc3.v.x1.Vmeas#branch dc4.v.x1.Vmeas#branch dc5.v.x1.Vmeas#branch
+plot dc1.i(vmeas) dc2.i(vmeas) dc3.i(vmeas) dc4.i(vmeas) dc5.i(vmeas)
 
 * Write Data
 unset appendwrite
@@ -124,3 +127,5 @@ descr="Annotate OP"
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
 C {devices/gnd.sym} 980 -590 0 0 {name=l6 lab=GND}
+C {devices/gnd.sym} 780 -390 0 0 {name=l10 lab=GND}
+C {vdd.sym} 780 -550 0 0 {name=l11 lab=VDD}

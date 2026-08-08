@@ -5,16 +5,15 @@
 *.ipin Vctrl
 *.ipin Vdd
 *.ipin Vss
-R1 vcm net3 10k
-R2 vcm net2 10k
-Vmeas T1 net1 0
-.save i(vmeas)
-XM1 net1 net6 T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
-I0 Vdd net4 25u
-I1 Vdd net5 25u
-x1 Vdd net4 net3 net3 T1 Vss Vss op_amp_ver_2
-x2 Vdd net5 net2 net2 T2 Vss Vss op_amp_ver_2
-E1 net6 Vss VOL=' v(vcm)-v(Vctrl) '
+R1 vcm net2 10k
+R2 vcm net1 10k
+XM1 T1 vg T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
+I0 Vdd net3 25u
+I1 Vdd net4 25u
+x1 Vdd net3 net2 net2 T1 Vss Vss op_amp_ver_2
+x2 Vdd net4 net1 net1 T2 Vss Vss op_amp_ver_2
+E1 vg Vss VOL=' v(vcm)-v(Vctrl) '
+I2 Vdd net5 25u
 **.ends
 
 * expanding   symbol:  macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym # of pins=7
@@ -128,6 +127,25 @@ XMDOP7 pdrive nIOADISABLE POAVDD POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_o
 XMDOP8 pcasc nIOADISABLE POAVDD POAVDD sg13_hv_pmos w=1.2u l=0.6u ng=1 m=1 mm_ok=1
 XC1 pdrive OOA cap_cmomi w=40e-6 l=14e-6 mmin=1 mmax=3 feed=double subblock=0 m=1 mm_ok=1
 XC2 ndrive OOA cap_cmomi w=40e-6 l=14e-6 mmin=1 mmax=3 feed=double subblock=0 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  macros/voltage_controlled_resistors/macros/voltage_diff/schematic/xschem/voltage_diff.sym # of pins=7
+** sym_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/voltage_diff/schematic/xschem/voltage_diff.sym
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/voltage_diff/schematic/xschem/voltage_diff.sch
+.subckt voltage_diff POAVDD IOAIREF VOUT V1 POAVSS IOADISABLE V2
+*.iopin POAVSS
+*.iopin POAVDD
+*.iopin IOAIREF
+*.iopin V1
+*.iopin VOUT
+*.iopin V2
+*.iopin IOADISABLE
+x1 POAVDD IOAIREF net2 VOUT net1 POAVSS IOADISABLE op_amp_ver_2
+XR5 net2 V1 POAVSS rhigh w=2e-6 l=20e-6 m=1 b=0 mm_ok=1
+XR2 VOUT net2 POAVSS rhigh w=2e-6 l=20e-6 m=1 b=0 mm_ok=1
+XR3 net1 V2 POAVSS rhigh w=2e-6 l=20e-6 m=1 b=0 mm_ok=1
+XR4 POAVSS net1 POAVSS rhigh w=2e-6 l=20e-6 m=1 b=0 mm_ok=1
 .ends
 
 .end

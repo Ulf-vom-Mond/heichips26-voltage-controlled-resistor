@@ -1,5 +1,5 @@
-** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/testbenches/xschem/res_tb_linearity.sch
-**.subckt res_tb_linearity
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/testbenches/xschem/res_tb_linearity_vctrl.sch
+**.subckt res_tb_linearity_vctrl
 VDD VDD GND {VDD}
 VS vsweep GND 1.5
 Vmeas vd net1 0
@@ -41,11 +41,11 @@ repeat 5
   remzerovec
   let vcc = vcc + 0.25
 end
-write res_tb_linearity.raw
+write res_tb_linearity_vctrl.raw
 set appendwrite
 
 * Plotting
-plot dc1.v(vsweep)/(dc1.i(vmeas)) dc2.v(vsweep)/(dc2.i(vmeas)) dc3.v(vsweep)/(dc3.i(vmeas)) dc4.v(vsweep)/(dc4.i(vmeas)) dc5.v(vsweep)/(dc5.i(vmeas)) ylimit 0 10k
+plot (dc1.v(vd) - dc1.v(vb))/(dc1.i(vmeas)) (dc2.v(vd) - dc2.v(vb))/(dc2.i(vmeas)) (dc3.v(vd) - dc3.v(vb))/(dc3.i(vmeas)) (dc4.v(vd) - dc4.v(vb))/(dc4.i(vmeas)) (dc5.v(vd) - dc5.v(vb))/(dc5.i(vmeas)) ylimit 0 10k
 
 plot dc1.i(vmeas) dc2.i(vmeas) dc3.i(vmeas) dc4.i(vmeas) dc5.i(vmeas)
 
@@ -53,7 +53,7 @@ plot dc1.i(vmeas) dc2.i(vmeas) dc3.i(vmeas) dc4.i(vmeas) dc5.i(vmeas)
 unset appendwrite
 set wr_vecnames
 set wr_singlescale
-wrdata ../plot_simulations/data/res_tb_linearity.txt v(vc_p) dc1.v(vsweep)/(dc1.i(Vmeas)) dc2.v(vsweep)/(dc2.i(Vmeas)) dc3.v(vsweep)/(dc3.i(Vmeas)) dc4.v(vsweep)/(dc4.i(Vmeas)) dc5.v(vsweep)/(dc5.i(Vmeas))
+wrdata ../plot_simulations/data/res_tb_linearity_vctrl.txt v(vc_p) dc1.v(vsweep)/(dc1.i(Vmeas)) dc2.v(vsweep)/(dc2.i(Vmeas)) dc3.v(vsweep)/(dc3.i(Vmeas)) dc4.v(vsweep)/(dc4.i(Vmeas)) dc5.v(vsweep)/(dc5.i(Vmeas))
 
 write res_tb_linearity.raw
 
@@ -75,13 +75,13 @@ write res_tb_linearity.raw
 *.ipin Vss
 R1 vcm net2 10k
 R2 vcm net1 10k
-XM1 T1 vg T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
+XM1 T1 net5 T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
 I0 Vdd net3 25u
 I1 Vdd net4 25u
 x1 Vdd net3 net2 net2 T1 Vss Vss op_amp_ver_2
 x2 Vdd net4 net1 net1 T2 Vss Vss op_amp_ver_2
-x3 Vdd net5 vg Vctrl Vss Vss vcm voltage_diff
-I2 Vdd net5 25u
+x3 Vdd net6 net5 Vctrl Vss Vss vcm voltage_diff
+I2 Vdd net6 25u
 .ends
 
 

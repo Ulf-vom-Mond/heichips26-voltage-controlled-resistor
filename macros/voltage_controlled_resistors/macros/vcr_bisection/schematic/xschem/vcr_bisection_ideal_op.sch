@@ -32,9 +32,11 @@ N -190 -50 -190 -30 {lab=#net2}
 N -350 -30 -190 -30 {lab=#net2}
 N -350 -230 -350 -30 {lab=#net2}
 N -350 -230 -170 -230 {lab=#net2}
+N -170 -240 -170 -230 {lab=#net2}
 N 150 -50 150 -30 {lab=#net1}
 N 30 -30 150 -30 {lab=#net1}
 N 30 -230 30 -30 {lab=#net1}
+N 150 -230 170 -230 {lab=#net1}
 N 170 -290 170 -230 {lab=#net1}
 N 110 -490 140 -490 {lab=Vctrl}
 N 350 -450 380 -450 {lab=vg}
@@ -48,8 +50,10 @@ N -30 -450 140 -450 {lab=vcm}
 N -30 -450 -30 -290 {lab=vcm}
 N 380 -450 380 -350 {lab=vg}
 N 220 -380 220 -330 {lab=#net5}
-N -170 -290 -170 -230 {lab=#net2}
-N 30 -230 170 -230 {lab=#net1}
+N -170 -240 -90 -240 {lab=#net2}
+N -170 -290 -170 -240 {lab=#net2}
+N 150 -230 330 -220 {lab=#net1}
+N 30 -230 150 -230 {lab=#net1}
 C {res.sym} -130 -290 1 0 {name=R1
 value=10k
 footprint=1206
@@ -85,14 +89,23 @@ C {isource.sym} 290 -60 2 0 {name=I1 value=25u}
 C {lab_pin.sym} 290 -30 0 0 {name=p11 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} -50 -30 0 0 {name=p12 sig_type=std_logic lab=Vdd}
 C {macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym} -170 -120 3 0 {name=x1
-}
+spice_ignore=true}
 C {macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym} 170 -120 3 0 {name=x2
-}
+spice_ignore=true}
 C {lab_pin.sym} 200 -550 3 1 {name=p14 sig_type=std_logic lab=Vss}
 C {lab_pin.sym} 280 -330 1 1 {name=p15 sig_type=std_logic lab=Vss}
 C {lab_pin.sym} 220 -250 3 0 {name=p16 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} 270 -550 1 0 {name=p17 sig_type=std_logic lab=Vdd}
-C {macros/voltage_controlled_resistors/macros/voltage_diff/schematic/xschem/voltage_diff.sym} 250 -450 0 0 {name=x3
+C {vsource_arith.sym} 380 -320 0 0 {name=E1 VOL=v(vcm)-v(Vctrl)
 }
+C {macros/voltage_controlled_resistors/macros/voltage_diff/schematic/xschem/voltage_diff.sym} 250 -450 0 0 {name=x3
+spice_ignore=true}
 C {isource.sym} 220 -300 2 0 {name=I2 value=25u}
 C {lab_pin.sym} 70 -350 0 0 {name=p13 sig_type=std_logic lab=vg}
+C {lab_pin.sym} 380 -290 1 1 {name=p18 sig_type=std_logic lab=Vss}
+C {vsource_arith.sym} -90 -210 0 0 {name=E2 VOL=v(T1)
+}
+C {lab_pin.sym} -90 -180 1 1 {name=p19 sig_type=std_logic lab=Vss}
+C {vsource_arith.sym} 330 -190 0 0 {name=E3 VOL=v(T2)
+}
+C {lab_pin.sym} 330 -160 1 1 {name=p20 sig_type=std_logic lab=Vss}

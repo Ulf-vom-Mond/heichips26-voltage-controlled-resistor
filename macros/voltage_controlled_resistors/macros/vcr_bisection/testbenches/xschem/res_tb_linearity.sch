@@ -6,15 +6,15 @@ S {}
 F {}
 E {}
 B 2 1640 -820 2440 -420 {flags=graph
-y1=0.33
-y2=0.99
+y1=0.858
+y2=1.518
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.004
-x2=0.001
+x1=-0.00325
+x2=0.00175
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -39,8 +39,8 @@ N 1100 -390 1100 -370 {lab=GND}
 N 580 -610 580 -580 {lab=GND}
 N 580 -700 580 -670 {lab=vsweep}
 N 570 -470 620 -470 {lab=vd}
-N 1220 -630 1220 -560 {lab=GND}
-N 1220 -720 1220 -690 {lab=vc_p}
+N 980 -660 980 -590 {lab=GND}
+N 980 -750 980 -720 {lab=vc_p}
 N 860 -560 860 -530 {lab=vc_p}
 N 680 -470 710 -470 {lab=#net1}
 N 1010 -470 1100 -470 {lab=vb}
@@ -92,7 +92,7 @@ repeat 5
   alter vc $&vcc
 
   * DC Sweep
-  dc VS -0.7 0.7 1m
+  dc VS -1 1 1m
   remzerovec
   let vcc = vcc + 0.25
 end
@@ -100,7 +100,7 @@ write @schname\\\\.raw
 set appendwrite
 
 * Plotting
-plot dc1.v(vsweep)/(dc1.i(vmeas)) dc2.v(vsweep)/(dc2.i(vmeas)) dc3.v(vsweep)/(dc3.i(vmeas)) dc4.v(vsweep)/(dc4.i(vmeas)) dc5.v(vsweep)/(dc5.i(vmeas)) ylimit 0 15k
+plot dc1.v(vsweep)/(dc1.i(vmeas)) dc2.v(vsweep)/(dc2.i(vmeas)) dc3.v(vsweep)/(dc3.i(vmeas)) dc4.v(vsweep)/(dc4.i(vmeas)) dc5.v(vsweep)/(dc5.i(vmeas)) ylimit 0 10k
 
 plot dc1.i(vmeas) dc2.i(vmeas) dc3.i(vmeas) dc4.i(vmeas) dc5.i(vmeas)
 
@@ -118,14 +118,14 @@ write res_tb_linearity.raw
 C {ammeter.sym} 650 -470 3 0 {name=Vmeas savecurrent=true spice_ignore=0}
 C {vsource_arith.sym} 570 -420 0 0 {name=E2 VOL="\{Vcm\}+V(vsweep)/2"}
 C {vsource_arith.sym} 1100 -420 0 0 {name=E3 VOL="\{Vcm\}-V(vsweep)/2"}
-C {devices/vsource.sym} 1220 -660 0 0 {name=vc value=0}
-C {devices/lab_pin.sym} 1220 -720 0 0 {name=l8 sig_type=std_logic lab=vc_p}
+C {devices/vsource.sym} 980 -690 0 0 {name=vc value=0}
+C {devices/lab_pin.sym} 980 -750 0 0 {name=l8 sig_type=std_logic lab=vc_p}
 C {devices/lab_pin.sym} 860 -560 1 0 {name=l9 sig_type=std_logic lab=vc_p}
+C {vcr_bisection.sym} 860 -470 0 0 {name=x1}
 C {devices/launcher.sym} 1700 -1360 0 0 {name=h3
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
-C {devices/gnd.sym} 1220 -560 0 0 {name=l6 lab=GND}
-C {macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection.sym} 860 -470 0 0 {name=x1}
-C {vdd.sym} 780 -550 0 0 {name=l10 lab=VDD}
-C {devices/gnd.sym} 780 -390 0 0 {name=l11 lab=GND}
+C {devices/gnd.sym} 980 -590 0 0 {name=l6 lab=GND}
+C {devices/gnd.sym} 780 -390 0 0 {name=l10 lab=GND}
+C {vdd.sym} 780 -550 0 0 {name=l11 lab=VDD}

@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.00325
-x2=0.00175
+x1=-0.00375
+x2=0.00125
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -76,9 +76,8 @@ value="
 * .include ../../../netlist/pex/inverter_magic_pex_3.spice
 .param VDD=3.3
 .csparam VDD=VDD
-.param Vcm=2
-.csparam Vcm=Vcm
 .param temp=27
+.param vdiff=10m
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
 let vcc = 0.75
@@ -92,7 +91,7 @@ repeat 5
   alter vc $&vcc
 
   * DC Sweep
-  dc VS -1 1 1m
+  dc VS 0 3.3 10m
   remzerovec
   let vcc = vcc + 0.25
 end
@@ -100,7 +99,7 @@ write @schname\\\\.raw
 set appendwrite
 
 * Plotting
-plot dc1.v(vsweep)/(dc1.i(vmeas)) dc2.v(vsweep)/(dc2.i(vmeas)) dc3.v(vsweep)/(dc3.i(vmeas)) dc4.v(vsweep)/(dc4.i(vmeas)) dc5.v(vsweep)/(dc5.i(vmeas)) ylimit 0 10k
+plot (dc1.v(vd) - dc1.v(vb))/(dc1.i(vmeas)) (dc2.v(vd) - dc2.v(vb))/(dc2.i(vmeas)) (dc3.v(vd) - dc3.v(vb))/(dc3.i(vmeas)) (dc4.v(vd) - dc4.v(vb))/(dc4.i(vmeas)) (dc5.v(vd) - dc5.v(vb))/(dc5.i(vmeas)) ylimit 0 10k
 
 plot dc1.i(vmeas) dc2.i(vmeas) dc3.i(vmeas) dc4.i(vmeas) dc5.i(vmeas)
 
@@ -116,12 +115,13 @@ write res_tb_linearity.raw
 .endc
 "}
 C {ammeter.sym} 650 -470 3 0 {name=Vmeas savecurrent=true spice_ignore=0}
-C {vsource_arith.sym} 570 -420 0 0 {name=E2 VOL="\{Vcm\}+V(vsweep)/2"}
-C {vsource_arith.sym} 1100 -420 0 0 {name=E3 VOL="\{Vcm\}-V(vsweep)/2"}
+C {vsource_arith.sym} 570 -420 0 0 {name=E2 VOL="V(vsweep)+\{vdiff\}/2"}
+C {vsource_arith.sym} 1100 -420 0 0 {name=E3 VOL="V(vsweep)-\{vdiff\}/2"}
 C {devices/vsource.sym} 980 -690 0 0 {name=vc value=0}
 C {devices/lab_pin.sym} 980 -750 0 0 {name=l8 sig_type=std_logic lab=vc_p}
 C {devices/lab_pin.sym} 860 -560 1 0 {name=l9 sig_type=std_logic lab=vc_p}
-C {vcr_bisection.sym} 860 -470 0 0 {name=x1}
+C {vcr_bisection.sym} 820 -220 0 0 {name=x1
+spice_ignore=true}
 C {devices/launcher.sym} 1700 -1360 0 0 {name=h3
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
