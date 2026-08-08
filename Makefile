@@ -7,14 +7,10 @@ PDK_ROOT ?= $(MAKEFILE_DIR)/IHP-Open-PDK
 PDK ?= ihp-sg13cmos5l
 
 PDK_REPO_IHP_OPEN_PDK ?= https://github.com/iic-jku/IHP-Open-PDK.git
-PDK_COMMIT_IHP_OPEN_PDK ?= 1d6f2bf7f828197a2c253c016222b00961eb2712 
+PDK_COMMIT_IHP_OPEN_PDK ?= 90f04eafe3c6411800372ccb03c9a8a8b7a3898e
 
 PDK_REPO_IHP_CMOS5L ?= https://github.com/iic-jku/ihp-sg13cmos5l.git
-<<<<<<< HEAD
-PDK_COMMIT_IHP_CMOS5L ?= fc014d6c97d7a66a1f3992aedbeaa22cc89cbdcd 
-=======
-PDK_COMMIT_IHP_CMOS5L ?= 6b6b810feccd5534267cc9f441b9b6cf54e735d6
->>>>>>> bisection_opamp_work
+PDK_COMMIT_IHP_CMOS5L ?= 0d622eabd6fe96d5a7eab765db882a367a75cf8d
 
 KLAYOUT_PLUGINS = KLayoutPluginUtils \
                   AlignToolPlugin \
@@ -49,6 +45,7 @@ $(PDK_ROOT)/$(PDK):
 	# Compile Verilog-A using OpenVAF-reloaded
 	@echo "Compiling Verilog-A models using OpenVAF-reloaded…"
 	cd $(PDK_ROOT)/ihp-sg13g2/libs.tech/verilog-a/; ./openvaf-compile-va.sh
+	cd $(PDK_ROOT)/ihp-sg13cmos5l/libs.tech/verilog-a/; ./openvaf-compile-va.sh
 	@echo "Congratulations, the PDK has been set up!"
 
 clone-pdk: $(PDK_ROOT)/$(PDK) ## Clone the IHP-Open-PDK repository

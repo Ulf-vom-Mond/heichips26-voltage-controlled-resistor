@@ -50,6 +50,7 @@ print mean(v(vd) - v(vb))/mean(i(Vmeas))
 .lib cornerMOShv.lib mos_tt
 .lib cornerRES.lib res_typ
 .lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
 
 .include /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice
 
@@ -66,11 +67,11 @@ print mean(v(vd) - v(vb))/mean(i(Vmeas))
 *.iopin VDD
 *.iopin VSS
 *.ipin sw2
-x1 sw1 r1 net2 net3 net4 net5 transmission_gate
-x3 net1 r2 net2 sw2 net6 net7 transmission_gate
-C2 net2 VSS 1p
+x1 sw1 r1 net2 net3 VDD VSS transmission_gate
+x3 net1 r2 net2 sw2 VDD VSS transmission_gate
 x6 net3 sw1 VDD VSS sg13cmos5l_inv_1
 x2 net1 sw2 VDD VSS sg13cmos5l_inv_1
+XC1 net2 VSS cap_cmomi w=30e-6 l=30e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
 .ends
 
 

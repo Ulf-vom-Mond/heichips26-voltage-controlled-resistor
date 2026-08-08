@@ -6,15 +6,15 @@ S {}
 F {}
 E {}
 B 2 1640 -820 2440 -420 {flags=graph
-y1=0.046592372
-y2=0.99699231
+y1=0.23667236
+y2=1.1870723
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.00225
-x2=0.00275
+x1=-0.005
+x2=0
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -51,10 +51,10 @@ N 240 -480 240 -460 {lab=vsweep}
 N 240 -480 320 -480 {lab=vsweep}
 N 320 -520 320 -480 {lab=vsweep}
 N 460 -250 460 -220 {lab=GND}
-N 740 -440 740 -310 {lab=sw2}
 N 740 -440 780 -440 {lab=sw2}
 N 460 -460 460 -310 {lab=sw1}
 N 460 -460 780 -460 {lab=sw1}
+N 740 -440 740 -310 {lab=sw2}
 C {devices/launcher.sym} 1700 -1410 0 0 {name=h2
 descr="Simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
@@ -122,6 +122,7 @@ value="
 .lib cornerMOShv.lib mos_tt
 .lib cornerRES.lib res_typ
 .lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
 
 .include $::PDK_ROOT/$::PDK/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice
 "}

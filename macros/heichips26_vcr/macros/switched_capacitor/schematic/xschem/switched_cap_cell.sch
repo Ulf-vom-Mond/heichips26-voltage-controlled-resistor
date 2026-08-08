@@ -39,12 +39,14 @@ C {devices/iopin.sym} -900 -80 3 0 {name=p11 lab=VDD}
 C {devices/iopin.sym} -900 80 1 0 {name=p7 lab=VSS}
 C {lab_pin.sym} -900 -60 3 0 {name=p8 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} -900 60 1 0 {name=p9 sig_type=std_logic lab=VSS}
-C {capa.sym} 0 110 0 0 {name=C2
-m=1
-value=1p
-footprint=1206
-device="ceramic capacitor"}
-C {sg13cmos5l_pr/cap_cmomi.sym} 0 -140 0 0 {name=C1
+C {sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym} -440 -20 0 0 {name=x6 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
+C {sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym} 440 -120 0 1 {name=x2 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
+C {ipin.sym} 520 -120 0 1 {name=p1 lab=sw2}
+C {lab_pin.sym} -180 -80 1 0 {name=p2 sig_type=std_logic lab=VDD}
+C {lab_pin.sym} 180 -80 1 0 {name=p10 sig_type=std_logic lab=VDD}
+C {lab_pin.sym} -180 40 3 0 {name=p12 sig_type=std_logic lab=VSS}
+C {lab_pin.sym} 180 40 3 0 {name=p13 sig_type=std_logic lab=VSS}
+C {sg13cmos5l_pr/cap_cmomi.sym} 0 110 0 0 {name=C1
 model=cap_cmomi
 w=30e-6
 l=30e-6
@@ -55,7 +57,4 @@ subblock=0
 m=1
 mm_ok=1
 spiceprefix=X
-spice_ignore=true}
-C {sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym} -440 -20 0 0 {name=x6 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
-C {sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym} 440 -120 0 1 {name=x2 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
-C {ipin.sym} 520 -120 0 1 {name=p1 lab=sw2}
+}
