@@ -2,12 +2,11 @@
 **.subckt osc_tb_tran
 VDD VDD VSS 3.3
 x1 net2 net1 VSS VDD nmos_current_mirror2
-Vi1 net4 net2 0
+Vi1 VDD net2 0
 .save i(vi1)
 Vi2 net3 net1 0
 .save i(vi2)
 I1 VSS net3 20u
-VDD1 VDD net4 PULSE(0 2 0 10n 10n 500n 1000n)
 **** begin user architecture code
 
 .lib cornerMOSlv.lib mos_tt
@@ -33,7 +32,7 @@ VDD1 VDD net4 PULSE(0 2 0 10n 10n 500n 1000n)
 save all
 set appendwrite
 
-tran 10n 3000n
+tran 10n 30n
 remzerovec
 
 save all
@@ -64,9 +63,9 @@ plot i(Vi1) i(Vi2)
 *.opin i_out1
 *.iopin VSS
 *.opin i_out2
-XM1 i_out1 i_in VSS VSS sg13_hv_nmos w=5.0u l=5.0u ng=1 m=1 mm_ok=1
-XM2 i_in i_in VSS VSS sg13_hv_nmos w=5.0u l=5.0u ng=1 m=1 mm_ok=1
-XM3 i_out2 i_in VSS VSS sg13_hv_nmos w=20.0u l=5.0u ng=5 m=1 mm_ok=1
+XM1 i_in i_in VSS VSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XM2 i_out1 i_in VSS VSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XM3 i_out2 i_in VSS VSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
 .ends
 
 .end

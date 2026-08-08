@@ -2,7 +2,7 @@
 **.subckt nmos_current_mirror2_tb_dc
 VDD VDD GND {VDD}
 Vgsp net1 GND 0
-I0 GND net2 50u
+I0 GND net2 0.1u
 vout1 net1 vin 0
 .save i(vout1)
 x1 vin net2 GND net3 nmos_current_mirror2
@@ -71,9 +71,9 @@ plot i(vout1) i(vout2)
 *.opin i_out1
 *.iopin VSS
 *.opin i_out2
-XM1 i_out1 i_in VSS VSS sg13_hv_nmos w=5.0u l=5.0u ng=1 m=1 mm_ok=1
-XM2 i_in i_in VSS VSS sg13_hv_nmos w=5.0u l=5.0u ng=1 m=1 mm_ok=1
-XM3 i_out2 i_in VSS VSS sg13_hv_nmos w=20.0u l=5.0u ng=5 m=1 mm_ok=1
+XM1 i_in i_in VSS VSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XM2 i_out1 i_in VSS VSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+XM3 i_out2 i_in VSS VSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
 .ends
 
 .GLOBAL GND
