@@ -52,28 +52,20 @@ linewidth_mult=3
 color=4
 node=i(VDD)}
 T {Testbench for Output Voltage Swing analysis - Inverter} 520 -1730 0 0 1 1 {}
-N 1320 -1100 1320 -1060 {lab=VDD}
-N 1320 -1000 1320 -960 {lab=GND}
-N 1320 -500 1320 -480 {lab=GND}
-N 1100 -640 1100 -560 {lab=vin}
-N 960 -580 960 -480 {lab=GND}
-N 960 -580 980 -580 {lab=GND}
-N 1040 -580 1060 -580 {lab=#net1}
-N 1060 -580 1060 -560 {lab=#net1}
-N 1220 -640 1320 -640 {lab=#net2}
-N 1100 -640 1160 -640 {lab=vin}
-N 1320 -640 1320 -560 {lab=#net2}
+N 1000 -780 1000 -680 {lab=GND}
+N 900 -700 900 -680 {lab=GND}
+N 900 -780 900 -760 {lab=#net1}
+N 900 -780 960 -780 {lab=#net1}
+N 1000 -860 1000 -810 {lab=#net2}
+N 820 -940 1000 -940 {lab=#net3}
+N 1000 -940 1000 -920 {lab=#net3}
+N 820 -700 820 -680 {lab=GND}
+N 820 -940 820 -760 {lab=#net3}
 C {devices/code_shown.sym} 60 -1250 0 0 {name=NGSPICE
 only_toplevel=true 
 value="
 .include ../../../netlist/pex/inverter_magic_pex_3.spice
-.param VDD=3.3
-.csparam VDD=VDD
-.param Vcm=VDD/2
-.csparam Vcm=Vcm
 .param temp=27
-.param Cload=10p
-.param Rload=1k
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
 .control
 
@@ -86,14 +78,13 @@ write @schname\\\\.raw
 set appendwrite
 
 * DC Sweep
-dc Vgsp 0 $&VDD 1m I0 10u 100u 10u
+dc VDD 0 3.3 1m Vg 1 3.3 0.25
 remzerovec
 write @schname\\\\.raw
 set appendwrite
 
 * Plotting
 plot i(vout1)
-*plot vin
 
 * Measurement
 *meas dc Vgsp_at_Vcm when vout=Vcm
@@ -129,15 +120,19 @@ value="
 .lib cornerRES.lib res_typ
 .lib cornerDIO.lib dio_tt
 "}
-C {devices/vsource.sym} 1320 -1030 0 0 {name=VDD value=\{VDD\}}
-C {devices/gnd.sym} 1320 -960 0 0 {name=l3 lab=GND}
-C {vdd.sym} 1320 -1100 0 0 {name=l7 lab=VDD}
-C {devices/gnd.sym} 1320 -480 0 1 {name=l26 lab=GND}
-C {devices/vsource.sym} 1320 -530 0 1 {name=Vgsp value=0
+C {devices/vsource.sym} 820 -730 0 0 {name=VDD value=0}
+C {devices/gnd.sym} 900 -680 0 1 {name=l26 lab=GND}
+C {devices/vsource.sym} 900 -730 0 0 {name=Vg value=0
 }
-C {isource.sym} 1010 -580 3 0 {name=I0 value=50u}
-C {devices/gnd.sym} 960 -480 0 1 {name=l8 lab=GND}
-C {ammeter.sym} 1190 -640 1 1 {name=vout1 savecurrent=true spice_ignore=0}
-C {lab_pin.sym} 1100 -640 0 0 {name=p2 sig_type=std_logic lab=vin}
-C {devices/gnd.sym} 1100 -460 0 1 {name=l4 lab=GND}
-C {nmos_current_mirror1.sym} 1080 -520 0 0 {name=x1}
+C {ammeter.sym} 1000 -890 0 1 {name=vout1 savecurrent=true }
+C {sg13cmos5l_pr/sg13_hv_nmos.sym} 980 -780 0 0 {name=M8
+l=0.45u
+w=3u
+ ng=1
+ m=1
+  mm_ok=1
+ model=sg13_hv_nmos
+spiceprefix=X
+}
+C {devices/gnd.sym} 1000 -680 0 1 {name=l1 lab=GND}
+C {devices/gnd.sym} 820 -680 0 1 {name=l4 lab=GND}

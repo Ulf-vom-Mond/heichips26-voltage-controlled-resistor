@@ -29,7 +29,7 @@ write pmos_current_mirror1_tb_dc.raw
 set appendwrite
 
 * DC Sweep
-dc Vgsp 0 $&VDD 1m
+dc Vgsp 0 $&VDD 1m I0 10u 100u 10u
 remzerovec
 write pmos_current_mirror1_tb_dc.raw
 set appendwrite
@@ -68,8 +68,8 @@ plot i(vout1)
 *.ipin i_in
 *.opin i_out
 *.iopin VDD
-XM2 i_out i_in VDD VDD sg13_hv_pmos w=80.0u l=10.0u ng=10 m=1 mm_ok=1
-XM1 i_in i_in VDD VDD sg13_hv_pmos w=80.0u l=10.0u ng=10 m=1 mm_ok=1
+XM2 i_out i_in VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM1 i_in i_in VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
 .ends
 
 .GLOBAL GND

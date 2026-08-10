@@ -1,18 +1,16 @@
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/osc_tb_tran.sch
 **.subckt osc_tb_tran
-VDD VDD VSS 3.3
-x1 net2 net1 VSS VDD nmos_current_mirror2
-Vi1 VDD net2 0
-.save i(vi1)
-Vi2 net3 net1 0
-.save i(vi2)
-I1 VSS net3 20u
+VDD VDD 0 3.3
+I1 net2 0 20u
+I3 net1 0 PULSE(0 1m 10n 1n 1n 10n 20n 1)
+x1 VDD out1 net2 0 net1 out2 osc
 **** begin user architecture code
 
 .lib cornerMOSlv.lib mos_tt
 .lib cornerMOShv.lib mos_tt
 .lib cornerRES.lib res_typ
 .lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
 
 .include /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice
 
@@ -27,12 +25,13 @@ I1 VSS net3 20u
 .csparam period=period
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.probe alli
 .control
 
 save all
 set appendwrite
 
-tran 10n 30n
+tran 10n 0.5u
 remzerovec
 
 save all
@@ -42,11 +41,9 @@ write osc_tb_tran.raw
 set appendwrite
 
 * Plotting
-*plot v(vsweep)
-*plot i(Vmeas)
-*plot v(sw1)-4 v(sw2)-8
-*print mean(v(vd) - v(vb))/mean(i(Vmeas))
-plot i(Vi1) i(Vi2)
+*plot g1 out1 g2 out2
+*plot xm12:d#branch xm8:d#branch xc1#branch xc2#branch
+plot out1 out2
 
 *quit
 .endc
@@ -55,17 +52,31 @@ plot i(Vi1) i(Vi2)
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  nmos_current_mirror2.sym # of pins=4
-** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/nmos_current_mirror2.sym
-** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/nmos_current_mirror2.sch
-.subckt nmos_current_mirror2 i_out1 i_in VSS i_out2
-*.ipin i_in
-*.opin i_out1
+* expanding   symbol:  osc.sym # of pins=6
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/osc.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/osc.sch
+.subckt osc VDD out1 ictrl VSS start out2
 *.iopin VSS
-*.opin i_out2
-XM1 i_in i_in VSS VSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
-XM2 i_out1 i_in VSS VSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
-XM3 i_out2 i_in VSS VSS sg13_hv_nmos w=0.6u l=2.4u ng=1 m=1 mm_ok=1
+*.iopin VDD
+*.iopin out2
+*.iopin out1
+*.iopin start
+*.iopin ictrl
+XM3 out1 ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM2 net2 net1 VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM4 start net1 VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM5 out2 ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM6 ictrl ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM7 net1 net1 VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XC1 net2 out1 cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XC2 out2 start cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XM8 out1 start VSS VSS sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM1 start start VSS VSS sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+XM12 out2 net2 VSS VSS sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM11 net2 net2 VSS VSS sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+XM13 net3 ictrl VDD VDD sg13_hv_pmos w=3.0u l=2.0u ng=1 m=1 mm_ok=1
+XM14 net3 net3 VSS VSS sg13_hv_nmos w=6u l=5u ng=1 m=1 mm_ok=1
+XM15 net1 net3 VSS VSS sg13_hv_nmos w=2u l=5u ng=1 m=1 mm_ok=1
 .ends
 
 .end

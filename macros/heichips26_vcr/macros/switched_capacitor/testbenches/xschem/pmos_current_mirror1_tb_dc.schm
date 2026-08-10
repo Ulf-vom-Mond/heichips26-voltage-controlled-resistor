@@ -6,8 +6,8 @@ S {}
 F {}
 E {}
 B 2 1660 -720 2460 -320 {flags=graph
-y1=0
-y2=1.5
+y1=-0.3
+y2=1.2
 ypos1=0
 ypos2=2
 divy=5
@@ -86,7 +86,7 @@ write @schname\\\\.raw
 set appendwrite
 
 * DC Sweep
-dc Vgsp 0 $&VDD 1m
+dc Vgsp 0 $&VDD 1m I0 10u 100u 10u
 remzerovec
 write @schname\\\\.raw
 set appendwrite
