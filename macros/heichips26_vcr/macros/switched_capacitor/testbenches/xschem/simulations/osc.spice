@@ -1,90 +1,28 @@
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/osc.sch
-**.subckt osc VDD vout ictrl VSS
-*.iopin VDD
+**.subckt osc VDD out1 ictrl VSS start out2
 *.iopin VSS
-*.ipin ictrl
-*.opin vout
-x1 net1 ictrl VSS net2 nmos_current_mirror2
-x2 net4 net1 VDD vout pmos_current_mirror2
-x4 net3 net2 VDD pmos_current_mirror1
-x5 net4 net3 VSS vout nmos_current_mirror2
-C2 vout VSS 1p
-x3 VDD VSS net6 VSS low_th_inverter
-x6 VDD VDD net5 VSS high_th_inverter
-XM1 net7 net5 VSS VSS sg13_hv_nmos w=20.0u l=1.0u ng=20 m=1 mm_ok=1
-XM2 net8 net6 VDD VDD sg13_hv_pmos w=20.0u l=1.0u ng=20 m=1 mm_ok=1
-XM3 net3 net4 VSS VSS sg13_hv_nmos w=20.0u l=1.0u ng=20 m=1 mm_ok=1
-XM4 net1 net4 VDD VDD sg13_hv_pmos w=20.0u l=1.0u ng=20 m=1 mm_ok=1
-vc net4 VSS PULSE(0 3.3 0 100p 100p 50n 100n)
+*.iopin VDD
+*.iopin out2
+*.iopin out1
+*.iopin start
+*.iopin ictrl
+XM3 out1 ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM2 net1 ictrl VDD VDD sg13_hv_pmos w=1u l=2.0u ng=1 m=1 mm_ok=1
+XM4 start ictrl VDD VDD sg13_hv_pmos w=1.0u l=2.0u ng=1 m=1 mm_ok=1
+XM5 out2 ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM6 ictrl ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XC1 net1 out1 cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XC2 out2 start cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XM8 out1 start VSS VSS sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM1 start start VSS VSS sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+XM12 out2 net1 VSS VSS sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM11 net1 net1 VSS VSS sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+**** begin user architecture code
+
+
+.ic v(out1)=0 v(out2)=3.3
+
+
+**** end user architecture code
 **.ends
-
-* expanding   symbol:  nmos_current_mirror2.sym # of pins=4
-** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/nmos_current_mirror2.sym
-** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/nmos_current_mirror2.sch
-.subckt nmos_current_mirror2 i_out1 i_in VSS i_out2
-*.ipin i_in
-*.opin i_out1
-*.iopin VSS
-*.opin i_out2
-XM1 i_out1 i_in VSS VSS sg13_hv_nmos w=40.0u l=10.0u ng=5 m=1 mm_ok=1
-XM2 i_in i_in VSS VSS sg13_hv_nmos w=40.0u l=10.0u ng=5 m=1 mm_ok=1
-XM3 i_out2 i_in VSS VSS sg13_hv_nmos w=40.0u l=10.0u ng=5 m=1 mm_ok=1
-.ends
-
-
-* expanding   symbol:  pmos_current_mirror2.sym # of pins=4
-** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/pmos_current_mirror2.sym
-** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/pmos_current_mirror2.sch
-.subckt pmos_current_mirror2 i_out1 i_in VDD i_out2
-*.ipin i_in
-*.opin i_out1
-*.iopin VDD
-*.opin i_out2
-XM2 i_out1 i_in VDD VDD sg13_hv_pmos w=80.0u l=10.0u ng=10 m=1 mm_ok=1
-XM1 i_in i_in VDD VDD sg13_hv_pmos w=80.0u l=10.0u ng=10 m=1 mm_ok=1
-XM3 i_out2 i_in VDD VDD sg13_hv_pmos w=80.0u l=10.0u ng=10 m=1 mm_ok=1
-.ends
-
-
-* expanding   symbol:  pmos_current_mirror1.sym # of pins=3
-** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/pmos_current_mirror1.sym
-** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/pmos_current_mirror1.sch
-.subckt pmos_current_mirror1 i_out i_in VDD
-*.ipin i_in
-*.opin i_out
-*.iopin VDD
-XM2 i_out i_in VDD VDD sg13_hv_pmos w=80.0u l=10.0u ng=10 m=1 mm_ok=1
-XM1 i_in i_in VDD VDD sg13_hv_pmos w=80.0u l=10.0u ng=10 m=1 mm_ok=1
-.ends
-
-
-* expanding   symbol:  low_th_inverter.sym # of pins=4
-** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/low_th_inverter.sym
-** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/low_th_inverter.sch
-.subckt low_th_inverter VDD vin vout VSS
-*.ipin vin
-*.iopin VDD
-*.iopin VSS
-*.opin vout
-XMdummy1 VSS VSS VSS VSS sg13_hv_nmos w=2.0u l=1.0u ng=2 m=1 mm_ok=1
-XMdummy2 VDD VDD VDD VDD sg13_hv_pmos w=2.0u l=1.0u ng=2 m=1 mm_ok=1
-XM1 vout vin VSS VSS sg13_hv_nmos w=20.0u l=1.0u ng=20 m=1 mm_ok=1
-XM2 vout vin VDD VDD sg13_hv_pmos w=20.0u l=1.0u ng=20 m=1 mm_ok=1
-.ends
-
-
-* expanding   symbol:  high_th_inverter.sym # of pins=4
-** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/high_th_inverter.sym
-** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/high_th_inverter.sch
-.subckt high_th_inverter VDD vin vout VSS
-*.ipin vin
-*.iopin VDD
-*.iopin VSS
-*.opin vout
-XMdummy1 VSS VSS VSS VSS sg13_hv_nmos w=0.6u l=1.0u ng=2 m=1 mm_ok=1
-XMdummy2 VDD VDD VDD VDD sg13_hv_pmos w=12.0u l=1.0u ng=2 m=1 mm_ok=1
-XM1 vout vin VSS VSS sg13_hv_nmos w=6.0u l=1.0u ng=20 m=1 mm_ok=1
-XM2 vout vin VDD VDD sg13_hv_pmos w=120.0u l=1.0u ng=20 m=1 mm_ok=1
-.ends
-
 .end

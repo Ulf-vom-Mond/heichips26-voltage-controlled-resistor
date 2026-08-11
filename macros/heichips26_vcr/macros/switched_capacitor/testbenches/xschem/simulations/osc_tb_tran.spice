@@ -1,9 +1,8 @@
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/osc_tb_tran.sch
 **.subckt osc_tb_tran
 VDD VDD 0 3.3
-I1 net2 0 20u
-I3 net1 0 PULSE(0 1m 10n 1n 1n 10n 20n 1)
-x1 VDD out1 net2 0 net1 out2 osc
+I1 net1 0 50u
+x1 VDD out1 net1 0 net2 out2 osc
 **** begin user architecture code
 
 .lib cornerMOSlv.lib mos_tt
@@ -31,7 +30,7 @@ x1 VDD out1 net2 0 net1 out2 osc
 save all
 set appendwrite
 
-tran 10n 0.5u
+tran 1n 0.5u
 remzerovec
 
 save all
@@ -63,20 +62,23 @@ plot out1 out2
 *.iopin start
 *.iopin ictrl
 XM3 out1 ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
-XM2 net2 net1 VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
-XM4 start net1 VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM2 net1 ictrl VDD VDD sg13_hv_pmos w=1u l=2.0u ng=1 m=1 mm_ok=1
+XM4 start ictrl VDD VDD sg13_hv_pmos w=1.0u l=2.0u ng=1 m=1 mm_ok=1
 XM5 out2 ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
 XM6 ictrl ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
-XM7 net1 net1 VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
-XC1 net2 out1 cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XC1 net1 out1 cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
 XC2 out2 start cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
 XM8 out1 start VSS VSS sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
 XM1 start start VSS VSS sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
-XM12 out2 net2 VSS VSS sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
-XM11 net2 net2 VSS VSS sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
-XM13 net3 ictrl VDD VDD sg13_hv_pmos w=3.0u l=2.0u ng=1 m=1 mm_ok=1
-XM14 net3 net3 VSS VSS sg13_hv_nmos w=6u l=5u ng=1 m=1 mm_ok=1
-XM15 net1 net3 VSS VSS sg13_hv_nmos w=2u l=5u ng=1 m=1 mm_ok=1
+XM12 out2 net1 VSS VSS sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM11 net1 net1 VSS VSS sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+**** begin user architecture code
+
+
+.ic v(out1)=0 v(out2)=3.3
+
+
+**** end user architecture code
 .ends
 
 .end
