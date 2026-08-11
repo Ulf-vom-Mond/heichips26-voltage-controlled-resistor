@@ -28,22 +28,18 @@ logy=0
 linewidth_mult=3
 autoload=0}
 T {Testbench for transient analysis - VCR} 740 -1730 0 0 1 1 {}
-N 380 -760 380 -640 {lab=VDD}
+N 520 -760 520 -640 {lab=VDD}
 N 780 -620 780 -560 {lab=0}
 N 780 -760 780 -740 {lab=VDD}
-N 380 -560 380 -540 {lab=0}
-N 540 -580 540 -560 {lab=0}
-N 540 -660 540 -640 {lab=#net1}
-N 540 -660 680 -660 {lab=#net1}
-N 460 -700 460 -640 {lab=#net2}
-N 460 -700 680 -700 {lab=#net2}
-N 460 -580 460 -560 {lab=0}
-N 540 -560 780 -560 {lab=0}
-N 460 -560 540 -560 {lab=0}
-N 380 -560 460 -560 {lab=0}
-N 380 -580 380 -560 {lab=0}
+N 520 -560 520 -540 {lab=0}
+N 600 -700 600 -640 {lab=#net1}
+N 600 -700 680 -700 {lab=#net1}
+N 600 -580 600 -560 {lab=0}
+N 520 -580 520 -560 {lab=0}
 N 880 -700 900 -700 {lab=out1}
 N 880 -680 900 -680 {lab=out2}
+N 600 -560 780 -560 {lab=0}
+N 520 -560 600 -560 {lab=0}
 C {devices/launcher.sym} 1700 -1400 0 0 {name=h2
 descr="Simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
@@ -78,7 +74,7 @@ value="
 save all
 set appendwrite
 
-tran 10n 0.5u
+tran 1n 0.5u
 remzerovec
 
 save all
@@ -95,14 +91,12 @@ plot out1 out2
 *quit
 .endc
 "}
-C {devices/vsource.sym} 380 -610 0 0 {name=VDD value=3.3}
-C {lab_pin.sym} 380 -760 1 0 {name=p2 sig_type=std_logic lab=VDD}
-C {isource.sym} 460 -610 0 0 {name=I1 value=20u
+C {devices/vsource.sym} 520 -610 0 0 {name=VDD value=3.3}
+C {lab_pin.sym} 520 -760 1 0 {name=p2 sig_type=std_logic lab=VDD}
+C {isource.sym} 600 -610 0 0 {name=I1 value=50u
 }
 C {lab_pin.sym} 780 -760 1 0 {name=p1 sig_type=std_logic lab=VDD}
-C {gnd.sym} 380 -540 0 0 {name=l1 lab=0}
-C {isource.sym} 540 -610 0 0 {name=I3 value="PULSE(0 1m 10n 1n 1n 10n 20n 1)"
-}
+C {gnd.sym} 520 -540 0 0 {name=l1 lab=0}
 C {osc.sym} 780 -680 0 0 {name=x1}
 C {lab_pin.sym} 900 -700 0 1 {name=p3 sig_type=std_logic lab=out1}
 C {lab_pin.sym} 900 -680 0 1 {name=p4 sig_type=std_logic lab=out2}
