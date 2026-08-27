@@ -1,11 +1,14 @@
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/tb_v-to-i_dc.sch
 **.subckt tb_v-to-i_dc
-VDD net4 GND 3.3
+VDD net3 GND 3.3
 Vg net1 GND 0
-vout1 net3 net2 0
+vout1 net2 net4 0
 .save i(vout1)
-XM8 net2 net1 GND GND sg13_hv_nmos w=0.3u l=1u ng=1 m=1 mm_ok=1
-XM6 net3 net3 net4 net4 sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM8 net4 net1 GND GND sg13_hv_nmos w=0.3u l=1.4u ng=1 m=1 mm_ok=1
+XM6 net2 net2 net3 net3 sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM1 net4 net5 net3 net3 sg13_hv_pmos w=1u l=1u ng=1 m=1 mm_ok=1
+XM4 net1 net1 net5 net3 sg13_hv_pmos w=0.3u l=1u ng=1 m=1 mm_ok=1
+x3 net3 net4 GND current_reference_40uA
 **** begin user architecture code
 
 
@@ -23,13 +26,16 @@ write tb_v-to-i_dc.raw
 set appendwrite
 
 * DC Sweep
-dc Vg 0 3.3 0.01
+dc Vg 3.3 0 -0.01
 remzerovec
 write tb_v-to-i_dc.raw
 set appendwrite
 
 * Plotting
 plot i(vout1)
+plot deriv(i(vout1)) mean(deriv(i(vout1)))
+plot i(VDD)
+*plot vin
 
 * Measurement
 *meas dc Vgsp_at_Vcm when vout=Vcm
@@ -53,5 +59,35 @@ plot i(vout1)
 
 **** end user architecture code
 **.ends
+
+* expanding   symbol:  current_reference_40uA.sym # of pins=3
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/current_reference_40uA.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/current_reference_40uA.sch
+.subckt current_reference_40uA VDD iout VSS
+*.iopin VSS
+*.iopin VDD
+*.iopin iout
+XM8 net2 net2 VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+XM6 net2 net1 VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM1 net1 net1 VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM3 net1 net2 net3 VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+XR2 net3 net4 VSS rppd w=2e-6 l=21.9e-6 m=1 b=0 mm_ok=1
+XM2 net1 net2 net3 VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+XM4 net1 net2 net3 VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+XM5 net1 net2 net3 VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+XM7 iout net2 VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+XR3 net4 VSS VSS rsil w=0.5e-6 l=365e-6 m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param n_w = 6u
+.param n_l = 5u
+.param p_w = 10u
+.param p_l = 2u
+
+
+**** end user architecture code
+.ends
+
 .GLOBAL GND
 .end

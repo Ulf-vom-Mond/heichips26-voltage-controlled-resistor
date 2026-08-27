@@ -6,8 +6,8 @@ S {}
 F {}
 E {}
 B 2 1660 -720 2460 -320 {flags=graph
-y1=0.6
-y2=2.1
+y1=0.9
+y2=2.4
 ypos1=0
 ypos2=2
 divy=5
@@ -29,8 +29,8 @@ logy=0
 linewidth_mult=3
 autoload=0}
 B 2 1660 -1160 2460 -760 {flags=graph
-y1=0.0004799988
-y2=0.001279998
+y1=0.0014399977
+y2=0.0022399968
 ypos1=0
 ypos2=2
 divy=5
@@ -52,21 +52,41 @@ linewidth_mult=3
 color=4
 node=i(VDD)}
 T {Testbench for Output Voltage Swing analysis - Inverter} 520 -1730 0 0 1 1 {}
-N 1120 -660 1120 -560 {lab=GND}
-N 1020 -580 1020 -560 {lab=GND}
-N 1020 -660 1020 -640 {lab=#net1}
-N 1020 -660 1080 -660 {lab=#net1}
-N 1120 -740 1120 -690 {lab=#net2}
-N 1120 -820 1120 -800 {lab=#net3}
-N 940 -580 940 -560 {lab=GND}
-N 1060 -880 1080 -880 {lab=#net3}
-N 1060 -880 1060 -820 {lab=#net3}
-N 1060 -820 1120 -820 {lab=#net3}
-N 1120 -850 1120 -820 {lab=#net3}
-N 940 -940 940 -640 {lab=#net4}
-N 1120 -940 1120 -880 {lab=#net4}
-N 940 -940 1120 -940 {lab=#net4}
-C {devices/code_shown.sym} 60 -1250 0 0 {name=NGSPICE
+N 840 -740 840 -720 {lab=GND}
+N 840 -820 840 -800 {lab=#net1}
+N 840 -820 900 -820 {lab=#net1}
+N 1100 -980 1100 -960 {lab=#net2}
+N 1040 -1040 1060 -1040 {lab=#net2}
+N 1040 -1040 1040 -980 {lab=#net2}
+N 1040 -980 1100 -980 {lab=#net2}
+N 1100 -1010 1100 -980 {lab=#net2}
+N 760 -1100 760 -800 {lab=#net3}
+N 1100 -1100 1100 -1040 {lab=#net3}
+N 940 -1100 1100 -1100 {lab=#net3}
+N 940 -1100 940 -1000 {lab=#net3}
+N 1100 -740 1100 -720 {lab=GND
+}
+N 940 -880 940 -850 {lab=#net4}
+N 940 -820 940 -720 {lab=GND}
+N 1100 -1100 1220 -1100 {lab=#net3}
+N 840 -1100 940 -1100 {lab=#net3}
+N 940 -880 1100 -880 {lab=#net4}
+N 940 -970 940 -880 {lab=#net4}
+N 1100 -900 1100 -880 {lab=#net4}
+N 1220 -1100 1220 -880 {lab=#net3}
+N 840 -940 840 -820 {lab=#net1}
+N 870 -1000 900 -1000 {lab=#net5}
+N 800 -1000 810 -1000 {lab=#net1}
+N 800 -1000 800 -940 {lab=#net1}
+N 800 -940 840 -940 {lab=#net1}
+N 840 -960 840 -940 {lab=#net1}
+N 840 -1100 840 -1000 {lab=#net3}
+N 760 -1100 840 -1100 {lab=#net3}
+N 760 -740 760 -720 {lab=GND}
+N 1100 -880 1100 -840 {lab=#net4}
+N 1140 -880 1140 -840 {lab=#net3}
+N 1140 -880 1220 -880 {lab=#net3}
+C {devices/code_shown.sym} -770 -1270 0 0 {name=NGSPICE
 only_toplevel=true 
 value="
 .include ../../../netlist/pex/inverter_magic_pex_3.spice
@@ -83,13 +103,16 @@ write @schname\\\\.raw
 set appendwrite
 
 * DC Sweep
-dc Vg 0 3.3 0.01
+dc Vg 3.3 0 -0.01
 remzerovec
 write @schname\\\\.raw
 set appendwrite
 
 * Plotting
 plot i(vout1)
+plot deriv(i(vout1)) mean(deriv(i(vout1)))
+plot i(VDD)
+*plot vin
 
 * Measurement
 *meas dc Vgsp_at_Vcm when vout=Vcm
@@ -125,13 +148,13 @@ value="
 .lib cornerRES.lib res_typ
 .lib cornerDIO.lib dio_tt
 "}
-C {devices/vsource.sym} 940 -610 0 0 {name=VDD value=3.3}
-C {devices/gnd.sym} 1020 -560 0 1 {name=l26 lab=GND}
-C {devices/vsource.sym} 1020 -610 0 0 {name=Vg value=0
+C {devices/vsource.sym} 760 -770 0 0 {name=VDD value=3.3}
+C {devices/gnd.sym} 840 -720 0 1 {name=l26 lab=GND}
+C {devices/vsource.sym} 840 -770 0 0 {name=Vg value=0
 }
-C {ammeter.sym} 1120 -770 0 1 {name=vout1 savecurrent=true }
-C {sg13cmos5l_pr/sg13_hv_nmos.sym} 1100 -660 0 0 {name=M8
-l=1u
+C {ammeter.sym} 1100 -930 0 1 {name=vout1 savecurrent=true }
+C {sg13cmos5l_pr/sg13_hv_nmos.sym} 920 -820 0 0 {name=M8
+l=1.4u
 w=0.3u
  ng=1
  m=1
@@ -139,13 +162,33 @@ w=0.3u
  model=sg13_hv_nmos
 spiceprefix=X
 }
-C {devices/gnd.sym} 1120 -560 0 1 {name=l1 lab=GND}
-C {devices/gnd.sym} 940 -560 0 1 {name=l4 lab=GND}
-C {sg13_lv_pmos.sym} 1100 -880 0 0 {name=M6
+C {devices/gnd.sym} 940 -720 0 1 {name=l1 lab=GND}
+C {devices/gnd.sym} 760 -720 0 1 {name=l4 lab=GND}
+C {sg13_lv_pmos.sym} 1080 -1040 0 0 {name=M6
 l=2.0u
 w=10.0u
 ng=1
 m=1
 model=sg13_hv_pmos
 spiceprefix=X
+}
+C {sg13_lv_pmos.sym} 920 -1000 0 0 {name=M1
+l=1u
+w=1u
+ng=1
+m=1
+model=sg13_hv_pmos
+spiceprefix=X
+}
+C {devices/gnd.sym} 1100 -720 0 1 {name=l3 lab=GND
+}
+C {sg13_lv_pmos.sym} 840 -980 1 1 {name=M4
+l=1u
+w=0.3u
+ng=1
+m=1
+model=sg13_hv_pmos
+spiceprefix=X
+}
+C {current_reference_40uA.sym} 1120 -800 0 1 {name=x3
 }

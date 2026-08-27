@@ -1,8 +1,38 @@
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/osc_tb_tran.sch
 **.subckt osc_tb_tran
-VDD VDD 0 3.3
-I1 net1 0 50u
-x1 VDD out1 net1 0 net2 out2 osc
+VDD net6 0 3.3
+I1 net2 0 150u
+XM3 out2a net2 net1 net1 sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM2 g1a net2 net1 net1 sg13_hv_pmos w=1u l=2.0u ng=1 m=1 mm_ok=1
+XM4 g2a net2 net1 net1 sg13_hv_pmos w=1.0u l=2.0u ng=1 m=1 mm_ok=1
+XM5 out1a net2 net1 net1 sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM6 net2 net2 net1 net1 sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XC1 g1a out2a cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XC2 out1a g2a cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XM8 out2a g2a 0 0 sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM1 g2a g2a 0 0 sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+XM12 out1a g1a 0 0 sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM11 g1a g1a 0 0 sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+VDD1 net3 0 3.3
+I2 net4 0 150u
+XM7 out2b net4 net3 net3 sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM9 g1b net4 net3 net3 sg13_hv_pmos w=1u l=2.0u ng=1 m=1 mm_ok=1
+XM10 g2b net4 net3 net3 sg13_hv_pmos w=1.0u l=2.0u ng=1 m=1 mm_ok=1
+XM13 out1b net4 net3 net3 sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM14 net4 net4 net3 net3 sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XC3 g1b out2b cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XC4 out1b g2b cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XM15 out2b g2b 0 0 sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM16 g2b g2b 0 0 sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+XM17 out1b g1b 0 0 sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM18 g1b g1b 0 0 sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+x1 net3 out1b_dec nout1 0 hv_inverter_40u
+XM19 out1b_dec g1b 0 0 sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM20 out1b_dec net4 net5 net5 sg13_hv_pmos w=10.0u l=2u ng=1 m=1 mm_ok=1
+vout1 net3 net5 0
+.save i(vout1)
+vout2 net6 net1 0
+.save i(vout2)
 **** begin user architecture code
 
 .lib cornerMOSlv.lib mos_tt
@@ -30,7 +60,7 @@ x1 VDD out1 net1 0 net2 out2 osc
 save all
 set appendwrite
 
-tran 1n 0.5u
+tran 100p 60n
 remzerovec
 
 save all
@@ -40,42 +70,44 @@ write osc_tb_tran.raw
 set appendwrite
 
 * Plotting
-*plot g1 out1 g2 out2
+*plot g1 out1a g2 out2a out1b+4 out2b+4
 *plot xm12:d#branch xm8:d#branch xc1#branch xc2#branch
-plot out1 out2
+plot out1a out2a out1b_dec+8 nout1+12 out1b+4 out2b+4
+plot i(vout1) i(vout2) mean(i(vout2))
 
 *quit
 .endc
 
 
+
+
+.ic v(out1a)=3.3 v(out1b)=3.3
+
+
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  osc.sym # of pins=6
-** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/osc.sym
-** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/osc.sch
-.subckt osc VDD out1 ictrl VSS start out2
-*.iopin VSS
+* expanding   symbol:  hv_inverter_40u.sym # of pins=4
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_inverter_40u.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_inverter_40u.sch
+.subckt hv_inverter_40u VDD in out VSS
+*.ipin in
 *.iopin VDD
-*.iopin out2
-*.iopin out1
-*.iopin start
-*.iopin ictrl
-XM3 out1 ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
-XM2 net1 ictrl VDD VDD sg13_hv_pmos w=1u l=2.0u ng=1 m=1 mm_ok=1
-XM4 start ictrl VDD VDD sg13_hv_pmos w=1.0u l=2.0u ng=1 m=1 mm_ok=1
-XM5 out2 ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
-XM6 ictrl ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
-XC1 net1 out1 cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
-XC2 out2 start cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
-XM8 out1 start VSS VSS sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
-XM1 start start VSS VSS sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
-XM12 out2 net1 VSS VSS sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
-XM11 net1 net1 VSS VSS sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+*.iopin VSS
+*.opin out
+XM2 out in VSS VSS sg13_hv_nmos w={n_w} l={n_l} ng={ng} m=1 mm_ok=1
+XM3 out in VDD VDD sg13_hv_pmos w={p_w} l={p_l} ng={ng} m=1 mm_ok=1
 **** begin user architecture code
 
 
-.ic v(out1)=0 v(out2)=3.3
+.param w   = 10u
+.param ng  = 4
+.param n_ng = ng
+.param n_w = {3u*n_ng}
+.param n_l = 0.45u
+.param p_ng = ng
+.param p_w = {10u*p_ng}
+.param p_l = 0.4u
 
 
 **** end user architecture code

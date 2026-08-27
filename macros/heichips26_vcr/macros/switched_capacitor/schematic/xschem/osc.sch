@@ -125,6 +125,7 @@ subblock=0
 m=1
 mm_ok=1
 spiceprefix=X
+IC=0
 }
 C {sg13cmos5l_pr/cap_cmomi.sym} 130 -60 1 0 {name=C2
 model=cap_cmomi
@@ -137,7 +138,7 @@ subblock=0
 m=1
 mm_ok=1
 spiceprefix=X
-}
+IC=3.3}
 C {sg13cmos5l_pr/sg13_hv_nmos.sym} -180 60 0 1 {name=M8
 l=0.45u
 w=3u

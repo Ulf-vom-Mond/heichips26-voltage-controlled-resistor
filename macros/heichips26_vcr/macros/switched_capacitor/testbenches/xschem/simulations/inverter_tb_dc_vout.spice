@@ -3,7 +3,7 @@
 VDD VDD GND {VDD}
 C1 vout GND {Cload}
 Vgsp vin GND 0
-x4 VDD vin vout GND low_th_inverter
+x1 VDD vin vout GND inverter
 **** begin user architecture code
 
 
@@ -70,21 +70,6 @@ XMdummy1 VSS VSS VSS VSS sg13_lv_nmos w=2.0u l=1.0u ng=2 m=1 mm_ok=1
 XMdummy2 VDD VDD VDD VDD sg13_lv_pmos w=12.0u l=1.0u ng=2 m=1 mm_ok=1
 XM1 vout vin VSS VSS sg13_lv_nmos w=20.0u l=1.0u ng=20 m=1 mm_ok=1
 XM2 vout vin VDD VDD sg13_lv_pmos w=120.0u l=1.0u ng=20 m=1 mm_ok=1
-.ends
-
-
-* expanding   symbol:  low_th_inverter.sym # of pins=4
-** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/low_th_inverter.sym
-** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/low_th_inverter.sch
-.subckt low_th_inverter VDD vin vout VSS
-*.ipin vin
-*.iopin VDD
-*.iopin VSS
-*.iopin vout
-XMdummy1 VSS VSS VSS VSS sg13_lv_nmos w=2.0u l=1.0u ng=2 m=1 mm_ok=1
-XMdummy2 VDD VDD VDD VDD sg13_lv_pmos w=2.0u l=1.0u ng=2 m=1 mm_ok=1
-XM1 vout vin VSS VSS sg13_lv_nmos w=20.0u l=1.0u ng=20 m=1 mm_ok=1
-XM2 vout vin VDD VDD sg13_lv_pmos w=20.0u l=1.0u ng=20 m=1 mm_ok=1
 .ends
 
 .GLOBAL GND

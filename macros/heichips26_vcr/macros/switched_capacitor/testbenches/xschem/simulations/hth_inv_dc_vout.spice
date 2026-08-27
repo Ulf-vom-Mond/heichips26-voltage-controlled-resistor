@@ -1,9 +1,10 @@
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/hth_inv_dc_vout.sch
 **.subckt hth_inv_dc_vout
 VDD VDD GND {VDD}
-C1 vout GND {Cload}
 Vgsp vin GND 0
-x1 VDD vin vout GND high_th_inverter
+x1 VDD vin vout net1 high_th_inverter
+vout1 net1 GND 0
+.save i(vout1)
 **** begin user architecture code
 
 
@@ -34,6 +35,7 @@ set appendwrite
 
 * Plotting
 plot vin vout
+plot i(vout1)
 
 * Measurement
 meas dc Vgsp_at_Vcm when vout=Vcm
@@ -66,10 +68,20 @@ wrdata ../plot_simulations/data/hth_inv_dc_vout.txt v(vin) v(vout)
 *.iopin VDD
 *.iopin VSS
 *.opin vout
-XMdummy1 VSS VSS VSS VSS sg13_hv_nmos w=0.6u l=1.0u ng=2 m=1 mm_ok=1
-XMdummy2 VDD VDD VDD VDD sg13_hv_pmos w=12.0u l=1.0u ng=2 m=1 mm_ok=1
-XM1 vout vin VSS VSS sg13_hv_nmos w=6.0u l=1.0u ng=20 m=1 mm_ok=1
-XM2 vout vin VDD VDD sg13_hv_pmos w=120.0u l=1.0u ng=20 m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param n_ng = 3
+.param n_w = 1u
+.param n_l = 0.45u
+.param p_ng = 3
+.param p_w = 10u
+.param p_l = 0.4u
+
+
+**** end user architecture code
+XM1 vout vin VSS VSS sg13_hv_nmos w={n_ng*n_w} l={n_l} ng={p_ng} m=1 mm_ok=1
+XM2 vout vin VDD VDD sg13_hv_pmos w={p_ng*p_w} l={p_l} ng={p_ng} m=1 mm_ok=1
 .ends
 
 .GLOBAL GND
