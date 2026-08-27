@@ -4,9 +4,11 @@
 project-name: Voltage Controlled Resistor 
 top-cell: "heichips26_vcr" # Must be a unique name
 team-members:
-- Firstname Lastname
-- Firstname Lastname
-- Firstname Lastname
+- Clyde
+- Santiago
+- Mattes
+- Sebastian
+- Noah
 slot-size: small # small, large, tiny
 analog-pins: 3 # 0-3, only for small or tiny projects
 short-description: A fully analog component with ohmic behaviour whose resistance value can be changed in accordance with an external analog control voltage.
