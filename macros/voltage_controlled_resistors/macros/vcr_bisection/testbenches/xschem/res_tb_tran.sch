@@ -66,7 +66,6 @@ value="
 .lib cornerDIO.lib dio_tt
 "}
 C {devices/gnd.sym} 1100 -370 0 0 {name=l4 lab=GND}
-C {devices/vsource.sym} 580 -640 0 0 {name=VS value="PWL(0 -1.5 10m 1.5)"}
 C {devices/gnd.sym} 580 -580 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 580 -700 0 0 {name=l5 sig_type=std_logic lab=vsweep}
 C {devices/code_shown.sym} 90 -1550 0 0 {name=NGSPICE
@@ -80,21 +79,13 @@ value="
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
-let vcc = 1
 
 save all
 set appendwrite
 
-* DC Sweep
-tran 1u 10m
-remzerovec
-end
-write @schname\\\\.raw
-set appendwrite
-
-* Plotting
-plot v(vsweep) 
-plot v.x1.Vmeas#branch
+tran 1000u 1000m
+plot v(vsweep) i(Vmeas)
+plot v(vsweep)/i(Vmeas)
 
 *quit
 .endc
@@ -102,10 +93,11 @@ plot v.x1.Vmeas#branch
 C {ammeter.sym} 650 -470 3 0 {name=Vmeas savecurrent=true spice_ignore=0}
 C {vsource_arith.sym} 570 -420 0 0 {name=E2 VOL="\{Vcm\}+V(vsweep)/2"}
 C {vsource_arith.sym} 1100 -420 0 0 {name=E3 VOL="\{Vcm\}-V(vsweep)/2"}
-C {devices/vsource.sym} 710 -640 0 0 {name=vc value=0}
+C {devices/vsource.sym} 710 -640 0 0 {name=vc value=1.5}
 C {devices/gnd.sym} 710 -580 0 0 {name=l6 lab=GND}
 C {devices/lab_pin.sym} 710 -700 0 0 {name=l8 sig_type=std_logic lab=vc_p}
 C {devices/lab_pin.sym} 890 -550 1 0 {name=l9 sig_type=std_logic lab=vc_p}
 C {vcr_bisection.sym} 890 -470 0 0 {name=x1}
 C {vdd.sym} 810 -550 0 0 {name=l10 lab=VDD}
 C {devices/gnd.sym} 810 -390 0 0 {name=l11 lab=GND}
+C {vsource_arith.sym} 580 -640 0 0 {name=E1 VOL=cos(2*pi*time*10)*0.1}

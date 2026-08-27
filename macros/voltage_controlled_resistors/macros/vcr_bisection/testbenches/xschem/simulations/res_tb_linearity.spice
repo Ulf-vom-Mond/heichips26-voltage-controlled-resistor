@@ -74,7 +74,7 @@ write res_tb_linearity.raw
 *.ipin Vdd
 *.ipin Vss
 R1 net2 Vcm 10k
-XM1 T1 net5 net7 Vcm sg13_hv_pmos w=50u l=10u ng=10 m=4 mm_ok=1
+XM1 T1 net5 net7 Vcm sg13_hv_pmos w=50u l=10u ng=6 m=2 mm_ok=1
 I0 Vdd net1 5u
 x1 Vdd T1 Vss net2 net1 net2 opamp_rtr
 I3 Vdd net3 5u
@@ -82,8 +82,7 @@ x2 Vdd T2 Vss net4 net3 net4 opamp_rtr
 R2 Vcm net4 10k
 x3 net6 Vss net5 Vctrl Vdd Vcm voltage_diff
 I4 Vdd net6 5u
-XM2 net7 net5 net8 Vcm sg13_hv_pmos w=50u l=10u ng=10 m=4 mm_ok=1
-XM3 net8 net5 T2 Vcm sg13_hv_pmos w=50u l=10u ng=10 m=4 mm_ok=1
+XM2 net7 net5 T2 Vcm sg13_hv_pmos w=50u l=10u ng=6 m=2 mm_ok=1
 .ends
 
 

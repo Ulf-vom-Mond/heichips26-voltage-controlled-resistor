@@ -78,7 +78,7 @@ value="
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
-let vcc = 1
+let vcc = 1.2
 
 save all
 set appendwrite
@@ -89,7 +89,7 @@ repeat 5
   alter vc $&vcc
 
   * DC Sweep
-  dc VS 0 3 1m
+  dc VS 2 3 1m
   remzerovec
   let vcc = vcc + 0.3
 end
