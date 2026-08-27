@@ -81,14 +81,14 @@ value="
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
-let vcc = 0.75
+let vcc = 0
 
 save all
 set appendwrite
 
 
 
-repeat 5
+repeat 10
   alter vc $&vcc
 
   * DC Sweep
@@ -100,7 +100,7 @@ write @schname\\\\.raw
 set appendwrite
 
 * Plotting
-plot dc1.v(vsweep)/(dc1.i(vmeas)) dc2.v(vsweep)/(dc2.i(vmeas)) dc3.v(vsweep)/(dc3.i(vmeas)) dc4.v(vsweep)/(dc4.i(vmeas)) dc5.v(vsweep)/(dc5.i(vmeas)) ylimit 0 10k
+plot dc1.v(vsweep)/(dc1.i(vmeas)) dc2.v(vsweep)/(dc2.i(vmeas)) dc3.v(vsweep)/(dc3.i(vmeas)) dc4.v(vsweep)/(dc4.i(vmeas)) dc5.v(vsweep)/(dc5.i(vmeas)) ylimit 0 20k
 
 plot dc1.i(vmeas) dc2.i(vmeas) dc3.i(vmeas) dc4.i(vmeas) dc5.i(vmeas)
 

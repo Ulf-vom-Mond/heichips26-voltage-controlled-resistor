@@ -44,6 +44,8 @@ N 710 -700 710 -670 {lab=vc_p}
 N 1100 -470 1120 -470 {lab=vb}
 N 1040 -470 1100 -470 {lab=vb}
 N 890 -550 890 -530 {lab=vc_p}
+N 810 -550 810 -530 {lab=VDD}
+N 810 -410 810 -390 {lab=GND}
 C {devices/launcher.sym} 1700 -1410 0 0 {name=h2
 descr="Simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
@@ -105,3 +107,5 @@ C {devices/gnd.sym} 710 -580 0 0 {name=l6 lab=GND}
 C {devices/lab_pin.sym} 710 -700 0 0 {name=l8 sig_type=std_logic lab=vc_p}
 C {devices/lab_pin.sym} 890 -550 1 0 {name=l9 sig_type=std_logic lab=vc_p}
 C {vcr_bisection.sym} 890 -470 0 0 {name=x1}
+C {vdd.sym} 810 -550 0 0 {name=l10 lab=VDD}
+C {devices/gnd.sym} 810 -390 0 0 {name=l11 lab=GND}

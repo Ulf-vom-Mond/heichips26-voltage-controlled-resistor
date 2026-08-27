@@ -26,14 +26,14 @@ x1 vc_p net1 vb VDD GND vcr_bisection
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
-let vcc = 0.75
+let vcc = 0
 
 save all
 set appendwrite
 
 
 
-repeat 5
+repeat 10
   alter vc $&vcc
 
   * DC Sweep
@@ -45,7 +45,7 @@ write res_tb_linearity.raw
 set appendwrite
 
 * Plotting
-plot dc1.v(vsweep)/(dc1.i(vmeas)) dc2.v(vsweep)/(dc2.i(vmeas)) dc3.v(vsweep)/(dc3.i(vmeas)) dc4.v(vsweep)/(dc4.i(vmeas)) dc5.v(vsweep)/(dc5.i(vmeas)) ylimit 0 10k
+plot dc1.v(vsweep)/(dc1.i(vmeas)) dc2.v(vsweep)/(dc2.i(vmeas)) dc3.v(vsweep)/(dc3.i(vmeas)) dc4.v(vsweep)/(dc4.i(vmeas)) dc5.v(vsweep)/(dc5.i(vmeas)) ylimit 0 20k
 
 plot dc1.i(vmeas) dc2.i(vmeas) dc3.i(vmeas) dc4.i(vmeas) dc5.i(vmeas)
 
@@ -226,7 +226,7 @@ XR5 net1 vin1 vss rhigh w=2e-6 l=100e-6 m=1 b=0 mm_ok=1
 XR2 vout net1 vss rhigh w=2e-6 l=100e-6 m=1 b=0 mm_ok=1
 XR3 net2 vin2 vss rhigh w=2e-6 l=100e-6 m=1 b=0 mm_ok=1
 XR4 vss net2 vss rhigh w=2e-6 l=100e-6 m=1 b=0 mm_ok=1
-x1 vdd net1 vss net2 ibias vout opamp_rtr
+x1 vdd net2 vss net1 ibias vout opamp_rtr
 .ends
 
 .GLOBAL GND

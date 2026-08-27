@@ -80,14 +80,14 @@ value="
 .param vdiff=10m
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
-let vcc = 0.75
+let vcc = 0
 
 save all
 set appendwrite
 
 
 
-repeat 5
+repeat 10
   alter vc $&vcc
 
   * DC Sweep
