@@ -18,7 +18,6 @@ x1 vc_p net1 vb VDD GND vcr_bisection
 
 
 
-* .include ../../../netlist/pex/inverter_magic_pex_3.spice
 .param VDD=3.3
 .csparam VDD=VDD
 .param Vcm=2
@@ -210,11 +209,11 @@ XC2 ndrive OOA cap_cmomi w=40e-6 l=14e-6 mmin=1 mmax=3 feed=double subblock=0 m=
 *.iopin VOUT
 *.iopin V2
 *.iopin IOADISABLE
-x1 POAVDD IOAIREF net2 VOUT net1 POAVSS IOADISABLE op_amp_ver_2
-XR5 net2 V1 POAVSS rhigh w=2e-6 l=20e-6 m=1 b=0 mm_ok=1
-XR2 VOUT net2 POAVSS rhigh w=2e-6 l=20e-6 m=1 b=0 mm_ok=1
-XR3 net1 V2 POAVSS rhigh w=2e-6 l=20e-6 m=1 b=0 mm_ok=1
-XR4 POAVSS net1 POAVSS rhigh w=2e-6 l=20e-6 m=1 b=0 mm_ok=1
+x1 POAVDD IOAIREF net1 VOUT net2 POAVSS IOADISABLE op_amp_ver_2
+XR5 net1 V1 POAVSS rhigh w=2e-6 l=100e-6 m=1 b=0 mm_ok=1
+XR2 VOUT net1 POAVSS rhigh w=2e-6 l=100e-6 m=1 b=0 mm_ok=1
+XR3 net2 V2 POAVSS rhigh w=2e-6 l=100e-6 m=1 b=0 mm_ok=1
+XR4 POAVSS net2 POAVSS rhigh w=2e-6 l=100e-6 m=1 b=0 mm_ok=1
 .ends
 
 .GLOBAL GND

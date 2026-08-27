@@ -5,67 +5,54 @@ V {}
 S {}
 F {}
 E {}
-P 4 1 -340 -180 {}
-N 190 0 220 0 {lab=T2}
-N 10 -0 10 50 {lab=vcm}
-N -150 0 -20 0 {lab=T1}
-N -30 50 10 50 {lab=vcm}
-N -30 -290 110 -290 {lab=vcm}
-N -150 -50 -150 0 {lab=T1}
-N -200 0 -150 0 {lab=T1}
-N 190 -50 190 0 {lab=T2}
-N 40 0 190 0 {lab=T2}
-N 170 -230 170 -220 {lab=#net1}
-N -170 -290 -160 -290 {lab=#net2}
-N -170 -230 -170 -220 {lab=#net2}
-N -30 -290 -30 50 {lab=vcm}
-N -100 -290 -30 -290 {lab=vcm}
-N -270 -130 -220 -130 {lab=Vdd}
-N 100 -130 120 -130 {lab=Vdd}
-N -270 -90 -240 -90 {lab=Vss}
-N -120 -130 -90 -130 {lab=Vss}
-N 220 -130 250 -130 {lab=Vss}
-N 70 -90 100 -90 {lab=Vss}
-N -100 -90 -50 -90 {lab=#net3}
-N 240 -90 290 -90 {lab=#net4}
-N -190 -50 -190 -30 {lab=#net2}
-N -350 -30 -190 -30 {lab=#net2}
-N -350 -230 -350 -30 {lab=#net2}
-N -350 -230 -170 -230 {lab=#net2}
-N 150 -50 150 -30 {lab=#net1}
-N 30 -30 150 -30 {lab=#net1}
-N 30 -230 30 -30 {lab=#net1}
-N 170 -290 170 -230 {lab=#net1}
-N 110 -490 140 -490 {lab=Vctrl}
-N 350 -450 380 -450 {lab=vg}
-N 10 -350 380 -350 {lab=vg}
-N 10 -350 10 -40 {lab=vg}
-N 200 -550 200 -520 {lab=Vss}
-N 280 -380 280 -330 {lab=Vss}
-N 220 -270 220 -250 {lab=Vdd}
-N 270 -550 270 -520 {lab=Vdd}
-N -30 -450 140 -450 {lab=vcm}
-N -30 -450 -30 -290 {lab=vcm}
-N 380 -450 380 -350 {lab=vg}
-N 220 -380 220 -330 {lab=#net5}
-N -170 -290 -170 -230 {lab=#net2}
-N 30 -230 170 -230 {lab=#net1}
-C {res.sym} -130 -290 1 0 {name=R1
+N 40 -350 60 -350 {lab=Vdd}
+N 160 -350 180 -350 {lab=Vss}
+N 20 -370 60 -370 {lab=#net1}
+N -60 -370 -40 -370 {lab=Vdd}
+N 130 -300 130 -280 {lab=#net2}
+N 130 -280 230 -280 {lab=#net2}
+N 230 -440 230 -280 {lab=#net2}
+N 110 -440 230 -440 {lab=#net2}
+N 110 -440 110 -420 {lab=#net2}
+N 580 -350 600 -350 {lab=Vdd}
+N 700 -350 720 -350 {lab=Vss}
+N 560 -370 600 -370 {lab=#net3}
+N 480 -370 500 -370 {lab=Vdd}
+N 670 -300 670 -280 {lab=#net4}
+N 770 -440 770 -280 {lab=#net4}
+N 650 -440 770 -440 {lab=#net4}
+N 650 -440 650 -420 {lab=#net4}
+N 230 -440 250 -440 {lab=#net2}
+N 670 -280 770 -280 {lab=#net4}
+N 630 -440 650 -440 {lab=#net4}
+N 330 -440 570 -440 {lab=Vcm}
+N 90 0 430 0 {lab=T1}
+N 630 0 860 0 {lab=T2}
+N 90 -300 90 0 {lab=T1}
+N 0 0 90 0 {lab=T1}
+N 630 -300 630 0 {lab=T2}
+N 310 -440 330 -440 {lab=Vcm}
+N 330 40 460 40 {lab=Vcm}
+N 460 0 460 40 {lab=Vcm}
+N 490 0 630 0 {lab=T2}
+N 460 -70 460 -40 {lab=#net5}
+N 530 -220 550 -220 {lab=Vdd}
+N 370 -200 390 -200 {lab=Vss}
+N 530 -150 550 -150 {lab=#net6}
+N 610 -150 660 -150 {lab=Vdd}
+N 480 -300 500 -300 {lab=Vctrl}
+N 500 -300 500 -280 {lab=Vctrl}
+N 330 -280 330 40 {lab=Vcm}
+N 330 -280 460 -280 {lab=Vcm}
+N 330 -440 330 -280 {lab=Vcm}
+C {res.sym} 280 -440 3 0 {name=R1
 value=10k
 footprint=1206
 device=resistor
 m=1}
-C {res.sym} 140 -290 3 0 {name=R2
-value=10k
-footprint=1206
-device=resistor
-m=1}
-C {ipin.sym} -200 0 0 0 {name=p1 lab=T1}
-C {ipin.sym} 220 0 2 0 {name=p2 lab=T2}
-C {ipin.sym} 110 -490 0 0 {name=p3 lab=Vctrl
-}
-C {lab_pin.sym} 80 -290 0 0 {name=p6 sig_type=std_logic lab=vcm}
-C {sg13cmos5l_pr/sg13_hv_pmos.sym} 10 -20 1 0 {name=M1
+C {ipin.sym} 0 0 0 0 {name=p1 lab=T1}
+C {ipin.sym} 860 0 2 0 {name=p2 lab=T2}
+C {sg13cmos5l_pr/sg13_hv_pmos.sym} 460 -20 1 0 {name=M1
 l=10u
 w=50u
  ng=10
@@ -74,25 +61,28 @@ w=50u
  model=sg13_hv_pmos
 spiceprefix=X
 }
-C {ipin.sym} -270 -130 0 0 {name=p4 lab=Vdd}
-C {ipin.sym} -270 -90 0 0 {name=p5 lab=Vss}
-C {lab_pin.sym} 100 -130 0 0 {name=p7 sig_type=std_logic lab=Vdd}
-C {lab_pin.sym} -90 -130 2 0 {name=p8 sig_type=std_logic lab=Vss}
-C {lab_pin.sym} 250 -130 2 0 {name=p9 sig_type=std_logic lab=Vss}
-C {lab_pin.sym} 70 -90 0 0 {name=p10 sig_type=std_logic lab=Vss}
-C {isource.sym} -50 -60 2 0 {name=I0 value=25u}
-C {isource.sym} 290 -60 2 0 {name=I1 value=25u}
-C {lab_pin.sym} 290 -30 0 0 {name=p11 sig_type=std_logic lab=Vdd}
-C {lab_pin.sym} -50 -30 0 0 {name=p12 sig_type=std_logic lab=Vdd}
-C {macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym} -170 -120 3 0 {name=x1
+C {lab_pin.sym} 40 -350 0 0 {name=p7 sig_type=std_logic lab=Vdd}
+C {lab_pin.sym} 180 -350 2 0 {name=p9 sig_type=std_logic lab=Vss}
+C {isource.sym} -10 -370 3 0 {name=I0 value=5u}
+C {opamp_rtr.sym} 150 -320 3 0 {name=x1}
+C {lab_pin.sym} -60 -370 0 0 {name=p18 sig_type=std_logic lab=Vdd}
+C {lab_pin.sym} 580 -350 0 0 {name=p19 sig_type=std_logic lab=Vdd}
+C {lab_pin.sym} 720 -350 2 0 {name=p20 sig_type=std_logic lab=Vss}
+C {isource.sym} 530 -370 3 0 {name=I3 value=5u}
+C {opamp_rtr.sym} 690 -320 3 0 {name=x2}
+C {lab_pin.sym} 480 -370 0 0 {name=p21 sig_type=std_logic lab=Vdd}
+C {res.sym} 600 -440 3 0 {name=R2
+value=10k
+footprint=1206
+device=resistor
+m=1}
+C {voltage_diff.sym} 460 -170 1 0 {name=x3}
+C {lab_pin.sym} 550 -220 2 0 {name=p22 sig_type=std_logic lab=Vdd}
+C {lab_pin.sym} 370 -200 0 0 {name=p23 sig_type=std_logic lab=Vss}
+C {lab_pin.sym} 660 -150 2 0 {name=p24 sig_type=std_logic lab=Vdd}
+C {isource.sym} 580 -150 1 0 {name=I4 value=5u}
+C {ipin.sym} 480 -300 0 0 {name=p25 lab=Vctrl
 }
-C {macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym} 170 -120 3 0 {name=x2
-}
-C {lab_pin.sym} 200 -550 3 1 {name=p14 sig_type=std_logic lab=Vss}
-C {lab_pin.sym} 280 -330 1 1 {name=p15 sig_type=std_logic lab=Vss}
-C {lab_pin.sym} 220 -250 3 0 {name=p16 sig_type=std_logic lab=Vdd}
-C {lab_pin.sym} 270 -550 1 0 {name=p17 sig_type=std_logic lab=Vdd}
-C {macros/voltage_controlled_resistors/macros/voltage_diff/schematic/xschem/voltage_diff.sym} 250 -450 0 0 {name=x3
-}
-C {isource.sym} 220 -300 2 0 {name=I2 value=25u}
-C {lab_pin.sym} 70 -350 0 0 {name=p13 sig_type=std_logic lab=vg}
+C {ipin.sym} -120 -220 0 0 {name=p3 lab=Vdd}
+C {ipin.sym} -120 -190 0 0 {name=p4 lab=Vss}
+C {lab_pin.sym} 330 -280 0 0 {name=p5 sig_type=std_logic lab=Vcm}

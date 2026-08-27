@@ -120,8 +120,8 @@ C {vsource_arith.sym} 1100 -420 0 0 {name=E3 VOL="V(vsweep)-\{vdiff\}/2"}
 C {devices/vsource.sym} 980 -690 0 0 {name=vc value=0}
 C {devices/lab_pin.sym} 980 -750 0 0 {name=l8 sig_type=std_logic lab=vc_p}
 C {devices/lab_pin.sym} 860 -560 1 0 {name=l9 sig_type=std_logic lab=vc_p}
-C {vcr_bisection.sym} 820 -220 0 0 {name=x1
-spice_ignore=true}
+C {vcr_bisection.sym} 860 -470 0 0 {name=x1
+}
 C {devices/launcher.sym} 1700 -1360 0 0 {name=h3
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
@@ -129,4 +129,5 @@ tclcommand="set show_hidden_texts 1; xschem annotate_op"
 C {devices/gnd.sym} 980 -590 0 0 {name=l6 lab=GND}
 C {devices/gnd.sym} 780 -390 0 0 {name=l10 lab=GND}
 C {vdd.sym} 780 -550 0 0 {name=l11 lab=VDD}
-C {macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection_ideal_op.sym} 860 -470 0 0 {name=x2}
+C {macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection_ideal_op.sym} 930 -130 0 0 {name=x2
+spice_ignore=true}
