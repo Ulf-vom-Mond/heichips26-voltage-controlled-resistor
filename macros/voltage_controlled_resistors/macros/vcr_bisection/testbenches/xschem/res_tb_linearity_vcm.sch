@@ -80,7 +80,7 @@ value="
 .param vdiff=10m
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
-let vcc = 0
+let vcc = 1
 
 save all
 set appendwrite
@@ -129,5 +129,3 @@ tclcommand="set show_hidden_texts 1; xschem annotate_op"
 C {devices/gnd.sym} 980 -590 0 0 {name=l6 lab=GND}
 C {devices/gnd.sym} 780 -390 0 0 {name=l10 lab=GND}
 C {vdd.sym} 780 -550 0 0 {name=l11 lab=VDD}
-C {macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection_ideal_op.sym} 930 -130 0 0 {name=x2
-spice_ignore=true}

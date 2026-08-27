@@ -26,14 +26,14 @@ x1 vc_p net1 vb VDD GND vcr_bisection
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
-let vcc = 0
+let vcc = 1
 
 save all
 set appendwrite
 
 
 
-repeat 10
+repeat 5
   alter vc $&vcc
 
   * DC Sweep
@@ -74,7 +74,7 @@ write res_tb_linearity.raw
 *.ipin Vdd
 *.ipin Vss
 R1 net2 Vcm 10k
-XM1 T1 net5 T2 Vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
+XM1 T1 net5 T2 Vcm sg13_hv_pmos w=50u l=10u ng=10 m=2 mm_ok=1
 I0 Vdd net1 5u
 x1 Vdd T1 Vss net2 net1 net2 opamp_rtr
 I3 Vdd net3 5u
