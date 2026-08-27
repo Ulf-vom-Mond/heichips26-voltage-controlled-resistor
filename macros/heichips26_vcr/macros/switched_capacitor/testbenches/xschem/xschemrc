@@ -46,3 +46,5 @@ set xschem_execute_scripts yes
 # Add current directory to xschem library path
 append_xschem_library_path_unique [file join [file dirname [info script]] ../../schematic/xschem]
 append_xschem_library_path_unique [file dirname [info script]]
+
+set terminal gnome-terminal

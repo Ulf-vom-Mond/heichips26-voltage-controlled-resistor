@@ -1,0 +1,54 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/tb_pmos_diode_dc.sch
+**.subckt tb_pmos_diode_dc
+VDD net1 GND 3.3
+XM6 net2 net2 net1 net2 sg13_hv_pmos w=5u l=0.4u ng=1 m=1 mm_ok=1
+VD net2 GND 3.3
+**** begin user architecture code
+
+
+.include ../../../netlist/pex/inverter_magic_pex_3.spice
+.param temp=27
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.control
+
+save all
+
+* Operating Point Analysis
+op
+remzerovec
+write tb_pmos_diode_dc.raw
+set appendwrite
+
+* DC Sweep
+dc VD 0 6.6 0.01
+remzerovec
+write tb_pmos_diode_dc.raw
+set appendwrite
+
+* Plotting
+plot -i(VDD)
+
+* Measurement
+*meas dc Vgsp_at_Vcm when vout=Vcm
+*print Vgsp_at_Vcm
+
+* Write Data
+*unset appendwrite
+*set wr_vecnames
+*set wr_singlescale
+*wrdata ../plot_simulations/data/tb_pmos_diode_dc.txt v(vin) v(vout)
+
+*quit
+.endc
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

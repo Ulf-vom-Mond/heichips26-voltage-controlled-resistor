@@ -65,9 +65,10 @@ N 1220 -780 1220 -760 {lab=GND}
 N 1320 -860 1320 -840 {lab=vout}
 N 1220 -860 1320 -860 {lab=vout}
 N 1320 -780 1320 -760 {lab=GND}
-N 1080 -960 1080 -900 {lab=VDD}
-N 1080 -820 1080 -760 {lab=GND}
+N 1080 -920 1080 -900 {lab=VDD}
+N 1080 -820 1080 -800 {lab=#net1}
 N 1020 -860 1020 -840 {lab=vin}
+N 1080 -740 1080 -720 {lab=GND}
 C {devices/code_shown.sym} 60 -1250 0 0 {name=NGSPICE
 only_toplevel=true 
 value="
@@ -98,6 +99,7 @@ set appendwrite
 
 * Plotting
 plot vin vout
+plot i(vout1)
 
 * Measurement
 meas dc Vgsp_at_Vcm when vout=Vcm
@@ -139,22 +141,23 @@ C {vdd.sym} 1320 -1100 0 0 {name=l7 lab=VDD}
 C {devices/lab_pin.sym} 1400 -860 0 1 {name=l12 sig_type=std_logic lab=vout}
 C {devices/lab_pin.sym} 900 -860 0 0 {name=l22 sig_type=std_logic lab=vin}
 C {devices/gnd.sym} 960 -760 0 0 {name=l26 lab=GND}
-C {devices/gnd.sym} 1080 -760 0 0 {name=l1 lab=GND}
+C {devices/gnd.sym} 1080 -720 0 0 {name=l1 lab=GND}
 C {capa.sym} 1220 -810 0 0 {name=C1
 m=1
 value=\{Cload\}
 footprint=1206
 device="ceramic capacitor"
-}
+spice_ignore=true}
 C {res.sym} 1320 -810 0 0 {name=R1
 value=\{Rload\}
 footprint=1206
 device=resistor
 m=1
 spice_ignore=true}
-C {vdd.sym} 1080 -960 0 0 {name=l4 lab=VDD}
+C {vdd.sym} 1080 -920 0 0 {name=l4 lab=VDD}
 C {devices/gnd.sym} 1220 -760 0 0 {name=l5 lab=GND}
 C {devices/gnd.sym} 1320 -760 0 0 {name=l6 lab=GND}
 C {devices/vsource.sym} 960 -810 0 0 {name=Vgsp value=0
 }
 C {low_th_inverter.sym} 1080 -860 0 0 {name=x4}
+C {ammeter.sym} 1080 -770 0 0 {name=vout1 savecurrent=true }

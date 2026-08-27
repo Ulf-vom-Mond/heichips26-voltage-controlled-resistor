@@ -1,0 +1,93 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/tb_chargepump_tran.sch
+**.subckt tb_chargepump_tran
+VDD VDD GND 3.3
+I1 net1 GND 50u
+x1 VDD out1 net1 GND net6 net7 osc
+XM8 vsw nout1 net2 net2 sg13_hv_nmos w=5u l=0.45u ng=1 m=1 mm_ok=1
+XM6 vsw nout1 net3 net3 sg13_hv_pmos w=5u l=0.4u ng=1 m=1 mm_ok=1
+XC2 vboost vsw cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+vout1 VDD net3 0
+.save i(vout1)
+vout2 VDD net5 0
+.save i(vout2)
+vout3 net2 GND 0
+.save i(vout3)
+XM2 nout1 out1 GND GND sg13_hv_nmos w=0.3u l=0.45u ng=1 m=1 mm_ok=1
+XM3 nout1 out1 net4 net4 sg13_hv_pmos w=0.3u l=0.4u ng=1 m=1 mm_ok=1
+vout4 VDD net4 0
+.save i(vout4)
+XM1 vboost vboost net5 vboost sg13_hv_pmos w=5u l=0.4u ng=1 m=1 mm_ok=1
+XC1 VHDD GND cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XM4 VHDD VHDD vboost VHDD sg13_hv_pmos w=5u l=0.4u ng=1 m=1 mm_ok=1
+**** begin user architecture code
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
+
+.include /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice
+
+
+
+.param temp=27
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.probe alli
+.control
+
+save all
+set appendwrite
+
+tran 1n 0.5u
+remzerovec
+
+save all
+set appendwrite
+
+write tb_chargepump_tran.raw
+set appendwrite
+
+* Plotting
+plot vsw vboost VHDD
+plot i(vout2)
+
+*quit
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  osc.sym # of pins=6
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/osc.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/osc.sch
+.subckt osc VDD out1 ictrl VSS start out2
+*.iopin VSS
+*.iopin VDD
+*.iopin out2
+*.iopin out1
+*.iopin start
+*.iopin ictrl
+XM3 out1 ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM2 net1 ictrl VDD VDD sg13_hv_pmos w=1u l=2.0u ng=1 m=1 mm_ok=1
+XM4 start ictrl VDD VDD sg13_hv_pmos w=1.0u l=2.0u ng=1 m=1 mm_ok=1
+XM5 out2 ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM6 ictrl ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XC1 net1 out1 cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XC2 out2 start cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XM8 out1 start VSS VSS sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM1 start start VSS VSS sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+XM12 out2 net1 VSS VSS sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM11 net1 net1 VSS VSS sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+**** begin user architecture code
+
+
+.ic v(out1)=0 v(out2)=3.3
+
+
+**** end user architecture code
+.ends
+
+.GLOBAL GND
+.end
