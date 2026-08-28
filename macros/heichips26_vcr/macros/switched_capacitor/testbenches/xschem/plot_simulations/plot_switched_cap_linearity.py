@@ -8,6 +8,8 @@ import ngspice2python as ng
 from pathlib import Path
 # ============================================
 
+eq_th = 10e-12 # two floats are considered equal if their absolute difference is smaller than this value
+
 # Plotting Configuration
 # ============================================
 # Interactive mode stays off: the plt.show() at the end of main() then blocks in the GUI
@@ -47,7 +49,7 @@ def plot_vcm_sweep(datafile, plotfolder):
     tran_dict = {}
     section_start = 0
     for i in range(1, len(time)):
-        if vcm[i-1] != vcm[i] or i0[i-1] != i0[i] or i == len(time)-1:
+        if abs(vcm[i-1] - vcm[i]) > eq_th or (i0[i-1] - i0[i]) > eq_th or i == len(time)-1:
             if i == len(time)-1: # collect last section
                 i+=1
 
@@ -100,13 +102,13 @@ def plot_vcm_sweep(datafile, plotfolder):
         r_dict[i0_val]["data"] = sorted(r_dict[i0_val]["data"], key=lambda entry: entry[0]) # sort based on vcm values
         r_dict[i0_val]["vcm"] = [entry[0] for entry in r_dict[i0_val]["data"]]
         r_dict[i0_val]["r_avg"] = [entry[1] for entry in r_dict[i0_val]["data"]]
-        r_avg_avg = np.mean(r_dict[i0_val]["r_avg"])
+        r_avg_avg = np.median(r_dict[i0_val]["r_avg"])
         
         labeltext = fr"$I_\mathrm{{ctrl}} = {round(i0_val*1e6, 1)}$ µA, $R_\mathrm{{mean}} = {round(r_avg_avg/1e3, 1)}$ k$\Omega$"
         ax1.plot(r_dict[i0_val]["vcm"], 100*(r_dict[i0_val]["r_avg"]/r_avg_avg-1), linewidth=1, label=labeltext)
 
     ax1.set_xlabel(r"$V_\mathrm{CM}$ in V")
-    ax1.set_ylabel(r"relative deviation from mean resistance in \%")
+    ax1.set_ylabel(r"relative deviation from median resistance in \%")
 
     ax1.set_xlim(min(vcm), max(vcm))
 
@@ -138,7 +140,7 @@ def plot_vdm_sweep(datafile, plotfolder):
     tran_dict = {}
     section_start = 0
     for i in range(1, len(time)):
-        if vdm[i-1] != vdm[i] or i0[i-1] != i0[i] or i == len(time)-1:
+        if abs(vdm[i-1] - vdm[i]) > eq_th or abs(i0[i-1] - i0[i]) > eq_th or i == len(time)-1:
             if i == len(time)-1: # collect last section
                 i+=1
 
@@ -162,6 +164,10 @@ def plot_vdm_sweep(datafile, plotfolder):
         opp_vcm = tran_dict[opp]["vcm"]
 
         sample_period = opp_t[filter_len:] - opp_t[0:-filter_len]
+        if len(sample_period) == 0:
+            print("uh oh")
+            continue
+
         thr = (np.max(sample_period) + np.min(sample_period)) / 2
         rising_edge_time_log = []
         rising_edge_index_log = []
@@ -171,9 +177,16 @@ def plot_vdm_sweep(datafile, plotfolder):
                 rising_edge_time_log.append(opp_t[i + int(filter_len/2)])
                 rising_edge_index_log.append(i + int(filter_len/2))
 
-        #period = 2 * (rising_edge_time_log[-1] - rising_edge_time_log[0]) / (len(rising_edge_time_log) - 1)
-        #f = 1 / period
-        #print(f/1e6)
+        # period = 2 * (rising_edge_time_log[-1] - rising_edge_time_log[0]) / (len(rising_edge_time_log) - 1)
+        # f = 1 / period
+        # print(f/1e6)
+
+        # if(opp_vdm < 1):
+        #     print(opp)
+        #     fig2, ax2 = plt.subplots(figsize=(6.5, 3.8))
+        #     ax2.plot(sample_period)
+        #     plt.savefig(plotfolder / "test.pdf")
+        #     break
 
         avg_end = rising_edge_index_log[-1] - rising_edge_index_log[0]
         i_avg = np.trapz(opp_i1[0:avg_end], opp_t[0:avg_end]) / opp_t[avg_end]
@@ -191,13 +204,15 @@ def plot_vdm_sweep(datafile, plotfolder):
         r_dict[i0_val]["data"] = sorted(r_dict[i0_val]["data"], key=lambda entry: entry[0]) # sort based on vcm values
         r_dict[i0_val]["vdm"] = [entry[0] for entry in r_dict[i0_val]["data"]]
         r_dict[i0_val]["r_avg"] = [entry[1] for entry in r_dict[i0_val]["data"]]
-        r_avg_avg = np.mean(r_dict[i0_val]["r_avg"])
+
+        # use median instead of mean because the spike at vdm=0 distorts the mean
+        r_avg_avg = np.median(r_dict[i0_val]["r_avg"])
         
         labeltext = fr"$I_\mathrm{{ctrl}} = {round(i0_val*1e6, 1)}$ µA, $R_\mathrm{{mean}} = {round(r_avg_avg/1e3, 1)}$ k$\Omega$"
         ax1.plot(r_dict[i0_val]["vdm"], 100*(r_dict[i0_val]["r_avg"]/r_avg_avg-1), linewidth=1, label=labeltext)
 
     ax1.set_xlabel(r"$V_\mathrm{DM}$ in V")
-    ax1.set_ylabel(r"relative deviation from mean resistance in \%")
+    ax1.set_ylabel(r"relative deviation from median resistance in \%")
 
     ax1.set_xlim(min(vdm), max(vdm))
 
@@ -206,13 +221,13 @@ def plot_vdm_sweep(datafile, plotfolder):
     ax1.grid(axis="both", which="major", color=grid_color, linewidth=grid_width)
     ax1.grid(axis="both", which="minor", color=minor_grid_color, linewidth=minor_grid_width)
 
-    ax1.legend()
-    fig.suptitle(rf"Linearity with respect to $V_\mathrm{{DM}}$ for $V_\mathrm{{CM}} = {vcm[0]}$ V")
+    ax1.legend(loc="upper left")
+    fig.suptitle(rf"Linearity with respect to $V_\mathrm{{DM}}$ for $V_\mathrm{{CM}} = {round(vcm[0], 2)}$ V")
     plt.tight_layout()
     plt.savefig(plotfolder / "linearity_vdm.pdf")
     plt.savefig(plotfolder / "linearity_vdm.png")
 
-    ax1.set_ylim(bottom=-20, top=20)
+    ax1.set_ylim(bottom=-60, top=60)
     plt.savefig(plotfolder / "linearity_vdm_detailed.pdf")
     plt.savefig(plotfolder / "linearity_vdm_detailed.png")
     #plt.show()
@@ -233,7 +248,7 @@ def plot_ictrl_sweep(datafile, plotfolder):
     tran_dict = {}
     section_start = 0
     for i in range(1, len(time)):
-        if i0[i-1] != i0[i] or i == len(time)-1:
+        if abs(i0[i-1] - i0[i]) > eq_th or i == len(time)-1:
             if i == len(time)-1: # collect last section
                 i+=1
 
@@ -296,9 +311,8 @@ def plot_ictrl_sweep(datafile, plotfolder):
         r_dict[key]["data"] = sorted(r_dict[key]["data"], key=lambda entry: entry[0]) # sort based on vcm values
         r_dict[key]["i0"] = [entry[0] for entry in r_dict[key]["data"]]
         r_dict[key]["r_avg"] = [entry[1]/1e3 for entry in r_dict[key]["data"]]
-        r_avg_avg = np.mean(r_dict[key]["r_avg"])
         
-        labeltext = fr"$V_\mathrm{{CM}} = {round(r_dict[key]["vcm"], 2)}$ V, $V_\mathrm{{DM}} = {round(r_dict[key]["vdm"], 2)}$ V"
+        labeltext = fr"$V_\mathrm{{CM}} = {round(r_dict[key]['vcm'], 2)}$ V, $V_\mathrm{{DM}} = {round(r_dict[key]['vdm'], 2)}$ V"
         ax1.plot(r_dict[key]["i0"], r_dict[key]["r_avg"], linewidth=1, label=labeltext)
         ax2.loglog(1/np.array(r_dict[key]["i0"]), r_dict[key]["r_avg"], linewidth=1, label=labeltext)
 

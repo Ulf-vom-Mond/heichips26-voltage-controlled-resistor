@@ -61,13 +61,12 @@ set wr_vecnames
 set wr_singlescale
 
 let vdd_var = 3.3
-let record_periods = 5
+let record_periods = 10
 let i_to_f = 3.3e-12
 let ictrl = 1u
 
 set currents = ( 3.3u 33u 330u )
 foreach ictrl $currents
-break
 	let f = $ictrl/i_to_f
 	let period = 1/f
 	let tstop = record_periods*period
@@ -75,9 +74,9 @@ break
 	echo ictrl=$ictrl, f=$&f, period=$&period, tstop=$&tstop, tstep=$&tstep
 	alter i0 = $ictrl
 
-	let vdm = 0.5
-	let vcm = 0.3
-	while vcm <= 3
+	let vdm = 1
+	let vcm = 0.55
+	while vcm < 2.8
 		let v1 = $&vcm - $&vdm/2
 		let v2 = $&vcm + $&vdm/2
 		echo vcm=$&vcm, vdm=$&vdm, v1=$&v1, v2=$&v2
@@ -87,7 +86,7 @@ break
 		wrdata ../plot_simulations/data/@schname\\\\_vcm.txt i(i0) i(v1) vr1 vr2
 		set appendwrite
 		unset wr_vecnames
-		let vcm = $&vcm + 0.1
+		let vcm = $&vcm + 0.05
 	end
 end
 
@@ -102,7 +101,6 @@ set wr_vecnames
 
 set currents = ( 3.3u 33u 330u )
 foreach ictrl $currents
-break
 	let f = $ictrl/i_to_f
 	let period = 1/f
 	let tstop = record_periods*period
@@ -110,7 +108,7 @@ break
 	echo ictrl=$ictrl, f=$&f, period=$&period, tstop=$&tstop, tstep=$&tstep
 	alter i0 = $ictrl
 
-	let vdm = 0.1
+	let vdm = -$&vdd_var
 	let vcm = $&vdd_var/2
 	while vdm < $&vdd_var
 		let v1 = $&vcm - $&vdm/2
@@ -122,7 +120,7 @@ break
 		wrdata ../plot_simulations/data/@schname\\\\_vdm.txt i(i0) i(v1) vr1 vr2
 		set appendwrite
 		unset wr_vecnames
-		let vdm = vdm + 0.1
+		let vdm = vdm + 0.052
 	end
 end
 
@@ -155,7 +153,7 @@ while $&ictrl < 400u
 	wrdata ../plot_simulations/data/@schname\\\\_ictrl.txt i(i0) i(v1) vr1 vr2
 	set appendwrite
 	unset wr_vecnames
-	let ictrl = ictrl * 1.1
+	let ictrl = ictrl * 1.05
 end
 
 *quit
