@@ -44,7 +44,7 @@
  <def-import-spec/>
  <default-add-other-layers>false</default-add-other-layers>
  <default-font-size>0</default-font-size>
- <default-grids>1.0,0.1,0.01,0.005</default-grids>
+ <default-grids>1.0,0.5,0.25!,0.1,0.01,0.005</default-grids>
  <default-layer-properties/>
  <default-text-size>0.1</default-text-size>
  <density-map-averaging-mode>averaging-mode-square</density-map-averaging-mode>
@@ -66,18 +66,18 @@
  <drop-small-cells>false</drop-small-cells>
  <drop-small-cells-condition>0</drop-small-cells-condition>
  <drop-small-cells-value>10</drop-small-cells-value>
- <edit-connect-angle-mode>any</edit-connect-angle-mode>
+ <edit-connect-angle-mode>ortho</edit-connect-angle-mode>
  <edit-grid>global</edit-grid>
  <edit-hier-copy-mode>-1</edit-hier-copy-mode>
  <edit-inst-angle>0</edit-inst-angle>
  <edit-inst-array>false</edit-inst-array>
- <edit-inst-cell-name>pmosHV</edit-inst-cell-name>
+ <edit-inst-cell-name>via_stack</edit-inst-cell-name>
  <edit-inst-column_x>0</edit-inst-column_x>
  <edit-inst-column_y>0</edit-inst-column_y>
  <edit-inst-columns>1</edit-inst-columns>
  <edit-inst-lib-name>SG13_dev</edit-inst-lib-name>
  <edit-inst-mirror>false</edit-inst-mirror>
- <edit-inst-pcell-parameters>!</edit-inst-pcell-parameters>
+ <edit-inst-pcell-parameters/>
  <edit-inst-place-origin>false</edit-inst-place-origin>
  <edit-inst-row_x>0</edit-inst-row_x>
  <edit-inst-row_y>0</edit-inst-row_y>
@@ -85,16 +85,16 @@
  <edit-inst-scale>1</edit-inst-scale>
  <edit-max-shapes-of-instances>1000</edit-max-shapes-of-instances>
  <edit-mode>false</edit-mode>
- <edit-move-angle-mode>any</edit-move-angle-mode>
+ <edit-move-angle-mode>ortho</edit-move-angle-mode>
  <edit-path-ext-type>flush</edit-path-ext-type>
  <edit-path-ext-var-begin>0.0</edit-path-ext-var-begin>
  <edit-path-ext-var-end>0.0</edit-path-ext-var-end>
- <edit-path-width>0.2</edit-path-width>
+ <edit-path-width>0.7</edit-path-width>
  <edit-pcell-lazy-eval-mode>-1</edit-pcell-lazy-eval-mode>
  <edit-pcell-show-parameter-names>false</edit-pcell-show-parameter-names>
- <edit-recent-inst-param>SG13_dev,pmosHV,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmosHV,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmos,'0',false,'1',false,'1','0','0','1','0','0','!',</edit-recent-inst-param>
- <edit-recent-path-param>'1/0','0.2',flush,'0.0','0.0',</edit-recent-path-param>
- <edit-recent-shape-param>'Activ.drawing (1/0)',</edit-recent-shape-param>
+ <edit-recent-inst-param>SG13_dev,via_stack,'0',false,'1',false,'1','0','0','1','0','0','!',;Basic,TEXT,'0',false,'1',false,'1','0','0','1','0','0','!bias:##0;cspacing:##0;eff_ch:##0.8;eff_cw:##0.6;eff_dr:##0.05;eff_lw:##0.1;font:#0;font_name:\'std_font\';inverse:false;layer:[layer:];lspacing:##0;mag:##1;text:\'Hello\';',;Basic,TEXT,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_native_pcell_lib,Via,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmosHV,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,pmosHV,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmos,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,pmos,'0',false,'1',false,'1','0','0','1','0','0','!',;Basic,CIRCLE,'0',false,'1',false,'1','0','0','1','0','0','!',;Basic,ARC,'0',false,'1',false,'1','0','0','1','0','0','!',</edit-recent-inst-param>
+ <edit-recent-path-param>'8/0','0.7',flush,'0.0','0.0',;'10/0','0.7',flush,'0.0','0.0',;'30/0','0.5',flush,'0.0','0.0',;'Metal1.drawing (8/0)','0.7',flush,'0.0','0.0',;'Metal2.drawing (10/0)','0.7',flush,'0.0','0.0',;'30/0','0.7',flush,'0.0','0.0',;'Metal4.drawing (50/0)','0.7',flush,'0.0','0.0',;'Metal1.drawing (8/0)','0.3',flush,'0.0','0.0',;'1/0','0.2',flush,'0.0','0.0',</edit-recent-path-param>
+ <edit-recent-shape-param>'',;'Activ.drawing (1/0)',</edit-recent-shape-param>
  <edit-show-shapes-of-instances>true</edit-show-shapes-of-instances>
  <edit-snap-objects-to-grid>true</edit-snap-objects-to-grid>
  <edit-snap-to-objects>true</edit-snap-to-objects>
@@ -113,7 +113,7 @@
  <grid-color>auto</grid-color>
  <grid-density>4</grid-density>
  <grid-grid-color>auto</grid-grid-color>
- <grid-micron>0.01</grid-micron>
+ <grid-micron>0.5</grid-micron>
  <grid-ruler-color>auto</grid-ruler-color>
  <grid-show-ruler>false</grid-show-ruler>
  <grid-style0>lines</grid-style0>
@@ -506,7 +506,8 @@ zoom_menu.global_trans.r180:'';
 zoom_menu.global_trans.r270:'';
 zoom_menu.global_trans.r90:'';
 zoom_menu.next_display_state:'';
-zoom_menu.prev_display_state:''
+zoom_menu.prev_display_state:'';
+file_menu.open_recent_menu.open_recent_2:''
 </key-bindings>
  <klayout_auto_backups_enabled>true</klayout_auto_backups_enabled>
  <l2ndb-export-circuit-cell-prefix>CIRCUIT_</l2ndb-export-circuit-cell-prefix>
@@ -540,23 +541,23 @@ zoom_menu.prev_display_state:''
  <layout-file-watcher-enabled>true</layout-file-watcher-enabled>
  <lef-import-spec/>
  <line-style-palette>0 1 2 3</line-style-palette>
- <macro-editor-active-macro/>
- <macro-editor-console-interpreter/>
+ <macro-editor-active-macro>/home/raiku/.klayout/lvs/lvs.lylvs</macro-editor-active-macro>
+ <macro-editor-console-interpreter>ruby</macro-editor-console-interpreter>
  <macro-editor-console-mru/>
- <macro-editor-current-macro/>
+ <macro-editor-current-macro>/home/raiku/vcr/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/lvs/run_lvs.py</macro-editor-current-macro>
  <macro-editor-debugging-enabled>true</macro-editor-debugging-enabled>
  <macro-editor-file-watcher-enabled>true</macro-editor-file-watcher-enabled>
  <macro-editor-font-family>Noto Sans Mono</macro-editor-font-family>
  <macro-editor-font-size>9</macro-editor-font-size>
  <macro-editor-ignore-exception-list/>
  <macro-editor-indent>4</macro-editor-indent>
- <macro-editor-open-macros/>
+ <macro-editor-open-macros>'/home/raiku/.klayout/lvs/lvs.lylvs';'/home/raiku/vcr/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/lvs/sg13cmos5l.lvs';'/home/raiku/vcr/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/lvs/run_lvs.py'</macro-editor-open-macros>
  <macro-editor-save-all-on-run>false</macro-editor-save-all-on-run>
  <macro-editor-stop-on-exception>true</macro-editor-stop-on-exception>
  <macro-editor-styles>basic:'Alert'=(bold:true,color:'#bf0303',background:'#f7e7e7'),'Attribute'=(color:'#0057ae'),'Base-N Integer'=(color:'#b07e00'),'Built-in'=(bold:true,color:'#644a9b'),'Character'=(color:'#ff80e0'),'Comment'=(italic:true,color:'#888786'),'Control Flow'=(bold:true,color:'#1f1c1b'),'Data Type'=(color:'#0057ae'),'Decimal/Value'=(color:'#b07e00'),'Error'=(color:'#bf0303'),'Extension'=(color:'#0095ff'),'Floating Point'=(color:'#b07e00'),'Function'=(color:'#442886'),'Import'=(color:'#ff5500'),'Keyword'=(bold:true),'Normal'=(),'Operator'=(color:'#1f1c1b'),'Others'=(color:'#006e26'),'Preprocessor'=(color:'#006e28'),'Region Marker'=(color:'#0057ae',background:'#e1eaf8'),'Special Character'=(color:'#3daee9'),'Special String'=(color:'#ff5500'),'String'=(color:'#bf0303'),'Variable'=(color:'#0057ae'),'Verbatim String'=(color:'#bf0303');ruby:'Access Control'=(color:'#0000ff'),'Attribute Definition'=(),'Bin'=(),'Blockcomment'=(),'Char'=(),'Class Variable'=(),'Command'=(color:'#aa3000'),'Comment'=(),'Constant'=(),'Constant Value'=(color:'#bb1188'),'Data'=(),'Dec'=(),'Default globals'=(bold:true,color:'#c00000'),'Definition'=(),'Delimiter'=(color:'#ff9fec'),'Error'=(),'Expression'=(),'Float'=(),'GDL input'=(),'Global Constant'=(bold:true,color:'#bb1188'),'Global Variable'=(color:'#c00000'),'Here Document'=(),'Hex'=(),'Instance Variable'=(),'Kernel methods'=(color:'#000080'),'Keyword'=(),'Member'=(),'Message'=(color:'#4000a7'),'Module mixin methods'=(color:'#000080'),'Normal Text'=(),'Octal'=(),'Operator'=(color:'#ff9fec'),'Pseudo variable'=(),'RDoc Value'=(),'Raw String'=(color:'#dd4a4a'),'Region Marker'=(color:'#0000ff'),'Regular Expression'=(color:'#4a5704'),'String'=(),'Substitution'=(),'Symbol'=(color:'#d40000');python:'Builtin Function'=(),'ClassNames'=(italic:false,bold:true,color:'#fcad3d'),'Comment'=(),'Complex'=(),'Decorator'=(),'Definition Keyword'=(),'Error'=(),'Exceptions'=(),'Extensions'=(),'F-String'=(),'Float'=(),'Flow Control Keyword'=(),'Hex'=(),'Import'=(),'Int'=(),'Normal Text'=(),'Octal'=(),'Operator'=(),'Operator Keyword'=(),'Overloaders'=(),'Raw F-String'=(),'Raw String'=(),'Special Variable'=(),'String'=(),'String Char'=(),'String Substitution'=();</macro-editor-styles>
  <macro-editor-tab-width>8</macro-editor-tab-width>
  <macro-editor-watch-expressions/>
- <macro-editor-window-state/>
+ <macro-editor-window-state>MacroEditorDialog="AdnQywADAAAAAAAAAAAAAAAAA7AAAASEAAAAAAAAAAAAAAOwAAAEhAAAAAAAAAAAB4QAAAAAAAAAAAAAA7AAAASE";splitter="AAAA/wAAAAEAAAADAAAAPv////8AAAD0Af////8BAAAAAgA=";splitter_2="AAAA/wAAAAEAAAAD////////////////Af////8BAAAAAQA=";watchList="AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMgAAAACAQAAAQAAAAAAAAAAAAAAAGT/////AAAAgQAAAAAAAAACAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ==";variableList="AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMgAAAACAQAAAQAAAAAAAAAAAAAAAGT/////AAAAgQAAAAAAAAACAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ==";mainHSplitter="AAAA/wAAAAEAAAACAAAA5gAAAyUB/////wEAAAABAA==";splitter_7="AAAA/wAAAAEAAAABAAAABAD/////AQAAAAEA";drc_tree="AAAA/wAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAMQAAAABAQEAAAAAAAAAAAAAAQAAAGT/////AAAAgQAAAAMAAAABAAAAxAAAAAEAAAADAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ==";d25_tree="AAAA/wAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAMQAAAABAQEAAAAAAAAAAAAAAQAAAGT/////AAAAgQAAAAMAAAABAAAAxAAAAAEAAAADAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ==";pymacros_tree="AAAA/wAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAASoAAAABAQEAAAAAAAAAAAAAAQAAAGT/////AAAAgQAAAAMAAAABAAABKgAAAAEAAAADAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ==";macros_tree="AAAA/wAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAOQAAAABAQEAAAAAAAAAAAAAAQAAAGT/////AAAAgQAAAAMAAAABAAAA5AAAAAEAAAADAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ==";lvs_tree="AAAA/wAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAMQAAAABAQEAAAAAAAAAAAAAAQAAAGT/////AAAAgQAAAAMAAAABAAAAxAAAAAEAAAADAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ==";</macro-editor-window-state>
  <markers-visible>true</markers-visible>
  <menu-items-hidden>
 '@@navigator_menu.navigator_main_menu.navigator_all_hier_levels':false;
@@ -928,11 +929,12 @@ zoom_menu.select_current_cell:false;
 zoom_menu.zoom_fit:false;
 zoom_menu.zoom_fit_sel:false;
 zoom_menu.zoom_in:false;
-zoom_menu.zoom_out:false
+zoom_menu.zoom_out:false;
+file_menu.open_recent_menu.open_recent_2:false
 </menu-items-hidden>
  <min-inst-label-size>16</min-inst-label-size>
  <mouse-wheel-mode>0</mouse-wheel-mode>
- <mru>'/home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/layout/yadav.gds'@'sg13cmos5l'</mru>
+ <mru>'/home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/layout/yadav.gds'@'sg13cmos5l' '/home/raiku/vcr/macros/heichips26_analog_project/macros/yadav/layout/yadavVCR.gds'@'sg13cmos5l'</mru>
  <mru-bookmarks/>
  <mru-layer-properties/>
  <mru-sessions/>
@@ -1029,8 +1031,8 @@ zoom_menu.zoom_out:false
  <transient-sel-line-style>-1</transient-sel-line-style>
  <transient-sel-line-width>1</transient-sel-line-width>
  <transient-sel-vertex-size>0</transient-sel-vertex-size>
- <window-geometry>AdnQywADAAAAAAABAAAAGQAAA6cAAASdAAAAAQAAABkAAAOnAAAEnQAAAAAAAAAAB4QAAAABAAAAGQAAA6cAAASd</window-geometry>
- <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAACrAAAEHfwCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAjwD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAUgAAAHEAAAATAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAyQAAAgMAAAATAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAALSAAABnQAAAJYA////AAAAAQAAANIAAAQd/AIAAAAF+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAATAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABSAAADjAAAABMA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAA+QAAACLAAAAEwD////7/////wAAAAOmAAAAywAAAMsA////+/////8AAAAD5QAAAIwAAACMAP///wAAAh4AAAQdAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAHQAbwBvAGwAYgBhAHIBAAAAAP////8AAAAAAAAAAA==</window-state>
+ <window-geometry>AdnQywADAAAAAAABAAAAGQAAB4QAAATLAAAAAQAAABkAAAeEAAAEywAAAAAABAAAB4QAAAABAAAAGQAAB4QAAATL</window-geometry>
+ <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAACrAAAEMfwCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAjwD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAUgAAAHMAAAATAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAywAAAg0AAAATAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAALeAAABpQAAAJYA////AAAAAQAAAJYAAAQx/AIAAAAE+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAATAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABSAAADowAAABMA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAA/sAAACIAAAAEwD////7/////wAAAAPSAAAAywAAAMsA////AAAGNQAABDEAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAAA4AdABvAG8AbABiAGEAcgEAAAAA/////wAAAAAAAAAA</window-state>
  <xor-anotb>false</xor-anotb>
  <xor-axorb>true</xor-axorb>
  <xor-bnota>false</xor-bnota>

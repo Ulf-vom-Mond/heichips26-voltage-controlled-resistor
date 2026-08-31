@@ -87,12 +87,12 @@ N 1320 -1110 1320 -1100 {lab=Vss}
 N 1210 -1200 1210 -1190 {lab=Vss}
 N 1050 -1200 1050 -1190 {lab=Vss}
 N 780 -1110 780 -890 {lab=#net2}
-N 1630 -1300 1630 -1200 {lab=Rout}
+N 1630 -1300 1630 -1200 {lab=Rin}
 N 1320 -1470 1320 -1360 {lab=Vdd}
 N 940 -1470 1320 -1470 {lab=Vdd}
 N 1360 -1110 1410 -1110 {lab=#net6}
 N 1790 -1300 1790 -1050 {lab=#net5}
-N 1630 -1200 1630 -1030 {lab=Rout}
+N 1630 -1200 1630 -1030 {lab=Rin}
 N 1490 -1350 1490 -1050 {lab=#net4}
 N 940 -1330 940 -1140 {lab=#net1}
 N 1210 -1170 1210 -1030 {lab=Vss}
@@ -108,7 +108,6 @@ N 850 -1200 1010 -1200 {lab=Rin}
 N 850 -1250 850 -1200 {lab=Rin}
 N 1250 -1200 1350 -1200 {lab=Rout}
 N 1350 -1250 1350 -1200 {lab=Rout}
-N 1520 -1200 1630 -1200 {lab=Rout}
 N 720 -1250 850 -1250 {lab=Rin}
 N 1320 -1470 1410 -1470 {lab=Vdd}
 N 1410 -1470 1410 -1230 {lab=Vdd}
@@ -121,9 +120,9 @@ N 1320 -1270 1380 -1270 {lab=#net3}
 N 600 -1250 600 -1200 {lab=Rin}
 N 580 -1200 600 -1200 {lab=Rin}
 N 600 -1250 640 -1250 {lab=Rin}
-N 1930 -1250 1930 -1030 {lab=Rin}
-N 1900 -1250 1930 -1250 {lab=Rin}
-N 1930 -1350 1930 -1250 {lab=Rin}
+N 1930 -1250 1930 -1030 {lab=Rout}
+N 1900 -1250 1930 -1250 {lab=Rout}
+N 1930 -1350 1930 -1250 {lab=Rout}
 N 600 -1470 600 -1420 {lab=Vdd}
 N 580 -1470 600 -1470 {lab=Vdd}
 N 600 -1420 640 -1420 {lab=Vdd}
@@ -132,9 +131,6 @@ N 600 -740 640 -740 {lab=Vss}
 N 580 -790 600 -790 {lab=Vss}
 N 1470 -1250 1470 -1200 {lab=Rout}
 N 1450 -1200 1470 -1200 {lab=Rout}
-N 1520 -1200 1520 -1150 {lab=Rout}
-N 1520 -1150 1560 -1150 {lab=Rout}
-N 1470 -1200 1520 -1200 {lab=Rout}
 N 1350 -1250 1470 -1250 {lab=Rout}
 N 850 -860 1370 -860 {lab=Vc}
 N 780 -1470 940 -1470 {lab=Vdd}
@@ -143,6 +139,8 @@ N 1130 -790 1410 -790 {lab=Vss}
 N 1130 -1030 1130 -790 {lab=Vss}
 N 1050 -1030 1130 -1030 {lab=Vss}
 N 780 -790 1130 -790 {lab=Vss}
+N 1630 -1200 1670 -1200 {lab=Rin}
+N 1470 -1200 1530 -1200 {lab=Rout}
 C {title-3.sym} 0 0 0 0 {name=l1 author="Pintilie Sebastian" rev=1.0 lock=true}
 C {sg13_hv_nmos.sym} 760 -1200 0 0 {name=M3
 l=4.14u
@@ -295,7 +293,7 @@ C {devices/lab_pin.sym} 1630 -1320 2 0 {name=l15 sig_type=std_logic lab=Vdd}
 C {devices/lab_pin.sym} 1490 -1370 2 0 {name=l16 sig_type=std_logic lab=Vdd
 }
 C {devices/lab_pin.sym} 1320 -1320 2 1 {name=l17 sig_type=std_logic lab=Vdd}
-C {devices/lab_pin.sym} 1900 -1250 0 0 {name=l2 sig_type=std_logic lab=Rin}
+C {devices/lab_pin.sym} 1900 -1250 0 0 {name=l2 sig_type=std_logic lab=Rout}
 C {devices/lab_pin.sym} 780 -850 0 1 {name=l5 sig_type=std_logic lab=Vss}
 C {devices/lab_pin.sym} 1930 -990 0 1 {name=l7 sig_type=std_logic lab=Vss}
 C {devices/lab_pin.sym} 1790 -990 0 0 {name=l9 sig_type=std_logic lab=Vss}
@@ -312,7 +310,8 @@ C {ipin.sym} 580 -860 0 0 {name=p1 lab=Vc}
 C {iopin.sym} 580 -790 0 1 {name=p2 lab=Vss}
 C {iopin.sym} 580 -1470 0 1 {name=p3 lab=Vdd}
 C {ipin.sym} 580 -1200 0 0 {name=p4 lab=Rin}
-C {opin.sym} 1560 -1150 0 0 {name=p5 lab=Rout}
+C {opin.sym} 1530 -1200 0 0 {name=p5 lab=Rout}
 C {devices/lab_pin.sym} 940 -1370 0 0 {name=l10 sig_type=std_logic lab=Vdd}
 C {devices/lab_pin.sym} 640 -1420 0 1 {name=l8 sig_type=std_logic lab=Vdd}
 C {devices/lab_pin.sym} 640 -740 0 1 {name=l4 sig_type=std_logic lab=Vss}
+C {devices/lab_pin.sym} 1670 -1200 0 1 {name=l12 sig_type=std_logic lab=Rin}

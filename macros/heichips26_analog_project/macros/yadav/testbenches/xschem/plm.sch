@@ -49,7 +49,7 @@ set appendwrite
 *plot v(VStage2)
 
 
-let vcc = 0.2
+let vcc = 0.1
 let Vcm = 1.65
 
 repeat 5
@@ -58,7 +58,7 @@ repeat 5
   * DC Sweep
   dc Vdifs -1.6 1.6 1m
   remzerovec
-  let vcc = vcc + 0.3
+  let vcc = vcc + 0.5
 end
 set appendwrite
 
