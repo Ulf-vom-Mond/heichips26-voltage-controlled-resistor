@@ -1,0 +1,30 @@
+
+* expanding   symbol:  hv_nand.sym # of pins=5
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_nand.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_nand.sch
+.subckt hv_nand VDD in1 out in2 VSS
+*.ipin in1
+*.iopin VDD
+*.iopin VSS
+*.opin out
+*.ipin in2
+**** begin user architecture code
+
+
+.param w   = 10u
+.param ng  = 4
+.param n_ng = ng
+.param n_w = {3u*n_ng}
+.param n_l = 0.45u
+.param p_ng = ng
+.param p_w = {10u*p_ng}
+.param p_l = 0.4u
+
+
+**** end user architecture code
+XM2 out in1 net1 VSS sg13_hv_nmos w={n_w} l={n_l} ng={ng} m=1 mm_ok=1
+XM3 out in2 VDD VDD sg13_hv_pmos w={p_w} l={p_l} ng={ng} m=1 mm_ok=1
+XM1 net1 in2 VSS VSS sg13_hv_nmos w={n_w} l={n_l} ng={ng} m=1 mm_ok=1
+XM4 out in1 VDD VDD sg13_hv_pmos w={p_w} l={p_l} ng={ng} m=1 mm_ok=1
+.ends
+

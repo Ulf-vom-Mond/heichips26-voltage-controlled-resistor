@@ -1,0 +1,151 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/tb_hv_or_tran.sch
+**.subckt tb_hv_or_tran
+VDD VDD GND {VDD}
+vp2 net2 GND PULSE(0 VDD {tdel} {tr} {tf} {period} {period*2})
+vp1 net1 GND PULSE(0 VDD {tdel} {tr} {tf} {period*2} {period*4})
+x1 VDD net1 vin1 GND hv_inverter_40u
+x2 VDD net2 vin2 GND hv_inverter_40u
+x3 VDD vout net3 GND hv_inverter_40u
+x4 VDD vin1 vout vin2 GND hv_or
+**** begin user architecture code
+
+
+.param VDD=3.3
+.csparam VDD=VDD
+.param Vcm=VDD/2
+.param temp=27
+.param Cload=10p
+.param Rload=1k
+
+.param period = 1n
+.param tdel   = {period/2}
+.param ton    = {period*2}
+.csparam tstop  = {5*period}
+.csparam tstep  = {period/100}
+.param tr     = {period/100}
+.param tf     = {period/100}
+
+.options savecurrents klu method=gear reltol=1e-4 abstol=1e-15 gmin=1e-15
+.control
+
+save all
+
+* Operating Point Analysis
+op
+remzerovec
+write tb_hv_or_tran.raw
+set appendwrite
+
+* Transient Analysis
+tran {$&tstep} {$&tstop}
+write tb_hv_or_tran.raw
+
+* Plotting
+plot vin1+8 vin2+4 vout
+
+* Write Data
+unset appendwrite
+set wr_vecnames
+set wr_singlescale
+wrdata ../plot_simulations/data/tb_hv_or_tran.txt v(vin1) v(vin2) v(vout)
+
+*quit
+.endc
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  hv_inverter_40u.sym # of pins=4
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_inverter_40u.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_inverter_40u.sch
+.subckt hv_inverter_40u VDD in out VSS
+*.ipin in
+*.iopin VDD
+*.iopin VSS
+*.opin out
+XM2 out in VSS VSS sg13_hv_nmos w={n_w} l={n_l} ng={ng} m=1 mm_ok=1
+XM3 out in VDD VDD sg13_hv_pmos w={p_w} l={p_l} ng={ng} m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param w   = 10u
+.param ng  = 4
+.param n_ng = ng
+.param n_w = {3u*n_ng}
+.param n_l = 0.45u
+.param p_ng = ng
+.param p_w = {10u*p_ng}
+.param p_l = 0.4u
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  hv_or.sym # of pins=5
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_or.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_or.sch
+.subckt hv_or VDD in1 out in2 VSS
+*.ipin in1
+*.iopin VDD
+*.iopin VSS
+*.ipin in2
+*.opin out
+**** begin user architecture code
+
+
+.param w   = 10u
+.param ng  = 4
+.param n_ng = ng
+.param n_w = {3u*n_ng}
+.param n_l = 0.45u
+.param p_ng = ng
+.param p_w = {10u*p_ng}
+.param p_l = 0.4u
+
+
+**** end user architecture code
+x1 VDD in1 net1 in2 VSS hv_nor
+x2 VDD net1 out VSS hv_inverter_40u
+.ends
+
+
+* expanding   symbol:  hv_nor.sym # of pins=5
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_nor.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_nor.sch
+.subckt hv_nor VDD in1 out in2 VSS
+*.ipin in1
+*.iopin VDD
+*.iopin VSS
+*.opin out
+*.ipin in2
+**** begin user architecture code
+
+
+.param w   = 10u
+.param ng  = 4
+.param n_ng = ng
+.param n_w = {3u*n_ng}
+.param n_l = 0.45u
+.param p_ng = ng
+.param p_w = {10u*p_ng}
+.param p_l = 0.4u
+
+
+**** end user architecture code
+XM2 out in2 VSS VSS sg13_hv_nmos w={n_w} l={n_l} ng={ng} m=1 mm_ok=1
+XM3 net1 in1 VDD VDD sg13_hv_pmos w={p_w} l={p_l} ng={ng} m=1 mm_ok=1
+XM1 out in1 VSS VSS sg13_hv_nmos w={n_w} l={n_l} ng={ng} m=1 mm_ok=1
+XM4 out in2 net1 VDD sg13_hv_pmos w={p_w} l={p_l} ng={ng} m=1 mm_ok=1
+.ends
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

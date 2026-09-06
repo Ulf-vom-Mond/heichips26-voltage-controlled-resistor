@@ -1,111 +1,17 @@
-** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/tb_switched_cap_tran.sch
-**.subckt tb_switched_cap_tran
-VDD VDD VSS 3.3
-R2 VSS GND 0
-x1 net1 VDD VSS vr net2 switched_cap_cell
-V1 net2 VSS {v1}
-V2 vr VSS {v2}
-V0 net1 VSS {vctrl}
-**** begin user architecture code
-
-.lib cornerMOSlv.lib mos_tt
-.lib cornerMOShv.lib mos_tt
-.lib cornerRES.lib res_typ
-.lib cornerDIO.lib dio_tt
-.lib cornerCAP.lib cap_typ
-
-.include /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice
-
-
-
-.param temp=27
-.param f = 5.6Meg
-
-* Derived timing parameters
-.param period = {1/f}
-.param ton    = {period/2}
-.csparam tstop  = {5*period}
-.csparam tstep  = {period/100}
-.param ictrl  = {f*3.3e-12}
-.param vctrl  = 0.5
-.param tr     = {period/1000}
-.param tf     = {period/1000}
-
-.param vdm = 3.3V
-.param vcm = {vdm/2}
-.param v1  = {vcm - vdm/2}
-.param v2  = {vcm + vdm/2}
-
-.options savecurrents klu method=gear reltol=1e-3 abstol=1e-12 gmin=1e-15
-.probe alli
-.control
-
-save all
-set appendwrite
-
-tran {$&tstep} {$&tstop}
-remzerovec
-
-save all
-set appendwrite
-
-write tb_switched_cap_tran.raw
-set appendwrite
-
-*let r_var = vr/i(r1)
-meas tran period_sim TRIG i(V1) VAL=1m RISE=1 TARG i(V1) VAL=1m RISE=2
-meas tran n_periods TRIG i(V1) VAL=1m RISE=1 TARG i(V1) VAL=1m RISE=LAST
-meas tran i_avg AVG i(V1) FROM=0 TO=n_periods
-meas tran v_avg AVG vr FROM=0 TO=n_periods
-*meas tran r_avg AVG r_var
-
-let npts = length(time) - 1
-let i_mavg = integ(i(V1))[1, npts] / time[1, npts]
-let v_mavg = integ(vr)[1, npts] / time[1, npts]
-let r_mavg = v_mavg/i_mavg
-let r_avg = v_avg/i_avg
-let f_sim = 1/period_sim
-let plot_y_lim = 1.2*r_avg
-
-print period_sim f_sim r_avg
-
-* Plotting
-plot vr v_avg v_mavg
-plot i(V1) i_avg i_mavg
-plot r_avg r_mavg ylimit 0 $&plot_y_lim
-
-* Write Data
-unset appendwrite
-set wr_vecnames
-set wr_singlescale
-wrdata ../plot_simulations/data/tb_switched_cap_tran.txt v(vr) v(VDD) i(V1)
-
-*quit
-.endc
-
-
-**** end user architecture code
-**.ends
-
-* expanding   symbol:  switched_cap_cell.sym # of pins=5
-** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/switched_cap_cell.sym
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/switched_cap_cell.sch
-.subckt switched_cap_cell vctrl VDD VSS r2 r1
+**.subckt switched_cap_cell vctrl VDD VSS r2 r1
 *.iopin r1
 *.iopin r2
 *.iopin VDD
 *.iopin VSS
 *.iopin vctrl
 XC1 net1 VSS cap_cmomi w=30e-6 l=30e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
-x2 net2 net1 r1 net3 VDD VSS transmission_gate
-x6 net5 net1 r2 net4 VDD VSS transmission_gate
-x3 net2 net3 VDD clk VSS net5 net4 pulse_shaper
-x4 net6 VDD clk VSS VSS VSS VSS vco_clk net7 hv_mux4
-x5 VDD vco_clk vctrl VSS net8 vco
-vselA net6 VSS 0
-vselB net7 VSS 3.3
-.ends
-
+x2 VSS net1 r1 VDD VDD VSS transmission_gate
+x6 VSS net1 r2 VDD VDD VSS transmission_gate
+x5 VDD vco_clk vctrl VSS net4 vco
+vselA net2 VSS 0
+vselB net3 VSS 3.3
+**.ends
 
 * expanding   symbol:  transmission_gate.sym # of pins=6
 ** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/transmission_gate.sym
@@ -262,28 +168,28 @@ x1 VDD s out nout r VSS hv_rs-ff
 
 **** end user architecture code
 XM6 vc out 5uA+ VDD sg13_hv_pmos w=0.3u l=0.4u ng=1 m=1 mm_ok=1
-x5 net2 vc vthl VDD 40uA- VSS comp_pmos
+x5 net2 vc net9 VDD 40uA- VSS comp_pmos
 x4 VDD net3 VSS current_reference_40uA
 XM7 s net1 VSS VSS sg13_hv_nmos w=inv_n_w l=inv_n_l ng=inv_ng m=1 mm_ok=1
 XM8 s net1 VDD VDD sg13_hv_pmos w=inv_p_w l=inv_p_l ng=inv_ng m=1 mm_ok=1
 XM9 r net2 VSS VSS sg13_hv_nmos w=inv_n_w l=inv_n_l ng=inv_ng m=1 mm_ok=1
 XM10 r net2 VDD VDD sg13_hv_pmos w=inv_p_w l=inv_p_l ng=inv_ng m=1 mm_ok=1
-x7 net1 vthh vc VDD 40uA+ VSS comp_nmos
+x7 net1 net8 vc VDD 40uA+ VSS comp_nmos
 XM11 net3 net3 VDD VDD sg13_hv_pmos w=cm_p_w l=cm_p_l ng=1 m=1 mm_ok=1
 XM12 40uA+ net3 VDD VDD sg13_hv_pmos w=cm_p_w l=cm_p_l ng=1 m=1 mm_ok=1
 XM13 net4 net3 VDD VDD sg13_hv_pmos w=cm_p_w l=cm_p_l ng=1 m=1 mm_ok=1
 XM14 net4 net4 VSS VSS sg13_hv_nmos w=cm_n_w l=cm_n_l ng=1 m=1 mm_ok=1
 XM15 40uA- net4 VSS VSS sg13_hv_nmos w=cm_n_w l=cm_n_l ng=1 m=1 mm_ok=1
-x2 10uA- vthl VDD vctrl VSS vthh voltage_mirror_pmos
-XM1 net5 net3 VDD VDD sg13_hv_pmos w=cm_p_w l=cm_p_l ng=1 m=1 mm_ok=1
-XM2 net5 net5 VSS VSS sg13_hv_nmos w=4*cm_n_w l=cm_n_l ng=4 m=1 mm_ok=1
-XM3 10uA- net5 VSS VSS sg13_hv_nmos w=cm_n_w l=cm_n_l ng=1 m=1 mm_ok=1
-XM5 net6 net5 VSS VSS sg13_hv_nmos w=cm_n_w l=cm_n_l ng=1 m=1 mm_ok=1
-XM25 net6 net6 VDD VDD sg13_hv_pmos w=2*cm_p_w l=cm_p_l ng=2 m=1 mm_ok=1
-XM26 net7 net6 VDD VDD sg13_hv_pmos w=cm_p_w l=cm_p_l ng=1 m=1 mm_ok=1
-XM27 5uA+ net6 VDD VDD sg13_hv_pmos w=cm_p_w l=cm_p_l ng=1 m=1 mm_ok=1
-XM28 net7 net7 VSS VSS sg13_hv_nmos w=2*cm_n_w l=cm_n_l ng=2 m=1 mm_ok=1
-XM29 5uA- net7 VSS VSS sg13_hv_nmos w=cm_n_w l=cm_n_l ng=1 m=1 mm_ok=1
+XM16 net5 net4 VSS VSS sg13_hv_nmos w=cm_n_w l=cm_n_l ng=1 m=1 mm_ok=1
+XM17 net5 net5 VDD VDD sg13_hv_pmos w=4*cm_p_w l=cm_p_l ng=4 m=1 mm_ok=1
+XM18 10uA+ net5 VDD VDD sg13_hv_pmos w=cm_p_w l=cm_p_l ng=1 m=1 mm_ok=1
+XM19 net6 net5 VDD VDD sg13_hv_pmos w=cm_p_w l=cm_p_l ng=1 m=1 mm_ok=1
+XM20 net6 net6 VSS VSS sg13_hv_nmos w=2*cm_n_w l=cm_n_l ng=2 m=1 mm_ok=1
+XM21 5uA- net6 VSS VSS sg13_hv_nmos w=cm_n_w l=cm_n_l ng=1 m=1 mm_ok=1
+XM22 net7 net6 VSS VSS sg13_hv_nmos w=cm_n_w l=cm_n_l ng=1 m=1 mm_ok=1
+XM23 net7 net7 VDD VDD sg13_hv_pmos w=cm_p_w l=cm_p_l ng=1 m=1 mm_ok=1
+XM24 5uA+ net7 VDD VDD sg13_hv_pmos w=cm_p_w l=cm_p_l ng=1 m=1 mm_ok=1
+x2 10uA+ net8 VDD vctrl VSS net9 voltage_mirror
 .ends
 
 
@@ -568,10 +474,10 @@ XM7 Ibias Ibias VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
 .ends
 
 
-* expanding   symbol:  voltage_mirror_pmos.sym # of pins=6
-** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/voltage_mirror_pmos.sym
-** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/voltage_mirror_pmos.sch
-.subckt voltage_mirror_pmos Ibias nout VDD in VSS out
+* expanding   symbol:  voltage_mirror.sym # of pins=6
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/voltage_mirror.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/voltage_mirror.sch
+.subckt voltage_mirror Ibias nout VDD in VSS out
 *.iopin VDD
 *.iopin VSS
 *.ipin in
@@ -588,16 +494,14 @@ XM7 Ibias Ibias VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
 
 
 **** end user architecture code
+XM1 Ibias Ibias VSS VSS sg13_hv_nmos w=1.9*n_w l=n_l ng=2 m=1 mm_ok=1
 XR1 in Ibias GND rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
-XM4 net1 Ibias VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
-XM5 out net1 VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
-XR2 VSS nout GND rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
-XR3 out VDD GND rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
-XM2 net1 net1 VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
-XM3 nout Ibias VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
-XM6 Ibias Ibias VDD VDD sg13_hv_pmos w=1.9*p_w l=p_l ng=1 m=1 mm_ok=1
+XM2 net1 net1 VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM3 nout Ibias VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+XM4 out net1 VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM5 net1 Ibias VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+XR2 VDD nout GND rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
+XR3 out VSS GND rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
 .ends
 
-.GLOBAL VSS
-.GLOBAL GND
 .end

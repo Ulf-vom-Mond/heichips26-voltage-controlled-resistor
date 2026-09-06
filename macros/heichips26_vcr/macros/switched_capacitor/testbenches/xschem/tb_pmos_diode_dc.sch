@@ -77,7 +77,7 @@ C {devices/gnd.sym} 1180 -580 0 0 {name=l10 lab=GND
 w=n_w}
 C {sg13_lv_pmos.sym} 1160 -730 0 0 {name=M6
 l=0.4u
-w=5u
+w=1u
 ng=1
 m=1
 model=sg13_hv_pmos

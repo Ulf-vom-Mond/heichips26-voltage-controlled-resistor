@@ -1,7 +1,7 @@
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/tb_pmos_diode_dc.sch
 **.subckt tb_pmos_diode_dc
 VDD net1 GND 3.3
-XM6 net2 net2 net1 net2 sg13_hv_pmos w=5u l=0.4u ng=1 m=1 mm_ok=1
+XM6 net2 net2 net1 net2 sg13_hv_pmos w=1u l=10u ng=1 m=1 mm_ok=1
 VD net2 GND 3.3
 **** begin user architecture code
 
