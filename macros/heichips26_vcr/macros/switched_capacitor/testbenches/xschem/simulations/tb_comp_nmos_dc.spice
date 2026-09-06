@@ -1,0 +1,120 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/tb_comp_nmos_dc.sch
+**.subckt tb_comp_nmos_dc
+VDD VDD GND {VDD}
+Vinp inp GND 0
+Vinn inn GND {VDD/2}
+x1 VDD net1 GND current_reference_pmos_40uA
+x2 vout inn inp VDD net1 GND comp_nmos
+**** begin user architecture code
+
+
+.include ../../../netlist/pex/inverter_magic_pex_3.spice
+.param VDD=3.3
+.csparam VDD=VDD
+.param Vcm=VDD/2
+.csparam Vcm=Vcm
+.param temp=27
+.param Cload=10p
+.param Rload=1k
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.control
+
+save all
+
+* Operating Point Analysis
+op
+remzerovec
+write tb_comp_nmos_dc.raw
+set appendwrite
+
+* DC Sweep
+dc Vinp 0 $&VDD 1m Vinn 0 $&VDD 0.5
+remzerovec
+write tb_comp_nmos_dc.raw
+set appendwrite
+
+* Plotting
+plot inp vout
+
+* Write Data
+unset appendwrite
+set wr_vecnames
+set wr_singlescale
+*wrdata ../plot_simulations/data/tb_comp_nmos_dc.txt v(vin) v(vout)
+
+*quit
+.endc
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  current_reference_pmos_40uA.sym # of pins=3
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/current_reference_pmos_40uA.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/current_reference_pmos_40uA.sch
+.subckt current_reference_pmos_40uA VDD iout VSS
+*.iopin VSS
+*.iopin VDD
+*.iopin iout
+XM8 net1 net2 VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+XM6 net1 net1 VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM1 net2 net1 net3 VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM3 net2 net2 VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+XR2 VDD net4 VSS rppd w=2e-6 l=21.6e-6 m=1 b=0 mm_ok=1
+XR3 net4 net3 VSS rsil w=0.5e-6 l=282e-6 m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param n_w = 6u
+.param n_l = 5u
+.param p_w = 10u
+.param p_l = 2u
+
+
+**** end user architecture code
+XM2 net2 net1 net3 VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM4 net2 net1 net3 VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM5 net2 net1 net3 VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM7 iout net1 VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  comp_nmos.sym # of pins=6
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/comp_nmos.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/comp_nmos.sch
+.subckt comp_nmos out - + VDD Ibias VSS
+*.iopin VDD
+*.iopin VSS
+*.ipin -
+*.ipin +
+*.ipin Ibias
+*.opin out
+XM8 net2 + net3 VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+XM6 net1 net1 VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM1 net2 net1 VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM3 net1 - net3 VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param n_w = 1.2u
+.param n_l = 1.5u
+.param p_w = 2u
+.param p_l = 0.4u
+
+
+**** end user architecture code
+XM2 out net2 VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM4 net3 Ibias VSS VSS sg13_hv_nmos w=2*n_w l=n_l ng=1 m=1 mm_ok=1
+XM5 out Ibias VSS VSS sg13_hv_nmos w=2*n_w l=n_l ng=1 m=1 mm_ok=1
+XM7 Ibias Ibias VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+.ends
+
+.GLOBAL GND
+.GLOBAL VDD
+.end
