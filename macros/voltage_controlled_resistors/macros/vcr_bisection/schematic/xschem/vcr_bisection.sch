@@ -34,21 +34,21 @@ N 530 -150 550 -150 {lab=#net6}
 N 610 -150 660 -150 {lab=Vdd}
 N 480 -300 500 -300 {lab=Vctrl}
 N 500 -300 500 -280 {lab=Vctrl}
-N 330 -280 330 40 {lab=Vcm}
 N 330 -280 460 -280 {lab=Vcm}
 N 330 -440 330 -280 {lab=Vcm}
-N 330 40 460 40 {lab=Vcm}
 N 490 0 520 0 {lab=#net7}
 N 550 -0 550 40 {lab=Vcm}
-N 460 40 550 40 {lab=Vcm}
 N 330 -440 1050 -440 {lab=Vcm}
 N 310 -440 330 -440 {lab=Vcm}
-N 580 0 1110 -0 {lab=T2}
 N 90 0 430 0 {lab=T1}
 N 1250 -440 1250 -280 {lab=#net4}
 N 1110 0 1310 0 {lab=T2}
 N 1110 -300 1110 0 {lab=T2}
 N 460 -40 550 -40 {lab=#net5}
+N 580 0 1110 -0 {lab=T2}
+N 330 -280 330 40 {lab=Vcm}
+N 460 40 550 40 {lab=Vcm}
+N 330 40 460 40 {lab=Vcm}
 C {res.sym} 280 -440 3 0 {name=R1
 value=10k
 footprint=1206
@@ -87,8 +87,8 @@ C {lab_pin.sym} 660 -150 2 0 {name=p24 sig_type=std_logic lab=Vdd}
 C {isource.sym} 580 -150 1 0 {name=I4 value=5u}
 C {ipin.sym} 480 -300 0 0 {name=p25 lab=Vctrl
 }
-C {ipin.sym} -120 -220 0 0 {name=p3 lab=Vdd}
-C {ipin.sym} -120 -190 0 0 {name=p4 lab=Vss}
+C {ipin.sym} 10 -210 0 0 {name=p3 lab=Vdd}
+C {ipin.sym} 10 -180 0 0 {name=p4 lab=Vss}
 C {lab_pin.sym} 330 -280 0 0 {name=p5 sig_type=std_logic lab=Vcm}
 C {sg13cmos5l_pr/sg13_hv_pmos.sym} 550 -20 1 0 {name=M2
 l=10u

@@ -89,7 +89,7 @@ repeat 5
   alter vc $&vcc
 
   * DC Sweep
-  dc VS 2 3 1m
+  dc VS 0 3 1m
   remzerovec
   let vcc = vcc + 0.3
 end
