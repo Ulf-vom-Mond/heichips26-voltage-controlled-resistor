@@ -62,7 +62,7 @@ value="
 .param Cload=10p
 .param Rload=1k
 
-.param period = 50n
+.param period = 2000n
 .param ton    = \{period*2\}
 .csparam tstop  = \{2*period\}
 .csparam tstep  = \{period/100\}
@@ -119,7 +119,7 @@ value="
 .lib cornerCAP.lib cap_typ
 "}
 C {devices/lab_pin.sym} 1500 -1080 3 1 {name=l12 sig_type=std_logic lab=out}
-C {devices/vsource.sym} 1240 -990 0 0 {name=vctrl value=0}
+C {devices/vsource.sym} 1240 -990 0 0 {name=vctrl value=2.5}
 C {vco.sym} 1380 -1060 0 0 {name=x1}
 C {vdd.sym} 1380 -1140 0 0 {name=l4 lab=VDD}
 C {sg13cmos5l_pr/sg13_hv_nmos.sym} 1580 -1020 0 0 {name=M2

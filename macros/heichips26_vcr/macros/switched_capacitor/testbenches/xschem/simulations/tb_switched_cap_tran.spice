@@ -1,11 +1,11 @@
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/testbenches/xschem/tb_switched_cap_tran.sch
 **.subckt tb_switched_cap_tran
-VDD VDD VSS 3.3
+VDD VDD VSS {VDD}
 R2 VSS GND 0
-x1 net1 VDD VSS vr net2 switched_cap_cell
-V1 net2 VSS {v1}
+x1 vctrl VDD VSS vr net1 switched_cap_cell
+V1 net1 VSS {v1}
 V2 vr VSS {v2}
-V0 net1 VSS {vctrl}
+V0 vctrl VSS {vctrl}
 **** begin user architecture code
 
 .lib cornerMOSlv.lib mos_tt
@@ -19,7 +19,8 @@ V0 net1 VSS {vctrl}
 
 
 .param temp=27
-.param f = 5.6Meg
+.param vctrl  = 3.3
+.param f      = {2e6/vctrl}
 
 * Derived timing parameters
 .param period = {1/f}
@@ -27,16 +28,17 @@ V0 net1 VSS {vctrl}
 .csparam tstop  = {5*period}
 .csparam tstep  = {period/100}
 .param ictrl  = {f*3.3e-12}
-.param vctrl  = 0.5
 .param tr     = {period/1000}
 .param tf     = {period/1000}
 
-.param vdm = 3.3V
-.param vcm = {vdm/2}
+.param VDD = 3.3
+.csparam VDD=VDD
+.param vdm = 3.3
+.param vcm = {VDD/2}
 .param v1  = {vcm - vdm/2}
 .param v2  = {vcm + vdm/2}
 
-.options savecurrents klu method=gear reltol=1e-3 abstol=1e-12 gmin=1e-15
+.options savecurrents klu method=gear reltol=1e-6 abstol=1e-12 gmin=1e-15
 .probe alli
 .control
 
@@ -73,6 +75,7 @@ print period_sim f_sim r_avg
 plot vr v_avg v_mavg
 plot i(V1) i_avg i_mavg
 plot r_avg r_mavg ylimit 0 $&plot_y_lim
+plot x1.clk
 
 * Write Data
 unset appendwrite
@@ -100,10 +103,10 @@ XC1 net1 VSS cap_cmomi w=30e-6 l=30e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 
 x2 net2 net1 r1 net3 VDD VSS transmission_gate
 x6 net5 net1 r2 net4 VDD VSS transmission_gate
 x3 net2 net3 VDD clk VSS net5 net4 pulse_shaper
-x4 net6 VDD clk VSS VSS VSS VSS vco_clk net7 hv_mux4
-x5 VDD vco_clk vctrl VSS net8 vco
-vselA net6 VSS 0
-vselB net7 VSS 3.3
+x4 net7 VDD clk VSS VSS VSS VSS net6 net8 hv_mux4
+x5 VDD net6 vctrl VSS net9 vco
+vselA net7 VSS 0
+vselB net8 VSS 3.3
 .ends
 
 
@@ -588,11 +591,11 @@ XM7 Ibias Ibias VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
 
 
 **** end user architecture code
-XR1 in Ibias GND rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
+XR1 in Ibias VSS rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
 XM4 net1 Ibias VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
 XM5 out net1 VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
-XR2 VSS nout GND rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
-XR3 out VDD GND rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
+XR2 VSS nout VSS rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
+XR3 out VDD VSS rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
 XM2 net1 net1 VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
 XM3 nout Ibias VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
 XM6 Ibias Ibias VDD VDD sg13_hv_pmos w=1.9*p_w l=p_l ng=1 m=1 mm_ok=1

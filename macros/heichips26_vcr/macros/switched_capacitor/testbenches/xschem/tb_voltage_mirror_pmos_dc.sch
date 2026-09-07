@@ -31,9 +31,9 @@ write @schname\\\\.raw
 set appendwrite
 
 * DC Sweep
-*dc VS 0 $&VDD 0.01
+dc VS 0 $&VDD 0.01
 *dc VS 0 $&VDD 0.01 VDD 2.3 4.3 0.5
-dc VS 0 $&VDD 0.01 temp -40 80 30
+*dc VS 0 $&VDD 0.01 temp -40 80 30
 *dc temp -40 85 1
 remzerovec
 write @schname\\\\.raw
@@ -81,7 +81,7 @@ C {devices/vsource.sym} 1120 -890 0 0 {name=VDD value=\{VDD\}}
 C {devices/gnd.sym} 1120 -840 0 1 {name=l4 lab=GND}
 C {devices/gnd.sym} 1200 -840 0 0 {name=l10 lab=GND
 w=n_w}
-C {devices/vsource.sym} 1200 -890 0 0 {name=VS value=3.3}
+C {devices/vsource.sym} 1200 -890 0 0 {name=VS value=2.5}
 C {vdd.sym} 1120 -940 0 0 {name=l7 lab=VDD}
 C {devices/lab_pin.sym} 1400 -940 0 1 {name=l12 sig_type=std_logic lab=nout}
 C {devices/lab_pin.sym} 1200 -960 3 1 {name=l1 sig_type=std_logic lab=in}

@@ -37,11 +37,12 @@ plt.rcParams.update({
 def plot_vcm_sweep(datafile, plotfolder):
     ngspice_file = datafile
 
-    time = ng.loadngspicecol(str(ngspice_file), "time")
-    i0   = ng.loadngspicecol(str(ngspice_file), "i(i0)")
-    i1   = ng.loadngspicecol(str(ngspice_file), "i(v1)")
-    vr1  = ng.loadngspicecol(str(ngspice_file), "vr1")
-    vr2  = ng.loadngspicecol(str(ngspice_file), "vr2")
+    time  = ng.loadngspicecol(str(ngspice_file), "time")
+    vctrl = ng.loadngspicecol(str(ngspice_file), "vctrl")
+    i1    = ng.loadngspicecol(str(ngspice_file), "i(v1)")
+    vr1   = ng.loadngspicecol(str(ngspice_file), "vr1")
+    vr2   = ng.loadngspicecol(str(ngspice_file), "vr2")
+    clk   = ng.loadngspicecol(str(ngspice_file), "x1.clk")
 
     vdm = vr2 - vr1
     vcm = (vr2 + vr1) / 2
@@ -49,16 +50,17 @@ def plot_vcm_sweep(datafile, plotfolder):
     tran_dict = {}
     section_start = 0
     for i in range(1, len(time)):
-        if abs(vcm[i-1] - vcm[i]) > eq_th or (i0[i-1] - i0[i]) > eq_th or i == len(time)-1:
+        if abs(vcm[i-1] - vcm[i]) > eq_th or (vctrl[i-1] - vctrl[i]) > eq_th or i == len(time)-1:
             if i == len(time)-1: # collect last section
                 i+=1
 
-            tran_dict[f"{i0[i-1]}_{vcm[i-1]}"] = {
-                "i0": i0[i-1],
+            tran_dict[f"{vctrl[i-1]}_{vcm[i-1]}"] = {
+                "vctrl": vctrl[i-1],
                 "vcm": vcm[i-1],
                 "vdm": vdm[i-1],
                 "t": time[section_start:i],
-                "i1": i1[section_start:i]
+                "i1": i1[section_start:i],
+                "clk": clk[section_start:i]
             }
             section_start = i
 
@@ -66,46 +68,83 @@ def plot_vcm_sweep(datafile, plotfolder):
     filter_len = 20
 
     for opp in tran_dict:
-        opp_t = tran_dict[opp]["t"]
-        opp_i0 = tran_dict[opp]["i0"]
-        opp_i1 = tran_dict[opp]["i1"]
-        opp_vdm = tran_dict[opp]["vdm"]
-        opp_vcm = tran_dict[opp]["vcm"]
+        opp_t     = tran_dict[opp]["t"]
+        opp_vctrl = tran_dict[opp]["vctrl"]
+        opp_i1    = tran_dict[opp]["i1"]
+        opp_vdm   = tran_dict[opp]["vdm"]
+        opp_vcm   = tran_dict[opp]["vcm"]
+        opp_clk   = tran_dict[opp]["clk"]
 
-        sample_period = opp_t[filter_len:] - opp_t[0:-filter_len]
-        thr = (np.max(sample_period) + np.min(sample_period)) / 2
-        rising_edge_time_log = []
-        rising_edge_index_log = []
+        thr = (np.max(opp_clk) + np.min(opp_clk)) / 2
+        re_time_log  = []
+        re_index_log = []
+        fe_time_log  = []
+        fe_index_log = []
 
-        for i in range(1, len(sample_period)):
-            if sample_period[i-1] < thr and sample_period[i] > thr:
-                rising_edge_time_log.append(opp_t[i + int(filter_len/2)])
-                rising_edge_index_log.append(i + int(filter_len/2))
+        for i in range(1, len(opp_t)):
+            if opp_clk[i-1] < thr and opp_clk[i] > thr:
+                re_time_log.append(opp_t[i])
+                re_index_log.append(i)
+            if opp_clk[i-1] > thr and opp_clk[i] < thr:
+                fe_time_log.append(opp_t[i])
+                fe_index_log.append(i)
 
-        #period = 2 * (rising_edge_time_log[-1] - rising_edge_time_log[0]) / (len(rising_edge_time_log) - 1)
-        #f = 1 / period
-        #print(f/1e6)
+        re_period = (re_time_log[-1] - re_time_log[0]) / (len(re_time_log) - 1)
+        fe_period = (fe_time_log[-1] - fe_time_log[0]) / (len(fe_time_log) - 1)
+        period = (re_period + fe_period) / 2
+        f = 1 / period
+        print(f/1e6)
 
-        avg_end = rising_edge_index_log[-1] - rising_edge_index_log[0]
-        i_avg = np.trapz(opp_i1[0:avg_end], opp_t[0:avg_end]) / opp_t[avg_end]
+        # stores the time of the last edge plus a quarter period
+        re_avg_end_t = re_time_log[-1] + period/4
+        fe_avg_end_t = fe_time_log[-1] + period/4
+
+        # stores the time of the first edge plus a quarter period
+        re_avg_start_t = re_time_log[0] + period/4
+        fe_avg_start_t = fe_time_log[0] + period/4
+
+        # for avg_end_t, choose the larger time that is in th simulation time range
+        avg_end_t = 0
+        # for avg_start_t, use the same kind of reference edge than for avg_end_t
+        avg_start_t = 0
+        if re_avg_end_t > fe_avg_end_t:
+            if re_avg_end_t < opp_t[-1]:
+                avg_end_t   = re_avg_end_t
+                avg_start_t = re_avg_start_t
+            else:
+                avg_end_t   = fe_avg_end_t
+                avg_start_t = re_avg_start_t
+        else:
+            if fe_avg_end_t < opp_t[-1]:
+                avg_end_t   = fe_avg_end_t
+                avg_start_t = fe_avg_start_t
+            else:
+                avg_end_t   = re_avg_end_t
+                avg_start_t = re_avg_start_t
+
+        # find indices from time stamps
+        avg_end = np.searchsorted(opp_t, avg_end_t)
+        avg_start = np.searchsorted(opp_t, avg_start_t)
+
+        i_avg = np.trapz(opp_i1[avg_start:avg_end], opp_t[avg_start:avg_end]) / (opp_t[avg_end] - opp_t[avg_start])
         r_avg = opp_vdm/i_avg
 
-        if opp_i0 not in r_dict:
-            r_dict[opp_i0] = {
+        if opp_vctrl not in r_dict:
+            r_dict[opp_vctrl] = {
                 "data": []
             }
 
-        r_dict[opp_i0]["data"].append((opp_vcm, r_avg))
+        r_dict[opp_vctrl]["data"].append((opp_vcm, r_avg))
 
     fig, ax1 = plt.subplots(figsize=(6.5, 3.8))
-    for i0_val in r_dict:
-        r_dict[i0_val]["data"] = sorted(r_dict[i0_val]["data"], key=lambda entry: entry[0]) # sort based on vcm values
-        r_dict[i0_val]["vcm"] = [entry[0] for entry in r_dict[i0_val]["data"]]
-        r_dict[i0_val]["r_avg"] = [entry[1] for entry in r_dict[i0_val]["data"]]
-        r_avg_avg = np.median(r_dict[i0_val]["r_avg"])
+    for vctrl_val in r_dict:
+        r_dict[vctrl_val]["data"] = sorted(r_dict[vctrl_val]["data"], key=lambda entry: entry[0]) # sort based on vcm values
+        r_dict[vctrl_val]["vcm"] = [entry[0] for entry in r_dict[vctrl_val]["data"]]
+        r_dict[vctrl_val]["r_avg"] = [entry[1] for entry in r_dict[vctrl_val]["data"]]
+        r_avg_avg = np.median(r_dict[vctrl_val]["r_avg"])
         
-        labeltext = fr"$I_\mathrm{{ctrl}} = {round(i0_val*1e6, 1)}$ µA, $R_\mathrm{{mean}} = {round(r_avg_avg/1e3, 1)}$ k$\Omega$"
-        ax1.plot(r_dict[i0_val]["vcm"], 100*(r_dict[i0_val]["r_avg"]/r_avg_avg-1), linewidth=1, label=labeltext)
+        labeltext = fr"$V_\mathrm{{ctrl}} = {round(vctrl_val, 1)}$ V, $R_\mathrm{{median}} = {round(r_avg_avg/1e3, 1)}$ k$\Omega$"
+        ax1.plot(r_dict[vctrl_val]["vcm"], 100*(r_dict[vctrl_val]["r_avg"]/r_avg_avg-1), linewidth=1, label=labeltext)
 
     ax1.set_xlabel(r"$V_\mathrm{CM}$ in V")
     ax1.set_ylabel(r"relative deviation from median resistance in \%")
@@ -120,19 +159,20 @@ def plot_vcm_sweep(datafile, plotfolder):
     ax1.legend()
     fig.suptitle(rf"Linearity with respect to $V_\mathrm{{CM}}$ for $V_\mathrm{{DM}} = {vdm[0]}$ V")
     plt.tight_layout()
-    plt.savefig(plotfolder / "linearity_vcm.pdf")
-    plt.savefig(plotfolder / "linearity_vcm.png")
+    plt.savefig(plotfolder / "linearity_vco_vcm.pdf")
+    plt.savefig(plotfolder / "linearity_vco_vcm.png")
     #plt.show()
 
 
 def plot_vdm_sweep(datafile, plotfolder):
     ngspice_file = datafile
 
-    time = ng.loadngspicecol(str(ngspice_file), "time")
-    i0   = ng.loadngspicecol(str(ngspice_file), "i(i0)")
-    i1   = ng.loadngspicecol(str(ngspice_file), "i(v1)")
-    vr1  = ng.loadngspicecol(str(ngspice_file), "vr1")
-    vr2  = ng.loadngspicecol(str(ngspice_file), "vr2")
+    time  = ng.loadngspicecol(str(ngspice_file), "time")
+    vctrl = ng.loadngspicecol(str(ngspice_file), "vctrl")
+    i1    = ng.loadngspicecol(str(ngspice_file), "i(v1)")
+    vr1   = ng.loadngspicecol(str(ngspice_file), "vr1")
+    vr2   = ng.loadngspicecol(str(ngspice_file), "vr2")
+    clk   = ng.loadngspicecol(str(ngspice_file), "x1.clk")
 
     vdm = vr2 - vr1
     vcm = (vr2 + vr1) / 2
@@ -140,16 +180,17 @@ def plot_vdm_sweep(datafile, plotfolder):
     tran_dict = {}
     section_start = 0
     for i in range(1, len(time)):
-        if abs(vdm[i-1] - vdm[i]) > eq_th or abs(i0[i-1] - i0[i]) > eq_th or i == len(time)-1:
+        if abs(vdm[i-1] - vdm[i]) > eq_th or abs(vctrl[i-1] - vctrl[i]) > eq_th or i == len(time)-1:
             if i == len(time)-1: # collect last section
                 i+=1
 
-            tran_dict[f"{i0[i-1]}_{vdm[i-1]}"] = {
-                "i0": i0[i-1],
+            tran_dict[f"{vctrl[i-1]}_{vdm[i-1]}"] = {
+                "vctrl": vctrl[i-1],
                 "vcm": vcm[i-1],
                 "vdm": vdm[i-1],
                 "t": time[section_start:i],
-                "i1": i1[section_start:i]
+                "i1": i1[section_start:i],
+                "clk": clk[section_start:i]
             }
             section_start = i
 
@@ -157,59 +198,90 @@ def plot_vdm_sweep(datafile, plotfolder):
     filter_len = 20
 
     for opp in tran_dict:
-        opp_t = tran_dict[opp]["t"]
-        opp_i0 = tran_dict[opp]["i0"]
-        opp_i1 = tran_dict[opp]["i1"]
-        opp_vdm = tran_dict[opp]["vdm"]
-        opp_vcm = tran_dict[opp]["vcm"]
+        opp_t     = tran_dict[opp]["t"]
+        opp_vctrl = tran_dict[opp]["vctrl"]
+        opp_i1    = tran_dict[opp]["i1"]
+        opp_vdm   = tran_dict[opp]["vdm"]
+        opp_vcm   = tran_dict[opp]["vcm"]
+        opp_clk   = tran_dict[opp]["clk"]
 
-        sample_period = opp_t[filter_len:] - opp_t[0:-filter_len]
-        if len(sample_period) == 0:
-            print("uh oh")
+        # remove weird sample
+        if np.max(opp_clk) < 2 or np.min(opp_clk) > 1:
+            print(f"skipping {opp}")
             continue
 
-        thr = (np.max(sample_period) + np.min(sample_period)) / 2
-        rising_edge_time_log = []
-        rising_edge_index_log = []
+        thr = (np.max(opp_clk) + np.min(opp_clk)) / 2
+        re_time_log  = []
+        re_index_log = []
+        fe_time_log  = []
+        fe_index_log = []
 
-        for i in range(1, len(sample_period)):
-            if sample_period[i-1] < thr and sample_period[i] > thr:
-                rising_edge_time_log.append(opp_t[i + int(filter_len/2)])
-                rising_edge_index_log.append(i + int(filter_len/2))
+        for i in range(1, len(opp_t)):
+            if opp_clk[i-1] < thr and opp_clk[i] > thr:
+                re_time_log.append(opp_t[i])
+                re_index_log.append(i)
+            if opp_clk[i-1] > thr and opp_clk[i] < thr:
+                fe_time_log.append(opp_t[i])
+                fe_index_log.append(i)
 
-        # period = 2 * (rising_edge_time_log[-1] - rising_edge_time_log[0]) / (len(rising_edge_time_log) - 1)
-        # f = 1 / period
-        # print(f/1e6)
+        re_period = (re_time_log[-1] - re_time_log[0]) / (len(re_time_log) - 1)
+        fe_period = (fe_time_log[-1] - fe_time_log[0]) / (len(fe_time_log) - 1)
+        period = (re_period + fe_period) / 2
+        f = 1 / period
+        print(f/1e6)
 
-        # if(opp_vdm < 1):
-        #     print(opp)
-        #     fig2, ax2 = plt.subplots(figsize=(6.5, 3.8))
-        #     ax2.plot(sample_period)
-        #     plt.savefig(plotfolder / "test.pdf")
-        #     break
+        # stores the time of the last edge plus a quarter period
+        re_avg_end_t = re_time_log[-1] + period/4
+        fe_avg_end_t = fe_time_log[-1] + period/4
 
-        avg_end = rising_edge_index_log[-1] - rising_edge_index_log[0]
-        i_avg = np.trapz(opp_i1[0:avg_end], opp_t[0:avg_end]) / opp_t[avg_end]
+        # stores the time of the first edge plus a quarter period
+        re_avg_start_t = re_time_log[0] + period/4
+        fe_avg_start_t = fe_time_log[0] + period/4
+
+        # for avg_end_t, choose the larger time that is in th simulation time range
+        avg_end_t = 0
+        # for avg_start_t, use the same kind of reference edge than for avg_end_t
+        avg_start_t = 0
+        if re_avg_end_t > fe_avg_end_t:
+            if re_avg_end_t < opp_t[-1]:
+                avg_end_t   = re_avg_end_t
+                avg_start_t = re_avg_start_t
+            else:
+                avg_end_t   = fe_avg_end_t
+                avg_start_t = re_avg_start_t
+        else:
+            if fe_avg_end_t < opp_t[-1]:
+                avg_end_t   = fe_avg_end_t
+                avg_start_t = fe_avg_start_t
+            else:
+                avg_end_t   = re_avg_end_t
+                avg_start_t = re_avg_start_t
+
+        # find indices from time stamps
+        avg_end = np.searchsorted(opp_t, avg_end_t)
+        avg_start = np.searchsorted(opp_t, avg_start_t)
+
+        i_avg = np.trapz(opp_i1[avg_start:avg_end], opp_t[avg_start:avg_end]) / (opp_t[avg_end] - opp_t[avg_start])
         r_avg = opp_vdm/i_avg
 
-        if opp_i0 not in r_dict:
-            r_dict[opp_i0] = {
+        if opp_vctrl not in r_dict:
+            r_dict[opp_vctrl] = {
                 "data": []
             }
 
-        r_dict[opp_i0]["data"].append((opp_vdm, r_avg))
+        r_dict[opp_vctrl]["data"].append((opp_vdm, r_avg))
 
     fig, ax1 = plt.subplots(figsize=(6.5, 3.8))
-    for i0_val in r_dict:
-        r_dict[i0_val]["data"] = sorted(r_dict[i0_val]["data"], key=lambda entry: entry[0]) # sort based on vcm values
-        r_dict[i0_val]["vdm"] = [entry[0] for entry in r_dict[i0_val]["data"]]
-        r_dict[i0_val]["r_avg"] = [entry[1] for entry in r_dict[i0_val]["data"]]
+    for vctrl_val in r_dict:
+        r_dict[vctrl_val]["data"] = sorted(r_dict[vctrl_val]["data"], key=lambda entry: entry[0]) # sort based on vcm values
+        r_dict[vctrl_val]["vdm"] = [entry[0] for entry in r_dict[vctrl_val]["data"]]
+        r_dict[vctrl_val]["r_avg"] = [entry[1] for entry in r_dict[vctrl_val]["data"]]
 
         # use median instead of mean because the spike at vdm=0 distorts the mean
-        r_avg_avg = np.median(r_dict[i0_val]["r_avg"])
+        r_avg_avg = np.median(r_dict[vctrl_val]["r_avg"])
         
-        labeltext = fr"$I_\mathrm{{ctrl}} = {round(i0_val*1e6, 1)}$ µA, $R_\mathrm{{mean}} = {round(r_avg_avg/1e3, 1)}$ k$\Omega$"
-        ax1.plot(r_dict[i0_val]["vdm"], 100*(r_dict[i0_val]["r_avg"]/r_avg_avg-1), linewidth=1, label=labeltext)
+        labeltext = fr"$I_\mathrm{{ctrl}} = {round(vctrl_val, 1)}$ V, $R_\mathrm{{median}} = {round(r_avg_avg/1e3, 1)}$ k$\Omega$"
+        ax1.plot(r_dict[vctrl_val]["vdm"], 100*(r_dict[vctrl_val]["r_avg"]/r_avg_avg-1), linewidth=1, label=labeltext)
 
     ax1.set_xlabel(r"$V_\mathrm{DM}$ in V")
     ax1.set_ylabel(r"relative deviation from median resistance in \%")
@@ -224,12 +296,12 @@ def plot_vdm_sweep(datafile, plotfolder):
     ax1.legend(loc="upper left")
     fig.suptitle(rf"Linearity with respect to $V_\mathrm{{DM}}$ for $V_\mathrm{{CM}} = {round(vcm[0], 2)}$ V")
     plt.tight_layout()
-    plt.savefig(plotfolder / "linearity_vdm.pdf")
-    plt.savefig(plotfolder / "linearity_vdm.png")
+    plt.savefig(plotfolder / "linearity_vco_vdm.pdf")
+    plt.savefig(plotfolder / "linearity_vco_vdm.png")
 
-    ax1.set_ylim(bottom=-60, top=60)
-    plt.savefig(plotfolder / "linearity_vdm_detailed.pdf")
-    plt.savefig(plotfolder / "linearity_vdm_detailed.png")
+    ax1.set_ylim(bottom=-50, top=50)
+    plt.savefig(plotfolder / "linearity_vco_vdm_detailed.pdf")
+    plt.savefig(plotfolder / "linearity_vco_vdm_detailed.png")
     #plt.show()
 
 
@@ -357,9 +429,9 @@ def main():
     figures_dir = script_dir / "figures"
     figures_dir.mkdir(parents=True, exist_ok=True)
 
-    plot_vcm_sweep(data_dir / "tb_switched_cap_tran_sweep_vcm.txt", figures_dir)
-    plot_vdm_sweep(data_dir / "tb_switched_cap_tran_sweep_vdm.txt", figures_dir)
-    plot_ictrl_sweep(data_dir / "tb_switched_cap_tran_sweep_ictrl.txt", figures_dir)
+    #plot_vcm_sweep(data_dir / "tb_switched_cap_tran_sweep_vco_vcm.txt", figures_dir)
+    plot_vdm_sweep(data_dir / "tb_switched_cap_tran_sweep_vco_vdm.txt", figures_dir)
+    #plot_ictrl_sweep(data_dir / "tb_switched_cap_tran_sweep_vco_ictrl.txt", figures_dir)
 
 
     # Main Execution
