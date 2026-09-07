@@ -21,7 +21,7 @@ x1 vc_p net1 vb VDD GND vcr_bisection
 * .include ../../../netlist/pex/inverter_magic_pex_3.spice
 .param VDD=3.3
 .csparam VDD=VDD
-.param Vcm=2.3
+.param Vcm=2.5
 .csparam Vcm=Vcm
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
@@ -37,7 +37,7 @@ repeat 5
   alter vc $&vcc
 
   * DC Sweep
-  dc VS -1 1 1m
+  dc VS -0.8 0.8 1m
   remzerovec
   let vcc = vcc + 0.3
 end
@@ -74,15 +74,15 @@ write res_tb_linearity.raw
 *.ipin Vdd
 *.ipin Vss
 R1 net2 Vcm 10k
-XM1 T1 net5 net7 Vdd sg13_hv_pmos w=50u l=10u ng=6 m=2 mm_ok=1
+XM1 T1 vgate net6 Vdd sg13_hv_pmos w=50u l=10u ng=6 m=2 mm_ok=1
 I0 Vdd net1 5u
 x1 Vdd T1 Vss net2 net1 net2 opamp_rtr
 I3 Vdd net3 5u
 x2 Vdd T2 Vss net4 net3 net4 opamp_rtr
 R2 Vcm net4 10k
-x3 net6 Vss net5 Vctrl Vdd Vcm voltage_diff
-I4 Vdd net6 5u
-XM2 net7 net5 T2 Vdd sg13_hv_pmos w=50u l=10u ng=6 m=2 mm_ok=1
+x3 net5 Vss vgate Vctrl Vdd Vcm voltage_diff
+I4 Vdd net5 5u
+XM2 net6 vgate T2 Vdd sg13_hv_pmos w=50u l=10u ng=6 m=2 mm_ok=1
 .ends
 
 
