@@ -76,12 +76,12 @@ value="
 * .include ../../../netlist/pex/inverter_magic_pex_3.spice
 .param VDD=3.3
 .csparam VDD=VDD
-.param Vcm=2.5
+.param Vcm=0.8
 .csparam Vcm=Vcm
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
-let vcc = 1
+let vcc = 1.5
 
 save all
 set appendwrite
@@ -100,7 +100,7 @@ write @schname\\\\.raw
 set appendwrite
 
 * Plotting
-plot dc1.v(vsweep)/(dc1.i(vmeas)) dc2.v(vsweep)/(dc2.i(vmeas)) dc3.v(vsweep)/(dc3.i(vmeas)) dc4.v(vsweep)/(dc4.i(vmeas)) dc5.v(vsweep)/(dc5.i(vmeas)) ylimit 0 20k
+plot dc1.v(vsweep)/(dc1.i(vmeas)) dc2.v(vsweep)/(dc2.i(vmeas)) dc3.v(vsweep)/(dc3.i(vmeas)) dc4.v(vsweep)/(dc4.i(vmeas)) dc5.v(vsweep)/(dc5.i(vmeas)) ylimit 0 50k
 
 plot dc1.i(vmeas) dc2.i(vmeas) dc3.i(vmeas) dc4.i(vmeas) dc5.i(vmeas)
 

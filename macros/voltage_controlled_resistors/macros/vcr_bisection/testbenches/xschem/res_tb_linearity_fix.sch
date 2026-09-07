@@ -78,7 +78,7 @@ value="
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
-let vcc = 1.2
+let vcc = 1.5
 
 save all
 set appendwrite
@@ -89,7 +89,7 @@ repeat 5
   alter vc $&vcc
 
   * DC Sweep
-  dc VS 0 3 1m
+  dc VS 0.01 3 1m
   remzerovec
   let vcc = vcc + 0.3
 end
@@ -124,6 +124,6 @@ tclcommand="set show_hidden_texts 1; xschem annotate_op"
 C {devices/gnd.sym} 980 -590 0 0 {name=l6 lab=GND}
 C {devices/gnd.sym} 780 -390 0 0 {name=l10 lab=GND}
 C {vdd.sym} 780 -550 0 0 {name=l11 lab=VDD}
-C {devices/vsource.sym} 1100 -420 0 0 {name=VT2 value=3}
+C {devices/vsource.sym} 1100 -420 0 0 {name=VT2 value=0.01}
 C {devices/gnd.sym} 1100 -350 0 0 {name=l4 lab=GND}
 C {devices/vsource.sym} 570 -390 0 0 {name=Vdummy value=0}

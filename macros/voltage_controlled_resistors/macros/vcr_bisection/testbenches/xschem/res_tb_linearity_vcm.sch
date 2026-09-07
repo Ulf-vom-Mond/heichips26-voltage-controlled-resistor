@@ -80,7 +80,7 @@ value="
 .param vdiff=10m
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
-let vcc = 1
+let vcc = 1.5
 
 save all
 set appendwrite
@@ -93,7 +93,7 @@ repeat 10
   * DC Sweep
   dc VS 0 3.3 10m
   remzerovec
-  let vcc = vcc + 0.25
+  let vcc = vcc + 0.3
 end
 write @schname\\\\.raw
 set appendwrite

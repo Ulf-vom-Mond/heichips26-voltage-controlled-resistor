@@ -26,7 +26,7 @@ N 1150 -280 1250 -280 {lab=#net4}
 N 1110 -440 1130 -440 {lab=#net4}
 N 90 -300 90 0 {lab=T1}
 N 0 0 90 0 {lab=T1}
-N 460 20 460 40 {lab=Vdd}
+N 460 20 460 40 {lab=Vss}
 N 460 -70 460 -40 {lab=vgate}
 N 530 -220 550 -220 {lab=Vdd}
 N 370 -200 390 -200 {lab=Vss}
@@ -42,9 +42,9 @@ N 330 -440 1050 -440 {lab=Vcm}
 N 330 -440 330 -280 {lab=Vcm}
 N 310 -440 330 -440 {lab=Vcm}
 N 490 0 530 0 {lab=#net6}
-N 560 -0 560 20 {lab=Vdd}
-N 460 20 560 20 {lab=Vdd}
-N 460 0 460 20 {lab=Vdd}
+N 560 -0 560 20 {lab=Vss}
+N 460 20 560 20 {lab=Vss}
+N 460 0 460 20 {lab=Vss}
 N 1110 0 1310 0 {lab=T2}
 N 590 0 1110 0 {lab=T2}
 N 460 -40 560 -40 {lab=vgate}
@@ -55,15 +55,6 @@ device=resistor
 m=1}
 C {ipin.sym} 0 0 0 0 {name=p1 lab=T1}
 C {ipin.sym} 1310 0 2 0 {name=p2 lab=T2}
-C {sg13cmos5l_pr/sg13_hv_pmos.sym} 460 -20 1 0 {name=M1
-l=10u
-w=50u
- ng=6
- m=2
-  mm_ok=1
- model=sg13_hv_pmos
-spiceprefix=X
-}
 C {lab_pin.sym} 40 -350 0 0 {name=p7 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} 180 -350 2 0 {name=p9 sig_type=std_logic lab=Vss}
 C {isource.sym} -10 -370 3 0 {name=I0 value=5u}
@@ -79,7 +70,6 @@ value=10k
 footprint=1206
 device=resistor
 m=1}
-C {voltage_diff.sym} 460 -170 1 0 {name=x3}
 C {lab_pin.sym} 550 -220 2 0 {name=p22 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} 370 -200 0 0 {name=p23 sig_type=std_logic lab=Vss}
 C {lab_pin.sym} 660 -150 2 0 {name=p24 sig_type=std_logic lab=Vdd}
@@ -90,13 +80,23 @@ C {ipin.sym} 10 -210 0 0 {name=p3 lab=Vdd}
 C {ipin.sym} 10 -180 0 0 {name=p4 lab=Vss}
 C {lab_pin.sym} 480 -440 0 0 {name=p5 sig_type=std_logic lab=Vcm}
 C {lab_pin.sym} 460 -50 2 0 {name=p8 sig_type=std_logic lab=vgate}
-C {sg13cmos5l_pr/sg13_hv_pmos.sym} 560 -20 1 0 {name=M2
+C {voltage_sum.sym} 460 -170 1 0 {name=x4}
+C {sg13cmos5l_pr/sg13_hv_nmos.sym} 460 -20 1 0 {name=M1
 l=10u
-w=50u
- ng=6
- m=2
+w=15u
+ ng=2
+ m=1
   mm_ok=1
- model=sg13_hv_pmos
+ model=sg13_hv_nmos
 spiceprefix=X
 }
-C {lab_pin.sym} 460 40 0 0 {name=p6 sig_type=std_logic lab=Vdd}
+C {sg13cmos5l_pr/sg13_hv_nmos.sym} 560 -20 1 0 {name=M2
+l=10u
+w=15u
+ ng=2
+ m=1
+  mm_ok=1
+ model=sg13_hv_nmos
+spiceprefix=X
+}
+C {lab_pin.sym} 460 40 0 0 {name=p6 sig_type=std_logic lab=Vss}
