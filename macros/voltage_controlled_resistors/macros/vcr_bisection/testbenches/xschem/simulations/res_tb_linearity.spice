@@ -26,7 +26,7 @@ x1 vc_p net1 vb VDD GND vcr_bisection
 .param temp=27
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
 .control
-let vcc = 1.5
+let vcc = 1
 
 save all
 set appendwrite
@@ -39,7 +39,7 @@ repeat 5
   * DC Sweep
   dc VS -0.8 0.8 1m
   remzerovec
-  let vcc = vcc + 0.3
+  let vcc = vcc + 0.5
 end
 write res_tb_linearity.raw
 set appendwrite
@@ -81,8 +81,7 @@ x2 Vdd T2 Vss net4 net3 net4 opamp_rtr
 R2 Vcm net4 10k
 I4 Vdd net5 5u
 x4 net5 Vss vgate Vctrl Vdd Vcm voltage_sum
-XM1 net6 vgate T1 Vss sg13_hv_nmos w=15u l=10u ng=2 m=1 mm_ok=1
-XM2 T2 vgate net6 Vss sg13_hv_nmos w=15u l=10u ng=2 m=1 mm_ok=1
+XM1 T2 vgate T1 Vss sg13_hv_nmos w=15u l=10u ng=2 m=1 mm_ok=1
 .ends
 
 
