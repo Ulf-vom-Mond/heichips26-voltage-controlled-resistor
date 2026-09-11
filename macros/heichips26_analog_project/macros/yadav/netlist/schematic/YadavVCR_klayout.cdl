@@ -1,0 +1,22 @@
+** sch_path: /home/raiku/vcr/macros/heichips26_analog_project/macros/yadav/schematic/xschem/YadavVCR.sch
+.subckt TOP Vdd Rin Rout Vc Vss
+*.PININFO Vc:I Vss:B Vdd:B Rin:I Rout:O
+MM3 Vdd Rin net2 Vss sg13_hv_nmos w=0.72u l=4.14u ng=1
+MM13 net1 net1 Vdd Vdd sg13_hv_pmos w=10.0u l=2.16u ng=1
+MM1 net3 Rin Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=1
+MM5 net1 net2 Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=1
+MM2 net1 Rout Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=1
+MM16 net3 net3 Vdd Vdd sg13_hv_pmos w=10.0u l=2.16u ng=1
+MM7 net2 Vc Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=1
+MM6 net3 net6 Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=1
+MM14 net4 net1 Vdd Vdd sg13_hv_pmos w=10.0u l=2.16u ng=1
+MM8 net6 Vc Vss Vss sg13_hv_nmos w=0.72u l=4.14u ng=1
+MM4 Vdd Rout net6 Vss sg13_hv_nmos w=0.72u l=4.14u ng=1
+MM9 net4 net4 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=1
+MM10 Rin net4 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=1
+MM17 Rin net3 Vdd Vdd sg13_hv_pmos w=10.0u l=2.16u ng=1
+MM18 net5 net3 Vdd Vdd sg13_hv_pmos w=10.0u l=2.16u ng=1
+MM11 net5 net5 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=1
+MM12 Rout net5 Vss Vss sg13_hv_nmos w=0.72u l=2.16u ng=1
+MM15 Rout net1 Vdd Vdd sg13_hv_pmos w=10.0u l=2.16u ng=1
+.ends

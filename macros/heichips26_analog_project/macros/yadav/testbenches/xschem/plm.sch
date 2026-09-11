@@ -5,6 +5,7 @@ V {}
 S {}
 F {}
 E {}
+P 4 1 -25210 8130 {}
 N -24960 8130 -24960 8180 {lab=GND}
 N -25080 7850 -25080 7870 {lab=#net1}
 N -25180 8030 -25140 8030 {lab=#net2}
@@ -24,7 +25,7 @@ N -25020 7750 -25020 7790 {lab=GND}
 N -25020 7750 -24990 7750 {lab=GND}
 N -24990 7750 -24990 7760 {lab=GND}
 N -24900 8030 -24860 8030 {lab=#net3}
-C {devices/launcher.sym} -24670 7920 0 0 {name=h3
+C {devices/launcher.sym} -24670 7910 0 0 {name=h3
 descr="Simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
 }
