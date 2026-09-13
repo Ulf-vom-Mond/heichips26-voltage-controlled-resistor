@@ -89,18 +89,19 @@
  <edit-path-ext-type>flush</edit-path-ext-type>
  <edit-path-ext-var-begin>0.0</edit-path-ext-var-begin>
  <edit-path-ext-var-end>0.0</edit-path-ext-var-end>
- <edit-path-width>0.2</edit-path-width>
+ <edit-path-width>0.7</edit-path-width>
  <edit-pcell-lazy-eval-mode>-1</edit-pcell-lazy-eval-mode>
  <edit-pcell-show-parameter-names>false</edit-pcell-show-parameter-names>
  <edit-recent-inst-param>SG13_dev,SVaricap,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmos,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmosHV,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,via_stack,'0',false,'1',false,'1','0','0','1','0','0','!',;Basic,TEXT,'0',false,'1',false,'1','0','0','1','0','0','!bias:##0;cspacing:##0;eff_ch:##0.8;eff_cw:##0.6;eff_dr:##0.05;eff_lw:##0.1;font:#0;font_name:\'std_font\';inverse:false;layer:[layer:];lspacing:##0;mag:##1;text:\'Hello\';',;Basic,TEXT,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_native_pcell_lib,Via,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmosHV,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,pmosHV,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,pmos,'0',false,'1',false,'1','0','0','1','0','0','!',;Basic,CIRCLE,'0',false,'1',false,'1','0','0','1','0','0','!',;Basic,ARC,'0',false,'1',false,'1','0','0','1','0','0','!',</edit-recent-inst-param>
  <edit-recent-path-param>'1/0','0.2',flush,'0.0','0.0',;'30/0','0.5',flush,'0.0','0.0',;'8/0','0.7',flush,'0.0','0.0',;'10/0','0.7',flush,'0.0','0.0',;'Metal1.drawing (8/0)','0.7',flush,'0.0','0.0',;'Metal2.drawing (10/0)','0.7',flush,'0.0','0.0',;'30/0','0.7',flush,'0.0','0.0',;'Metal4.drawing (50/0)','0.7',flush,'0.0','0.0',;'Metal1.drawing (8/0)','0.3',flush,'0.0','0.0',</edit-recent-path-param>
  <edit-recent-shape-param>'',;'Activ.drawing (1/0)',</edit-recent-shape-param>
+ <edit-recent-text-param>'30/25',ROUT,'0',left,bottom,;'30/25',VC,'0',left,bottom,;'30/25',RIN,'0',left,bottom,;'30/25',VSS,'0',left,bottom,;'30/0',VDD,'0',left,bottom,;'30/2',VDD,'0',left,bottom,;'30/2',Vdd,'0',left,bottom,;'',Vdd,'0',left,bottom,;'49/0',Vdd,'0',left,bottom,;'30/25',Vdd,'0',left,bottom,;'30/23',Vdd,'0',left,bottom,;'30/22',Vdd,'0',left,bottom,;'30/0',Vdd,'0',left,bottom,;'29/0',Vdd,'0',left,bottom,;'30/0',Rout,'0',left,bottom,;'30/0',Vc,'0',left,bottom,;'30/0',Rin,'0',left,bottom,;'30/0',Vss,'0',left,bottom,;'',ABC,'0',left,bottom,</edit-recent-text-param>
  <edit-show-shapes-of-instances>true</edit-show-shapes-of-instances>
  <edit-snap-objects-to-grid>true</edit-snap-objects-to-grid>
  <edit-snap-to-objects>true</edit-snap-to-objects>
  <edit-text-halign>left</edit-text-halign>
  <edit-text-size>0</edit-text-size>
- <edit-text-string>ABC</edit-text-string>
+ <edit-text-string>ROUT</edit-text-string>
  <edit-text-valign>bottom</edit-text-valign>
  <edit-top-level-selection>true</edit-top-level-selection>
  <empty-cell-dimension>4</empty-cell-dimension>
@@ -124,7 +125,7 @@
  <guiding-shape-line-width>1</guiding-shape-line-width>
  <guiding-shape-vertex-size>5</guiding-shape-vertex-size>
  <guiding-shape-visible>true</guiding-shape-visible>
- <hide-empty-layers>false</hide-empty-layers>
+ <hide-empty-layers>true</hide-empty-layers>
  <highres-mode>false</highres-mode>
  <image-cache-size>1</image-cache-size>
  <images-visible>true</images-visible>
@@ -141,6 +142,8 @@ file_menu.reload:none;
 edit_menu.selection_menu.sel_rot_cw:'Ctrl+R';
 zoom_menu.max_hier_1:none;
 zoom_menu.max_hier_0:none;
+zoom_menu.select_current_cell:none;
+file_menu.save:'Ctrl+S';
 edit_menu.layout_menu.lay_rot_cw:'';
 edit_menu.copy:'';
 edit_menu.paste:'';
@@ -210,7 +213,6 @@ file_menu.new_hierarchical_layout:'';
 file_menu.open_same_panel:'';
 file_menu.open_new_panel:'';
 file_menu.open_hierarchical_layout:'';
-file_menu.save:'';
 file_menu.save_hierarchical_layout:'';
 file_menu.save_as:'';
 file_menu.save_as_hierarchical_layout:'';
@@ -223,7 +225,6 @@ zoom_menu.descend_into:'';
 zoom_menu.max_hier:'';
 zoom_menu.redraw:'';
 zoom_menu.select_cell:'';
-zoom_menu.select_current_cell:'';
 zoom_menu.zoom_fit:'';
 zoom_menu.zoom_fit_sel:'';
 zoom_menu.zoom_in:'';
@@ -508,7 +509,10 @@ zoom_menu.global_trans.r90:'';
 zoom_menu.next_display_state:'';
 zoom_menu.prev_display_state:'';
 file_menu.open_recent_menu.open_recent_2:'';
-tools_menu.lvs.macro_in_menu_lvs:''
+tools_menu.lvs.macro_in_menu_lvs:'';
+file_menu.open_recent_menu.open_recent_3:'';
+file_menu.open_recent_menu.open_recent_4:'';
+tools_menu.drc.macro_in_menu_drc:''
 </key-bindings>
  <klayout_auto_backups_enabled>true</klayout_auto_backups_enabled>
  <l2ndb-export-circuit-cell-prefix>CIRCUIT_</l2ndb-export-circuit-cell-prefix>
@@ -531,7 +535,7 @@ tools_menu.lvs.macro_in_menu_lvs:''
  <l2ndb-show-all>true</l2ndb-show-all>
  <l2ndb-window-dim>1</l2ndb-window-dim>
  <l2ndb-window-mode>fit-net</l2ndb-window-mode>
- <l2ndb-window-state/>
+ <l2ndb-window-state>NetlistBrowserDialog="AdnQywADAAAAAAAAAAAAAAAAAu4AAASEAAAAAAAAAAAAAALuAAAEhAAAAAAAAAAAB4QAAAAAAAAAAAAAAu4AAASE";splitter_3="AAAA/wAAAAEAAAACAAABAAAAAQAB/////wEAAAABAA==";sch_directory_tree="AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAADAgAAAAEAAAABAAAAGQAAAcsAAAADAQEAAQAAAAAAAAAAAAAAAJYAAAAZAAAAgQAAAAAAAAADAAAAlgAAAAEAAAAAAAAAAAAAAAEAAAAAAAABNQAAAAEAAAAAAAAD6AEAAACWAAAAAAAAAAAAAAAAAAAAAQ==";sch_hierarchy_tree="AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP4AAAABAQAAAQAAAAAAAAAAAAAAAGQAAAAZAAAAgQAAAAAAAAABAAAA/gAAAAEAAAAAAAAD6AEAAABkAAAAAAAAAAAAAAAAAAAAAQ==";splitter="AAAA/wAAAAEAAAACAAABAAAAAQAB/////wEAAAABAA==";nl_directory_tree="AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAADAgAAAAEAAAABAAAAGQAAAcsAAAADAQEAAQAAAAAAAAAAAAAAAJYAAAAZAAAAgQAAAAAAAAADAAAAlgAAAAEAAAAAAAAAAAAAAAEAAAAAAAABNQAAAAEAAAAAAAAD6AEAAACWAAAAAAAAAAAAAAAAAAAAAQ==";nl_hierarchy_tree="AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP4AAAABAQAAAQAAAAAAAAAAAAAAAGQAAAAZAAAAgQAAAAAAAAABAAAA/gAAAAEAAAAAAAAD6AEAAABkAAAAAAAAAAAAAAAAAAAAAQ==";splitter_4="AAAA/wAAAAEAAAACAAAARgAAAocB/////wEAAAABAA==";xref_directory_tree="AAAA/wAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoUAAAAEAQEAAQAAAAAAAAAAAAAAAJYAAAAZAAAAgQAAAAAAAAAEAAAAlgAAAAEAAAAAAAAAGQAAAAEAAAAAAAAAlgAAAAEAAAAAAAABQAAAAAEAAAAAAAAD6AEAAACWAAAAAAAAAAAAAAAAAAAAAQ==";xref_hierarchy_tree="AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH0AAAACAQAAAQAAAAAAAAAAAAAAAGQAAAAZAAAAgQAAAAAAAAACAAAAZAAAAAEAAAAAAAAAGQAAAAEAAAAAAAAD6AEAAAAZAAAAAAAAAAAAAAAAAAAAAQ==";log_view="AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAs8AAAABAQAAAQAAAAAAAAAAAAAAAGT/////AAAAgQAAAAAAAAABAAACzwAAAAEAAAAAAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ==";</l2ndb-window-state>
  <layer-search-as-expressions>true</layer-search-as-expressions>
  <layer-search-as-filter>false</layer-search-as-filter>
  <layer-search-case-sensitive>true</layer-search-case-sensitive>
@@ -932,11 +936,14 @@ zoom_menu.zoom_fit_sel:false;
 zoom_menu.zoom_in:false;
 zoom_menu.zoom_out:false;
 file_menu.open_recent_menu.open_recent_2:false;
-tools_menu.lvs.macro_in_menu_lvs:false
+tools_menu.lvs.macro_in_menu_lvs:false;
+file_menu.open_recent_menu.open_recent_3:false;
+file_menu.open_recent_menu.open_recent_4:false;
+tools_menu.drc.macro_in_menu_drc:false
 </menu-items-hidden>
  <min-inst-label-size>16</min-inst-label-size>
  <mouse-wheel-mode>0</mouse-wheel-mode>
- <mru>'/home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/layout/yadav.gds'@'sg13cmos5l' '/home/raiku/vcr/macros/heichips26_analog_project/macros/yadav/layout/yadavVCR.gds'@'sg13cmos5l' '/home/raiku/vcr/macros/heichips26_analog_project/macros/yadav/layout/yadavVCR2.gds'@'sg13cmos5l'</mru>
+ <mru>'/home/raiku/plm/heichips26-voltage-controlled-resistor/macros/heichips26_analog_project/macros/yadav/layout/yadav.gds'@'sg13cmos5l' '/home/raiku/vcr/macros/heichips26_analog_project/macros/yadav/layout/yadavVCR.gds'@'sg13cmos5l' '/home/raiku/vcr/macros/heichips26_analog_project/macros/yadav/layout/yadavVCR2.gds'@'sg13cmos5l' '/home/raiku/vcr/macros/heichips26_analog_project/macros/yadav/layout/YadavVCR.gds'@'sg13cmos5l'</mru>
  <mru-bookmarks/>
  <mru-layer-properties/>
  <mru-sessions/>
@@ -1003,7 +1010,7 @@ tools_menu.lvs.macro_in_menu_lvs:false
  <show-libraries-view>true</show-libraries-view>
  <show-navigator>false</show-navigator>
  <show-properties>false</show-properties>
- <show-tool-options>false</show-tool-options>
+ <show-tool-options>true</show-tool-options>
  <show-toolbar>true</show-toolbar>
  <split-cell-list>false</split-cell-list>
  <split-lib-views>false</split-lib-views>
@@ -1034,7 +1041,7 @@ tools_menu.lvs.macro_in_menu_lvs:false
  <transient-sel-line-width>1</transient-sel-line-width>
  <transient-sel-vertex-size>0</transient-sel-vertex-size>
  <window-geometry>AdnQywADAAAAAAABAAAAGQAAB3AAAASfAAAAAQAAABkAAAdwAAAEnwAAAAAAAAAAB4QAAAABAAAAGQAAB3AAAASf</window-geometry>
- <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAACrAAAEH/wCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAjwD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAUgAAAMAAAAATAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAABGAAAA1kAAAATAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAAAAALUAAABnQAAAJYA////AAAAAQAAAJQAAAQf/AIAAAAD+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAATAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABSAAADjgAAABMA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAA+YAAACLAAAAEwD///8AAAYlAAAEHwAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAABAAAADgB0AG8AbwBsAGIAYQByAQAAAAD/////AAAAAAAAAAA=</window-state>
+ <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAAEEAAAEH/wCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAFIAAACPAAAAjwD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAUgAAAfYAAAATAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAACTgAAAPYAAAATAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAANKAAABJwAAAJYA////AAAAAQAAAJ4AAAQf/AIAAAAE+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAATAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABSAAADjgAAABMA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAA+YAAACLAAAAEwD////7/////wAAAAPSAAAAywAAAMsA////AAAFwgAABB8AAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAAA4AdABvAG8AbABiAGEAcgEAAAAA/////wAAAAAAAAAA</window-state>
  <xor-anotb>false</xor-anotb>
  <xor-axorb>true</xor-axorb>
  <xor-bnota>false</xor-bnota>
