@@ -1,0 +1,40 @@
+* Extracted by KLayout with SG13CMOS5L LVS runset on : 15/09/2026 01:04
+
+.SUBCKT YadavVCR RIN ROUT VC VDD VSS
+M$1 VSS \$12 \$12 VSS sg13_hv_nmos L=2.16u W=0.72u AS=0.2448p AD=0.2448p
++ PS=2.12u PD=2.12u rfmode=0
+M$2 VSS \$18 ROUT VSS sg13_hv_nmos L=2.16u W=0.72u AS=0.2448p AD=0.2448p
++ PS=2.12u PD=2.12u rfmode=0
+M$3 VSS \$18 \$18 VSS sg13_hv_nmos L=2.16u W=0.72u AS=0.2448p AD=0.2448p
++ PS=2.12u PD=2.12u rfmode=0
+M$4 VSS \$12 RIN VSS sg13_hv_nmos L=2.16u W=0.72u AS=0.2448p AD=0.2448p
++ PS=2.12u PD=2.12u rfmode=0
+M$5 \$17 VC VSS VSS sg13_hv_nmos L=4.14u W=0.72u AS=0.2448p AD=0.2448p PS=2.12u
++ PD=2.12u rfmode=0
+M$6 \$16 VC VSS VSS sg13_hv_nmos L=4.14u W=0.72u AS=0.2448p AD=0.2448p PS=2.12u
++ PD=2.12u rfmode=0
+M$7 VSS \$16 \$33 VSS sg13_hv_nmos L=4.14u W=0.72u AS=0.2448p AD=0.2448p
++ PS=2.12u PD=2.12u rfmode=0
+M$8 VSS RIN \$34 VSS sg13_hv_nmos L=4.14u W=0.72u AS=0.2448p AD=0.2448p
++ PS=2.12u PD=2.12u rfmode=0
+M$9 VSS ROUT \$33 VSS sg13_hv_nmos L=4.14u W=0.72u AS=0.2448p AD=0.2448p
++ PS=2.12u PD=2.12u rfmode=0
+M$10 VSS \$17 \$34 VSS sg13_hv_nmos L=4.14u W=0.72u AS=0.2448p AD=0.2448p
++ PS=2.12u PD=2.12u rfmode=0
+M$11 \$17 ROUT VDD VSS sg13_hv_nmos L=4.14u W=0.72u AS=0.2448p AD=0.2448p
++ PS=2.12u PD=2.12u rfmode=0
+M$12 \$16 RIN VDD VSS sg13_hv_nmos L=4.14u W=0.72u AS=0.2448p AD=0.2448p
++ PS=2.12u PD=2.12u rfmode=0
+M$13 VDD \$33 \$33 VDD sg13_hv_pmos L=2.16u W=10u AS=3.4p AD=3.4p PS=20.68u
++ PD=20.68u rfmode=0
+M$14 VDD \$33 ROUT VDD sg13_hv_pmos L=2.16u W=10u AS=3.4p AD=3.4p PS=20.68u
++ PD=20.68u rfmode=0
+M$15 VDD \$33 \$12 VDD sg13_hv_pmos L=2.16u W=10u AS=3.4p AD=3.4p PS=20.68u
++ PD=20.68u rfmode=0
+M$16 VDD \$34 RIN VDD sg13_hv_pmos L=2.16u W=10u AS=3.4p AD=3.4p PS=20.68u
++ PD=20.68u rfmode=0
+M$17 VDD \$34 \$18 VDD sg13_hv_pmos L=2.16u W=10u AS=3.4p AD=3.4p PS=20.68u
++ PD=20.68u rfmode=0
+M$18 VDD \$34 \$34 VDD sg13_hv_pmos L=2.16u W=10u AS=3.4p AD=3.4p PS=20.68u
++ PD=20.68u rfmode=0
+.ENDS YadavVCR

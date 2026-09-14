@@ -1,0 +1,1135 @@
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/start_page.sch
+**.subckt start_page
+x43 intuitive_interface_cheatsheet
+x1 gallery
+x2 IHP_testcases
+**** begin user architecture code
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+
+
+
+
+
+
+
+
+
+.include <filename>.save
+.param temp=27
+.control
+op
+write <filename>.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  devices/intuitive_interface_cheatsheet.sym # of pins=0
+** sym_path: /nix/store/zdw3sg9cslxvghn0hhk8a4ag73qdhib2-xschem-3.4.8RC/share/xschem/xschem_library/devices/intuitive_interface_cheatsheet.sym
+** sch_path: /nix/store/zdw3sg9cslxvghn0hhk8a4ag73qdhib2-xschem-3.4.8RC/share/xschem/xschem_library/devices/intuitive_interface_cheatsheet.sch
+.subckt intuitive_interface_cheatsheet
+.ends
+
+
+* expanding   symbol:  sg13cmos5l_pr/gallery.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/gallery.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/gallery.sch
+.subckt gallery
+XM5 net1 net2 net3 net4 sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM6 net5 net6 net7 net8 sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM7 net9 net10 net11 net12 sg13_lv_nmos w=1.0u l=0.72u ng=1 m=1 rfmode=1 mm_ok=1
+XM8 net13 net14 net15 net16 sg13_lv_pmos w=1.0u l=0.72u ng=1 m=1 rfmode=1 mm_ok=1
+XM1 net17 net18 net19 net20 sg13_hv_nmos w=0.3u l=0.45u ng=1 m=1 mm_ok=1
+XM2 net21 net22 net23 net24 sg13_hv_pmos w=0.3u l=0.4u ng=1 m=1 mm_ok=1
+XM3 net25 net26 net27 net28 sg13_hv_nmos w=1.0u l=0.72u ng=1 m=1 rfmode=1 mm_ok=1
+XM4 net29 net30 net31 net32 sg13_hv_pmos w=1.0u l=0.72u ng=1 m=1 rfmode=1 mm_ok=1
+XD7 net33 net34 nmoscl_2
+XD8 net35 net36 nmoscl_4
+XD2 net37 net38 net39 diodevdd_2kv
+XD3 net40 net41 net42 diodevdd_4kv
+XD4 net43 net44 net45 diodevss_2kv
+XD5 net46 net47 net48 diodevss_4kv
+XD6 net49 net50 dpantenna l=0.78u w=0.78u
+XD1 net51 net52 dantenna l=0.78u w=0.78u
+XR3 net53 net54 sub! rhigh w=0.5e-6 l=0.5e-6 m=1 b=0 mm_ok=1
+XR4 net55 net56 sub! rppd w=0.5e-6 l=0.5e-6 m=1 b=0 mm_ok=1
+XR5 net57 net58 sub! rsil w=0.5e-6 l=0.5e-6 m=1 mm_ok=1
+XR1 net59 net60 ntap1 R=262.8473 w=0.78e-6 l=0.78e-6
+XR2 net61 net62 ptap1 R=262.8473 w=0.78e-6 l=0.78e-6
+XX1 net63 bondpad size=80u shape=0 padtype=0
+XQ1 net64 net65 net66 pnpMPA a=2e-12 p=6e-06
+XC3 net67 net68 sg13_moscap_n w=1.0u l=1.0u m=1 mm_ok=1
+XC4 net69 net70 sg13_moscap_p w=1.0u l=1.0u m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  tests/IHP_testcases.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/tests/IHP_testcases.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/tests/IHP_testcases.sch
+.subckt IHP_testcases
+x5 dc_lv_nmos
+x14 dc_diode_op
+x15 dc_diode_temp
+x13 dc_res_temp
+x7 dc_lv_pmos
+x28 dc_logic_not
+x27 tran_logic_not
+x29 tran_logic_nand
+x9 ac_lv_nmosrf
+x16 mc_res_op
+x6 dc_hv_nmos
+x11 dc_mos_temp
+x12 dc_mos_cs_temp
+x1 mc_lv_nmos_cs_loop
+x8 dc_hv_pmos
+x32 tran_bondpad
+x31 dc_esd_diodes
+x33 dc_esd_nmos_cl
+x25 dc_ntap1
+x26 dc_ptap1
+x2 dc_pnpMPA
+x3 tran_moscap_n
+x4 tran_moscap_p
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_lv_nmos.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_lv_nmos.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_lv_nmos.sch
+.subckt dc_lv_nmos
+Vgs net1 GND 0.0
+Vds net3 GND 0
+Vd net3 net2 0
+.save i(vd)
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerMOSlv.lib mos_tt
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+save all
+op
+dc Vds 0 1.2 0.01 Vgs 0.0 0.8 0.05
+write dc_lv_nmos.raw
+.endc
+
+
+**** end user architecture code
+XM2 net2 net1 GND GND sg13_lv_nmos w=1.0u l=0.13u ng=1 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_diode_op.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_diode_op.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_diode_op.sch
+.subckt dc_diode_op
+V1 net1 GND 0.7
+Vmda net1 net2 0
+.save i(vmda)
+Vmdp net1 net3 0
+.save i(vmdp)
+XD2 net2 GND dpantenna l=0.78u w=0.78u
+XD1 net3 GND dantenna l=0.78u w=0.78u
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.include diodes.lib
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+save all
+op
+print I(Vmda) I(Vmdp)
+reset
+dc V1 -12 1 1m
+write dc_diode_op.raw
+wrdata dc_diode.csv I(Vmda) I(Vmdp)
+.endc
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_diode_temp.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_diode_temp.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_diode_temp.sch
+.subckt dc_diode_temp
+XXD1 Vd GND dantenna l=780n w=780n
+I0 GND Vd 200n
+I1 GND Vdp 200n
+XXD2 Vdp GND dpantenna l=780n w=780n
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.include diodes.lib
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+save all
+dc temp -40 125 1
+write dc_diode_temp.raw
+wrdata dc_diode_temp.csv Vd Vdp
+.endc
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_res_temp.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_res_temp.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_res_temp.sch
+.subckt dc_res_temp
+Vres Vcc GND 1.5
+Vsil Vcc net1 0
+.save i(vsil)
+Vppd Vcc net2 0
+.save i(vppd)
+Vrh Vcc net3 0
+.save i(vrh)
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerRES.lib res_typ
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+save all
+dc Vres 0 1 1m
+write dc_res_temp.raw
+.endc
+
+
+**** end user architecture code
+XR1 GND sub! ptap1 R=6.150818 w=10.78e-6 l=10.78e-6
+XR2 net1 GND sub! rsil w=0.5e-6 l=0.5e-6 m=1 mm_ok=1
+XR3 net2 GND sub! rppd w=0.5e-6 l=0.5e-6 m=1 b=0 mm_ok=1
+XR4 net3 GND sub! rhigh w=0.5e-6 l=0.96e-6 m=1 b=0 mm_ok=1
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_lv_pmos.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_lv_pmos.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_lv_pmos.sch
+.subckt dc_lv_pmos
+Vgs GND net1 0
+Vds GND net3 0
+XM1 GND net1 net2 GND sg13_lv_pmos w=1.0u l=0.45u ng=1 m=1 mm_ok=1
+Vd net2 net3 0
+.save i(vd)
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerMOSlv.lib mos_tt
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+dc Vds 0 1.2 0.01 Vgs 0.35 1.1 0.05
+write dc_lv_pmos.raw
+.endc
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_logic_not.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_logic_not.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_logic_not.sch
+.subckt dc_logic_not
+Vin in GND 0.0
+Vdd net1 GND 1.2
+XM1 out in GND GND sg13_lv_nmos w=0.7u l=0.13u ng=1 m=1 mm_ok=1
+XM2 net1 in out net1 sg13_lv_pmos w=1.2u l=0.13u ng=1 m=1 mm_ok=1
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerMOSlv.lib mos_tt
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+save all
+dc Vin 0 1.2 1m
+write dc_logic_not.raw
+.endc
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/tran_logic_not.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/tran_logic_not.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/tran_logic_not.sch
+.subckt tran_logic_not
+Vin in GND pulse(0.0 1.2 0.0 100p 100p 2n 4n)
+Vdd net1 GND 1.2
+XM1 out in GND GND sg13_lv_nmos w=1.0u l=0.45u ng=1 m=1 mm_ok=1
+XM2 net1 in out net1 sg13_lv_pmos w=1.0u l=0.45u ng=1 m=1 mm_ok=1
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerMOSlv.lib mos_tt
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+tran 50p 20n
+meas tran tdelay TRIG v(in) VAl=0.9 FALl=1 TARG v(out) VAl=0.9 RISE=1
+write tran_logic_not.raw
+.endc
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/tran_logic_nand.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/tran_logic_nand.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/tran_logic_nand.sch
+.subckt tran_logic_nand
+VinA A GND dc 0 ac 0 pulse(0 1.2 2n 100p 100p 4n 6n )
+Vdd net1 GND 1.2
+XM1 net2 A GND GND sg13_lv_nmos w=1.0u l=0.45u ng=1 m=1 mm_ok=1
+XM2 net1 A out net1 sg13_lv_pmos w=1.0u l=0.45u ng=1 m=1 mm_ok=1
+XM3 net1 B out net1 sg13_lv_pmos w=1.0u l=0.45u ng=1 m=1 mm_ok=1
+XM4 out B net2 GND sg13_lv_nmos w=1.0u l=0.45u ng=1 m=1 mm_ok=1
+VinB B GND dc 0 ac 0 pulse(0 1.2 0 100p 100p 2n 4n )
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerMOSlv.lib mos_tt
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+tran 50p 20n
+meas tran tdelay TRIG v(a) VAl=0.9 FALl=1 TARG v(out) VAl=0.9 RISE=1
+write tran_logic_nand.raw
+.endc
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/ac_lv_nmosrf.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/ac_lv_nmosrf.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/ac_lv_nmosrf.sch
+.subckt ac_lv_nmosrf
+Vgs net1 GND dc 0.45 ac 1
+Vds net2 GND 1.2
+Vgs1 net4 GND dc 0.45 ac 1
+Vds2 net5 GND 1.2
+XM1 Vout2 net6 GND GND sg13_lv_nmos w=1.0u l=0.35u ng=1 m=1 rfmode=0 mm_ok=1
+XM2 Vout1 net3 GND GND sg13_lv_nmos w=1.0u l=0.35u ng=1 m=1 rfmode=1 mm_ok=1
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerMOSlv.lib mos_tt
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+save all
+ac dec 1001 10meg 10000meg
+let vd1 = abs(Vout1)
+let vd2 = abs(Vout2)
+meas ac Vout_1_5GHz find vd1 at=5000meg
+meas ac Vout_2_5GHz find vd2 at=5000meg
+write ac_lv_nmosrf.raw
+.endc
+
+
+**** end user architecture code
+R1 net6 net4 400
+R2 net5 Vout2 400
+R3 net3 net1 400
+R4 net2 Vout1 400
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/mc_res_op.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/mc_res_op.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/mc_res_op.sch
+.subckt mc_res_op
+Vres Vcc GND 1.5
+Vsil Vcc net1 0
+.save i(vsil)
+Vppd Vcc net2 0
+.save i(vppd)
+XR3 net3 GND sub! rhigh w=1.0e-6 l=1.0e-6 m=1 b=0 mm_ok=1
+Vrh Vcc net3 0
+.save i(vrh)
+XR1 net1 GND sub! rsil w=0.5e-6 l=0.5e-5 m=1 mm_ok=1
+XR2 net2 GND sub! rppd w=0.5e-6 l=0.5e-6 m=1 b=0 mm_ok=1
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerRES.lib res_typ_stat
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.param mc_ok = 1
+.control
+let mc_runs = 1000
+let run = 0
+set curplot=new
+set scratch=$curplot
+setplot $scratch
+let rsilval=unitvec(mc_runs)
+let rppdval=unitvec(mc_runs)
+let rhighval=unitvec(mc_runs)
+
+***************** LOOP *********************
+dowhile run < mc_runs
+
+op
+set run=$&run
+set dt=$curplot
+setplot $scratch
+let out{$run}={$dt}.I(Vsil)
+let rsilval[run]= 1.5/{$dt}.I(Vsil)
+let rppdval[run]= 1.5/{$dt}.I(Vppd)
+let rhighval[run]= 1.5/{$dt}.I(Vrh)
+setplot $dt
+reset
+let run=run+1
+end
+***************** LOOP *********************
+
+wrdata mc_res_op.csv {$scratch}.rsilval {$scratch}.rppdval {$scratch}.rhighval
+write mc_res_op.raw
+echo
+print {$scratch}.rsilval
+print {$scratch}.rppdval
+print {$scratch}.rhighval
+.endc
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_hv_nmos.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_hv_nmos.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_hv_nmos.sch
+.subckt dc_hv_nmos
+Vgs net1 GND 0
+Vds net3 GND 0
+Vd net3 net2 0
+.save i(vd)
+XM1 net2 net1 GND GND sg13_hv_nmos w=1.0u l=0.45u ng=1 m=1 mm_ok=1
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerMOShv.lib mos_tt
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+save all
+dc Vds 0 3.0 0.01 Vgs 0.3 1.5 0.05
+write dc_hv_nmos.raw
+.endc
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_mos_temp.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_mos_temp.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_mos_temp.sch
+.subckt dc_mos_temp
+Vgs Vgs GND 0.75
+Vds Vds GND 1.2
+XM1 net1 Vgs GND GND sg13_lv_nmos w=1.0u l=0.35u ng=1 m=1 mm_ok=1
+Vm1 Vds net1 0
+.save i(vm1)
+Vm2 Vds net2 0
+.save i(vm2)
+XM2 net2 Vgs GND GND sg13_hv_nmos w=1.0u l=0.35u ng=1 m=1 mm_ok=1
+Vm3 Vdsp net3 0
+.save i(vm3)
+Vm4 Vdsp net4 0
+.save i(vm4)
+XM3 GND Vgsp net3 GND sg13_lv_pmos w=1.0u l=0.35u ng=1 m=1 mm_ok=1
+XM4 GND Vgsp net4 GND sg13_hv_pmos w=1.0u l=0.35u ng=1 m=1 mm_ok=1
+Vgs1 Vgsp GND -0.75
+Vds2 Vdsp GND -1.5
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+save all
+dc temp -40 125 1
+write mos_temp.raw
+wrdata mos_temp.csv I(Vm1) I(Vm2) I(Vm3) I(Vm4)
+.endc
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_mos_cs_temp.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_mos_cs_temp.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_mos_cs_temp.sch
+.subckt dc_mos_cs_temp
+XM1 GND Vgs1 Vgs1 GND sg13_lv_nmos w=2.0u l=1.0u ng=1 m=1 mm_ok=1
+XM2 GND Vgs2 Vgs2 GND sg13_hv_nmos w=2.0u l=1.0u ng=1 m=1 mm_ok=1
+XM3 Vgs3 Vgs3 GND GND sg13_lv_pmos w=2.0u l=1.0u ng=1 m=1 mm_ok=1
+XM4 Vgs4 Vgs4 GND GND sg13_hv_pmos w=2.0u l=1.0u ng=1 m=1 mm_ok=1
+I0 GND Vgs1 10u
+I1 GND Vgs2 10u
+I2 Vgs3 GND 10u
+I3 Vgs4 GND 10u
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+save all
+dc temp -40 125 1
+write mos_temp.raw
+wrdata mos_temp.csv Vgs1 Vgs2 Vgs3 Vgs4
+.endc
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/mc_lv_nmos_cs_loop.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/mc_lv_nmos_cs_loop.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/mc_lv_nmos_cs_loop.sch
+.subckt mc_lv_nmos_cs_loop
+I0 GND Vgs 10u
+XM1 Vgs Vgs GND GND sg13_lv_nmos w=2.0u l=1.0u ng=1 m=1 mm_ok=1
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerMOSlv.lib mos_tt_stat
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+.param mm_ok=1
+.param mc_ok=1
+.param temp=27
+
+.control
+
+let mc_runs = 10
+let run = 0
+set curplot=new
+set scratch=$curplot
+setplot $scratch
+let vg=unitvec(mc_runs)
+
+***************** LOOP *********************
+dowhile run < mc_runs
+
+*dc Vds 0 3 0.01
+op
+set run=$&run
+set dt=$curplot
+setplot $scratch
+let out{$run}={$dt}.Vgs
+let Vg[run]={$dt}.Vgs
+setplot $dt
+reset
+let run=run+1
+end
+***************** LOOP *********************
+
+wrdata sg13_lv_nmos_cs.csv {$scratch}.vg
+write sg13_lv_nmos_cs.raw
+echo
+print {$scratch}.vg
+
+.endc
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_hv_pmos.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_hv_pmos.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_hv_pmos.sch
+.subckt dc_hv_pmos
+Vgs GND net1 0
+Vds GND net3 0
+XM1 GND net1 net2 GND sg13_hv_pmos w=1.0u l=0.45u ng=1 m=1 mm_ok=1
+Vd net2 net3 0
+.save i(vd)
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerMOShv.lib mos_tt
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+save all
+dc Vds 0 3.0 0.01 Vgs 0.3 1.5 0.05
+write dc_hv_pmos.raw
+.endc
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/tran_bondpad.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/tran_bondpad.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/tran_bondpad.sch
+.subckt tran_bondpad
+VinB in GND dc 0 ac 0 pulse(-3.3 3.3 0 100p 100p 2n 4n )
+XD1 out GND dantenna l=200.78u w=200.78u
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.include diodes.lib
+.include sg13g2_bondpad.lib
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=127
+.control
+save all
+tran 50p 20n
+write tran_bondpad.raw
+.endc
+
+
+**** end user architecture code
+XD2 in out dantenna l=200.78u w=200.78u
+XX1 in bondpad size=80u shape=0 padtype=0
+XX2 GND bondpad size=80u shape=0 padtype=0
+XX3 out bondpad size=80u shape=0 padtype=0
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_esd_diodes.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_esd_diodes.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_esd_diodes.sch
+.subckt dc_esd_diodes
+V1 Vin GND 0.7
+Vmda Vin net1 0
+.save i(vmda)
+Vmda1 Vin net2 0
+.save i(vmda1)
+XD1 GND net1 net2 diodevdd_2kv
+Vmda2 Vin net3 0
+.save i(vmda2)
+Vmda3 Vin net4 0
+.save i(vmda3)
+XD2 GND net3 net4 diodevdd_4kv
+Vmda6 net7 GND 0
+.save i(vmda6)
+Vmda7 net8 GND 0
+.save i(vmda7)
+XD4 net8 net7 Vin diodevss_2kv
+Vmda8 net6 GND 0
+.save i(vmda8)
+Vmda9 net5 GND 0
+.save i(vmda9)
+XD5 net5 net6 Vin diodevss_4kv
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.include sg13g2_esd.lib
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_esd_nmos_cl.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_esd_nmos_cl.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_esd_nmos_cl.sch
+.subckt dc_esd_nmos_cl
+Vmda1 Vin1 net1 0
+.save i(vmda1)
+I0 GND Vin1 0
+Vmda2 Vin2 net2 0
+.save i(vmda2)
+I1 GND Vin2 0
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerMOSlv.lib mos_tt
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+.param temp=27
+.control
+save all
+dc I0 -20m 20m 10u
+*dc I1 -20m 20m 10u
+
+echo ---------nmoscl_2---------
+meas dc Vf FIND v(Vin1) AT=0.01
+meas dc Vr FIND v(Vin1) AT=-0.01
+
+echo ---------nmoscl_4---------
+*meas dc Vf FIND v(Vin2) AT=0.01
+*meas dc Vr FIND v(Vin2) AT=-0.01
+
+write dc_esd_nmos_cl.raw
+.endc
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+XD1 GND net1 nmoscl_2
+XD2 GND net2 nmoscl_4
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_ntap1.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_ntap1.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_ntap1.sch
+.subckt dc_ntap1
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerRES.lib res_typ
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+save all
+op
+print Vcc/I(Vr)
+reset
+dc Vres 0 3 0.01
+write dc_ntap1.raw
+.endc
+
+
+**** end user architecture code
+Vres Vcc net1 1.5
+Vr Vcc net2 0
+.save i(vr)
+Vres2 GND net1 0
+XR4 net2 net1 ntap1 R=225.8065 w=1.0e-6 l=0.78e-6
+XR5 net2 net1 ntap1 R=30.625 w=10.0e-6 l=1.0e-6
+.ends
+
+
+* expanding   symbol:  sg13g2_tests_xyce/dc_ptap1.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_ptap1.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_tests_xyce/dc_ptap1.sch
+.subckt dc_ptap1
+Vres Vcc sub! 1.5
+Vr Vcc net1 0
+.save i(vr)
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.lib cornerRES.lib res_typ
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.param temp=27
+.control
+save all
+op
+print Vcc/I(Vr)
+reset
+dc Vres 0 3 0.01
+write dc_ptap1.raw
+.endc
+
+
+**** end user architecture code
+XR5 net1 sub! ptap1 R=30.625 w=10.0e-6 l=1.0e-6
+XR1 net1 sub! ptap1 R=225.8065 w=1.0e-6 l=0.78e-6
+Vres1 GND sub! 0
+.ends
+
+
+* expanding   symbol:  tests/dc_pnpMPA.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/tests/dc_pnpMPA.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/tests/dc_pnpMPA.sch
+.subckt dc_pnpMPA
+Ve net2 E1 0
+.save i(ve)
+Vb net1 GND 0
+.save i(vb)
+Vc net3 GND 0
+.save i(vc)
+I0 GND net2 1u
+XQ1 net3 net1 E1 pnpMPA a=2e-12 p=6e-06
+.ends
+
+
+* expanding   symbol:  tests/tran_moscap_n.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/tests/tran_moscap_n.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/tests/tran_moscap_n.sch
+.subckt tran_moscap_n
+**** begin user architecture code
+
+
+.lib cornerMOSCAP.lib moscap_tt
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+.param  TEMP = 27
+  .control
+     save all
+     tran 0.1n 400n
+     let Cn_abs = abs(i(v1)) / deriv(v(p))
+     meas tran C_max MAX Cn_abs
+     meas tran C_min MIN Cn_abs from=5n to=400n
+     meas tran t_c_min MIN_AT Cn_abs from=5n to=400n
+     meas tran V_th FIND v(p) AT=t_c_min
+     let Cn_norm = Cn_abs / C_max
+     plot Cn_abs vs v(p)
+     write tran_moscap_n.raw
+  .endc
+
+
+**** end user architecture code
+V1 P GND pwl 0 -1.2 400n 1.2
+XC1 P GND sg13_moscap_n w=1.0u l=1.0u m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  tests/tran_moscap_p.sym # of pins=0
+** sym_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/tests/tran_moscap_p.sym
+** sch_path: /home/raiku/k/heichips26-voltage-controlled-resistor/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/xschem/tests/tran_moscap_p.sch
+.subckt tran_moscap_p
+**** begin user architecture code
+
+
+.lib cornerMOSCAP.lib moscap_tt
+
+
+**** end user architecture code
+**** begin user architecture code
+
+
+
+.control
+save all
+  tran 0.1n 400n
+  let vcap = v(m)-v(vdd)
+  let Cp_abs = abs(i(v1)) / deriv(vcap)
+   meas tran C_max MAX Cp_abs
+   meas tran C_min MIN Cp_abs from=5n to=400n
+   meas tran t_c_min MIN_AT Cp_abs from=5n to=400n
+   meas tran V_th FIND vcap AT=t_c_min
+   plot Cp_abs vs vcap
+  write tran_moscap_p.raw
+.endc
+
+
+
+**** end user architecture code
+V1 M GND pwl 0 0 400n 2.4
+XC1 M VDD sg13_moscap_p w=1u l=1u m=1 mm_ok=1
+V2 VDD GND DC 1.2
+.ends
+
+.GLOBAL sub!
+.GLOBAL GND
+.end
