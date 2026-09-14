@@ -52,13 +52,11 @@ C {ipin.sym} 0 0 0 0 {name=p1 lab=T1}
 C {ipin.sym} 1310 0 2 0 {name=p2 lab=T2}
 C {lab_pin.sym} 40 -350 0 0 {name=p7 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} 180 -350 2 0 {name=p9 sig_type=std_logic lab=Vss}
-C {isource.sym} -10 -370 3 0 {name=I0 value=5u}
-C {opamp_rtr.sym} 150 -320 3 0 {name=x1}
+C {isource.sym} -10 -370 3 0 {name=I0 value=1u}
 C {lab_pin.sym} -60 -370 0 0 {name=p18 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} 1060 -350 0 0 {name=p19 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} 1200 -350 2 0 {name=p20 sig_type=std_logic lab=Vss}
-C {isource.sym} 1010 -370 3 0 {name=I3 value=5u}
-C {opamp_rtr.sym} 1170 -320 3 0 {name=x2}
+C {isource.sym} 1010 -370 3 0 {name=I3 value=1u}
 C {lab_pin.sym} 960 -370 0 0 {name=p21 sig_type=std_logic lab=Vdd}
 C {res.sym} 1080 -440 3 0 {name=R2
 value=10k
@@ -68,7 +66,7 @@ m=1}
 C {lab_pin.sym} 550 -220 2 0 {name=p22 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} 370 -200 0 0 {name=p23 sig_type=std_logic lab=Vss}
 C {lab_pin.sym} 660 -150 2 0 {name=p24 sig_type=std_logic lab=Vdd}
-C {isource.sym} 580 -150 1 0 {name=I4 value=5u}
+C {isource.sym} 580 -150 1 0 {name=I4 value=1u}
 C {ipin.sym} 480 -300 0 0 {name=p25 lab=Vctrl
 }
 C {ipin.sym} 10 -210 0 0 {name=p3 lab=Vdd}
@@ -86,3 +84,5 @@ w=15u
 spiceprefix=X
 }
 C {lab_pin.sym} 460 40 0 0 {name=p6 sig_type=std_logic lab=Vss}
+C {/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/opamp_rtr/schematic/xschem/opamp_rtr.sym} 150 -320 3 0 {name=x1}
+C {/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/opamp_rtr/schematic/xschem/opamp_rtr.sym} 1170 -320 3 0 {name=x2}
