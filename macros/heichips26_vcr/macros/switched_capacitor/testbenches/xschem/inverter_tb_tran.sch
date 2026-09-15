@@ -54,29 +54,45 @@ autoload=0}
 T {Testbench for transient analysis - Inverter} 740 -1730 0 0 1 1 {}
 N 1380 -1080 1380 -1040 {lab=VDD}
 N 1380 -980 1380 -940 {lab=GND}
-N 980 -840 980 -820 {lab=vin}
-N 920 -840 980 -840 {lab=vin}
-N 980 -840 1040 -840 {lab=vin}
+N 800 -840 800 -820 {lab=vin
+spice_ignore=true}
+N 740 -840 940 -840 {lab=vin}
+N 940 -840 1060 -840 {lab=vin}
 N 1380 -840 1460 -840 {lab=vout}
-N 980 -760 980 -740 {lab=GND}
+N 800 -760 800 -740 {lab=GND
+spice_ignore=true}
 N 1260 -840 1260 -820 {lab=vout}
 N 1380 -840 1380 -820 {lab=vout}
 N 1260 -840 1380 -840 {lab=vout}
-N 1180 -840 1260 -840 {lab=vout}
 N 1260 -760 1260 -740 {lab=GND}
 N 1380 -760 1380 -740 {lab=GND}
 N 1100 -940 1100 -880 {lab=VDD}
 N 1100 -800 1100 -740 {lab=GND}
-C {devices/code_shown.sym} 80 -1370 0 0 {name=NGSPICE
+N 1160 -840 1260 -840 {lab=vout}
+N 940 -840 940 -820 {lab=vin}
+N 940 -760 940 -740 {lab=GND}
+N 1500 -940 1500 -880 {lab=VDD}
+N 1500 -800 1500 -740 {lab=GND}
+C {devices/code_shown.sym} 20 -1730 0 0 {name=NGSPICE
 only_toplevel=true 
 value="
 .include ../../../netlist/pex/inverter_magic_pex_3.spice
-.param VDD=1.5
+.include ../../../netlist/pex/hv_inverter_40u_magic_pex_3.spice
+.param VDD=3.3
 .csparam VDD=VDD
 .param Vcm=VDD/2
 .param temp=27
 .param Cload=10p
 .param Rload=1k
+
+.param period = 0.3n
+.param tdel   = \{period/2\}
+.param ton    = \{period*2\}
+.csparam tstop  = \{5*period\}
+.csparam tstep  = \{period/100\}
+.param tr     = \{period/100\}
+.param tf     = \{period/100\}
+
 .options savecurrents klu method=gear reltol=1e-4 abstol=1e-15 gmin=1e-15
 .control
 
@@ -89,7 +105,7 @@ write @schname\\\\.raw
 set appendwrite
 
 * Transient Analysis
-tran 1u 5m
+tran \{$&tstep\} \{$&tstop\}
 write @schname\\\\.raw
 
 * Plotting
@@ -134,11 +150,12 @@ tclcommand="set show_hidden_texts 1; xschem annotate_op"
 C {devices/vsource.sym} 1380 -1010 0 0 {name=VDD value=\{VDD\}}
 C {devices/gnd.sym} 1380 -940 0 0 {name=l3 lab=GND}
 C {vdd.sym} 1380 -1080 0 0 {name=l7 lab=VDD}
-C {devices/lab_pin.sym} 1460 -840 0 1 {name=l12 sig_type=std_logic lab=vout}
-C {devices/vsource.sym} 980 -790 0 1 {name=vsine spice_ignore=False value="sin(\{Vcm\} 10m 1k)"
+C {devices/lab_pin.sym} 1260 -840 3 1 {name=l12 sig_type=std_logic lab=vout}
+C {devices/vsource.sym} 800 -790 0 1 {name=vsine spice_ignore=true value="sin(\{Vcm\} 10m 1k)"
 }
-C {devices/lab_pin.sym} 920 -840 0 0 {name=l22 sig_type=std_logic lab=vin}
-C {devices/gnd.sym} 980 -740 0 0 {name=l26 lab=GND}
+C {devices/lab_pin.sym} 740 -840 0 0 {name=l22 sig_type=std_logic lab=vin}
+C {devices/gnd.sym} 800 -740 0 0 {name=l26 lab=GND
+spice_ignore=true}
 C {devices/code_shown.sym} 1960 -1410 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -154,7 +171,7 @@ m=1
 value=\{Cload\}
 footprint=1206
 device="ceramic capacitor"
-}
+spice_ignore=true}
 C {res.sym} 1380 -790 0 0 {name=R1
 value=\{Rload\}
 footprint=1206
@@ -163,8 +180,20 @@ m=1
 spice_ignore=true}
 C {devices/gnd.sym} 1260 -740 0 0 {name=l5 lab=GND}
 C {devices/gnd.sym} 1380 -740 0 0 {name=l6 lab=GND}
-C {inverter.sym} 1100 -840 0 0 {name=x1}
+C {inverter.sym} 1100 -1100 0 0 {name=x1
+spice_ignore=true}
 C {inverter.sym} 1100 -1260 0 0 {name=x2
 spice_ignore=true}
 C {inverter_pex.sym} 1340 -1260 0 0 {name=x3
 spice_ignore=true}
+C {hv_inverter_40u.sym} 1210 -1000 0 0 {name=x4
+spice_ignore=true}
+C {hv_inverter_40u_pex.sym} 1100 -840 0 0 {name=x5
+}
+C {devices/gnd.sym} 940 -740 0 0 {name=l8 lab=GND}
+C {devices/vsource.sym} 940 -790 0 1 {name=vp2 value="PULSE(0 VDD \{tdel\} \{tr\} \{tf\} \{period\} \{period*2\})"
+}
+C {devices/gnd.sym} 1500 -740 0 0 {name=l9 lab=GND}
+C {vdd.sym} 1500 -940 0 0 {name=l10 lab=VDD}
+C {hv_inverter_40u_pex.sym} 1500 -840 0 0 {name=x6
+}

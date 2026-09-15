@@ -27,8 +27,8 @@ logx=1
 logy=0
 linewidth_mult=4}
 B 2 1640 -1120 2440 -720 {flags=graph
-y1=-27
-y2=32
+y1=-38.8
+y2=20.2
 ypos1=0
 ypos2=2
 divy=5
@@ -52,21 +52,22 @@ N 1360 -1080 1360 -1040 {lab=VDD}
 N 1360 -980 1360 -940 {lab=GND}
 N 1000 -840 1000 -820 {lab=vin}
 N 940 -840 1000 -840 {lab=vin}
-N 1000 -840 1060 -840 {lab=vin}
+N 1000 -840 1080 -840 {lab=vin}
 N 1360 -840 1440 -840 {lab=vout}
 N 1000 -760 1000 -740 {lab=GND}
 N 1260 -840 1260 -820 {lab=vout}
-N 1200 -840 1260 -840 {lab=vout}
 N 1360 -840 1360 -820 {lab=vout}
 N 1260 -840 1360 -840 {lab=vout}
 N 1260 -760 1260 -740 {lab=GND}
 N 1360 -760 1360 -740 {lab=GND}
 N 1120 -940 1120 -880 {lab=VDD}
 N 1120 -800 1120 -740 {lab=GND}
+N 1180 -840 1260 -840 {lab=vout}
 C {devices/code_shown.sym} 60 -1450 0 0 {name=NGSPICE
 only_toplevel=true 
 value="
 .include ../../../netlist/pex/inverter_magic_pex_3.spice
+.include ../../../netlist/pex/hv_inverter_40u_magic_pex_3.spice
 .param VDD=1.5
 .param Vcm=VDD/2
 .param temp=27
@@ -169,7 +170,7 @@ m=1
 value=\{Cload\}
 footprint=1206
 device="ceramic capacitor"
-}
+spice_ignore=true}
 C {res.sym} 1360 -790 0 0 {name=R1
 value=\{Rload\}
 footprint=1206
@@ -178,8 +179,13 @@ m=1
 spice_ignore=true}
 C {devices/gnd.sym} 1260 -740 0 0 {name=l5 lab=GND}
 C {devices/gnd.sym} 1360 -740 0 0 {name=l6 lab=GND}
-C {inverter.sym} 1120 -840 0 0 {name=x1}
+C {inverter.sym} 950 -1160 0 0 {name=x1
+spice_ignore=true}
 C {inverter.sym} 1120 -1260 0 0 {name=x2
 spice_ignore=true}
 C {inverter_pex.sym} 1360 -1260 0 0 {name=x3
+spice_ignore=true}
+C {hv_inverter_40u.sym} 1120 -840 0 0 {name=x4
+}
+C {hv_inverter_40u_pex.sym} 980 -1020 0 0 {name=x5
 spice_ignore=true}

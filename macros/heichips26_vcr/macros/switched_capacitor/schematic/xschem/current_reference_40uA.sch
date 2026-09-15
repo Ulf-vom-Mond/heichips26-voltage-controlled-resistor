@@ -103,7 +103,7 @@ w=n_w
  model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13cmos5l_pr/rppd.sym} 120 -130 0 1 {name=R2
+C {sg13cmos5l_pr/rppd.sym} 120 -50 0 1 {name=R2
 w=2e-6
 l=21.9e-6
 model=rppd
@@ -150,7 +150,7 @@ w=n_w
  model=sg13_hv_nmos
 spiceprefix=X
 }
-C {sg13cmos5l_pr/rsil.sym} 120 -50 0 1 {name=R3
+C {sg13cmos5l_pr/rsil.sym} 120 -130 0 1 {name=R3
 w=0.5e-6
 l=365e-6
 model=rsil

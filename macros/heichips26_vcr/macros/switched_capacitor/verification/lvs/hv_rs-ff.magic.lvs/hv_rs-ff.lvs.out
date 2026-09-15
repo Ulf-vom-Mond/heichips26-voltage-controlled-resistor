@@ -1,0 +1,101 @@
+
+Circuit 1 cell sg13_hv_nmos and Circuit 2 cell sg13_hv_nmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_nmos                    |Circuit 2: sg13_hv_nmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_nmos and sg13_hv_nmos are equivalent.
+
+Circuit 1 cell sg13_hv_pmos and Circuit 2 cell sg13_hv_pmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_pmos                    |Circuit 2: sg13_hv_pmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_pmos and sg13_hv_pmos are equivalent.
+Flattening unmatched subcell hv_nand in circuit hv_rs-ff (1)(2 instances)
+
+Class hv_rs-ff (0):  Merged 24 parallel devices.
+Subcircuit summary:
+Circuit 1: hv_rs-ff                        |Circuit 2: hv_rs-ff                        
+-------------------------------------------|-------------------------------------------
+sg13_hv_pmos (16->4)                       |sg13_hv_pmos (4)                           
+sg13_hv_nmos (16->4)                       |sg13_hv_nmos (4)                           
+Number of devices: 8                       |Number of devices: 8                       
+Number of nets: 8                          |Number of nets: 8                          
+---------------------------------------------------------------------------------------
+Netlists match uniquely with property errors.
+sg13_hv_nmos:4 vs. hv_nand:4/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:4 vs. hv_nand:4/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:1 vs. hv_nand:4/sg13_hv_nmos:M1:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:1 vs. hv_nand:4/sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:8 vs. hv_nand:5/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:8 vs. hv_nand:5/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:15 vs. hv_nand:5/sg13_hv_nmos:M1:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:15 vs. hv_nand:5/sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:7 vs. hv_nand:4/sg13_hv_pmos:M4:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:7 vs. hv_nand:4/sg13_hv_pmos:M4:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:0 vs. hv_nand:5/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:0 vs. hv_nand:5/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:3 vs. hv_nand:5/sg13_hv_pmos:M4:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:3 vs. hv_nand:5/sg13_hv_pmos:M4:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:2 vs. hv_nand:4/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:2 vs. hv_nand:4/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+
+Subcircuit pins:
+Circuit 1: hv_rs-ff                        |Circuit 2: hv_rs-ff                        
+-------------------------------------------|-------------------------------------------
+VSS                                        |VSS                                        
+Q                                          |Q                                          
+nQ                                         |nQ                                         
+nS                                         |nS                                         
+nR                                         |nR                                         
+VDD                                        |VDD                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes hv_rs-ff and hv_rs-ff are equivalent.
+
+Final result: Circuits match uniquely.
+Property errors were found.
+
+The following cells had property errors:
+ hv_rs-ff

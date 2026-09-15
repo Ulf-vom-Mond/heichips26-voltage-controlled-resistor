@@ -1,0 +1,44 @@
+* PEX produced on Mi 9. Sep 16:12:57 CEST 2026 using scripts/sak-pex.sh with m=3 and s=1 (extresist threshold=10000 mOhm, minres=1000 mOhm, mindelay=1 ps)
+* NGSPICE file created from hv_nor_pex.ext - technology: ihp-sg13cmos5l
+
+.subckt hv_nor_pex VDD in1 out in2 VSS
+X0 VSS.t2 in2 out VSS.t1 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X1 a_n342_276# in2 VDD VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
+X2 VSS in1 out VSS.t7 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X3 out in2 VSS.t2 VSS.t3 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X4 out in1 a_n342_276# VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X5 a_n342_276# in1 out VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
+X6 VSS in1 out VSS.t9 sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
+X7 VDD in2 a_n342_276# VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
+X8 out in2 VSS VSS.t0 sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
+X9 out in1 a_n342_276# VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
+X10 out in1 VSS VSS.t8 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X11 VSS.t2 in2 out VSS.t4 sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
+X12 VDD in2 a_n342_276# VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X13 out in1 VSS VSS sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
+X14 a_n342_276# in2 VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X15 a_n342_276# in1 out VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+R0 VSS VSS.t7 29.1282
+R1 VSS.t1 VSS 29.1277
+R2 VSS VSS.t8 27.0594
+R3 VSS.t3 VSS 27.0618
+R4 VSS VSS.t9 43.8368
+R5 VSS VSS.t4 43.8341
+R6 VSS VSS.t0 43.8367
+R7 VSS VSS.t2 1.14348
+C0 VDD a_n342_276# 13.0188f
+C1 a_n342_276# out 8.56606f
+C2 in2 a_n342_276# 2.07891f
+C3 VDD out 0.8123f
+C4 VDD in2 3.63429f
+C5 in2 out 2.01648f
+C6 a_n342_276# in1 2.05947f
+C7 VDD in1 2.64687f
+C8 out in1 3.28385f
+C9 in2 in1 0.15995f
+C10 out VSS 7.99976f
+C11 VDD VSS 1.82332f
+C12 a_n342_276# VSS 1.20849f
+C13 VSS.t2 VSS 1.3974f
+.ends
+

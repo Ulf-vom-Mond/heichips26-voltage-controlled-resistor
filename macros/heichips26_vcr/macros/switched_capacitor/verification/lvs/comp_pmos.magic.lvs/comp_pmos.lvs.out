@@ -1,0 +1,115 @@
+
+Circuit 1 cell sg13_hv_pmos and Circuit 2 cell sg13_hv_pmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_pmos                    |Circuit 2: sg13_hv_pmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_pmos and sg13_hv_pmos are equivalent.
+
+Circuit 1 cell sg13_hv_nmos and Circuit 2 cell sg13_hv_nmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_nmos                    |Circuit 2: sg13_hv_nmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_nmos and sg13_hv_nmos are equivalent.
+
+Subcircuit summary:
+Circuit 1: comp_pmos                       |Circuit 2: comp_pmos                       
+-------------------------------------------|-------------------------------------------
+sg13_hv_pmos (5)                           |sg13_hv_pmos (5)                           
+sg13_hv_nmos (3)                           |sg13_hv_nmos (3)                           
+Number of devices: 8                       |Number of devices: 8                       
+Number of nets: 9                          |Number of nets: 9                          
+---------------------------------------------------------------------------------------
+Netlists match uniquely with property errors.
+sg13_hv_nmos:4 vs. sg13_hv_nmos:M14:
+ l circuit1: "1.5e-06"   circuit2: "n_l"   (exact match req'd)
+ w circuit1: "1.2e-06"   circuit2: "n_w"   (exact match req'd)
+sg13_hv_nmos:4 vs. sg13_hv_nmos:M14:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:4 vs. sg13_hv_nmos:M14:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:7 vs. sg13_hv_nmos:M15:
+ l circuit1: "1.5e-06"   circuit2: "n_l"   (exact match req'd)
+ w circuit1: "1.2e-06"   circuit2: "n_w"   (exact match req'd)
+sg13_hv_nmos:7 vs. sg13_hv_nmos:M15:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:7 vs. sg13_hv_nmos:M15:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:1 vs. sg13_hv_nmos:M16:
+ l circuit1: "1.5e-06"   circuit2: "n_l"   (exact match req'd)
+ w circuit1: "1.2e-06"   circuit2: "n_w"   (exact match req'd)
+sg13_hv_nmos:1 vs. sg13_hv_nmos:M16:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:1 vs. sg13_hv_nmos:M16:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:6 vs. sg13_hv_pmos:M9:
+ l circuit1: "4e-07"   circuit2: "p_l"   (exact match req'd)
+ w circuit1: "2e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:6 vs. sg13_hv_pmos:M9:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:6 vs. sg13_hv_pmos:M9:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:5 vs. sg13_hv_pmos:M10:
+ l circuit1: "4e-07"   circuit2: "p_l"   (exact match req'd)
+ w circuit1: "2e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:5 vs. sg13_hv_pmos:M10:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:5 vs. sg13_hv_pmos:M10:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:3 vs. sg13_hv_pmos:M11:
+ l circuit1: "4e-07"   circuit2: "p_l"   (exact match req'd)
+ w circuit1: "2e-06"   circuit2: "p_w"   (exact match req'd)
+sg13_hv_pmos:3 vs. sg13_hv_pmos:M11:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:3 vs. sg13_hv_pmos:M11:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:2 vs. sg13_hv_pmos:M12:
+ l circuit1: "4e-07"   circuit2: "p_l"   (exact match req'd)
+ w circuit1: "2e-06"   circuit2: "p_w"   (exact match req'd)
+sg13_hv_pmos:2 vs. sg13_hv_pmos:M12:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:2 vs. sg13_hv_pmos:M12:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:0 vs. sg13_hv_pmos:M13:
+ l circuit1: "4e-07"   circuit2: "p_l"   (exact match req'd)
+ w circuit1: "2e-06"   circuit2: "p_w"   (exact match req'd)
+sg13_hv_pmos:0 vs. sg13_hv_pmos:M13:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:0 vs. sg13_hv_pmos:M13:
+Property mm_ok in circuit2 has no matching property in circuit1
+
+Subcircuit pins:
+Circuit 1: comp_pmos                       |Circuit 2: comp_pmos                       
+-------------------------------------------|-------------------------------------------
+out                                        |out                                        
+VSS                                        |VSS                                        
+VDD                                        |VDD                                        
+Ibias                                      |Ibias                                      
++                                          |+                                          
+-                                          |-                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes comp_pmos and comp_pmos are equivalent.
+
+Final result: Circuits match uniquely.
+Property errors were found.
+
+The following cells had property errors:
+ comp_pmos

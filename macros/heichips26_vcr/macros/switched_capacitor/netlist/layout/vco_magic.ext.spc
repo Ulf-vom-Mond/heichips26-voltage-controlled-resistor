@@ -1,0 +1,144 @@
+* NGSPICE file created from vco.ext - technology: ihp-sg13cmos5l
+
+.subckt vco out vctrl nout VSS VDD vc
+X0 a_10158_4610# a_10022_2540# VSS rsil l=10u w=0.5u
+X1 a_7166_4610# a_7302_2540# VSS rsil l=10u w=0.5u
+X2 VSS a_1458_982# comp_pmos_0.Ibias VSS sg13_hv_nmos ad=1.14p pd=6.38u as=2.04p ps=12.68u w=6u l=5u
+X3 a_9070_4610# a_9206_2540# VSS rsil l=10u w=0.5u
+X4 a_8798_4610# a_8934_2540# VSS rsil l=10u w=0.5u
+X5 a_6986_5322# hv_inverter_6u5_1.out VSS VSS sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
+X6 a_4786_5322# hv_inverter_6u5_0.out out VSS sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
+X7 VDD out nout VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X8 VDD voltage_mirror_pmos_0.Ibias a_n1222_4722# VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=2u
+X9 VSS nout a_4786_5322# VSS sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
+X10 a_4128_2682# a_4128_2682# VDD VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=2u
+X11 nout out a_6986_5322# VSS sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
+X12 VDD voltage_mirror_pmos_0.Ibias voltage_mirror_pmos_0.Ibias VDD sg13_hv_pmos ad=3.23p pd=19.68u as=1.805p ps=9.88u w=9.5u l=2u
+X13 a_888_8590# a_752_6244# VSS rhigh l=11.3u w=0.5u
+X14 a_6622_4610# a_6758_2540# VSS rsil l=10u w=0.5u
+X15 a_n5402_1018# a_n5402_1018# VDD VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X16 a_480_8590# a_344_6244# VSS rhigh l=11.3u w=0.5u
+X17 out nout VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X18 hv_inverter_6u5_0.out comp_nmos_0.out VSS VSS sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=0.45u
+X19 a_n2142_6108# vctrl VSS rhigh l=6.78u w=0.5u
+X20 a_5550_4820# VSS VSS rppd l=10.95u w=2u
+X21 a_1858_4722# a_1334_5674# VDD VDD sg13_hv_pmos ad=0.68p pd=4.68u as=0.38p ps=2.38u w=2u l=0.4u
+X22 a_8254_4610# a_8118_2540# VSS rsil l=10u w=0.5u
+X23 a_7982_4610# a_7846_2540# VSS rsil l=10u w=0.5u
+X24 hv_inverter_6u5_1.in comp_pmos_0.Ibias VDD VDD sg13_hv_pmos ad=0.68p pd=4.68u as=0.38p ps=2.38u w=2u l=0.4u
+X25 a_480_8590# voltage_mirror_pmos_0.out VSS rhigh l=11.3u w=0.5u
+X26 hv_inverter_6u5_0.out comp_nmos_0.out VDD VDD sg13_hv_pmos ad=2.21p pd=13.68u as=2.21p ps=13.68u w=6.5u l=0.4u
+X27 hv_inverter_6u5_1.out hv_inverter_6u5_1.in VSS VSS sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=0.45u
+X28 VDD hv_inverter_6u5_0.out out VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
+X29 VSS a_n6746_982# a_n6746_982# VSS sg13_hv_nmos ad=2.04p pd=12.68u as=2.04p ps=12.68u w=6u l=5u
+X30 VDD hv_inverter_6u5_1.out nout VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
+X31 VDD comp_pmos_0.Ibias a_1618_8074# VDD sg13_hv_pmos ad=0.38p pd=2.38u as=0.68p ps=4.68u w=2u l=0.4u
+X32 a_6986_5322# hv_inverter_6u5_1.out VSS VSS sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X33 a_4786_5322# hv_inverter_6u5_0.out out VSS sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X34 a_9886_4610# a_9750_2540# VSS rsil l=10u w=0.5u
+X35 VSS a_1774_8074# hv_inverter_6u5_1.in VSS sg13_hv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=1.5u
+X36 voltage_mirror_pmos_0.Ibias a_n1734_4666# VSS rhigh l=6.78u w=0.5u
+X37 a_n5402_1018# a_n5402_1018# VDD VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X38 a_10430_4610# a_10566_2540# VSS rsil l=10u w=0.5u
+X39 voltage_mirror_pmos_0.out a_n1222_4722# VSS VSS sg13_hv_nmos ad=2.04p pd=12.68u as=1.14p ps=6.38u w=6u l=5u
+X40 a_7710_4610# a_7574_2540# VSS rsil l=10u w=0.5u
+X41 bias_current_generator_0.5uA+ a_n5402_1018# VDD VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X42 a_9614_4610# a_9478_2540# VSS rsil l=10u w=0.5u
+X43 VSS nout a_4786_5322# VSS sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X44 out nout VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
+X45 nout out VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
+X46 a_7438_4610# a_7302_2540# VSS rsil l=10u w=0.5u
+X47 VDD bias_current_generator_0.current_reference_40uA_0.iout comp_nmos_0.Ibias VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X48 a_1458_982# a_1458_982# VSS VSS sg13_hv_nmos ad=2.04p pd=12.68u as=1.14p ps=6.38u w=6u l=5u
+X49 a_6894_4610# a_7030_2540# VSS rsil l=10u w=0.5u
+X50 a_n5334_982# bias_current_generator_0.current_reference_40uA_0.iout VDD VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X51 VDD bias_current_generator_0.current_reference_40uA_0.iout bias_current_generator_0.current_reference_40uA_0.iout VDD sg13_hv_pmos ad=1.7p pd=10.68u as=0.95p ps=5.38u w=5u l=2u
+X52 comp_nmos_0.out comp_nmos_0.Ibias VSS VSS sg13_hv_nmos ad=0.816p pd=5.48u as=0.456p ps=2.78u w=2.4u l=1.5u
+X53 a_1774_8074# a_1364_7536# VSS VSS sg13_hv_nmos ad=0.408p pd=3.08u as=0.228p ps=1.58u w=1.2u l=1.5u
+X54 VDD nout out VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X55 a_6986_5322# out nout VSS sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
+X56 VSS comp_nmos_0.Ibias a_1702_5674# VSS sg13_hv_nmos ad=0.456p pd=2.78u as=0.816p ps=5.48u w=2.4u l=1.5u
+X57 a_8526_4610# a_8662_2540# VSS rsil l=10u w=0.5u
+X58 a_888_8590# VSS VSS rhigh l=11.3u w=0.5u
+X59 VDD comp_pmos_0.Ibias comp_pmos_0.Ibias VDD sg13_hv_pmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=0.4u
+X60 a_n6746_982# a_n5402_1018# VDD VDD sg13_hv_pmos ad=0.95p pd=5.38u as=1.7p ps=10.68u w=5u l=2u
+X61 a_6436_1018# a_4016_982# a_4128_2682# VSS sg13_hv_nmos ad=1.14p pd=6.38u as=1.14p ps=6.38u w=6u l=5u
+X62 bias_current_generator_0.5uA- out vc VSS sg13_hv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.45u
+X63 VDD a_1334_5674# a_1334_5674# VDD sg13_hv_pmos ad=0.38p pd=2.38u as=0.68p ps=4.68u w=2u l=0.4u
+X64 out hv_inverter_6u5_0.out a_4786_5322# VSS sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
+X65 VSS a_n1222_4722# a_n1222_4722# VSS sg13_hv_nmos ad=1.14p pd=6.38u as=2.04p ps=12.68u w=6u l=5u
+X66 a_4128_2682# a_4016_982# a_6436_1018# VSS sg13_hv_nmos ad=1.14p pd=6.38u as=1.14p ps=6.38u w=6u l=5u
+X67 out hv_inverter_6u5_0.out VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X68 nout hv_inverter_6u5_1.out VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X69 VSS a_4016_982# bias_current_generator_0.current_reference_40uA_0.iout VSS sg13_hv_nmos ad=1.14p pd=6.38u as=2.04p ps=12.68u w=6u l=5u
+X70 VDD bias_current_generator_0.current_reference_40uA_0.iout a_1458_982# VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X71 VSS a_n5334_982# a_n5334_982# VSS sg13_hv_nmos ad=1.14p pd=6.38u as=1.14p ps=6.38u w=6u l=5u
+X72 a_n5334_982# a_n5334_982# VSS VSS sg13_hv_nmos ad=1.14p pd=6.38u as=1.14p ps=6.38u w=6u l=5u
+X73 VDD out nout VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
+X74 VDD a_n5402_1018# bias_current_generator_0.5uA+ VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X75 VDD a_344_6244# VSS rhigh l=11.3u w=0.5u
+X76 a_6986_5322# out nout VSS sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X77 a_1858_4722# vc a_1702_5674# VSS sg13_hv_nmos ad=0.408p pd=3.08u as=0.228p ps=1.58u w=1.2u l=1.5u
+X78 a_n2142_6108# a_n2006_4666# VSS rhigh l=6.78u w=0.5u
+X79 a_n1870_6108# a_n1734_4666# VSS rhigh l=6.78u w=0.5u
+X80 a_10702_4610# a_10566_2540# VSS rsil l=10u w=0.5u
+X81 a_7982_4610# a_8118_2540# VSS rsil l=10u w=0.5u
+X82 a_7710_4610# a_7846_2540# VSS rsil l=10u w=0.5u
+X83 a_10158_4610# a_10294_2540# VSS rsil l=10u w=0.5u
+X84 hv_inverter_6u5_1.out hv_inverter_6u5_1.in VDD VDD sg13_hv_pmos ad=2.21p pd=13.68u as=2.21p ps=13.68u w=6.5u l=0.4u
+X85 VSS hv_inverter_6u5_1.out a_6986_5322# VSS sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X86 VSS comp_nmos_0.Ibias comp_nmos_0.Ibias VSS sg13_hv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=1.5u
+X87 VDD a_1858_4722# comp_nmos_0.out VDD sg13_hv_pmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=0.4u
+X88 VDD a_n5402_1018# a_n5402_1018# VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X89 out hv_inverter_6u5_0.out a_4786_5322# VSS sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X90 a_9342_4610# a_9206_2540# VSS rsil l=10u w=0.5u
+X91 out hv_inverter_6u5_0.out VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
+X92 VSS a_n5334_982# a_n5334_982# VSS sg13_hv_nmos ad=1.14p pd=6.38u as=1.14p ps=6.38u w=6u l=5u
+X93 VDD a_n5402_1018# a_n6746_982# VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X94 a_9886_4610# a_10022_2540# VSS rsil l=10u w=0.5u
+X95 a_7166_4610# a_7030_2540# VSS rsil l=10u w=0.5u
+X96 a_6894_4610# a_6758_2540# VSS rsil l=10u w=0.5u
+X97 VDD a_4128_2682# a_4016_982# VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=2u
+X98 VDD hv_inverter_6u5_0.out out VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X99 a_8798_4610# a_8662_2540# VSS rsil l=10u w=0.5u
+X100 a_4786_5322# nout VSS VSS sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
+X101 VDD hv_inverter_6u5_1.out nout VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X102 a_6436_1018# a_4016_982# a_4128_2682# VSS sg13_hv_nmos ad=2.04p pd=12.68u as=1.14p ps=6.38u w=6u l=5u
+X103 a_5550_4820# a_5986_2544# VSS rppd l=10.95u w=2u
+X104 VSS a_1364_7536# a_1364_7536# VSS sg13_hv_nmos ad=0.228p pd=1.58u as=0.408p ps=3.08u w=1.2u l=1.5u
+X105 a_8254_4610# a_8390_2540# VSS rsil l=10u w=0.5u
+X106 VDD a_n5402_1018# a_n5402_1018# VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X107 VSS hv_inverter_6u5_1.out a_6986_5322# VSS sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
+X108 voltage_mirror_pmos_0.nout a_752_6244# VSS rhigh l=11.3u w=0.5u
+X109 a_6622_4610# a_5986_2544# VSS rsil l=10u w=0.5u
+X110 nout out VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X111 VSS a_n5334_982# a_n5402_1018# VSS sg13_hv_nmos ad=1.14p pd=6.38u as=2.04p ps=12.68u w=6u l=5u
+X112 a_8526_4610# a_8390_2540# VSS rsil l=10u w=0.5u
+X113 VDD bias_current_generator_0.current_reference_40uA_0.iout a_n5334_982# VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X114 voltage_mirror_pmos_0.Ibias voltage_mirror_pmos_0.Ibias VDD VDD sg13_hv_pmos ad=1.805p pd=9.88u as=3.23p ps=19.68u w=9.5u l=2u
+X115 VDD nout out VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
+X116 a_4786_5322# nout VSS VSS sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X117 a_n1870_6108# a_n2006_4666# VSS rhigh l=6.78u w=0.5u
+X118 a_4128_2682# a_4016_982# a_6436_1018# VSS sg13_hv_nmos ad=1.14p pd=6.38u as=2.04p ps=12.68u w=6u l=5u
+X119 a_9614_4610# a_9750_2540# VSS rsil l=10u w=0.5u
+X120 a_1702_5674# voltage_mirror_pmos_0.out a_1334_5674# VSS sg13_hv_nmos ad=0.228p pd=1.58u as=0.408p ps=3.08u w=1.2u l=1.5u
+X121 bias_current_generator_0.current_reference_40uA_0.iout bias_current_generator_0.current_reference_40uA_0.iout VDD VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X122 a_10702_4610# a_6436_1018# VSS rsil l=10u w=0.5u
+X123 a_10430_4610# a_10294_2540# VSS rsil l=10u w=0.5u
+X124 a_7438_4610# a_7574_2540# VSS rsil l=10u w=0.5u
+X125 voltage_mirror_pmos_0.nout voltage_mirror_pmos_0.Ibias VDD VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=2u
+X126 VSS a_n6746_982# bias_current_generator_0.5uA- VSS sg13_hv_nmos ad=2.04p pd=12.68u as=2.04p ps=12.68u w=6u l=5u
+X127 a_n5334_982# a_n5334_982# VSS VSS sg13_hv_nmos ad=1.14p pd=6.38u as=1.14p ps=6.38u w=6u l=5u
+X128 bias_current_generator_0.5uA+ out vc VDD sg13_hv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.4u
+X129 comp_nmos_0.Ibias bias_current_generator_0.current_reference_40uA_0.iout VDD VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X130 nout out a_6986_5322# VSS sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X131 voltage_mirror_pmos_0.Ibias a_n5334_982# VSS VSS sg13_hv_nmos ad=2.04p pd=12.68u as=1.14p ps=6.38u w=6u l=5u
+X132 a_9342_4610# a_9478_2540# VSS rsil l=10u w=0.5u
+X133 a_1774_8074# voltage_mirror_pmos_0.nout a_1618_8074# VDD sg13_hv_pmos ad=0.68p pd=4.68u as=0.38p ps=2.38u w=2u l=0.4u
+X134 a_9070_4610# a_8934_2540# VSS rsil l=10u w=0.5u
+X135 a_1618_8074# vc a_1364_7536# VDD sg13_hv_pmos ad=0.38p pd=2.38u as=0.68p ps=4.68u w=2u l=0.4u
+X136 a_1458_982# bias_current_generator_0.current_reference_40uA_0.iout VDD VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
+X137 nout hv_inverter_6u5_1.out VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
+X138 a_4016_982# a_4016_982# VSS VSS sg13_hv_nmos ad=2.04p pd=12.68u as=1.14p ps=6.38u w=6u l=5u
+.ends
+

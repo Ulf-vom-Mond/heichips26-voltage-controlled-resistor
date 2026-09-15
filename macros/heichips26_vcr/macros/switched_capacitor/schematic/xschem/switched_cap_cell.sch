@@ -23,7 +23,7 @@ N 180 140 180 260 {lab=#net1}
 N 180 -80 180 140 {lab=#net1
 }
 N 100 -120 200 -120 {lab=#net2}
-N -620 -40 -600 -40 {lab=vctrl}
+N -620 -60 -600 -60 {lab=vctrl}
 N 0 -40 100 -40 {lab=#net2}
 N 100 -120 100 -40 {lab=#net2}
 N 0 -20 120 -20 {lab=#net3}
@@ -80,7 +80,7 @@ C {transmission_gate.sym} 280 120 0 0 {name=x6
 }
 C {lab_pin.sym} 280 60 2 0 {name=p22 sig_type=std_logic lab=VDD
 }
-C {iopin.sym} -620 -40 2 0 {name=p2 lab=vctrl}
+C {iopin.sym} -620 -60 2 0 {name=p2 lab=vctrl}
 C {lab_pin.sym} -180 0 1 0 {name=p3 sig_type=std_logic lab=clk
 }
 C {osc.sym} -500 -260 0 0 {name=x1

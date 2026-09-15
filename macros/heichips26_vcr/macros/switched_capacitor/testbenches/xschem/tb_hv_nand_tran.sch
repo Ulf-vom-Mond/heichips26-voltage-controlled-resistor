@@ -45,7 +45,7 @@ value="
 .param Cload=10p
 .param Rload=1k
 
-.param period = 1n
+.param period = 0.2n
 .param tdel   = \{period/2\}
 .param ton    = \{period*2\}
 .csparam tstop  = \{5*period\}

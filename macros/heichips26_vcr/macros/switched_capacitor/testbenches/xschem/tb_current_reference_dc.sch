@@ -5,52 +5,6 @@ V {}
 S {}
 F {}
 E {}
-B 2 1660 -720 2460 -320 {flags=graph
-y1=-0.6
-y2=0.9
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=-0.075
-x2=1.425
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-node="vin
-vout"
-color="4 21"
-dataset=-1
-unitx=1
-logx=0
-logy=0
-linewidth_mult=3
-autoload=0}
-B 2 1660 -1160 2460 -760 {flags=graph
-y1=0.00063999866
-y2=0.0014399978
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=-0.075
-x2=1.425
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-
-
-dataset=-1
-unitx=1
-logx=0
-logy=0
-linewidth_mult=3
-color=4
-node=i(VDD)}
 T {Testbench for Output Voltage Swing analysis - Inverter} 520 -1730 0 0 1 1 {}
 N 1040 -660 1040 -560 {lab=GND}
 N 1040 -780 1040 -720 {lab=#net1}

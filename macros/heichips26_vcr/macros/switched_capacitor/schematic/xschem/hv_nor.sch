@@ -10,23 +10,24 @@ N 0 0 160 0 {lab=out}
 N 0 0 0 50 {lab=out}
 N 160 0 160 50 {lab=out}
 N 100 -180 100 -40 {lab=VDD}
-N -60 -40 -40 -40 {lab=in2}
-N -60 -40 -60 20 {lab=in2}
-N 100 20 100 80 {lab=in2}
-N 100 80 120 80 {lab=in2}
-N -80 -120 -40 -120 {lab=in1}
-N -80 80 -40 80 {lab=in1}
-N -80 -120 -80 -20 {lab=in1}
-N -60 20 100 20 {lab=in2}
-N -120 20 -60 20 {lab=in2}
-N -120 -20 -80 -20 {lab=in1}
-N -80 -20 -80 80 {lab=in1}
+N -60 -40 -40 -40 {lab=in1}
+N -60 -20 -60 20 {lab=in1}
+N 100 20 100 80 {lab=in1}
+N 100 80 120 80 {lab=in1}
+N -80 -120 -40 -120 {lab=#net1}
+N -80 80 -40 80 {lab=#net1}
+N -80 -120 -80 20 {lab=#net1}
+N -60 20 100 20 {lab=in1}
+N -120 -20 -60 -20 {lab=in1}
+N -120 20 -80 20 {lab=#net1}
+N -80 20 -80 80 {lab=#net1}
 N 160 0 200 0 {lab=out}
 N 0 80 0 140 {lab=VSS}
 N 160 80 160 140 {lab=VSS}
 N 0 -180 0 -120 {lab=VDD}
-N 0 -90 0 -70 {lab=#net1}
+N 0 -90 0 -70 {lab=#net2}
 N 0 -40 100 -40 {lab=VDD}
+N -60 -40 -60 -20 {lab=in1}
 C {devices/ipin.sym} -120 -20 0 0 {name=p10 lab=in1}
 C {devices/iopin.sym} 0 -240 3 0 {name=p11 lab=VDD}
 C {devices/iopin.sym} 0 200 1 0 {name=p1 lab=VSS}

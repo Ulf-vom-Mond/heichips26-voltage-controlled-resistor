@@ -1,0 +1,26 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_nor4.sch
+.subckt hv_nor4 VDD in1 out in2 VSS in3 in4
+*.PININFO in1:I VDD:B VSS:B out:O in2:I in3:I in4:I
+XM2 out in3 VSS VSS sg13_hv_nmos w={n_w} l={n_l} ng={ng} m=1 mm_ok=1
+XM3 net3 in4 VDD VDD sg13_hv_pmos w={p_w} l={p_l} ng={ng} m=1 mm_ok=1
+XM1 out in4 VSS VSS sg13_hv_nmos w={n_w} l={n_l} ng={ng} m=1 mm_ok=1
+XM4 out in1 net1 VDD sg13_hv_pmos w={p_w} l={p_l} ng={ng} m=1 mm_ok=1
+XM5 out in2 VSS VSS sg13_hv_nmos w={n_w} l={n_l} ng={ng} m=1 mm_ok=1
+XM6 out in1 VSS VSS sg13_hv_nmos w={n_w} l={n_l} ng={ng} m=1 mm_ok=1
+XM7 net1 in2 net2 VDD sg13_hv_pmos w={p_w} l={p_l} ng={ng} m=1 mm_ok=1
+XM8 net2 in3 net3 VDD sg13_hv_pmos w={p_w} l={p_l} ng={ng} m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param w   = 10u
+.param ng  = 4
+.param n_ng = ng
+.param n_w = {3u*n_ng}
+.param n_l = 0.45u
+.param p_ng = ng
+.param p_w = {10u*p_ng}
+.param p_l = 0.4u
+
+
+**** end user architecture code
+.ends

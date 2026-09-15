@@ -1,0 +1,142 @@
+
+Circuit 1 cell sg13_hv_nmos and Circuit 2 cell sg13_hv_nmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_nmos                    |Circuit 2: sg13_hv_nmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_nmos and sg13_hv_nmos are equivalent.
+
+Circuit 1 cell sg13_hv_pmos and Circuit 2 cell sg13_hv_pmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_pmos                    |Circuit 2: sg13_hv_pmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_pmos and sg13_hv_pmos are equivalent.
+
+Circuit 1 cell rppd and Circuit 2 cell rppd are black boxes.
+Warning: Equate pins:  cell rppd is a placeholder, treated as a black box.
+Warning: Equate pins:  cell rppd is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: rppd                            |Circuit 2: rppd                            
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes rppd and rppd are equivalent.
+
+Circuit 1 cell rsil and Circuit 2 cell rsil are black boxes.
+Warning: Equate pins:  cell rsil is a placeholder, treated as a black box.
+Warning: Equate pins:  cell rsil is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: rsil                            |Circuit 2: rsil                            
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes rsil and rsil are equivalent.
+
+Circuit 1 cell rhigh and Circuit 2 cell rhigh are black boxes.
+Warning: Equate pins:  cell rhigh is a placeholder, treated as a black box.
+Warning: Equate pins:  cell rhigh is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: rhigh                           |Circuit 2: rhigh                           
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes rhigh and rhigh are equivalent.
+Flattening unmatched subcell hv_rs-ff in circuit vco (1)(1 instance)
+Flattening unmatched subcell hv_nand in circuit vco (1)(2 instances)
+Flattening unmatched subcell comp_pmos in circuit vco (1)(1 instance)
+Flattening unmatched subcell comp_nmos in circuit vco (1)(1 instance)
+Flattening unmatched subcell voltage_mirror_pmos in circuit vco (1)(1 instance)
+Flattening unmatched subcell hv_inverter_6u5 in circuit vco (1)(2 instances)
+Flattening unmatched subcell bias_current_generator in circuit vco (1)(1 instance)
+Flattening unmatched subcell current_reference_40uA in circuit vco (1)(1 instance)
+
+Class vco (0):  Merged 40 parallel devices.
+Class vco (0):  Merged 40 series devices.
+Class vco (1):  Merged 3 parallel devices.
+Subcircuit summary:
+Circuit 1: vco                             |Circuit 2: vco                             
+-------------------------------------------|-------------------------------------------
+sg13_hv_nmos (45->27)                      |sg13_hv_nmos (30->27)                      
+sg13_hv_pmos (49->27)                      |sg13_hv_pmos (27)                          
+rhigh (11->3)                              |rhigh (3)                                  
+rppd (2->1)                                |rppd (1)                                   
+rsil (32->1)                               |rsil (1)                                   
+(no matching element)                      |cap_cmomi (1)                              
+Number of devices: 59 **Mismatch**         |Number of devices: 60 **Mismatch**         
+Number of nets: 35                         |Number of nets: 35                         
+---------------------------------------------------------------------------------------
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: vco                             |Circuit 2: vco                             
+
+---------------------------------------------------------------------------------------
+Net: vc                                    |Net: vc                                    
+  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_nmos/(1|3) = 1                   
+  sg13_hv_nmos/2 = 1                       |  sg13_hv_nmos/2 = 1                       
+  sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_pmos/(1|3) = 1                   
+  sg13_hv_pmos/2 = 1                       |  sg13_hv_pmos/2 = 1                       
+                                           |  cap_cmomi/1 = 1                          
+                                           |                                           
+Net: VSS                                   |Net: VSS                                   
+  sg13_hv_nmos/(1|3) = 21                  |  sg13_hv_nmos/(1|3) = 21                  
+  sg13_hv_nmos/4 = 27                      |  sg13_hv_nmos/4 = 27                      
+  rhigh/(1|2) = 1                          |  rhigh/(1|2) = 1                          
+  rhigh/3 = 3                              |  rhigh/3 = 3                              
+  rppd/(1|2) = 1                           |  rppd/(1|2) = 1                           
+  rppd/3 = 1                               |  rppd/3 = 1                               
+  rsil/3 = 1                               |  rsil/3 = 1                               
+                                           |  cap_cmomi/2 = 1                          
+---------------------------------------------------------------------------------------
+DEVICE mismatches: Class fragments follow (with node fanout counts):
+Circuit 1: vco                             |Circuit 2: vco                             
+
+---------------------------------------------------------------------------------------
+(no matching instance)                     |Instance: cap_cmomi:C1                     
+                                           |  1 = 5                                    
+                                           |  2 = 56                                   
+---------------------------------------------------------------------------------------
+Netlists do not match.
+Port matching may fail to disambiguate symmetries.
+
+Subcircuit pins:
+Circuit 1: vco                             |Circuit 2: vco                             
+-------------------------------------------|-------------------------------------------
+VSS                                        |vc **Mismatch**                            
+vc                                         |VSS **Mismatch**                           
+nout                                       |nout                                       
+vctrl                                      |vctrl                                      
+VDD                                        |VDD                                        
+out                                        |out                                        
+---------------------------------------------------------------------------------------
+Cell pin lists for vco and vco altered to match.
+Device classes vco and vco are equivalent.
+
+Final result: Top level cell failed pin matching.

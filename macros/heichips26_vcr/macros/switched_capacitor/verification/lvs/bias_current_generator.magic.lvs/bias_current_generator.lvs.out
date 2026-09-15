@@ -1,0 +1,219 @@
+
+Circuit 1 cell sg13_hv_nmos and Circuit 2 cell sg13_hv_nmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_nmos                    |Circuit 2: sg13_hv_nmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_nmos and sg13_hv_nmos are equivalent.
+
+Circuit 1 cell sg13_hv_pmos and Circuit 2 cell sg13_hv_pmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_pmos                    |Circuit 2: sg13_hv_pmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_pmos and sg13_hv_pmos are equivalent.
+
+Circuit 1 cell rppd and Circuit 2 cell rppd are black boxes.
+Warning: Equate pins:  cell rppd is a placeholder, treated as a black box.
+Warning: Equate pins:  cell rppd is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: rppd                            |Circuit 2: rppd                            
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes rppd and rppd are equivalent.
+
+Circuit 1 cell rsil and Circuit 2 cell rsil are black boxes.
+Warning: Equate pins:  cell rsil is a placeholder, treated as a black box.
+Warning: Equate pins:  cell rsil is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: rsil                            |Circuit 2: rsil                            
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes rsil and rsil are equivalent.
+Flattening unmatched subcell current_reference_40uA in circuit bias_current_generator (1)(1 instance)
+
+Class bias_current_generator (0):  Merged 15 parallel devices.
+Class bias_current_generator (0):  Merged 32 series devices.
+Class bias_current_generator (1):  Merged 3 parallel devices.
+Subcircuit summary:
+Circuit 1: bias_current_generator          |Circuit 2: bias_current_generator          
+-------------------------------------------|-------------------------------------------
+sg13_hv_nmos (16->10)                      |sg13_hv_nmos (13->10)                      
+sg13_hv_pmos (18->9)                       |sg13_hv_pmos (9)                           
+rppd (2->1)                                |rppd (1)                                   
+rsil (32->1)                               |rsil (1)                                   
+Number of devices: 21                      |Number of devices: 21                      
+Number of nets: 16                         |Number of nets: 16                         
+---------------------------------------------------------------------------------------
+Netlists match uniquely with property errors.
+rsil:24 vs. current_reference_40uA:4/rsil:R3:
+ l circuit1: 0.00032   circuit2: 0.000365   (delta=13.1%, cutoff=1%)
+rsil:24 vs. current_reference_40uA:4/rsil:R3:
+Property mm_ok in circuit2 has no matching property in circuit1
+rsil:24 vs. current_reference_40uA:4/rsil:R3:
+Property mm_ok in circuit2 has no matching property in circuit1
+rppd:20 vs. current_reference_40uA:4/rppd:R2:
+Property mm_ok in circuit2 has no matching property in circuit1
+rppd:20 vs. current_reference_40uA:4/rppd:R2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:6 vs. current_reference_40uA:4/sg13_hv_pmos:M6:
+ l circuit1: "2e-06"   circuit2: "p_l"   (exact match req'd)
+ w circuit1: "1e-05"   circuit2: "p_w"   (exact match req'd)
+sg13_hv_pmos:6 vs. current_reference_40uA:4/sg13_hv_pmos:M6:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:6 vs. current_reference_40uA:4/sg13_hv_pmos:M6:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:54 vs. current_reference_40uA:4/sg13_hv_pmos:M1:
+ l circuit1: "2e-06"   circuit2: "p_l"   (exact match req'd)
+ w circuit1: "1e-05"   circuit2: "p_w"   (exact match req'd)
+sg13_hv_pmos:54 vs. current_reference_40uA:4/sg13_hv_pmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:54 vs. current_reference_40uA:4/sg13_hv_pmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:10 vs. sg13_hv_pmos:M11:
+ l circuit1: "2e-06"   circuit2: "cm_p_l"   (exact match req'd)
+ w circuit1: "5e-06"   circuit2: "cm_p_w"   (exact match req'd)
+sg13_hv_pmos:10 vs. sg13_hv_pmos:M11:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:3 vs. sg13_hv_pmos:M12:
+ l circuit1: "2e-06"   circuit2: "cm_p_l"   (exact match req'd)
+ w circuit1: "5e-06"   circuit2: "cm_p_w"   (exact match req'd)
+sg13_hv_pmos:3 vs. sg13_hv_pmos:M12:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:34 vs. sg13_hv_pmos:M13:
+ l circuit1: "2e-06"   circuit2: "cm_p_l"   (exact match req'd)
+ w circuit1: "5e-06"   circuit2: "cm_p_w"   (exact match req'd)
+sg13_hv_pmos:34 vs. sg13_hv_pmos:M13:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:36 vs. sg13_hv_pmos:M1:
+ l circuit1: "2e-06"   circuit2: "cm_p_l"   (exact match req'd)
+ w circuit1: "5e-06"   circuit2: "cm_p_w"   (exact match req'd)
+sg13_hv_pmos:36 vs. sg13_hv_pmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:9 vs. sg13_hv_pmos:M25:
+ l circuit1: "2e-06"   circuit2: "cm_p_l"   (exact match req'd)
+ w circuit1: "5e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:9 vs. sg13_hv_pmos:M25:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:22 vs. sg13_hv_pmos:M26:
+ l circuit1: "2e-06"   circuit2: "cm_p_l"   (exact match req'd)
+ w circuit1: "5e-06"   circuit2: "cm_p_w"   (exact match req'd)
+sg13_hv_pmos:22 vs. sg13_hv_pmos:M26:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:11 vs. sg13_hv_pmos:M27:
+ l circuit1: "2e-06"   circuit2: "cm_p_l"   (exact match req'd)
+ w circuit1: "5e-06"   circuit2: "cm_p_w"   (exact match req'd)
+sg13_hv_pmos:11 vs. sg13_hv_pmos:M27:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:0 vs. current_reference_40uA:4/sg13_hv_nmos:M3:
+ l circuit1: "5e-06"   circuit2: "n_l"   (exact match req'd)
+ w circuit1: "6e-06"   circuit2: "n_w"   (exact match req'd)
+sg13_hv_nmos:0 vs. current_reference_40uA:4/sg13_hv_nmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:67 vs. current_reference_40uA:4/sg13_hv_nmos:M7:
+ l circuit1: "5e-06"   circuit2: "n_l"   (exact match req'd)
+ w circuit1: "6e-06"   circuit2: "n_w"   (exact match req'd)
+sg13_hv_nmos:67 vs. current_reference_40uA:4/sg13_hv_nmos:M7:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:67 vs. current_reference_40uA:4/sg13_hv_nmos:M7:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:29 vs. sg13_hv_nmos:M3:
+ l circuit1: "5e-06"   circuit2: "cm_n_l"   (exact match req'd)
+ w circuit1: "6e-06"   circuit2: "cm_n_w"   (exact match req'd)
+sg13_hv_nmos:29 vs. sg13_hv_nmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:29 vs. sg13_hv_nmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:23 vs. sg13_hv_nmos:M5:
+ l circuit1: "5e-06"   circuit2: "cm_n_l"   (exact match req'd)
+ w circuit1: "6e-06"   circuit2: "cm_n_w"   (exact match req'd)
+sg13_hv_nmos:23 vs. sg13_hv_nmos:M5:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:23 vs. sg13_hv_nmos:M5:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:17 vs. current_reference_40uA:4/sg13_hv_nmos:M8:
+ l circuit1: "5e-06"   circuit2: "n_l"   (exact match req'd)
+ w circuit1: "6e-06"   circuit2: "n_w"   (exact match req'd)
+sg13_hv_nmos:17 vs. current_reference_40uA:4/sg13_hv_nmos:M8:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:17 vs. current_reference_40uA:4/sg13_hv_nmos:M8:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:1 vs. sg13_hv_nmos:M2:
+ l circuit1: "5e-06"   circuit2: "cm_n_l"   (exact match req'd)
+ w circuit1: "6e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:1 vs. sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:47 vs. sg13_hv_nmos:M28:
+ l circuit1: "5e-06"   circuit2: "cm_n_l"   (exact match req'd)
+ w circuit1: "6e-06"   circuit2: "cm_n_w"   (exact match req'd)
+sg13_hv_nmos:47 vs. sg13_hv_nmos:M28:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:47 vs. sg13_hv_nmos:M28:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:12 vs. sg13_hv_nmos:M14:
+ l circuit1: "5e-06"   circuit2: "cm_n_l"   (exact match req'd)
+ w circuit1: "6e-06"   circuit2: "cm_n_w"   (exact match req'd)
+sg13_hv_nmos:12 vs. sg13_hv_nmos:M14:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:12 vs. sg13_hv_nmos:M14:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:43 vs. sg13_hv_nmos:M15:
+ l circuit1: "5e-06"   circuit2: "cm_n_l"   (exact match req'd)
+ w circuit1: "6e-06"   circuit2: "cm_n_w"   (exact match req'd)
+sg13_hv_nmos:43 vs. sg13_hv_nmos:M15:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:43 vs. sg13_hv_nmos:M15:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:7 vs. sg13_hv_nmos:M29:
+ l circuit1: "5e-06"   circuit2: "cm_n_l"   (exact match req'd)
+ w circuit1: "6e-06"   circuit2: "cm_n_w"   (exact match req'd)
+sg13_hv_nmos:7 vs. sg13_hv_nmos:M29:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:7 vs. sg13_hv_nmos:M29:
+Property mm_ok in circuit2 has no matching property in circuit1
+
+Subcircuit pins:
+Circuit 1: bias_current_generator          |Circuit 2: bias_current_generator          
+-------------------------------------------|-------------------------------------------
+40uA+                                      |40uA+                                      
+10uA-                                      |10uA-                                      
+5uA+                                       |5uA+                                       
+40uA-                                      |40uA-                                      
+5uA-                                       |5uA-                                       
+VDD                                        |VDD                                        
+VSS                                        |VSS                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes bias_current_generator and bias_current_generator are equivalent.
+
+Final result: Circuits match uniquely.
+Property errors were found.
+
+The following cells had property errors:
+ bias_current_generator

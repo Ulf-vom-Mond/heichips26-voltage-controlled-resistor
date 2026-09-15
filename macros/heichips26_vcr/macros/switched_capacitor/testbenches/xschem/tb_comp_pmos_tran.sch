@@ -63,7 +63,7 @@ value="
 
 .param period = 5n
 .param ton    = \{period*2\}
-.csparam tstop  = \{1*period\}
+.csparam tstop  = \{1.2*period\}
 .csparam tstep  = \{period/100\}
 
 .options savecurrents klu method=gear reltol=1e-4 abstol=1e-15 gmin=1e-15

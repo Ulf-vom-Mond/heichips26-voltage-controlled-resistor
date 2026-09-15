@@ -39,6 +39,8 @@ N 1740 -940 1740 -920 {lab=VDD}
 C {devices/code_shown.sym} 80 -1370 0 0 {name=NGSPICE
 only_toplevel=true 
 value="
+.ic v(vout2)=0
+
 .param VDD=3.3
 .csparam VDD=VDD
 .param Vcm=VDD/2

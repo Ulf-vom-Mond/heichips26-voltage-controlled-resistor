@@ -1,0 +1,68 @@
+
+Circuit 1 cell sg13_hv_nmos and Circuit 2 cell sg13_hv_nmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_nmos                    |Circuit 2: sg13_hv_nmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_nmos and sg13_hv_nmos are equivalent.
+
+Circuit 1 cell sg13_hv_pmos and Circuit 2 cell sg13_hv_pmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_pmos                    |Circuit 2: sg13_hv_pmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_pmos and sg13_hv_pmos are equivalent.
+
+Class hv_inverter_40u (0):  Merged 6 parallel devices.
+Subcircuit summary:
+Circuit 1: hv_inverter_40u                 |Circuit 2: hv_inverter_40u                 
+-------------------------------------------|-------------------------------------------
+sg13_hv_nmos (4->1)                        |sg13_hv_nmos (1)                           
+sg13_hv_pmos (4->1)                        |sg13_hv_pmos (1)                           
+Number of devices: 2                       |Number of devices: 2                       
+Number of nets: 4                          |Number of nets: 4                          
+---------------------------------------------------------------------------------------
+Netlists match uniquely with property errors.
+sg13_hv_pmos:1 vs. sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:1 vs. sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:0 vs. sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:0 vs. sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+
+Subcircuit pins:
+Circuit 1: hv_inverter_40u                 |Circuit 2: hv_inverter_40u                 
+-------------------------------------------|-------------------------------------------
+out                                        |out                                        
+in                                         |in                                         
+VSS                                        |VSS                                        
+VDD                                        |VDD                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes hv_inverter_40u and hv_inverter_40u are equivalent.
+
+Final result: Circuits match uniquely.
+Property errors were found.
+
+The following cells had property errors:
+ hv_inverter_40u

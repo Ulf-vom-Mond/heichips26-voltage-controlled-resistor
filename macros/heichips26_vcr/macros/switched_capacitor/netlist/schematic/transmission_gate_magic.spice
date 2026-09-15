@@ -1,0 +1,16 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/transmission_gate.sch
+.subckt transmission_gate vctrl vin vout nvctrl VDD VSS
+*.PININFO vin:B vout:B vctrl:I nvctrl:I VDD:B VSS:B
+XM3 vout vctrl vin VSS sg13_hv_nmos w={tg_ngate_w*tg_ng} l={tg_ch_len} ng={tg_ng} m=1 mm_ok=1
+XM4 vout nvctrl vin VDD sg13_hv_pmos w={tg_pgate_w*tg_ng} l={tg_ch_len} ng={tg_ng} m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param tg_ch_len=1u
+.param tg_ngate_w=2u
+.param tg_pgate_w=10u
+.param tg_ng=20
+
+
+**** end user architecture code
+.ends

@@ -1,0 +1,18 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/low_th_inverter.sch
+.subckt low_th_inverter VDD vin vout VSS
+*.PININFO vin:I VDD:B VSS:B vout:O
+XM1 vout vin VSS VSS sg13_hv_nmos w={n_ng*n_w} l={n_l} ng={n_ng} m=1 mm_ok=1
+XM2 vout vin VDD VDD sg13_hv_pmos w={p_ng*p_w} l={p_l} ng={n_ng} m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param n_ng = 2
+.param n_w = 1u
+.param n_l = 0.45u
+.param p_ng = 2
+.param p_w = 1u
+.param p_l = 0.4u
+
+
+**** end user architecture code
+.ends

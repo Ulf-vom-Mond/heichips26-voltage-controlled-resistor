@@ -5,28 +5,16 @@ V {}
 S {}
 F {}
 E {}
-N -120 60 -120 120 {lab=VSS
+N -140 40 -140 60 {lab=VSS
 spice_ignore=short}
-N -120 -120 -120 -60 {lab=VDD
-spice_ignore=short}
-N -180 -60 -160 -60 {lab=in
-spice_ignore=short}
-N -180 60 -160 60 {lab=in
-spice_ignore=short}
-N -120 0 -120 30 {lab=#net1
+N -140 -60 -140 -40 {lab=VDD
 spice_ignore=short}
 N 280 320 280 340 {lab=VSS
 }
-N -120 -30 -120 0 {lab=#net1
-spice_ignore=short}
-N -180 0 -180 60 {lab=in
-spice_ignore=short}
-N -120 0 0 0 {lab=#net1}
 N 280 220 280 240 {lab=VDD
 }
-N 0 -300 0 0 {lab=#net1}
+N -0 180 0 300 {lab=#net1}
 N 0 -300 40 -300 {lab=#net1}
-N 0 0 0 300 {lab=#net1}
 N 0 300 40 300 {lab=#net1}
 N 180 -280 240 -280 {lab=#net2
 }
@@ -57,31 +45,23 @@ N 180 280 240 280 {lab=#net3}
 N 340 100 420 100 {lab=out2}
 N 340 -100 420 -100 {lab=nout1}
 N 360 280 420 280 {lab=nout2}
-N -220 0 -180 0 {lab=in}
-N -180 -60 -180 0 {lab=in
-spice_ignore=short}
+N -200 -0 -180 0 {lab=in}
 N 100 320 100 340 {lab=VSS}
 N 100 220 100 240 {lab=VDD}
 N 100 -340 100 -320 {lab=VDD}
 N 100 -240 100 -220 {lab=VSS}
-C {sg13cmos5l_pr/sg13_hv_nmos.sym} -140 60 0 0 {name=M2
-l=\{n_l\}
-w=\{n_w\}
- ng=\{ng\}
- m=1
-  mm_ok=1
- model=sg13_hv_nmos
-spiceprefix=X
-}
-C {sg13_lv_pmos.sym} -140 -60 0 0 {name=M3
-l=\{p_l\}
-w=\{p_w\}
-ng=\{ng\}
-m=1
-model=sg13_hv_pmos
-spiceprefix=X
-}
-C {lab_pin.sym} -120 -120 2 0 {name=p1 sig_type=std_logic lab=VDD
+N -80 0 -0 -0 {lab=#net1}
+N 0 -300 -0 -0 {lab=#net1}
+N -140 220 -140 240 {lab=VSS
+spice_ignore=short}
+N -140 120 -140 140 {lab=VDD
+spice_ignore=short}
+N -200 -0 -200 180 {lab=in}
+N -220 0 -200 -0 {lab=in}
+N -200 180 -180 180 {lab=in}
+N -80 180 -0 180 {lab=#net1}
+N -0 -0 -0 180 {lab=#net1}
+C {lab_pin.sym} -140 -60 2 0 {name=p1 sig_type=std_logic lab=VDD
 }
 C {lab_pin.sym} 280 220 2 0 {name=p15 sig_type=std_logic lab=VDD
 }
@@ -107,7 +87,8 @@ C {lab_pin.sym} 280 40 2 0 {name=p32 sig_type=std_logic lab=VDD
 }
 C {hv_inverter_40u.sym} 280 100 0 0 {name=x11
 }
-C {code_shown.sym} -320 -370 0 0 {value="
+C {code_shown.sym} -600 -370 0 0 {value="
+.include ../../../netlist/pex/hv_inverter_0u3_magic_pex_3.spice
 .param w   = 0.3u
 .param ng  = 1
 .param n_ng = ng
@@ -124,7 +105,7 @@ C {opin.sym} 420 280 0 0 {name=p5 lab=nout2}
 C {ipin.sym} -220 0 0 0 {name=p6 lab=in}
 C {iopin.sym} -400 20 1 0 {name=p7 lab=VSS}
 C {iopin.sym} -400 -20 3 0 {name=p8 lab=VDD}
-C {lab_pin.sym} -120 120 0 1 {name=p9 sig_type=std_logic lab=VSS
+C {lab_pin.sym} -140 60 0 1 {name=p9 sig_type=std_logic lab=VSS
 }
 C {lab_pin.sym} 100 -220 0 1 {name=p10 sig_type=std_logic lab=VSS
 }
@@ -137,4 +118,12 @@ C {lab_pin.sym} 280 160 0 1 {name=p13 sig_type=std_logic lab=VSS
 C {lab_pin.sym} 280 340 0 1 {name=p14 sig_type=std_logic lab=VSS
 }
 C {lab_pin.sym} 100 340 0 1 {name=p16 sig_type=std_logic lab=VSS
+}
+C {hv_inverter_0u3.sym} -140 0 0 0 {name=x1
+}
+C {hv_inverter_0u3_pex.sym} -140 180 0 0 {name=x2
+spice_ignore=true}
+C {lab_pin.sym} -140 120 2 0 {name=p17 sig_type=std_logic lab=VDD
+}
+C {lab_pin.sym} -140 240 0 1 {name=p18 sig_type=std_logic lab=VSS
 }

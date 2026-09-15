@@ -1,0 +1,204 @@
+* PEX produced on Mo 14. Sep 18:39:08 CEST 2026 using scripts/sak-pex.sh with m=3 and s=1 (extresist threshold=10000 mOhm, minres=1000 mOhm, mindelay=1 ps)
+* NGSPICE file created from pulse_shaper_pex.ext - technology: ihp-sg13cmos5l
+
+.subckt pulse_shaper_pex out1 nout1 VDD in VSS out2 nout2
+X0 VDD nout2 out2 VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
+X1 low_th_inverter_0.vout high_th_inverter_0.vin VSS.t14 VSS.t13 sg13_hv_nmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+X2 VSS.t28 out1 nout1 VSS.t27 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X3 VDD out1 nout1 VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
+X4 nout2 low_th_inverter_0.vout VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X5 VSS.t21 high_th_inverter_0.vout out1 VSS.t22 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X6 nout2 low_th_inverter_0.vout VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
+X7 nout1 out1 VSS.t28 VSS.t29 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X8 out1 high_th_inverter_0.vout VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X9 high_th_inverter_0.vout high_th_inverter_0.vin VSS.t16 VSS.t17 sg13_hv_nmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+X10 VSS.t10 low_th_inverter_0.vout nout2 VSS.t12 sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
+X11 VDD high_th_inverter_0.vout out1 VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
+X12 VSS.t25 high_th_inverter_0.vout out1 VSS.t24 sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
+X13 nout1 out1 VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
+X14 VDD low_th_inverter_0.vout nout2 VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X15 out2 nout2 VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
+X16 nout1 out1 VSS.t25 VSS.t26 sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
+X17 VSS.t3 nout2 out2 VSS.t2 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X18 out1 high_th_inverter_0.vout VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
+X19 VDD high_th_inverter_0.vin high_th_inverter_0.vout VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
+X20 low_th_inverter_0.vout high_th_inverter_0.vin VDD VDD sg13_hv_pmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.4u
+X21 VSS.t19 high_th_inverter_0.vin high_th_inverter_0.vout VSS.t18 sg13_hv_nmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X22 out2 nout2 VSS.t3 VSS.t4 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X23 out1 high_th_inverter_0.vout VSS.t21 VSS.t23 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X24 VDD low_th_inverter_0.vout nout2 VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
+X25 out2 nout2 VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X26 VSS.t28 out1 nout1 VSS.t30 sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
+X27 nout1 out1 VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X28 nout2 low_th_inverter_0.vout VSS.t8 VSS.t7 sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
+X29 VSS.t10 low_th_inverter_0.vout nout2 VSS.t9 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X30 out2 nout2 VSS.t1 VSS.t0 sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
+X31 high_th_inverter_0.vin in VDD VDD sg13_hv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.4u
+X32 VDD high_th_inverter_0.vin low_th_inverter_0.vout VDD sg13_hv_pmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.4u
+X33 out1 high_th_inverter_0.vout VSS.t21 VSS.t20 sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
+X34 VDD out1 nout1 VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X35 VDD nout2 out2 VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X36 high_th_inverter_0.vout high_th_inverter_0.vin VDD VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
+X37 VSS.t16 high_th_inverter_0.vin low_th_inverter_0.vout VSS.t15 sg13_hv_nmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X38 nout2 low_th_inverter_0.vout VSS.t10 VSS.t11 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X39 VDD high_th_inverter_0.vout out1 VDD sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X40 VSS.t6 nout2 out2 VSS.t5 sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
+X41 high_th_inverter_0.vin in VSS.t31 VSS.t31 sg13_hv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.45u
+R0 VSS.n5 VSS.n13 300.298
+R1 VSS.n5 VSS.t9 29.1282
+R2 VSS.n5 VSS.t2 29.1272
+R3 VSS.n5 VSS.t0 43.8369
+R4 VSS.n5 VSS.t23 27.0606
+R5 VSS.n5 VSS.t29 27.0604
+R6 VSS.t4 VSS.n5 27.0604
+R7 VSS.t5 VSS.n5 43.837
+R8 VSS.n6 VSS.t13 43.8252
+R9 VSS.n6 VSS.t15 43.8241
+R10 VSS.t30 VSS.n5 43.8371
+R11 VSS.t7 VSS.n5 43.8368
+R12 VSS.n5 VSS.t12 43.8366
+R13 VSS.t18 VSS.n15 64.8483
+R14 VSS.n6 VSS.n14 511.865
+R15 VSS.n14 VSS.t17 135.168
+R16 VSS.n5 VSS.t24 43.8365
+R17 VSS.n7 VSS.t25 0.287937
+R18 VSS.n5 VSS.t22 29.1272
+R19 VSS.n5 VSS.n17 0.653498
+R20 VSS.n37 VSS.n6 17.0005
+R21 VSS.n40 VSS.n6 17.0005
+R22 VSS.n11 VSS.n6 8.49735
+R23 VSS.n6 VSS.n10 8.49735
+R24 VSS.n15 VSS.t17 64.8476
+R25 VSS.n12 VSS.n16 3.40196
+R26 VSS.n12 VSS.n36 17.0005
+R27 VSS.n12 VSS.n35 17.0005
+R28 VSS.n12 VSS.n34 17.0005
+R29 VSS.n12 VSS.n21 17.0005
+R30 VSS.n12 VSS.n22 17.0005
+R31 VSS.t18 VSS.n13 135.168
+R32 VSS.n5 VSS.n30 17.0005
+R33 VSS.n5 VSS.n29 17.0005
+R34 VSS.n5 VSS.n28 17.0005
+R35 VSS.n5 VSS.n27 17.0005
+R36 VSS.n5 VSS.n21 17.0005
+R37 VSS.n5 VSS.n22 17.0005
+R38 VSS.n33 VSS.t19 17.0005
+R39 VSS.t19 VSS.n31 17.0005
+R40 VSS.t19 VSS.n32 17.0005
+R41 VSS.t14 VSS.t31 17.0005
+R42 VSS.n5 VSS.t20 43.8368
+R43 VSS.n13 VSS.n12 0.00115324
+R44 VSS.n5 VSS.n18 0.778745
+R45 VSS.t28 VSS.n19 0.289375
+R46 VSS.n5 VSS.t27 29.1272
+R47 VSS.n46 VSS.n12 5.66744
+R48 VSS.n39 VSS.n12 8.49735
+R49 VSS.n12 VSS.n20 8.49563
+R50 VSS.n6 VSS.n9 1.6066
+R51 VSS.n38 VSS.t14 8.49201
+R52 VSS.n5 VSS.n7 0.653569
+R53 VSS.t26 VSS.n5 43.837
+R54 VSS.n42 VSS.n12 4.24826
+R55 VSS.n24 VSS.n5 3.32785
+R56 VSS.n7 VSS.n26 0.268195
+R57 VSS.n44 VSS.n12 2.71442
+R58 VSS.n12 VSS.n41 2.33168
+R59 VSS.n12 VSS.n14 0.0011641
+R60 VSS.n41 VSS.t16 1.28074
+R61 VSS.n0 VSS.t3 0.130143
+R62 VSS.n5 VSS.n3 0.955405
+R63 VSS.n5 VSS.n23 0.890308
+R64 VSS.n18 VSS.t10 0.321453
+R65 VSS.n5 VSS.n19 0.778939
+R66 VSS.n4 VSS.n26 0.889614
+R67 VSS.n3 VSS.n1 0.8215
+R68 VSS.n5 VSS.n4 0.798221
+R69 VSS.n15 VSS.n12 0.206546
+R70 VSS.n2 VSS.n1 1.06588
+R71 VSS.n26 VSS.n3 0.710334
+R72 VSS.n46 VSS.n4 0.660792
+R73 VSS.n43 VSS.n8 0.375636
+R74 VSS.n44 VSS.n43 0.423556
+R75 VSS.n5 VSS.n0 0.458833
+R76 VSS.n18 VSS.t8 0.291461
+R77 VSS.t21 VSS.n23 0.33206
+R78 VSS.t25 VSS.n19 0.323605
+R79 VSS.n5 VSS.n2 0.234256
+R80 VSS.t3 VSS.t1 0.301124
+R81 VSS.t6 VSS.n0 0.134234
+R82 VSS.t25 VSS.n23 0.290275
+R83 VSS.n24 VSS.n25 0.280341
+R84 VSS.n45 VSS.n44 0.272081
+R85 VSS.n41 VSS.n25 0.153829
+R86 VSS.t21 VSS.n24 0.136402
+R87 VSS.n17 VSS.n1 0.268517
+R88 VSS.n9 VSS.t16 1.34502
+R89 VSS.n47 VSS.t28 0.0313989
+R90 VSS.t8 VSS.n47 0.0313989
+R91 VSS.t1 VSS.t10 0.0313989
+R92 VSS.t31 VSS.n37 0.028257
+R93 VSS.n38 VSS.n37 0.0271959
+R94 VSS.t31 VSS.n8 0.328377
+R95 VSS.n9 VSS.n38 0.216749
+R96 VSS.n17 VSS.n47 0.287653
+R97 VSS.t10 VSS.n2 0.659164
+R98 VSS.n16 VSS.n6 3.40204
+R99 VSS.n36 VSS.n30 0.0208704
+R100 VSS VSS.t21 0.0190393
+R101 VSS.n32 VSS.n21 0.0188333
+R102 VSS.n31 VSS.n27 0.0181543
+R103 VSS.n5 VSS.t11 27.0593
+R104 VSS.n10 VSS.n39 0.0161031
+R105 VSS.n35 VSS.n29 0.0127222
+R106 VSS.n34 VSS.n28 0.0127222
+R107 VSS.n42 VSS.n10 0.0197515
+R108 VSS.n11 VSS.n20 0.019537
+R109 VSS.n40 VSS.n20 0.0117354
+R110 VSS.n36 VSS.n29 0.0113642
+R111 VSS.n35 VSS.n28 0.0113642
+R112 VSS.t16 VSS.n16 0.0257643
+R113 VSS.n11 VSS.n39 0.0161031
+R114 VSS.n33 VSS.n27 0.00661111
+R115 VSS.n46 VSS.n45 0.00605046
+R116 VSS.n31 VSS.n21 0.0059321
+R117 VSS.n45 VSS.n22 0.0059321
+R118 VSS.t16 VSS.n40 0.00587109
+R119 VSS.n34 VSS.n33 0.00525309
+R120 VSS.n32 VSS.n22 0.00525309
+R121 VSS.n43 VSS.n42 0.00464999
+R122 VSS.n30 VSS.n25 0.00321605
+R123 VSS.t1 VSS.n5 8.50436
+R124 VSS.n6 VSS.n8 1.25864
+C0 nout2 low_th_inverter_0.vout 2.80824f
+C1 high_th_inverter_0.vout out1 2.96727f
+C2 low_th_inverter_0.vout nout1 0.17265f
+C3 nout2 out1 0.03252f
+C4 VDD out2 4.71681f
+C5 high_th_inverter_0.vin high_th_inverter_0.vout 1.15942f
+C6 nout1 out1 2.83244f
+C7 high_th_inverter_0.vin in 0.52991f
+C8 low_th_inverter_0.vout out1 0.29793f
+C9 high_th_inverter_0.vin low_th_inverter_0.vout 0.77518f
+C10 nout2 out2 2.83244f
+C11 high_th_inverter_0.vout VDD 6.77345f
+C12 in VDD 0.28754f
+C13 nout2 VDD 8.44478f
+C14 high_th_inverter_0.vin out1 0.02885f
+C15 low_th_inverter_0.vout out2 0.03533f
+C16 nout1 VDD 4.84988f
+C17 low_th_inverter_0.vout VDD 3.8599f
+C18 out1 VDD 8.5272f
+C19 nout1 high_th_inverter_0.vout 0.03513f
+C20 low_th_inverter_0.vout high_th_inverter_0.vout 0.2022f
+C21 nout2 nout1 0.41847f
+C22 high_th_inverter_0.vin VDD 3.23373f
+C23 out2 VSS 5.41794f
+C24 nout1 VSS 4.01314f
+C25 VDD VSS 10.31205f
+C26 VSS.t21 VSS 1.49306f
+C27 VSS.t6 VSS 0.03389f
+C28 VSS.t10 VSS 0.06779f
+C29 VSS.t28 VSS 2.67222f
+C30 VSS.t14 VSS 1.18701f
+.ends
+
