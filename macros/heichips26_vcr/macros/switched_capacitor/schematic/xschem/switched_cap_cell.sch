@@ -29,29 +29,29 @@ N 100 -120 100 -40 {lab=#net2}
 N 0 -20 120 -20 {lab=#net3}
 N 120 -100 120 -20 {lab=#net3}
 N 120 -100 200 -100 {lab=#net3}
-N 0 40 100 40 {lab=VDD}
-N 100 40 100 120 {lab=VDD}
-N 100 120 200 120 {lab=VDD}
-N 0 20 120 20 {lab=#net4}
-N 120 20 120 100 {lab=#net4}
-N 120 100 200 100 {lab=#net4}
+N 0 40 100 40 {lab=#net4}
+N 100 40 100 120 {lab=#net4}
+N 100 120 200 120 {lab=#net4}
+N 0 20 120 20 {lab=#net5}
+N 120 20 120 100 {lab=#net5}
+N 120 100 200 100 {lab=#net5}
 N -80 80 -80 120 {lab=VSS}
 N -80 -120 -80 -80 {lab=VDD}
 N -240 100 -240 140 {lab=VSS}
 N -240 -140 -240 -100 {lab=VDD}
 N -500 20 -500 40 {lab=VSS}
 N -500 -120 -500 -100 {lab=VDD}
-N -400 -60 -360 -60 {lab=vco_clk}
-N -360 -60 -360 -20 {lab=vco_clk}
-N -360 -20 -300 -20 {lab=vco_clk}
+N -400 -60 -360 -60 {lab=#net6}
+N -360 -60 -360 -20 {lab=#net6}
+N -360 -20 -300 -20 {lab=#net6}
 N -400 -280 -340 -280 {lab=VSS}
 N -340 -280 -340 -60 {lab=VSS}
 N -340 -60 -300 -60 {lab=VSS}
 N -440 200 -440 220 {lab=VSS}
-N -440 100 -440 140 {lab=#net5}
-N -440 100 -300 100 {lab=#net5}
-N -360 120 -360 140 {lab=#net6}
-N -360 120 -300 120 {lab=#net6}
+N -440 100 -440 140 {lab=#net7}
+N -440 100 -300 100 {lab=#net7}
+N -360 120 -360 140 {lab=#net8}
+N -360 120 -300 120 {lab=#net8}
 N -360 200 -360 220 {lab=VSS}
 C {iopin.sym} 380 -80 0 0 {name=p5 lab=r1}
 C {iopin.sym} 380 140 0 0 {name=p6 lab=r2}
@@ -107,5 +107,5 @@ C {lab_pin.sym} -360 220 0 1 {name=p23 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} -300 20 0 0 {name=p24 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} -300 60 0 0 {name=p25 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} -380 -60 1 0 {name=p26 sig_type=std_logic lab=vco_clk
-}
+spice_ignore=true}
 C {lab_pin.sym} -340 -280 0 1 {name=p31 sig_type=std_logic lab=VSS}

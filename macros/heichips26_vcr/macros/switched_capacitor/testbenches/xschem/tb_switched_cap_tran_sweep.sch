@@ -13,16 +13,19 @@ N 1000 -580 1000 -560 {lab=VSS}
 N 860 -560 860 -540 {lab=GND}
 N 860 -560 900 -560 {lab=GND}
 N 1100 -580 1100 -540 {lab=VSS}
-N 1100 -660 1100 -640 {lab=#net1}
-N 1100 -660 1160 -660 {lab=#net1}
-N 1300 -560 1300 -540 {lab=VSS}
-N 1300 -640 1300 -620 {lab=vr1}
-N 1280 -640 1300 -640 {lab=vr1}
-N 1380 -560 1380 -540 {lab=VSS}
-N 1380 -680 1380 -620 {lab=vr2}
-N 1220 -600 1220 -540 {lab=VSS}
-N 1220 -740 1220 -720 {lab=VDD}
-N 1280 -680 1380 -680 {lab=vr2}
+N 1100 -660 1100 -640 {lab=vctrl}
+N 1180 -660 1260 -660 {lab=vctrl}
+N 1400 -560 1400 -540 {lab=VSS}
+N 1400 -640 1400 -620 {lab=vr1}
+N 1380 -640 1400 -640 {lab=vr1}
+N 1480 -560 1480 -540 {lab=VSS}
+N 1480 -680 1480 -620 {lab=vr2}
+N 1320 -600 1320 -540 {lab=VSS}
+N 1320 -740 1320 -720 {lab=VDD}
+N 1380 -680 1480 -680 {lab=vr2}
+N 1180 -580 1180 -540 {lab=VSS}
+N 1180 -660 1180 -640 {lab=vctrl}
+N 1100 -660 1180 -660 {lab=vctrl}
 C {devices/launcher.sym} 1160 -860 0 0 {name=h2
 descr="Simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
@@ -46,7 +49,7 @@ value="
 
 * Derived timing parameters
 
-.options savecurrents klu method=gear reltol=1e-3 abstol=1e-12 gmin=1e-15
+.options savecurrents klu method=gear reltol=1e-6 abstol=1e-12 gmin=1e-15 noinit
 .probe alli
 .control
 
@@ -61,29 +64,31 @@ set wr_vecnames
 set wr_singlescale
 
 let vdd_var = 3.3
-let record_periods = 10
-let i_to_f = 3.3e-12
-let ictrl = 1u
+let record_periods = 2
+let v_to_f = 2e6
+let vctrl_var = 0.1
 
-set currents = ( 3.3u 33u 330u )
-foreach ictrl $currents
-	let f = $ictrl/i_to_f
+set voltages = ( 0.1 0.5 3.3 )
+foreach vctrl_var $voltages
+	break
+
+	let f = v_to_f/$vctrl_var
 	let period = 1/f
 	let tstop = record_periods*period
 	let tstep = period/100
-	echo ictrl=$ictrl, f=$&f, period=$&period, tstop=$&tstop, tstep=$&tstep
-	alter i0 = $ictrl
+	echo vctrl=$vctrl_var, f=$&f, period=$&period, tstop=$&tstop, tstep=$&tstep
+	alter v0 = $vctrl_var
 
 	let vdm = 1
 	let vcm = 0.55
 	while vcm < 2.8
 		let v1 = $&vcm - $&vdm/2
 		let v2 = $&vcm + $&vdm/2
-		echo vcm=$&vcm, vdm=$&vdm, v1=$&v1, v2=$&v2
+		echo vctrl=$vctrl_var, vcm=$&vcm, vdm=$&vdm, v1=$&v1, v2=$&v2
 		alter v1 = $&v1
 		alter v2 = $&v2
 		tran $&tstep $&tstop
-		wrdata ../plot_simulations/data/@schname\\\\_vcm.txt i(i0) i(v1) vr1 vr2
+		wrdata ../plot_simulations/data/@schname\\\\_vco_vcm.txt vctrl i(v1) vr1 vr2 x1.clk
 		set appendwrite
 		unset wr_vecnames
 		let vcm = $&vcm + 0.05
@@ -96,28 +101,30 @@ echo # VDM sweep:
 echo # ------------------------------------------------------------------------------
 echo
 
-unset appendwrite
+*unset appendwrite
+set appendwrite
 set wr_vecnames
 
-set currents = ( 3.3u 33u 330u )
-foreach ictrl $currents
-	let f = $ictrl/i_to_f
+set voltages = ( 0.1 0.5 3.3 )
+foreach vctrl_var $voltages
+	let f = v_to_f/$vctrl_var
 	let period = 1/f
 	let tstop = record_periods*period
 	let tstep = period/100
-	echo ictrl=$ictrl, f=$&f, period=$&period, tstop=$&tstop, tstep=$&tstep
-	alter i0 = $ictrl
+	echo vctrl=$vctrl_var, f=$&f, period=$&period, tstop=$&tstop, tstep=$&tstep
+	alter v0 = $vctrl_var
 
-	let vdm = -$&vdd_var
+*	let vdm = -$&vdd_var
+	let vdm = 2.836
 	let vcm = $&vdd_var/2
 	while vdm < $&vdd_var
 		let v1 = $&vcm - $&vdm/2
 		let v2 = $&vcm + $&vdm/2
-		echo ictrl=$ictrl, vcm=$&vcm, vdm=$&vdm, v1=$&v1, v2=$&v2
+		echo vctrl=$vctrl_var, vcm=$&vcm, vdm=$&vdm, v1=$&v1, v2=$&v2
 		alter v1 = $&v1
 		alter v2 = $&v2
 		tran $&tstep $&tstop
-		wrdata ../plot_simulations/data/@schname\\\\_vdm.txt i(i0) i(v1) vr1 vr2
+		wrdata ../plot_simulations/data/@schname\\\\_vco_vdm.txt vctrl i(v1) vr1 vr2 x1.clk
 		set appendwrite
 		unset wr_vecnames
 		let vdm = vdm + 0.052
@@ -126,7 +133,7 @@ end
 
 echo
 echo # ------------------------------------------------------------------------------
-echo # Ictrl sweep:
+echo # Vctrl sweep:
 echo # ------------------------------------------------------------------------------
 echo
 
@@ -141,19 +148,19 @@ echo v1=$&v1, v2=$&v2
 alter v1 $&v1
 alter v2 $&v2
 
-while $&ictrl < 400u
-	let f = $&ictrl/i_to_f
+while $&vctrl_var < 3.4
+	let f = v_to_f/$&vctrl_var
 	let period = 1/f
 	let tstop = record_periods*period
 	let tstep = period/100
-	echo ictrl=$&ictrl, f=$&f, period=$&period, tstop=$&tstop, tstep=$&tstep
+	echo vctrl=$&vctrl_var, f=$&f, period=$&period, tstop=$&tstop, tstep=$&tstep
 
-	alter i0 = $&ictrl
+	alter v0 = $&vctrl_var
 	tran $&tstep $&tstop
-	wrdata ../plot_simulations/data/@schname\\\\_ictrl.txt i(i0) i(v1) vr1 vr2
+	wrdata ../plot_simulations/data/@schname\\\\_vco_vctrl.txt vctrl i(v1) vr1 vr2 x1.clk
 	set appendwrite
 	unset wr_vecnames
-	let ictrl = ictrl * 1.05
+	let vctrl_var = vctrl_var * 1.05
 end
 
 *quit
@@ -169,16 +176,20 @@ footprint=1206
 device=resistor
 m=1
 }
-C {isource.sym} 1100 -610 0 0 {name=I0 value=0}
+C {isource.sym} 1100 -610 0 0 {name=I0 value=0
+spice_ignore=true}
 C {devices/gnd.sym} 1100 -540 0 1 {name=l13 lab=VSS}
-C {switched_cap_cell.sym} 1220 -660 0 0 {name=x1}
-C {devices/gnd.sym} 1220 -540 0 1 {name=l1 lab=VSS}
-C {lab_pin.sym} 1220 -740 2 0 {name=p1 sig_type=std_logic lab=VDD}
-C {lab_pin.sym} 1300 -640 2 0 {name=p3 sig_type=std_logic lab=vr1
+C {switched_cap_cell.sym} 1320 -660 0 0 {name=x1}
+C {devices/gnd.sym} 1320 -540 0 1 {name=l1 lab=VSS}
+C {lab_pin.sym} 1320 -740 2 0 {name=p1 sig_type=std_logic lab=VDD}
+C {lab_pin.sym} 1400 -640 2 0 {name=p3 sig_type=std_logic lab=vr1
 }
-C {devices/vsource.sym} 1300 -590 0 0 {name=V1 value=0}
-C {devices/vsource.sym} 1380 -590 0 0 {name=V2 value=0}
-C {devices/gnd.sym} 1300 -540 0 1 {name=l3 lab=VSS}
-C {devices/gnd.sym} 1380 -540 0 1 {name=l4 lab=VSS}
-C {lab_pin.sym} 1380 -640 2 0 {name=p4 sig_type=std_logic lab=vr2
+C {devices/vsource.sym} 1400 -590 0 0 {name=V1 value=0}
+C {devices/vsource.sym} 1480 -590 0 0 {name=V2 value=0}
+C {devices/gnd.sym} 1400 -540 0 1 {name=l3 lab=VSS}
+C {devices/gnd.sym} 1480 -540 0 1 {name=l4 lab=VSS}
+C {lab_pin.sym} 1480 -640 2 0 {name=p4 sig_type=std_logic lab=vr2
 }
+C {devices/vsource.sym} 1180 -610 0 0 {name=V0 value=0}
+C {devices/gnd.sym} 1180 -540 0 1 {name=l5 lab=VSS}
+C {lab_pin.sym} 1180 -660 1 0 {name=p5 sig_type=std_logic lab=vctrl}
