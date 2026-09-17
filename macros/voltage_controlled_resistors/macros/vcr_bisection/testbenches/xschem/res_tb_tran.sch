@@ -57,14 +57,6 @@ C {vdd.sym} 1040 -710 0 0 {name=l7 lab=VDD}
 C {devices/lab_pin.sym} 1120 -470 0 1 {name=l12 sig_type=std_logic lab=vb}
 C {devices/lab_pin.sym} 510 -470 0 0 {name=l22 sig_type=std_logic lab=vd}
 C {devices/gnd.sym} 570 -370 0 0 {name=l26 lab=GND}
-C {devices/code_shown.sym} 1960 -1410 0 0 {name=MODEL only_toplevel=true
-format="tcleval( @value )"
-value="
-.lib cornerMOSlv.lib mos_tt
-.lib cornerMOShv.lib mos_tt
-.lib cornerRES.lib res_typ
-.lib cornerDIO.lib dio_tt
-"}
 C {devices/gnd.sym} 1100 -370 0 0 {name=l4 lab=GND}
 C {devices/gnd.sym} 580 -580 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 580 -700 0 0 {name=l5 sig_type=std_logic lab=vsweep}
@@ -101,3 +93,12 @@ C {vcr_bisection.sym} 890 -470 0 0 {name=x1}
 C {vdd.sym} 810 -550 0 0 {name=l10 lab=VDD}
 C {devices/gnd.sym} 810 -390 0 0 {name=l11 lab=GND}
 C {vsource_arith.sym} 580 -640 0 0 {name=E1 VOL=cos(2*pi*time*10)*0.1}
+C {devices/code_shown.sym} 1210 -1390 0 0 {name=MODEL1 only_toplevel=true
+format="tcleval( @value )"
+value="
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
+"}

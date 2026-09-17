@@ -32,54 +32,54 @@ C {iopin.sym} 220 -400 2 0 {name=p6 lab=vin1
 C {iopin.sym} 680 -240 0 0 {name=p7 lab=vout}
 C {iopin.sym} 220 -260 2 0 {name=p8 lab=vin2
 }
-C {sg13cmos5l_pr/rhigh.sym} 280 -400 1 0 {name=R5
-w=2e-6
-l=100e-6
-model=rhigh
-body=vss
-spiceprefix=X
-b=0
- m=1
-  mm_ok=1
-value="expr_eng(  ( 1.6e-4 / @w + 1360.0 * ( (@b + 1)* @l + ( 1.081*( @w - 0.04e-6 ) + 0.18e-6 )*@b ) / ( @w - 0.04e-6 ) ) / @m  )"
-}
-C {sg13cmos5l_pr/rhigh.sym} 520 -480 1 0 {name=R2
-w=2e-6
-l=100e-6
-model=rhigh
-body=vss
-spiceprefix=X
-b=0
- m=1
-  mm_ok=1
-value="expr_eng(  ( 1.6e-4 / @w + 1360.0 * ( (@b + 1)* @l + ( 1.081*( @w - 0.04e-6 ) + 0.18e-6 )*@b ) / ( @w - 0.04e-6 ) ) / @m  )"
-}
-C {sg13cmos5l_pr/rhigh.sym} 280 -260 1 0 {name=R3
-w=2e-6
-l=100e-6
-model=rhigh
-body=vss
-spiceprefix=X
-b=0
- m=1
-  mm_ok=1
-value="expr_eng(  ( 1.6e-4 / @w + 1360.0 * ( (@b + 1)* @l + ( 1.081*( @w - 0.04e-6 ) + 0.18e-6 )*@b ) / ( @w - 0.04e-6 ) ) / @m  )"
-}
 C {iopin.sym} 520 -170 1 0 {name=p1 lab=vss
 }
 C {iopin.sym} 520 -310 3 0 {name=p2 lab=vdd
 }
 C {iopin.sym} 540 -310 3 0 {name=p3 lab=ibias
 }
-C {sg13cmos5l_pr/rhigh.sym} 420 -160 2 0 {name=R1
-w=2e-6
+C {/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/opamp_rtr/schematic/xschem/opamp_rtr.sym} 490 -200 0 0 {name=x1}
+C {sg13cmos5l_pr/rppd.sym} 280 -400 1 0 {name=R4
+w=1e-6
 l=100e-6
-model=rhigh
+model=rppd
 body=vss
 spiceprefix=X
 b=0
  m=1
   mm_ok=1
-value="expr_eng(  ( 1.6e-4 / @w + 1360.0 * ( (@b + 1)* @l + ( 1.081*( @w - 0.04e-6 ) + 0.18e-6 )*@b ) / ( @w - 0.04e-6 ) ) / @m  )"
+value="expr_eng(  ( 70.0e-6 / @w + 260.0 * ( (@b + 1)* @l + ( 1.081*( @w + 6.0e-9 ) + 0.18e-6 )*@b ) / ( @w + 6.0e-9 ) ) / @m  )"
 }
-C {/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/opamp_rtr/schematic/xschem/opamp_rtr.sym} 490 -200 0 0 {name=x1}
+C {sg13cmos5l_pr/rppd.sym} 280 -260 1 0 {name=R1
+w=1e-6
+l=100e-6
+model=rppd
+body=vss
+spiceprefix=X
+b=0
+ m=1
+  mm_ok=1
+value="expr_eng(  ( 70.0e-6 / @w + 260.0 * ( (@b + 1)* @l + ( 1.081*( @w + 6.0e-9 ) + 0.18e-6 )*@b ) / ( @w + 6.0e-9 ) ) / @m  )"
+}
+C {sg13cmos5l_pr/rppd.sym} 520 -480 1 0 {name=R2
+w=1e-6
+l=100e-6
+model=rppd
+body=vss
+spiceprefix=X
+b=0
+ m=1
+  mm_ok=1
+value="expr_eng(  ( 70.0e-6 / @w + 260.0 * ( (@b + 1)* @l + ( 1.081*( @w + 6.0e-9 ) + 0.18e-6 )*@b ) / ( @w + 6.0e-9 ) ) / @m  )"
+}
+C {sg13cmos5l_pr/rppd.sym} 420 -160 2 0 {name=R3
+w=1e-6
+l=100e-6
+model=rppd
+body=vss
+spiceprefix=X
+b=0
+ m=1
+  mm_ok=1
+value="expr_eng(  ( 70.0e-6 / @w + 260.0 * ( (@b + 1)* @l + ( 1.081*( @w + 6.0e-9 ) + 0.18e-6 )*@b ) / ( @w + 6.0e-9 ) ) / @m  )"
+}

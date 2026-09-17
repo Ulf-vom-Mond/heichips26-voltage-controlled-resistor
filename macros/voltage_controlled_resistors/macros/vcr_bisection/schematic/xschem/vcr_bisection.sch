@@ -76,22 +76,12 @@ N 40 -370 60 -370 {lab=ib1}
 N 1060 -370 1080 -370 {lab=ib3}
 N 530 -150 550 -150 {lab=ib2}
 N 230 -440 250 -440 {lab=#net1}
-C {res.sym} 280 -440 3 0 {name=R1
-value=10k
-footprint=1206
-device=resistor
-m=1}
 C {ipin.sym} 0 0 0 0 {name=p1 lab=T1}
 C {ipin.sym} 1310 0 2 0 {name=p2 lab=T2}
 C {lab_pin.sym} 40 -350 0 0 {name=p7 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} 180 -350 2 0 {name=p9 sig_type=std_logic lab=Vss}
 C {lab_pin.sym} 1060 -350 0 0 {name=p19 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} 1200 -350 2 0 {name=p20 sig_type=std_logic lab=Vss}
-C {res.sym} 1080 -440 3 0 {name=R2
-value=10k
-footprint=1206
-device=resistor
-m=1}
 C {lab_pin.sym} 550 -220 2 0 {name=p22 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} 370 -200 0 0 {name=p23 sig_type=std_logic lab=Vss}
 C {ipin.sym} 480 -300 0 0 {name=p25 lab=Vctrl
@@ -134,3 +124,25 @@ C {lab_pin.sym} 730 -600 3 0 {name=p32 sig_type=std_logic lab=ib3}
 C {lab_pin.sym} 40 -370 0 0 {name=p18 sig_type=std_logic lab=ib1}
 C {lab_pin.sym} 1060 -370 0 0 {name=p33 sig_type=std_logic lab=ib3}
 C {lab_pin.sym} 550 -150 2 0 {name=p21 sig_type=std_logic lab=ib2}
+C {sg13cmos5l_pr/rppd.sym} 280 -440 1 0 {name=R4
+w=1e-6
+l=50e-6
+model=rppd
+body=vss
+spiceprefix=X
+b=0
+ m=1
+  mm_ok=1
+value="expr_eng(  ( 70.0e-6 / @w + 260.0 * ( (@b + 1)* @l + ( 1.081*( @w + 6.0e-9 ) + 0.18e-6 )*@b ) / ( @w + 6.0e-9 ) ) / @m  )"
+}
+C {sg13cmos5l_pr/rppd.sym} 1080 -440 1 0 {name=R1
+w=1e-6
+l=50e-6
+model=rppd
+body=vss
+spiceprefix=X
+b=0
+ m=1
+  mm_ok=1
+value="expr_eng(  ( 70.0e-6 / @w + 260.0 * ( (@b + 1)* @l + ( 1.081*( @w + 6.0e-9 ) + 0.18e-6 )*@b ) / ( @w + 6.0e-9 ) ) / @m  )"
+}
