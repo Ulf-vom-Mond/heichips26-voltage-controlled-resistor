@@ -74,7 +74,7 @@ write res_tb_linearity.raw
 *.ipin Vdd
 *.ipin Vss
 x4 ib2 Vss vgate Vctrl Vdd Vcm voltage_sum
-XM1 T2 vgate T1 Vss sg13_hv_nmos w=15u l=10u ng=2 m=1 mm_ok=1
+XM1 net3 vgate T1 Vss sg13_hv_nmos w=15u l=10u ng=2 m=2 mm_ok=1
 x1 Vdd T1 Vss net1 ib1 net1 opamp_rtr
 x2 Vdd T2 Vss net2 ib3 net2 opamp_rtr
 x3 Vdd Vdd Vdd ib1 Vdd Vdd Vss Vss isource_beta
@@ -82,6 +82,7 @@ x5 Vdd Vdd Vdd ib2 Vdd Vdd Vss Vss isource_beta
 x6 Vdd Vdd Vdd ib3 Vdd Vdd Vss Vss isource_beta
 XR4 Vcm net1 vss rppd w=1e-6 l=50e-6 m=1 b=0 mm_ok=1
 XR1 net2 Vcm vss rppd w=1e-6 l=50e-6 m=1 b=0 mm_ok=1
+XM2 T2 vgate net3 Vss sg13_hv_nmos w=15u l=10u ng=2 m=2 mm_ok=1
 .ends
 
 
