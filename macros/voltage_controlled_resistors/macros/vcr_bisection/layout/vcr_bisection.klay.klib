@@ -1,0 +1,13 @@
+{
+    "technology": "",
+    "statements": [
+        {
+            "lib_name": "opamp_rtr",
+            "lib_path": "$HOME/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/opamp_rtr/layout/opamp_rtr.gds"
+        },
+        {
+            "lib_name": "isource_beta",
+            "lib_path": "$HOME/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/isource_beta/layout/isource_beta.gds"
+        }
+    ]
+}

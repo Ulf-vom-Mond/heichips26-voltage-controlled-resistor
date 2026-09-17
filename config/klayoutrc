@@ -10,7 +10,7 @@ grid_preview:true;
 grid_preview_mode:if_consider_grid;
 grid_value:'0.01'
 </AlignToolPlugin__EditorOptions>
- <KLayoutLibraryManager__lru_directory>/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/voltage_diff/layout</KLayoutLibraryManager__lru_directory>
+ <KLayoutLibraryManager__lru_directory>/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/layout</KLayoutLibraryManager__lru_directory>
  <absolute-units>false</absolute-units>
  <abstract-mode-enabled>false</abstract-mode-enabled>
  <abstract-mode-width>10.0</abstract-mode-width>
@@ -82,13 +82,13 @@ grid_value:'0.01'
  <edit-hier-copy-mode>-1</edit-hier-copy-mode>
  <edit-inst-angle>0</edit-inst-angle>
  <edit-inst-array>false</edit-inst-array>
- <edit-inst-cell-name>via_stack</edit-inst-cell-name>
+ <edit-inst-cell-name>isource_beta</edit-inst-cell-name>
  <edit-inst-column_x>0</edit-inst-column_x>
  <edit-inst-column_y>0</edit-inst-column_y>
  <edit-inst-columns>1</edit-inst-columns>
- <edit-inst-lib-name>SG13_dev</edit-inst-lib-name>
+ <edit-inst-lib-name>isource_beta</edit-inst-lib-name>
  <edit-inst-mirror>false</edit-inst-mirror>
- <edit-inst-pcell-parameters>!</edit-inst-pcell-parameters>
+ <edit-inst-pcell-parameters/>
  <edit-inst-place-origin>false</edit-inst-place-origin>
  <edit-inst-row_x>0</edit-inst-row_x>
  <edit-inst-row_y>0</edit-inst-row_y>
@@ -103,7 +103,7 @@ grid_value:'0.01'
  <edit-path-width>1</edit-path-width>
  <edit-pcell-lazy-eval-mode>-1</edit-pcell-lazy-eval-mode>
  <edit-pcell-show-parameter-names>false</edit-pcell-show-parameter-names>
- <edit-recent-inst-param>SG13_dev,via_stack,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,rhigh,'0',false,'1',false,'1','0','0','1','0','0','!',;op_amp_ver_2,op_amp_ver_2,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,ntap1,'0',false,'1',false,'1','0','0','1','0','0','!',;voltage_diff,TOP,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,pmosHV,'0',false,'1',false,'1','0','0','1','0','0','!',;Basic,DONUT,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmos,'0',false,'1',false,'1','0','0','1','0','0','!',</edit-recent-inst-param>
+ <edit-recent-inst-param>isource_beta,isource_beta,'0',false,'1',false,'1','0','0','1','0','0','',;opamp_rtr,opamp_rtr,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,via_stack,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,rhigh,'0',false,'1',false,'1','0','0','1','0','0','!',;op_amp_ver_2,op_amp_ver_2,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,ntap1,'0',false,'1',false,'1','0','0','1','0','0','!',;voltage_diff,TOP,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,pmosHV,'0',false,'1',false,'1','0','0','1','0','0','!',;Basic,DONUT,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmos,'0',false,'1',false,'1','0','0','1','0','0','!',</edit-recent-inst-param>
  <edit-recent-path-param>'8/0','0.61',flush,'0.0','0.0',;'10/0','1',flush,'0.0','0.0',;'30/0','1',flush,'0.0','0.0',;'10/0','0.61',flush,'0.0','0.0',;'30/0','0.61',flush,'0.0','0.0',;'10/2','0.61',flush,'0.0','0.0',;'8/0','1',flush,'0.0','0.0',</edit-recent-path-param>
  <edit-recent-shape-param>'8/2',;'10/2',;'8/0',;'10/0',;'31/0',;'30/2',;'Metal1.drawing (8/0)',</edit-recent-shape-param>
  <edit-recent-text-param>'30/25',ABC,'0',left,bottom,;'8/25',ABC,'0',left,bottom,;'10/25',ABC,'0',left,bottom,</edit-recent-text-param>
@@ -359,8 +359,8 @@ sg13cmos5l_menu.macro_in_menu_sg13cmos5l_lvs_options:F12;
  <transient-sel-line-style>-1</transient-sel-line-style>
  <transient-sel-line-width>1</transient-sel-line-width>
  <transient-sel-vertex-size>0</transient-sel-vertex-size>
- <window-geometry>AdnQywADAAD////h////+QAAA0wAAAKxAAAABwAAADQAAAMmAAACiwAAAAEAAAAABaAAAAAHAAAANAAAAyYAAAKL</window-geometry>
- <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAAEDAAAB9vwCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAiQD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAATAAAADUAAAAQAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAhwAAALYAAAAQAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAAFDAAAA/wAAAJYA////AAAAAQAAAN4AAAH2/AIAAAAD+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAAQAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABMAAABpwAAABAA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAAfkAAABJAAAAEAD///8AAAEzAAAB9gAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAABAAAADgB0AG8AbwBsAGIAYQByAQAAAAD/////AAAAAAAAAAA=</window-state>
+ <window-geometry>AdnQywADAAAAAAWgAAAAAAAADR8AAAQHAAAIMAAAAL0AAAtPAAADFAAAAAACAAAAB4AAAAWmAAAAGwAADRkAAAQB</window-geometry>
+ <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAAEDAAAB9vwCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAiQD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAATAAAADUAAAAQAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAhwAAALYAAAAQAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAAFDAAAA/wAAAJYA////AAAAAQAAAN4AAAH2/AIAAAAD+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAAQAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABMAAABrwAAABAA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAAgEAAABBAAAAEAD///8AAAEzAAAB9gAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAABAAAADgB0AG8AbwBsAGIAYQByAQAAAAD/////AAAAAAAAAAA=</window-state>
  <xor-anotb>false</xor-anotb>
  <xor-axorb>true</xor-axorb>
  <xor-bnota>false</xor-bnota>
