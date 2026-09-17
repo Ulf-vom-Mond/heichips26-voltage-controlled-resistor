@@ -1,0 +1,42 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/lvl_shift_up.sch
+.subckt lvl_shift_up VDD in out VSS
+*.PININFO in:I VDD:B VSS:B out:O
+XM1 net1 in VSS VSS sg13_hv_nmos w={n_ng*n_w} l={n_l} ng={n_ng} m=1 mm_ok=1
+XM2 net1 in VDD VDD sg13_hv_pmos w={p_ng*p_w} l={p_l} ng={n_ng} m=1 mm_ok=1
+x4 VDD net1 out VSS hv_inverter_6u5
+**** begin user architecture code
+
+
+.param n_ng = 2
+.param n_w = 10u
+.param n_l = 0.45u
+.param p_ng = 2
+.param p_w = 1u
+.param p_l = 0.45u
+
+
+**** end user architecture code
+.ends
+
+* expanding   symbol:  hv_inverter_6u5.sym # of pins=4
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_inverter_6u5.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_inverter_6u5.sch
+.subckt hv_inverter_6u5 VDD in out VSS
+*.PININFO in:I VDD:B VSS:B out:O
+XM2 out in VSS VSS sg13_hv_nmos w={n_w} l={n_l} ng={ng} m=1 mm_ok=1
+XM3 out in VDD VDD sg13_hv_pmos w={p_w} l={p_l} ng={ng} m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param ng  = 1
+.param n_ng = ng
+.param n_w = {2u*n_ng}
+.param n_l = 0.45u
+.param p_ng = ng
+.param p_w = {6.5u*p_ng}
+.param p_l = 0.4u
+
+
+**** end user architecture code
+.ends
+

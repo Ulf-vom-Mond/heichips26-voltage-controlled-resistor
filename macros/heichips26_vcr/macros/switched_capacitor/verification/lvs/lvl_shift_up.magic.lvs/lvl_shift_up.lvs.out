@@ -1,0 +1,83 @@
+
+Circuit 1 cell sg13_hv_nmos and Circuit 2 cell sg13_hv_nmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_nmos                    |Circuit 2: sg13_hv_nmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_nmos and sg13_hv_nmos are equivalent.
+
+Circuit 1 cell sg13_hv_pmos and Circuit 2 cell sg13_hv_pmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_pmos                    |Circuit 2: sg13_hv_pmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_pmos and sg13_hv_pmos are equivalent.
+Flattening unmatched subcell hv_inverter_6u5 in circuit lvl_shift_up (1)(1 instance)
+
+Class lvl_shift_up (0):  Merged 2 parallel devices.
+Subcircuit summary:
+Circuit 1: lvl_shift_up                    |Circuit 2: lvl_shift_up                    
+-------------------------------------------|-------------------------------------------
+sg13_hv_pmos (3->2)                        |sg13_hv_pmos (2)                           
+sg13_hv_nmos (3->2)                        |sg13_hv_nmos (2)                           
+Number of devices: 4                       |Number of devices: 4                       
+Number of nets: 5                          |Number of nets: 5                          
+---------------------------------------------------------------------------------------
+Netlists match uniquely with property errors.
+sg13_hv_nmos:1 vs. sg13_hv_nmos:M1:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:1 vs. sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:5 vs. hv_inverter_6u5:4/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "2e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:5 vs. hv_inverter_6u5:4/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:5 vs. hv_inverter_6u5:4/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:0 vs. sg13_hv_pmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:0 vs. sg13_hv_pmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:4 vs. hv_inverter_6u5:4/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "6.5e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:4 vs. hv_inverter_6u5:4/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:4 vs. hv_inverter_6u5:4/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+
+Subcircuit pins:
+Circuit 1: lvl_shift_up                    |Circuit 2: lvl_shift_up                    
+-------------------------------------------|-------------------------------------------
+in                                         |in                                         
+out                                        |out                                        
+VSS                                        |VSS                                        
+VDD                                        |VDD                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes lvl_shift_up and lvl_shift_up are equivalent.
+
+Final result: Circuits match uniquely.
+Property errors were found.
+
+The following cells had property errors:
+ lvl_shift_up

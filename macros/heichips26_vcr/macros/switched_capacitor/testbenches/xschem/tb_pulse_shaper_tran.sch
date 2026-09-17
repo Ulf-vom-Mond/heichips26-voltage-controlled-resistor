@@ -11,17 +11,43 @@ N 1300 -640 1300 -600 {lab=GND}
 N 1640 -620 1640 -600 {lab=GND}
 N 1640 -700 1640 -680 {lab=vin2}
 N 1640 -700 1720 -700 {lab=vin2}
-N 1880 -720 1900 -720 {lab=nout1
+N 1960 -720 1980 -720 {lab=nout1
 }
-N 1880 -740 1900 -740 {lab=out1
-}
-N 1880 -660 1900 -660 {lab=out2
-}
-N 1880 -680 1900 -680 {lab=nout2
+N 1960 -680 1980 -680 {lab=out2
 }
 N 1800 -800 1800 -780 {lab=VDD
 }
 N 1800 -620 1800 -600 {lab=GND
+}
+N 1940 -820 2080 -820 {lab=out1}
+N 1880 -740 1940 -740 {lab=out1}
+N 1940 -820 1940 -740 {lab=out1}
+N 1880 -720 1960 -720 {lab=nout1}
+N 1960 -800 1960 -720 {lab=nout1}
+N 1960 -800 2080 -800 {lab=nout1}
+N 1880 -660 1940 -660 {lab=nout2}
+N 1940 -660 1940 -580 {lab=nout2}
+N 1940 -580 2080 -580 {lab=nout2}
+N 1880 -680 1960 -680 {lab=out2}
+N 1960 -680 1960 -600 {lab=out2}
+N 1960 -600 2080 -600 {lab=out2}
+N 1940 -740 1980 -740 {lab=out1}
+N 1940 -660 1980 -660 {lab=nout2}
+N 2160 -880 2160 -860 {lab=VDD
+}
+N 2160 -740 2160 -720 {lab=GND
+}
+N 2160 -660 2160 -640 {lab=VDD
+}
+N 2060 -560 2060 -500 {lab=GND}
+N 2060 -560 2080 -560 {lab=GND}
+N 2060 -780 2060 -720 {lab=GND}
+N 2060 -780 2080 -780 {lab=GND}
+N 2260 -780 2260 -720 {lab=GND}
+N 2240 -780 2260 -780 {lab=GND}
+N 2260 -560 2260 -500 {lab=GND}
+N 2240 -560 2260 -560 {lab=GND}
+N 2160 -520 2160 -500 {lab=GND
 }
 C {devices/code_shown.sym} 80 -1370 0 0 {name=NGSPICE
 only_toplevel=true 
@@ -52,7 +78,7 @@ write @schname\\\\.raw
 
 * Plotting
 plot vin2
-plot out1+4 out2+4 nout1 nout2
+plot out1+4 out2 nout1 nout2+4
 
 
 *quit
@@ -82,18 +108,44 @@ value="
 .lib cornerRES.lib res_typ
 .lib cornerDIO.lib dio_tt
 "}
-C {devices/lab_pin.sym} 1900 -740 0 1 {name=l15 sig_type=std_logic lab=out1
+C {devices/lab_pin.sym} 1980 -740 0 1 {name=l15 sig_type=std_logic lab=out1
 }
-C {devices/lab_pin.sym} 1900 -720 0 1 {name=l1 sig_type=std_logic lab=nout1
+C {devices/lab_pin.sym} 1980 -720 0 1 {name=l1 sig_type=std_logic lab=nout1
 }
-C {devices/lab_pin.sym} 1900 -680 0 1 {name=l17 sig_type=std_logic lab=nout2
+C {devices/lab_pin.sym} 1980 -660 0 1 {name=l17 sig_type=std_logic lab=nout2
 }
-C {devices/lab_pin.sym} 1900 -660 0 1 {name=l18 sig_type=std_logic lab=out2
+C {devices/lab_pin.sym} 1980 -680 0 1 {name=l18 sig_type=std_logic lab=out2
 }
 C {pulse_shaper.sym} 1800 -700 0 0 {name=x1
 }
 C {vdd.sym} 1800 -800 0 0 {name=l5 lab=VDD
 }
 C {devices/gnd.sym} 1800 -600 0 0 {name=l6 lab=GND
+w=n_w
+}
+C {transmission_gate.sym} 2160 -800 0 0 {name=x2
+}
+C {transmission_gate.sym} 2160 -580 0 0 {name=x6
+}
+C {vdd.sym} 2160 -880 0 0 {name=l4 lab=VDD
+}
+C {devices/gnd.sym} 2160 -720 0 0 {name=l8 lab=GND
+w=n_w
+}
+C {vdd.sym} 2160 -660 0 0 {name=l9 lab=VDD
+}
+C {devices/gnd.sym} 2060 -500 0 0 {name=l10 lab=GND
+w=n_w
+}
+C {devices/gnd.sym} 2060 -720 0 0 {name=l11 lab=GND
+w=n_w
+}
+C {devices/gnd.sym} 2260 -720 0 0 {name=l12 lab=GND
+w=n_w
+}
+C {devices/gnd.sym} 2260 -500 0 0 {name=l13 lab=GND
+w=n_w
+}
+C {devices/gnd.sym} 2160 -500 0 0 {name=l14 lab=GND
 w=n_w
 }

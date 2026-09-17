@@ -1,0 +1,14 @@
+* NGSPICE file created from osc.ext - technology: ihp-sg13cmos5l
+
+.subckt osc VSS VDD ictrl c2 c1 out1 out2
+X0 VDD ictrl c2 VDD sg13_hv_pmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=2u
+X1 VSS c2 out1 VSS sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
+X2 out1 ictrl VDD VDD sg13_hv_pmos ad=3.4p pd=20.68u as=3.4p ps=20.68u w=10u l=2u
+X3 VSS c2 c2 VSS sg13_hv_nmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=2u
+X4 VDD ictrl out2 VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=2u
+X5 ictrl ictrl VDD VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=2u
+X6 c1 ictrl VDD VDD sg13_hv_pmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=2u
+X7 c1 c1 VSS VSS sg13_hv_nmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=2u
+X8 out2 c1 VSS VSS sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
+.ends
+

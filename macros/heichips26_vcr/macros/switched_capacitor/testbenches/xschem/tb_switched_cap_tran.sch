@@ -46,8 +46,9 @@ C {devices/code_shown.sym} 20 -1650 0 0 {name=NGSPICE1
 only_toplevel=true 
 value="
 .param temp=27
-.param vctrl  = 3.3
+.param vctrl  = 0.1
 .param f      = \{2e6/vctrl\}
+*.param f = 75Meg
 
 * Derived timing parameters
 .param period = \{1/f\}

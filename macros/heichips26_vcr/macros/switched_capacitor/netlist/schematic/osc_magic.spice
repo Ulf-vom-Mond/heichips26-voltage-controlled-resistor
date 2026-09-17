@@ -1,0 +1,22 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/osc.sch
+.subckt osc VDD out1 ictrl VSS c1 out2 c2
+*.PININFO VSS:B VDD:B out2:B out1:B c2:B ictrl:B c1:B
+XM3 out1 ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM2 c1 ictrl VDD VDD sg13_hv_pmos w=1u l=2.0u ng=1 m=1 mm_ok=1
+XM4 c2 ictrl VDD VDD sg13_hv_pmos w=1.0u l=2.0u ng=1 m=1 mm_ok=1
+XM5 out2 ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XM6 ictrl ictrl VDD VDD sg13_hv_pmos w=10.0u l=2.0u ng=1 m=1 mm_ok=1
+XC1 c1 out1 cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XC2 out2 c2 cap_cmomi w=10e-6 l=10e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XM8 out1 c2 VSS VSS sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM1 c2 c2 VSS VSS sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+XM12 out2 c1 VSS VSS sg13_hv_nmos w=3u l=0.45u ng=1 m=1 mm_ok=1
+XM11 c1 c1 VSS VSS sg13_hv_nmos w=1u l=2u ng=1 m=1 mm_ok=1
+**** begin user architecture code
+
+
+.ic v(out1)=0 v(out2)=3.3
+
+
+**** end user architecture code
+.ends

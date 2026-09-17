@@ -99,7 +99,7 @@ value="
 .lib cornerCAP.lib cap_typ
 "}
 C {devices/lab_pin.sym} 1500 -1080 3 1 {name=l12 sig_type=std_logic lab=out}
-C {devices/vsource.sym} 1240 -990 0 0 {name=vctrl value=2.5}
+C {devices/vsource.sym} 1020 -990 0 0 {name=vctrl value=0}
 C {vco.sym} 1380 -1060 0 0 {name=x1}
 C {vdd.sym} 1380 -1180 0 0 {name=l4 lab=VDD}
 C {devices/lab_pin.sym} 1720 -1120 0 1 {name=l15 sig_type=std_logic lab=out1

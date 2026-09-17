@@ -46,9 +46,9 @@ spiceprefix=X
 C {devices/ipin.sym} 1440 -540 0 0 {name=p2 lab=vctrl}
 C {devices/ipin.sym} 1440 -860 2 1 {name=p8 lab=nvctrl}
 C {code_shown.sym} 1760 -850 0 0 {name=s1 only_toplevel=false value="
-.param tg_ch_len=1u
+.param tg_ch_len=0.45u
 .param tg_ngate_w=2u
-.param tg_pgate_w=10u
+.param tg_pgate_w=5u
 .param tg_ng=20
 "}
 C {devices/iopin.sym} 1520 -760 1 0 {name=p11 lab=VDD}

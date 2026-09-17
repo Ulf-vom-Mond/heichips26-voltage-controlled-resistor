@@ -27,41 +27,41 @@ N 300 -140 320 -140 {lab=ictrl}
 N 300 -140 300 -80 {lab=ictrl}
 N 300 -80 360 -80 {lab=ictrl}
 N 360 -110 360 -80 {lab=ictrl}
-N -100 -60 -60 -60 {lab=#net1}
-N -60 -110 -60 -60 {lab=#net1}
-N 60 -110 60 -60 {lab=start}
-N 60 -60 100 -60 {lab=start}
+N -100 -60 -60 -60 {lab=c2}
+N -60 -110 -60 -60 {lab=c2}
+N 60 -110 60 -60 {lab=c2}
+N 60 -60 100 -60 {lab=c2}
 N 160 -60 200 -60 {lab=out2}
 N 200 -110 200 -60 {lab=out2}
 N -200 -260 -60 -260 {lab=VDD}
-N -60 -60 60 60 {lab=#net1}
-N -60 60 60 -60 {lab=start}
+N -60 -60 60 60 {lab=c2}
+N -60 60 60 -60 {lab=c2}
 N -20 -140 0 -140 {lab=ictrl}
-N -80 60 -60 60 {lab=start}
-N 80 60 160 60 {lab=#net1}
+N -80 60 -60 60 {lab=c2}
+N 140 60 160 60 {lab=c2}
 N 200 -60 200 30 {lab=out2}
 N -200 -60 -200 30 {lab=out1}
 N -200 60 -200 180 {lab=VSS}
-N -80 80 -80 90 {lab=start}
-N -140 60 -80 60 {lab=start}
-N 80 80 80 90 {lab=#net1}
-N 60 60 80 60 {lab=#net1}
-N -40 120 -20 120 {lab=start}
-N -20 80 -20 120 {lab=start}
-N -80 80 -20 80 {lab=start}
-N -80 60 -80 80 {lab=start}
-N 20 120 40 120 {lab=#net1}
-N 20 80 20 120 {lab=#net1}
-N 20 80 80 80 {lab=#net1}
-N 80 60 80 80 {lab=#net1}
+N -80 80 -80 90 {lab=c2}
+N -140 60 -80 60 {lab=c2}
+N 80 80 80 90 {lab=c2}
+N 60 60 80 60 {lab=c2}
+N -40 120 -20 120 {lab=c2}
+N -20 80 -20 120 {lab=c2}
+N -80 80 -20 80 {lab=c2}
+N -80 60 -80 80 {lab=c2}
+N 20 120 40 120 {lab=c2}
+N 20 80 20 120 {lab=c2}
+N 20 80 80 80 {lab=c2}
+N 80 60 80 80 {lab=c2}
 N -80 180 0 180 {lab=VSS}
 N 360 -80 360 20 {lab=ictrl}
 N 0 180 0 200 {lab=VSS}
 N -60 -260 0 -260 {lab=VDD}
 N 200 -60 220 -60 {lab=out2}
 N -200 -110 -200 -60 {lab=out1}
-N -140 0 -140 60 {lab=start}
-N -160 60 -140 60 {lab=start}
+N -140 0 -140 60 {lab=c2}
+N -160 60 -140 60 {lab=c2}
 N -80 120 -80 180 {lab=VSS}
 N -200 180 -80 180 {lab=VSS}
 N 80 180 200 180 {lab=VSS}
@@ -70,8 +70,11 @@ N 200 60 200 180 {lab=VSS}
 N 80 120 80 180 {lab=VSS}
 N -200 -60 -160 -60 {lab=out1}
 N -220 -60 -200 -60 {lab=out1}
-N -220 0 -140 0 {lab=start}
+N -220 0 -140 0 {lab=c2}
 N -140 -220 -0 -220 {lab=ictrl}
+N 140 0 140 60 {lab=c2}
+N 140 0 220 0 {lab=c2}
+N 80 60 140 60 {lab=c2}
 C {iopin.sym} 0 200 1 0 {name=p3 lab=VSS}
 C {iopin.sym} 0 -280 3 0 {name=p4 lab=VDD}
 C {sg13_lv_pmos.sym} -180 -140 0 1 {name=M3
@@ -177,8 +180,9 @@ spiceprefix=X
 }
 C {iopin.sym} 220 -60 0 0 {name=p1 lab=out2}
 C {iopin.sym} -220 -60 0 1 {name=p2 lab=out1}
-C {iopin.sym} -220 0 0 1 {name=p5 lab=start}
+C {iopin.sym} -220 0 0 1 {name=p5 lab=c2}
 C {iopin.sym} 360 20 3 1 {name=p6 lab=ictrl}
 C {code_shown.sym} 290 160 0 0 {value="
 .ic v(out1)=0 v(out2)=3.3
 "}
+C {iopin.sym} 220 0 0 0 {name=p7 lab=c1}

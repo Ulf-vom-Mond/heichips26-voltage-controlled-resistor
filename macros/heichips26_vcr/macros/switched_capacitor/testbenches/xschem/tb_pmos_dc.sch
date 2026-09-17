@@ -79,7 +79,7 @@ write @schname\\\\.raw
 set appendwrite
 
 * DC Sweep
-dc VDD 0 3.3 1m Vg 1 3.3 0.25
+dc VDD 0 3.3 10m Vg 1 3.3 0.25
 remzerovec
 write @schname\\\\.raw
 set appendwrite
@@ -128,9 +128,9 @@ C {ammeter.sym} 1000 -890 0 1 {name=vout1 savecurrent=true }
 C {devices/gnd.sym} 1000 -680 0 1 {name=l1 lab=GND}
 C {devices/gnd.sym} 820 -680 0 1 {name=l4 lab=GND}
 C {sg13_lv_pmos.sym} 980 -780 0 0 {name=M1
-l=1.0u
-w=1.0u
-ng=1
+l=0.4u
+w=100.0u
+ng=10
 m=1
 model=sg13_hv_pmos
 spiceprefix=X

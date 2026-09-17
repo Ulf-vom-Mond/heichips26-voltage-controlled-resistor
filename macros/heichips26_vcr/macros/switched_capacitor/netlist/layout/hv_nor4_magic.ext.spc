@@ -1,6 +1,6 @@
 * NGSPICE file created from hv_nor4.ext - technology: ihp-sg13cmos5l
 
-.subckt hv_nor4 VSS out VDD in2 in1 in3 in4
+.subckt hv_nor4 out in2 in1 in3 in4 VDD VSS
 X0 VDD in4 a_1858_276# VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
 X1 VSS in2 out VSS sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
 X2 a_758_276# in2 a_n342_276# VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u

@@ -6,7 +6,7 @@ XM4 vout nvctrl vin VDD sg13_hv_pmos w={tg_pgate_w*tg_ng} l={tg_ch_len} ng={tg_n
 **** begin user architecture code
 
 
-.param tg_ch_len=1u
+.param tg_ch_len=0.45u
 .param tg_ngate_w=2u
 .param tg_pgate_w=10u
 .param tg_ng=20
