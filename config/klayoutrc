@@ -93,7 +93,7 @@ grid_value:'0.01'
  <edit-inst-columns>1</edit-inst-columns>
  <edit-inst-lib-name>SG13_dev</edit-inst-lib-name>
  <edit-inst-mirror>false</edit-inst-mirror>
- <edit-inst-pcell-parameters>!</edit-inst-pcell-parameters>
+ <edit-inst-pcell-parameters/>
  <edit-inst-place-origin>false</edit-inst-place-origin>
  <edit-inst-row_x>0</edit-inst-row_x>
  <edit-inst-row_y>0</edit-inst-row_y>
@@ -530,6 +530,29 @@ zoom_menu.next_display_state:'';
 zoom_menu.prev_display_state:''
 </key-bindings>
  <klayout_auto_backups_enabled>true</klayout_auto_backups_enabled>
+ <klayout_vector_file_export_settings>
+color_mode:color;
+content_scaling_style:figure_width_mm;
+content_scaling_value:'120.0';
+file_format:svg;
+font_family:monospace;
+font_size_mode:percent_of_fig_width;
+font_size_percent_of_fig_width:'1.0';
+font_size_pt:'6.0';
+geometry_reduction:omit_small_polygons;
+include_background_color:'0';
+include_stipples:'0';
+layer_output_style:single_page;
+layer_selection_mode:all_visible_layers;
+output_path:vcr_bisection_export.svg;
+page_format:A4;
+page_orientation:portrait;
+text_layers_filter_enabled:'0';
+text_mode:all_visible;
+title:'Voltage Controlled Resistor';
+custom_layers:'';
+text_layers:''
+</klayout_vector_file_export_settings>
  <l2ndb-export-circuit-cell-prefix>CIRCUIT_</l2ndb-export-circuit-cell-prefix>
  <l2ndb-export-device-cell-prefix>DEVICE_</l2ndb-export-device-cell-prefix>
  <l2ndb-export-net-cell-prefix>NET_</l2ndb-export-net-cell-prefix>
@@ -957,7 +980,7 @@ zoom_menu.zoom_out:false
 </menu-items-hidden>
  <min-inst-label-size>16</min-inst-label-size>
  <mouse-wheel-mode>0</mouse-wheel-mode>
- <mru>'/home/raiku/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/yadav/layout/YadavVCR.gds'@'sg13cmos5l'</mru>
+ <mru>'/home/raiku/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/yadav/layout/YadavVCR.gds'@'sg13cmos5l' '/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/layout/vcr_bisection.klay.gds'@'sg13cmos5l'</mru>
  <mru-bookmarks/>
  <mru-layer-properties/>
  <mru-sessions/>
@@ -1022,7 +1045,7 @@ zoom_menu.zoom_out:false
  <show-bookmarks-view>false</show-bookmarks-view>
  <show-hierarchy-panel>true</show-hierarchy-panel>
  <show-layer-panel>true</show-layer-panel>
- <show-layer-toolbox>false</show-layer-toolbox>
+ <show-layer-toolbox>true</show-layer-toolbox>
  <show-libraries-view>true</show-libraries-view>
  <show-navigator>false</show-navigator>
  <show-properties>false</show-properties>
@@ -1161,7 +1184,7 @@ zoom_menu.zoom_out:false
  <text-font>0</text-font>
  <text-lazy-rendering>true</text-lazy-rendering>
  <text-point-mode>false</text-point-mode>
- <text-visible>true</text-visible>
+ <text-visible>false</text-visible>
  <tip-window-hidden>only-top-level-shown-by-default=3,hide-empty-layers=4,hide-empty-layers=0</tip-window-hidden>
  <tracking-cursor-color>auto</tracking-cursor-color>
  <tracking-cursor-enabled>true</tracking-cursor-enabled>
@@ -1171,8 +1194,8 @@ zoom_menu.zoom_out:false
  <transient-sel-line-style>-1</transient-sel-line-style>
  <transient-sel-line-width>1</transient-sel-line-width>
  <transient-sel-vertex-size>0</transient-sel-vertex-size>
- <window-geometry>AdnQywADAAAAAAABAAAAGQAABHIAAASdAAAAAQAAABkAAARyAAAEnQAAAAAAAAAAB4QAAAABAAAAGQAABHIAAASd</window-geometry>
- <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAAETAAAEHfwCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAjwD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAUgAAAOgAAAATAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAABQAAAAKEAAAATAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAAHnAAACiAAAAJYA////AAAAAQAAAJQAAAQd/AIAAAAD+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAATAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABSAAADjAAAABMA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAA+QAAACLAAAAEwD///8AAAK/AAAEHQAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAABAAAADgB0AG8AbwBsAGIAYQByAQAAAAD/////AAAAAAAAAAA=</window-state>
+ <window-geometry>AdnQywADAAAAAAWgAAAAAAAADR8AAAQHAAAHBwAAAQQAAAomAAADWwAAAAACAAAAB4AAAAWmAAAAGwAADRkAAAQB</window-geometry>
+ <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAAETAAAB9vwCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAiQD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAATAAAAG0AAAAQAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAAvwAAAEwAAAAQAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAAERAAABMQAAAJYA////AAAAAQAAAJQAAAH2/AIAAAAD+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAAQAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABMAAABrwAAABAA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAAgEAAABBAAAAEAD///8AAAFtAAAB9gAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAABAAAADgB0AG8AbwBsAGIAYQByAQAAAAD/////AAAAAAAAAAA=</window-state>
  <xor-anotb>false</xor-anotb>
  <xor-axorb>true</xor-axorb>
  <xor-bnota>false</xor-bnota>
