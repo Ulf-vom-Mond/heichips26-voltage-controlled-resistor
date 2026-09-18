@@ -5,15 +5,15 @@
 *+ i3_b1:I i3_b2:I i3_b4:I i3_b3:I
 x4 ib3 Vss vgate Vctrl Vdd Vcm voltage_sum
 MM1 T2 vgate T1 Vss sg13_hv_nmos w=15u l=10u ng=2
-x1 Vdd T1 Vss net1 ib1 net1 opamp_rtr
-x2 Vdd T2 Vss net2 ib2 net2 opamp_rtr
+x1 Vdd T1 Vss net1 ib2 net1 opamp_rtr
+x2 Vdd T2 Vss net2 ib1 net2 opamp_rtr
 x3 i3_b0 Vdd i3_b1 ib3 i3_b2 i3_b3 Vss i3_b4 isource_beta
 x5 i2_b0 Vdd i2_b1 ib2 i2_b2 i2_b3 Vss i2_b4 isource_beta
 x6 i1_b0 Vdd i1_b1 ib1 i1_b2 i1_b3 Vss i1_b4 isource_beta
 RR4 Vcm net1 12.992k $SUB=vss $[rppd] w=1e-6 l=50e-6 b=0
 RR1 net2 Vcm 12.992k $SUB=vss $[rppd] w=1e-6 l=50e-6 b=0
 RR2 Vss Vss 1.3272k $SUB=vss $[rppd] w=1e-6 l=10e-6 b=0 m=2
-MM2 T1 T1 T1 Vss sg13_hv_nmos w=15u l=10u ng=2
+MM2 T1 T1 T1 Vss sg13_hv_nmos w=15u l=2u ng=2
 .ends
 
 * expanding   symbol:  voltage_sum.sym # of pins=6

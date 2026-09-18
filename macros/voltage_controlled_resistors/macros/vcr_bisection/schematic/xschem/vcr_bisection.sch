@@ -43,8 +43,8 @@ N 480 -620 480 -600 {lab=Vss}
 N 540 -620 540 -600 {lab=ib2}
 N 670 -620 670 -600 {lab=Vss}
 N 730 -620 730 -600 {lab=ib1}
-N 40 -370 60 -370 {lab=ib1}
-N 1060 -370 1080 -370 {lab=ib2}
+N 40 -370 60 -370 {lab=ib2}
+N 1060 -370 1080 -370 {lab=#net3}
 N 530 -150 550 -150 {lab=ib3}
 N 230 -440 250 -440 {lab=#net1}
 N -140 -560 -140 -540 {lab=Vss}
@@ -73,7 +73,7 @@ N 410 -780 410 -760 {lab=i3_b0}
 N 390 -780 390 -760 {lab=i3_b1}
 N 370 -780 370 -760 {lab=i3_b2}
 N 350 -780 350 -760 {lab=i3_b3}
-N 330 -780 330 -760 {lab=i1_b4}
+N 330 -780 330 -760 {lab=i3_b4}
 C {ipin.sym} 0 0 0 0 {name=p1 lab=T1}
 C {ipin.sym} 1310 0 2 0 {name=p2 lab=T2}
 C {lab_pin.sym} 40 -350 0 0 {name=p7 sig_type=std_logic lab=Vdd}
@@ -111,9 +111,9 @@ C {lab_pin.sym} 540 -600 3 0 {name=p27 sig_type=std_logic lab=ib2}
 C {/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/isource_beta/schematic/xschem/isource_beta.sym} 670 -690 0 0 {name=x6}
 C {lab_pin.sym} 670 -600 3 0 {name=p29 sig_type=std_logic lab=Vss}
 C {lab_pin.sym} 350 -600 3 0 {name=p32 sig_type=std_logic lab=ib3}
-C {lab_pin.sym} 40 -370 0 0 {name=p18 sig_type=std_logic lab=ib1}
+C {lab_pin.sym} 1060 -370 0 0 {name=p18 sig_type=std_logic lab=ib1}
 C {lab_pin.sym} 550 -150 2 0 {name=p33 sig_type=std_logic lab=ib3}
-C {lab_pin.sym} 1060 -370 0 0 {name=p21 sig_type=std_logic lab=ib2}
+C {lab_pin.sym} 40 -370 0 0 {name=p21 sig_type=std_logic lab=ib2}
 C {sg13cmos5l_pr/rppd.sym} 280 -440 1 0 {name=R4
 w=1e-6
 l=50e-6
@@ -150,7 +150,7 @@ value="expr_eng(  ( 70.0e-6 / @w + 260.0 * ( (@b + 1)* @l + ( 1.081*( @w + 6.0e-
 C {lab_pin.sym} -140 -560 1 0 {name=p24 sig_type=std_logic lab=Vss}
 C {lab_pin.sym} -140 -480 3 0 {name=p34 sig_type=std_logic lab=Vss}
 C {sg13cmos5l_pr/sg13_hv_nmos.sym} -140 -340 1 0 {name=M2
-l=10u
+l=2u
 w=15u
  ng=2
  m=1
