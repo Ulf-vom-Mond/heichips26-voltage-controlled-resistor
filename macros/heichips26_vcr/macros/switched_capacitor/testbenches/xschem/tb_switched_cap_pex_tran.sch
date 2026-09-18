@@ -13,33 +13,31 @@ N 1180 -580 1180 -560 {lab=VSS}
 N 1040 -560 1040 -540 {lab=GND}
 N 1040 -560 1080 -560 {lab=GND}
 N 1280 -580 1280 -540 {lab=VSS}
-N 1280 -660 1280 -640 {lab=#net1}
+N 1280 -660 1280 -640 {lab=VSS}
 N 1860 -560 1860 -540 {lab=VSS}
-N 1860 -640 1860 -620 {lab=#net2}
+N 1860 -640 1860 -620 {lab=#net1}
 N 1940 -560 1940 -540 {lab=VSS}
 N 1940 -680 1940 -620 {lab=vr}
 N 1680 -780 1680 -760 {lab=VAPWR}
 N 1340 -580 1340 -540 {lab=VSS}
-N 1340 -660 1340 -640 {lab=#net1}
-N 1280 -660 1340 -660 {lab=#net1}
+N 1340 -660 1340 -640 {lab=VSS}
+N 1280 -660 1340 -660 {lab=VSS}
 N 1740 -680 1940 -680 {lab=vr}
-N 1740 -640 1860 -640 {lab=#net2}
+N 1740 -640 1860 -640 {lab=#net1}
 N 960 -550 960 -530 {lab=VSS}
 N 960 -630 960 -610 {lab=VPWR}
 N 1640 -800 1640 -760 {lab=VPWR}
 N 1660 -560 1660 -540 {lab=VSS}
 N 1560 -640 1580 -640 {lab=VSS}
-N 1560 -620 1580 -620 {lab=VSS}
-N 1540 -600 1580 -600 {lab=VPWR}
-N 1560 -700 1580 -700 {lab=VSS}
-N 1560 -620 1560 -540 {lab=VSS}
+N 1560 -600 1580 -600 {lab=VSS}
+N 1540 -620 1580 -620 {lab=VPWR}
+N 1560 -600 1560 -540 {lab=VSS}
 N 1740 -600 1760 -600 {lab=clkout}
-N 1260 -660 1280 -660 {lab=#net1}
-N 1340 -660 1360 -660 {lab=#net1}
+N 1260 -660 1280 -660 {lab=VSS}
+N 1340 -660 1360 -660 {lab=VSS}
 N 1420 -660 1580 -660 {lab=vctrl}
-N 1560 -640 1560 -620 {lab=VSS}
-N 1560 -700 1560 -640 {lab=VSS}
-N 1540 -700 1560 -700 {lab=VSS}
+N 1560 -640 1560 -600 {lab=VSS}
+N 1540 -700 1580 -700 {lab=VPWR}
 C {devices/launcher.sym} 1160 -860 0 0 {name=h2
 descr="Simulate" 
 tclcommand="xschem save; xschem netlist; xschem simulate"
@@ -64,12 +62,12 @@ value="
 .param temp=27
 .param vctrl  = 0.1
 *.param f      = \{2e6/vctrl\}
-.param f = 10Meg
+.param f = 200Meg
 
 * Derived timing parameters
 .param period = \{1/f\}
 .param ton    = \{period/2\}
-.csparam tstop  = \{5*period\}
+.csparam tstop  = \{10*period\}
 .csparam tstep  = \{period/100\}
 .param ictrl  = \{f*3.3e-12\}
 .param tr     = \{period/1000\}
@@ -143,7 +141,7 @@ device=resistor
 m=1
 }
 C {isource.sym} 1280 -610 0 0 {name=I0 value=30u
-}
+spice_ignore=true}
 C {devices/gnd.sym} 1280 -540 0 1 {name=l13 lab=VSS}
 C {devices/gnd.sym} 1660 -540 0 1 {name=l1 lab=VSS}
 C {lab_pin.sym} 1680 -780 0 1 {name=p1 sig_type=std_logic lab=VAPWR}
@@ -163,12 +161,12 @@ C {devices/gnd.sym} 960 -530 0 1 {name=l6 lab=VSS}
 C {lab_pin.sym} 960 -630 0 1 {name=p5 sig_type=std_logic lab=VPWR}
 C {lab_pin.sym} 1640 -800 0 1 {name=p6 sig_type=std_logic lab=VPWR}
 C {lab_pin.sym} 1540 -700 0 0 {name=p7 sig_type=std_logic lab=VPWR
-spice_ignore=true}
-C {lab_pin.sym} 1540 -600 0 0 {name=p8 sig_type=std_logic lab=VPWR}
+}
+C {lab_pin.sym} 1540 -620 0 0 {name=p8 sig_type=std_logic lab=VPWR}
 C {devices/gnd.sym} 1560 -540 0 1 {name=l7 lab=VSS}
 C {noconn.sym} 1740 -600 3 1 {name=l8}
 C {devices/gnd.sym} 1260 -660 1 1 {name=l9 lab=VSS
-spice_ignore=true}
+}
 C {switched_cap_cell_pex.sym} 1660 -660 0 0 {name=x1}
 C {lab_pin.sym} 1760 -600 0 1 {name=p9 sig_type=std_logic lab=clkout
 }

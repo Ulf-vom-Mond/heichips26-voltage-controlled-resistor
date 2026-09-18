@@ -51,5 +51,4 @@ IHP-Open-PDK/
 
 # KLayout
 klayoutrc.*
-config/klayoutrc
-config/klayoutrc
+config/klayoutrc*

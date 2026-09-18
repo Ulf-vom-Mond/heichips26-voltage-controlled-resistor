@@ -86,7 +86,7 @@ subblock=0
 m=1
 mm_ok=1
 spiceprefix=X
-spice_ignore=true}
+}
 C {sg13cmos5l_pr/sg13_hv_nmos.sym} 20 320 0 1 {name=M4
 l=0.45u
 w=0.3u

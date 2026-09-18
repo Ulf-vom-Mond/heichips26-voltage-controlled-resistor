@@ -136,7 +136,6 @@ m=1
 C {isource.sym} 1280 -610 0 0 {name=I0 value=\{ictrl\}
 spice_ignore=true}
 C {devices/gnd.sym} 1280 -540 0 1 {name=l13 lab=VSS}
-C {switched_cap_cell.sym} 1660 -660 0 0 {name=x1}
 C {devices/gnd.sym} 1660 -540 0 1 {name=l1 lab=VSS}
 C {lab_pin.sym} 1680 -780 0 1 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 1900 -680 0 1 {name=p3 sig_type=std_logic lab=vr
@@ -159,3 +158,4 @@ C {lab_pin.sym} 1540 -600 0 0 {name=p8 sig_type=std_logic lab=VPWR}
 C {devices/gnd.sym} 1560 -540 0 1 {name=l7 lab=VSS}
 C {noconn.sym} 1740 -600 0 1 {name=l8}
 C {devices/gnd.sym} 1460 -660 0 1 {name=l9 lab=VSS}
+C {switched_cap_cell_wcap.sym} 1660 -660 0 0 {name=x2}

@@ -140,7 +140,7 @@ subblock=0
 m=1
 mm_ok=1
 spiceprefix=X
-spice_ignore=true}
+}
 C {transmission_gate.sym} 460 -80 0 0 {name=x2
 }
 C {transmission_gate.sym} 460 140 0 0 {name=x6
@@ -148,11 +148,8 @@ C {transmission_gate.sym} 460 140 0 0 {name=x6
 C {ipin.sym} -880 -120 2 1 {name=p2 lab=ctrl}
 C {lab_pin.sym} 0 -260 1 0 {name=p3 sig_type=std_logic lab=clk
 }
-C {osc.sym} -340 -320 0 0 {name=x1
-}
 C {hv_mux4.sym} -80 0 0 0 {name=x4
 }
-C {vco.sym} -340 -100 0 0 {name=x5}
 C {lab_pin.sym} -200 -120 1 0 {name=p26 sig_type=std_logic lab=vco_clk
 spice_ignore=true}
 C {pulse_shaper_en.sym} 100 20 0 0 {name=x3}
@@ -176,7 +173,7 @@ subblock=0
 m=1
 mm_ok=1
 spiceprefix=X
-spice_ignore=true}
+}
 C {ipin.sym} -880 -20 2 1 {name=p34 lab=clkin}
 C {ipin.sym} -880 140 2 1 {name=p35 lab=selA}
 C {ipin.sym} -880 300 2 1 {name=p36 lab=selB}
@@ -228,3 +225,5 @@ C {devices/lab_pin.sym} 300 60 0 1 {name=l17 sig_type=std_logic lab=nout2
 }
 C {devices/lab_pin.sym} 300 40 0 1 {name=l18 sig_type=std_logic lab=out2
 }
+C {osc_wcap.sym} -340 -320 0 0 {name=x1}
+C {vco_wcap.sym} -340 -100 0 0 {name=x5}
