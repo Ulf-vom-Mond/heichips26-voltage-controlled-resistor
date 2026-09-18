@@ -1,0 +1,22 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/voltage_mirror_pmos.sch
+.subckt voltage_mirror_pmos Ibias nout VDD in VSS out
+*.PININFO VDD:B VSS:B in:I out:O nout:O Ibias:I
+XR1 in Ibias VSS rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
+XM4 net1 Ibias VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM5 out net1 VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+XR2 VSS nout VSS rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
+XR3 out VDD VSS rhigh w=0.5e-6 l=34e-6 m=1 b=0 mm_ok=1
+XM2 net1 net1 VSS VSS sg13_hv_nmos w=n_w l=n_l ng=1 m=1 mm_ok=1
+XM3 nout Ibias VDD VDD sg13_hv_pmos w=p_w l=p_l ng=1 m=1 mm_ok=1
+XM6 Ibias Ibias VDD VDD sg13_hv_pmos w=1.9*p_w l=p_l ng=1 m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param n_w = 6u
+.param n_l = 5u
+.param p_w = 10u
+.param p_l = 2u
+
+
+**** end user architecture code
+.ends

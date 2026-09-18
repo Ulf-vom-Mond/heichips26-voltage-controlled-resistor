@@ -1,0 +1,43 @@
+* PEX produced on Fr 18. Sep 10:15:14 CEST 2026 using scripts/sak-pex.sh with m=3 and s=1 (extresist threshold=10000 mOhm, minres=1000 mOhm, mindelay=1 ps)
+* NGSPICE file created from osc_pex.ext - technology: ihp-sg13cmos5l
+
+.subckt osc_pex VDD out1 ictrl VSS c1 out2 c2
+X0 VDD ictrl c2 VDD sg13_hv_pmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=2u
+X1 VSS.t1 c2 out1 VSS.t5 sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
+X2 out1 ictrl VDD VDD sg13_hv_pmos ad=3.4p pd=20.68u as=3.4p ps=20.68u w=10u l=2u
+X3 VSS.t3 c2 c2 VSS.t4 sg13_hv_nmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=2u
+X4 VDD ictrl out2 VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=2u
+X5 ictrl ictrl VDD VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=2u
+X6 c1 ictrl VDD VDD sg13_hv_pmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=2u
+X7 c1 c1 VSS.t3 VSS.t2 sg13_hv_nmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=2u
+X8 out2 c1 VSS.t1 VSS.t0 sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
+R0 VSS.t4 VSS.n0 9.09376
+R1 VSS.n1 VSS.t0 19.5402
+R2 VSS.n1 VSS.n0 0.138774
+R3 VSS.n1 VSS.t5 19.4554
+R4 VSS.n0 VSS 0.163854
+R5 VSS.n0 VSS.t3 5.66717
+R6 VSS.n0 VSS.t2 9.09228
+R7 VSS.n0 VSS.t1 2.43808
+C0 out1 VDD 2.9636f
+C1 out2 ictrl 1.18684f
+C2 out1 c1 54.8536f
+C3 c2 ictrl 0.74891f
+C4 c2 out2 54.6792f
+C5 VDD ictrl 13.4073f
+C6 c1 ictrl 0.4911f
+C7 VDD out2 3.05056f
+C8 c2 VDD 2.19623f
+C9 out2 c1 0.76867f
+C10 c2 c1 1.35354f
+C11 out1 ictrl 0.97024f
+C12 VDD c1 2.24714f
+C13 out1 out2 0.01655f
+C14 c2 out1 0.76341f
+C15 out2 VSS 4.33595f
+C16 out1 VSS 7.6006f
+C17 VDD VSS 5.72753f
+C18 VSS.t1 VSS 3.31476f
+C19 VSS.t3 VSS 3.0243f
+.ends
+

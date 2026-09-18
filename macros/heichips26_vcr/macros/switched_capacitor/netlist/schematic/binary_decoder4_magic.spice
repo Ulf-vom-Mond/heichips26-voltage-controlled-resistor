@@ -1,0 +1,4 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/binary_decoder4.sch
+.subckt binary_decoder4
+
+.ends

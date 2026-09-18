@@ -1,0 +1,126 @@
+* PEX produced on Mi 16. Sep 19:42:38 CEST 2026 using scripts/sak-pex.sh with m=3 and s=1 (extresist threshold=10000 mOhm, minres=1000 mOhm, mindelay=1 ps)
+* NGSPICE file created from transmission_gate_pex.ext - technology: ihp-sg13cmos5l
+
+.subckt transmission_gate_pex vctrl vin vout nvctrl VDD VSS
+X0 vin vctrl vout VSS.t1 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X1 vin nvctrl vout VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X2 vout vctrl vin VSS.t12 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X3 vout nvctrl vin VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X4 vout vctrl vin VSS.t18 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X5 vin nvctrl vout VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X6 vout nvctrl vin VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X7 vin vctrl vout VSS.t9 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X8 vin vctrl vout VSS.t15 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X9 vout nvctrl vin VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X10 vin nvctrl vout VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X11 vout vctrl vin VSS.t2 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X12 vout nvctrl vin VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X13 vout vctrl vin VSS.t4 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X14 vin nvctrl vout VDD sg13_hv_pmos ad=1.7p pd=10.68u as=0.95p ps=5.38u w=5u l=0.45u
+X15 vout vctrl vin VSS.t10 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X16 vout nvctrl vin VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X17 vout nvctrl vin VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X18 vout vctrl vin VSS.t16 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X19 vin nvctrl vout VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X20 vout nvctrl vin VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X21 vin vctrl vout VSS.t7 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X22 vin vctrl vout VSS.t5 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X23 vin vctrl vout VSS.t13 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X24 vin nvctrl vout VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X25 vout nvctrl vin VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X26 vin vctrl vout VSS.t11 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X27 vin nvctrl vout VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X28 vout vctrl vin VSS.t0 sg13_hv_nmos ad=0.38p pd=2.38u as=0.68p ps=4.68u w=2u l=0.45u
+X29 vin vctrl vout VSS.t19 sg13_hv_nmos ad=0.68p pd=4.68u as=0.38p ps=2.38u w=2u l=0.45u
+X30 vin vctrl vout VSS.t17 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X31 vin nvctrl vout VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X32 vout vctrl vin VSS.t8 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X33 vin nvctrl vout VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X34 vin nvctrl vout VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X35 vin vctrl vout VSS.t3 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X36 vout vctrl vin VSS.t14 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X37 vout nvctrl vin VDD sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
+X38 vout vctrl vin VSS.t6 sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
+X39 vout nvctrl vin VDD sg13_hv_pmos ad=0.95p pd=5.38u as=1.7p ps=10.68u w=5u l=0.45u
+R0 VSS.n18 VSS.t3 228.781
+R1 VSS.t16 VSS.n14 228.781
+R2 VSS.t5 VSS.n11 209.001
+R3 VSS.t18 VSS.n8 202.407
+R4 VSS.t7 VSS.n6 182.629
+R5 VSS.t11 VSS.n1 182.627
+R6 VSS.t0 VSS.n13 163.148
+R7 VSS.t9 VSS.n20 156.254
+R8 VSS.t13 VSS.n12 156.254
+R9 VSS.t2 VSS.n3 136.475
+R10 VSS.n8 VSS.t17 136.475
+R11 VSS.t15 VSS.n19 129.881
+R12 VSS.t4 VSS.n18 110.1
+R13 VSS.n14 VSS.t15 110.1
+R14 VSS.t17 VSS.n5 103.796
+R15 VSS.t6 VSS.n9 84.0159
+R16 VSS.n2 VSS.t9 83.9758
+R17 VSS.t10 VSS.n2 83.9751
+R18 VSS.t19 VSS.n15 52.5049
+R19 VSS.t8 VSS.n17 57.6422
+R20 VSS.t12 VSS.n16 57.6422
+R21 VSS.t1 VSS.n10 37.862
+R22 VSS.n15 VSS.t18 37.8654
+R23 VSS.n9 VSS.t5 31.2686
+R24 VSS.t14 VSS.n4 31.2685
+R25 VSS.n8 VSS.n0 0.30094
+R26 VSS.n14 VSS.n0 0.30094
+R27 VSS.n2 VSS.n0 0.176477
+R28 VSS.n6 VSS.n0 0.30094
+R29 VSS.t6 VSS.n6 156.254
+R30 VSS.n11 VSS.n0 0.30094
+R31 VSS.t4 VSS.n11 129.881
+R32 VSS.n18 VSS.n0 0.30094
+R33 VSS.n3 VSS.n0 0.30094
+R34 VSS.t1 VSS.n3 202.407
+R35 VSS.n7 VSS.n0 0.0119713
+R36 VSS.n17 VSS.n0 0.0119713
+R37 VSS.n16 VSS.n0 0.0119713
+R38 VSS.n4 VSS.n0 0.0119713
+R39 VSS.n4 VSS.t13 84.0151
+R40 VSS.n16 VSS.t11 57.6414
+R41 VSS.n20 VSS.t8 182.629
+R42 VSS.n1 VSS.t10 156.255
+R43 VSS.n12 VSS.t12 182.629
+R44 VSS.n19 VSS.t14 209.001
+R45 VSS.n10 VSS.t0 77.4225
+R46 VSS.n7 VSS.t2 103.796
+R47 VSS.n17 VSS.t7 57.6414
+R48 VSS.n23 VSS.n0 8.48362
+R49 VSS.n21 VSS.n22 1.74115
+R50 VSS.n21 VSS.n0 0.00112938
+R51 VSS.t3 VSS.n7 11.4883
+R52 VSS.n5 VSS.t16 11.4884
+R53 VSS.n15 VSS.n0 0.00818938
+R54 VSS.n5 VSS.n0 0.0115971
+R55 VSS.n9 VSS.n0 0.0115971
+R56 VSS.n10 VSS.n0 0.0115971
+R57 VSS.n20 VSS.n0 0.30094
+R58 VSS.n1 VSS.n0 0.30094
+R59 VSS.n12 VSS.n0 0.30094
+R60 VSS.n19 VSS.n0 0.30094
+R61 VSS.n21 VSS.n24 1.56976
+R62 VSS.n23 VSS.n22 0.346657
+R63 VSS VSS.n24 0.0555
+R64 VSS.n24 VSS.n23 0.0357621
+R65 VSS.n13 VSS.n0 0.00100206
+R66 VSS.n22 VSS.n13 4.18061
+C0 VDD vctrl 0.0876f
+C1 nvctrl vin 3.68704f
+C2 VDD nvctrl 8.50343f
+C3 nvctrl vctrl 0.17981f
+C4 vout vin 27.2863f
+C5 VDD vout 1.39719f
+C6 vctrl vout 2.29962f
+C7 nvctrl vout 3.96151f
+C8 VDD vin 2.65452f
+C9 vctrl vin 2.45087f
+C10 vout VSS 5.70458f
+C11 vin VSS 6.42443f
+C12 VDD VSS 2.76335f
+.ends
+

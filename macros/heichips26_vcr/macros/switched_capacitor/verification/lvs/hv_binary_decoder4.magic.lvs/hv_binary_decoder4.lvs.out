@@ -1,0 +1,164 @@
+
+Circuit 1 cell sg13_hv_nmos and Circuit 2 cell sg13_hv_nmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_nmos                    |Circuit 2: sg13_hv_nmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_nmos and sg13_hv_nmos are equivalent.
+
+Circuit 1 cell sg13_hv_pmos and Circuit 2 cell sg13_hv_pmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_pmos                    |Circuit 2: sg13_hv_pmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_pmos and sg13_hv_pmos are equivalent.
+Flattening unmatched subcell hv_inverter_40u in circuit hv_binary_decoder4 (1)(2 instances)
+Flattening unmatched subcell hv_nand in circuit hv_binary_decoder4 (1)(4 instances)
+
+Class hv_binary_decoder4 (0):  Merged 60 parallel devices.
+Subcircuit summary:
+Circuit 1: hv_binary_decoder4              |Circuit 2: hv_binary_decoder4              
+-------------------------------------------|-------------------------------------------
+sg13_hv_pmos (40->10)                      |sg13_hv_pmos (10)                          
+sg13_hv_nmos (40->10)                      |sg13_hv_nmos (10)                          
+Number of devices: 20                      |Number of devices: 20                      
+Number of nets: 14                         |Number of nets: 14                         
+---------------------------------------------------------------------------------------
+Netlists match uniquely with property errors.
+sg13_hv_nmos:35 vs. hv_inverter_40u:10/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:35 vs. hv_inverter_40u:10/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:10 vs. hv_inverter_40u:3/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:10 vs. hv_inverter_40u:3/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:8 vs. hv_nand:7/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:8 vs. hv_nand:7/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:20 vs. hv_nand:11/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:20 vs. hv_nand:11/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:5 vs. hv_nand:9/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:5 vs. hv_nand:9/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:29 vs. hv_nand:8/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:29 vs. hv_nand:8/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:9 vs. hv_nand:7/sg13_hv_nmos:M1:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:9 vs. hv_nand:7/sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:7 vs. hv_nand:9/sg13_hv_nmos:M1:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:7 vs. hv_nand:9/sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:6 vs. hv_nand:11/sg13_hv_nmos:M1:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:6 vs. hv_nand:11/sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:4 vs. hv_nand:8/sg13_hv_nmos:M1:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:4 vs. hv_nand:8/sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:14 vs. hv_inverter_40u:10/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:14 vs. hv_inverter_40u:10/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:13 vs. hv_inverter_40u:3/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:13 vs. hv_inverter_40u:3/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:11 vs. hv_nand:9/sg13_hv_pmos:M4:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:11 vs. hv_nand:9/sg13_hv_pmos:M4:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:15 vs. hv_nand:8/sg13_hv_pmos:M4:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:15 vs. hv_nand:8/sg13_hv_pmos:M4:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:3 vs. hv_nand:7/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:3 vs. hv_nand:7/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:2 vs. hv_nand:9/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:2 vs. hv_nand:9/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:12 vs. hv_nand:7/sg13_hv_pmos:M4:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:12 vs. hv_nand:7/sg13_hv_pmos:M4:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:1 vs. hv_nand:11/sg13_hv_pmos:M4:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:1 vs. hv_nand:11/sg13_hv_pmos:M4:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:18 vs. hv_nand:11/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:18 vs. hv_nand:11/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:0 vs. hv_nand:8/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:0 vs. hv_nand:8/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+
+Subcircuit pins:
+Circuit 1: hv_binary_decoder4              |Circuit 2: hv_binary_decoder4              
+-------------------------------------------|-------------------------------------------
+VSS                                        |VSS                                        
+VDD                                        |VDD                                        
+msb                                        |msb                                        
+lsb                                        |lsb                                        
+nout4                                      |nout4                                      
+nout2                                      |nout2                                      
+nout3                                      |nout3                                      
+nout1                                      |nout1                                      
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes hv_binary_decoder4 and hv_binary_decoder4 are equivalent.
+
+Final result: Circuits match uniquely.
+Property errors were found.
+
+The following cells had property errors:
+ hv_binary_decoder4

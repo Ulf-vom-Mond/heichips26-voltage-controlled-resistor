@@ -1,0 +1,4 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/current_referencvwe.sch
+.subckt current_referencvwe
+
+.ends

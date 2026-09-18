@@ -1,0 +1,212 @@
+
+Circuit 1 cell sg13_hv_nmos and Circuit 2 cell sg13_hv_nmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_nmos                    |Circuit 2: sg13_hv_nmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_nmos and sg13_hv_nmos are equivalent.
+
+Circuit 1 cell sg13_hv_pmos and Circuit 2 cell sg13_hv_pmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_pmos                    |Circuit 2: sg13_hv_pmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_pmos and sg13_hv_pmos are equivalent.
+
+Circuit 1 cell rppd and Circuit 2 cell rppd are black boxes.
+Warning: Equate pins:  cell rppd is a placeholder, treated as a black box.
+Warning: Equate pins:  cell rppd is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: rppd                            |Circuit 2: rppd                            
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes rppd and rppd are equivalent.
+
+Circuit 1 cell rsil and Circuit 2 cell rsil are black boxes.
+Warning: Equate pins:  cell rsil is a placeholder, treated as a black box.
+Warning: Equate pins:  cell rsil is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: rsil                            |Circuit 2: rsil                            
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes rsil and rsil are equivalent.
+
+Circuit 1 cell rhigh and Circuit 2 cell rhigh are black boxes.
+Warning: Equate pins:  cell rhigh is a placeholder, treated as a black box.
+Warning: Equate pins:  cell rhigh is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: rhigh                           |Circuit 2: rhigh                           
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes rhigh and rhigh are equivalent.
+Flattening unmatched subcell transmission_gate in circuit switched_cap_cell (1)(3 instances)
+Flattening unmatched subcell osc in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell hv_mux4 in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell hv_nor4 in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell hv_nor in circuit switched_cap_cell (1)(4 instances)
+Flattening unmatched subcell vco in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell hv_rs-ff in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell hv_nand in circuit switched_cap_cell (1)(2 instances)
+Flattening unmatched subcell comp_pmos in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell comp_nmos in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell voltage_mirror_pmos in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell hv_inverter_6u5 in circuit switched_cap_cell (1)(2 instances)
+Flattening unmatched subcell bias_current_generator in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell current_reference_40uA in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell pulse_shaper_en in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell low_th_inverter in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell high_th_inverter in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell hv_inverter_40u in circuit switched_cap_cell (1)(5 instances)
+Flattening unmatched subcell hv_inverter_0u3 in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell hv_nor in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell hv_nand in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell hv_binary_decoder4 in circuit switched_cap_cell (1)(1 instance)
+Flattening unmatched subcell hv_inverter_40u in circuit switched_cap_cell (1)(2 instances)
+Flattening unmatched subcell hv_nand in circuit switched_cap_cell (1)(4 instances)
+Flattening unmatched subcell lvl_shift_up in circuit switched_cap_cell (1)(4 instances)
+Flattening unmatched subcell hv_inverter_6u5 in circuit switched_cap_cell (1)(4 instances)
+
+Class switched_cap_cell (0):  Merged 352 parallel devices.
+Class switched_cap_cell (0):  Merged 40 series devices.
+Class switched_cap_cell (1):  Merged 3 parallel devices.
+Subcircuit summary:
+Circuit 1: switched_cap_cell               |Circuit 2: switched_cap_cell               
+-------------------------------------------|-------------------------------------------
+sg13_hv_pmos (255->77)                     |sg13_hv_pmos (77)                          
+sg13_hv_nmos (250->76)                     |sg13_hv_nmos (79->76)                      
+rhigh (11->3)                              |rhigh (3)                                  
+rppd (2->1)                                |rppd (1)                                   
+rsil (32->1)                               |rsil (1)                                   
+(no matching element)                      |cap_cmomi (5)                              
+Number of devices: 158 **Mismatch**        |Number of devices: 163 **Mismatch**        
+Number of nets: 90                         |Number of nets: 90                         
+---------------------------------------------------------------------------------------
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: switched_cap_cell               |Circuit 2: switched_cap_cell               
+
+---------------------------------------------------------------------------------------
+Net: osc_0.c1                              |Net: net2                                  
+  sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_pmos/(1|3) = 1                   
+  sg13_hv_nmos/2 = 2                       |  cap_cmomi/2 = 1                          
+  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_nmos/(1|3) = 1                   
+                                           |  sg13_hv_pmos/2 = 1                       
+                                           |  sg13_hv_nmos/2 = 1                       
+                                           |                                           
+Net: osc_0.c2                              |Net: net13                                 
+  sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_pmos/(1|3) = 1                   
+  sg13_hv_nmos/(1|3) = 1                   |  cap_cmomi/1 = 1                          
+  sg13_hv_nmos/2 = 2                       |  sg13_hv_nmos/2 = 2                       
+                                           |  sg13_hv_nmos/(1|3) = 1                   
+                                           |                                           
+Net: transmission_gate_0.vout              |Net: net15                                 
+  sg13_hv_pmos/(1|3) = 2                   |  sg13_hv_pmos/(1|3) = 1                   
+  sg13_hv_nmos/(1|3) = 2                   |  cap_cmomi/2 = 1                          
+                                           |  sg13_hv_nmos/2 = 2                       
+                                           |  sg13_hv_nmos/(1|3) = 1                   
+                                           |                                           
+Net: hv_mux4_0.in3                         |Net: net17                                 
+  sg13_hv_pmos/(1|3) = 1                   |  cap_cmomi/1 = 1                          
+  sg13_hv_pmos/2 = 1                       |  sg13_hv_nmos/(1|3) = 1                   
+  sg13_hv_nmos/2 = 1                       |  sg13_hv_pmos/(1|3) = 1                   
+  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_pmos/2 = 1                       
+                                           |  sg13_hv_nmos/2 = 1                       
+                                           |                                           
+Net: vco_0.vc                              |Net: c_sw                                  
+  sg13_hv_pmos/(1|3) = 1                   |  cap_cmomi/1 = 2                          
+  sg13_hv_nmos/2 = 1                       |  sg13_hv_nmos/(1|3) = 2                   
+  sg13_hv_pmos/2 = 1                       |  sg13_hv_pmos/(1|3) = 2                   
+  sg13_hv_nmos/(1|3) = 1                   |                                           
+                                           |                                           
+Net: osc_0.out2                            |Net: net14                                 
+  sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_pmos/(1|3) = 1                   
+  sg13_hv_nmos/(1|3) = 1                   |  cap_cmomi/1 = 1                          
+                                           |  sg13_hv_nmos/(1|3) = 1                   
+                                           |                                           
+Net: VGND                                  |Net: VGND                                  
+  sg13_hv_nmos/4 = 76                      |  sg13_hv_nmos/4 = 76                      
+  sg13_hv_nmos/(1|3) = 62                  |  sg13_hv_nmos/(1|3) = 62                  
+  rhigh/3 = 3                              |  rhigh/3 = 3                              
+  rhigh/(1|2) = 1                          |  rhigh/(1|2) = 1                          
+  rppd/(1|2) = 1                           |  rppd/(1|2) = 1                           
+  rppd/3 = 1                               |  rppd/3 = 1                               
+  rsil/3 = 1                               |  rsil/3 = 1                               
+                                           |  cap_cmomi/2 = 3                          
+---------------------------------------------------------------------------------------
+DEVICE mismatches: Class fragments follow (with node fanout counts):
+Circuit 1: switched_cap_cell               |Circuit 2: switched_cap_cell               
+
+---------------------------------------------------------------------------------------
+(no matching instance)                     |Instance: cap_cmomi:C1                     
+                                           |  1 = 6                                    
+                                           |  2 = 148                                  
+                                           |                                           
+(no matching instance)                     |Instance: osc:1/cap_cmomi:C1               
+                                           |  1 = 5                                    
+                                           |  2 = 5                                    
+                                           |                                           
+(no matching instance)                     |Instance: osc:1/cap_cmomi:C2               
+                                           |  1 = 3                                    
+                                           |  2 = 5                                    
+                                           |                                           
+(no matching instance)                     |Instance: vco:5/cap_cmomi:C1               
+                                           |  1 = 5                                    
+                                           |  2 = 148                                  
+                                           |                                           
+(no matching instance)                     |Instance: cap_cmomi:C2                     
+                                           |  1 = 6                                    
+                                           |  2 = 148                                  
+---------------------------------------------------------------------------------------
+Netlists do not match.
+Port matching may fail to disambiguate symmetries.
+
+Subcircuit pins:
+Circuit 1: switched_cap_cell               |Circuit 2: switched_cap_cell               
+-------------------------------------------|-------------------------------------------
+VGND                                       |VGND                                       
+ctrl                                       |ctrl                                       
+VPWR                                       |VPWR                                       
+selA                                       |selA                                       
+selB                                       |selB                                       
+en                                         |en                                         
+clkin                                      |clkin                                      
+clkout                                     |clkout                                     
+r1                                         |r1                                         
+r2                                         |r2                                         
+VAPWR                                      |VAPWR                                      
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes switched_cap_cell and switched_cap_cell are equivalent.
+
+Final result: Netlists do not match.
+Port matching may fail to disambiguate symmetries.

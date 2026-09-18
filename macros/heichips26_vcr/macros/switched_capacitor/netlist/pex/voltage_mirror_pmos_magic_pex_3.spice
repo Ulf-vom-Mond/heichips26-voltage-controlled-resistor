@@ -1,0 +1,115 @@
+* PEX produced on Sa 12. Sep 15:56:59 CEST 2026 using scripts/sak-pex.sh with m=3 and s=1 (extresist threshold=10000 mOhm, minres=1000 mOhm, mindelay=1 ps)
+* NGSPICE file created from voltage_mirror_pmos_pex.ext - technology: ihp-sg13cmos5l
+
+.subckt voltage_mirror_pmos_pex Ibias nout VDD in VSS out
+X0 nout Ibias VDD VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=2u
+X1 Ibias Ibias VDD VDD sg13_hv_pmos ad=1.805p pd=9.88u as=3.23p ps=19.68u w=9.5u l=2u
+X2 a_2284_4092# a_2148_1746# VSS.t0 rhigh l=11.3u w=0.5u
+X3 out a_174_224# VSS VSS.t2 sg13_hv_nmos ad=2.04p pd=12.68u as=1.14p ps=6.38u w=6u l=5u
+X4 a_1876_4092# out VSS.t0 rhigh l=11.3u w=0.5u
+X5 VDD a_1740_1746# VSS.t0 rhigh l=11.3u w=0.5u
+X6 a_n474_1610# a_n610_168# VSS rhigh l=6.78u w=0.5u
+X7 VDD Ibias a_174_224# VDD sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=2u
+X8 a_n474_1610# a_n338_168# VSS rhigh l=6.78u w=0.5u
+X9 Ibias a_n338_168# VSS rhigh l=6.78u w=0.5u
+X10 a_2284_4092# VSS VSS.t0 rhigh l=11.3u w=0.5u
+X11 a_1876_4092# a_1740_1746# VSS.t0 rhigh l=11.3u w=0.5u
+X12 nout a_2148_1746# VSS.t0 rhigh l=11.3u w=0.5u
+X13 VSS a_174_224# a_174_224# VSS.t3 sg13_hv_nmos ad=1.14p pd=6.38u as=2.04p ps=12.68u w=6u l=5u
+X14 a_n746_1610# in VSS rhigh l=6.78u w=0.5u
+X15 a_n746_1610# a_n610_168# VSS rhigh l=6.78u w=0.5u
+X16 VDD Ibias Ibias VDD sg13_hv_pmos ad=3.23p pd=19.68u as=1.805p ps=9.88u w=9.5u l=2u
+R0 VSS VSS.t0 32.9929
+R1 VSS VSS.t2 32.3541
+R2 VSS.t3 VSS 32.3475
+C0 out a_2012_1832# 0.14184f
+C1 VDD a_n474_1610# 0.2585f
+C2 a_n474_254# a_n338_254# 0.6822f
+C3 Ibias a_n746_1610# 0.0573f
+C4 VDD a_1740_1832# 0.62313f
+C5 nout Ibias 0.58467f
+C6 a_n338_254# a_n474_1610# 0.0188f
+C7 a_n610_254# a_n746_254# 0.6822f
+C8 a_n610_168# a_n474_254# 0.0188f
+C9 out a_1740_1832# 0.0294f
+C10 a_n202_254# in 0.01066f
+C11 VDD Ibias 13.2853f
+C12 a_n610_254# a_n610_168# 0.0188f
+C13 a_2148_1832# a_2012_1832# 1.13701f
+C14 nout a_1876_1832# 0.08614f
+C15 Ibias a_n338_254# 0.07794f
+C16 Ibias a_n746_254# 0.02584f
+C17 a_1740_1832# a_1740_1746# 0.01899f
+C18 a_2012_1832# a_1876_4092# 0.01899f
+C19 a_2284_1832# a_2148_1746# 0.01899f
+C20 a_n202_254# a_n338_254# 0.6822f
+C21 VDD a_1876_1832# 0.05732f
+C22 nout a_2420_1832# 0.0337f
+C23 a_n338_168# a_n202_254# 0.01794f
+C24 out a_2148_1746# 0.1105f
+C25 out a_1876_1832# 0.06161f
+C26 nout a_2284_1832# 0.06706f
+C27 VDD a_n746_1610# 0.25968f
+C28 Ibias a_174_224# 1.07301f
+C29 a_2284_1832# a_2420_1832# 1.13701f
+C30 nout VDD 1.70167f
+C31 a_n746_254# a_n746_1610# 0.01794f
+C32 a_n474_254# a_n474_1610# 0.0188f
+C33 out nout 0.04143f
+C34 a_n202_254# a_174_224# 0.02538f
+C35 a_n610_254# a_n474_254# 0.6822f
+C36 in a_n338_254# 0.01669f
+C37 a_1876_1832# a_1740_1746# 0.01899f
+C38 out a_2420_1832# 0.01669f
+C39 a_n746_254# in 0.13907f
+C40 a_174_224# a_2148_1746# 0.02332f
+C41 a_2148_1832# a_2148_1746# 0.01899f
+C42 out a_2284_1832# 0.03525f
+C43 a_n610_168# in 0.10634f
+C44 out VDD 0.10792f
+C45 Ibias a_n474_254# 0.04573f
+C46 a_1876_1832# a_1876_4092# 0.01899f
+C47 Ibias a_n474_1610# 0.16076f
+C48 a_n338_168# a_n338_254# 0.0188f
+C49 nout a_174_224# 0.12933f
+C50 nout a_2148_1832# 0.15225f
+C51 a_n610_254# Ibias 0.03301f
+C52 a_174_224# in 0.04144f
+C53 a_1876_1832# a_2012_1832# 1.13701f
+C54 VDD a_1740_1746# 0.05014f
+C55 nout a_1876_4092# 0.12298f
+C56 a_n338_168# a_n610_168# 0.09486f
+C57 a_2148_1832# a_2284_1832# 1.13701f
+C58 VDD a_174_224# 1.89756f
+C59 nout a_2284_4092# 0.10634f
+C60 out a_1740_1746# 0.10655f
+C61 a_2284_4092# a_2420_1832# 0.01899f
+C62 a_174_224# a_n338_254# 0.01011f
+C63 nout a_2012_1832# 0.10723f
+C64 out a_174_224# 0.58877f
+C65 a_1876_1832# a_1740_1832# 1.13701f
+C66 out a_2148_1832# 0.06796f
+C67 VDD a_1876_4092# 0.09872f
+C68 a_2284_4092# a_2284_1832# 0.01899f
+C69 a_n202_254# Ibias 0.14305f
+C70 a_n746_1610# a_n474_1610# 0.09486f
+C71 a_n474_254# in 0.0294f
+C72 a_n610_254# a_n746_1610# 0.0188f
+C73 VDD a_2012_1832# 0.02112f
+C74 nout a_1740_1832# 0.09128f
+C75 a_174_224# a_1740_1746# 0.03576f
+C76 a_n610_254# in 0.06161f
+C77 in VSS 0.75804f
+C78 out VSS 7.36085f
+C79 nout VSS 1.61188f
+C80 VDD VSS 2.11435f
+C81 a_n338_168# VSS 0.76583f
+C82 a_n474_1610# VSS 0.48493f
+C83 a_n610_168# VSS 0.57183f
+C84 a_n746_1610# VSS 0.62114f
+C85 a_2284_4092# VSS 1.08311f
+C86 a_2148_1746# VSS 0.99407f
+C87 a_1876_4092# VSS 0.8462f
+C88 a_1740_1746# VSS 0.90112f
+.ends
+

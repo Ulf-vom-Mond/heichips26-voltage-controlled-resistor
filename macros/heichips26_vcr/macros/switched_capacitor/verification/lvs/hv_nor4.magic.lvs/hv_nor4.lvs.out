@@ -1,0 +1,101 @@
+
+Circuit 1 cell sg13_hv_pmos and Circuit 2 cell sg13_hv_pmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_pmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_pmos                    |Circuit 2: sg13_hv_pmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_pmos and sg13_hv_pmos are equivalent.
+
+Circuit 1 cell sg13_hv_nmos and Circuit 2 cell sg13_hv_nmos are black boxes.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_hv_nmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_hv_nmos                    |Circuit 2: sg13_hv_nmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_hv_nmos and sg13_hv_nmos are equivalent.
+
+Class hv_nor4 (0):  Merged 24 parallel devices.
+Subcircuit summary:
+Circuit 1: hv_nor4                         |Circuit 2: hv_nor4                         
+-------------------------------------------|-------------------------------------------
+sg13_hv_pmos (16->4)                       |sg13_hv_pmos (4)                           
+sg13_hv_nmos (16->4)                       |sg13_hv_nmos (4)                           
+Number of devices: 8                       |Number of devices: 8                       
+Number of nets: 10                         |Number of nets: 10                         
+---------------------------------------------------------------------------------------
+Netlists match uniquely with property errors.
+sg13_hv_nmos:15 vs. sg13_hv_nmos:M1:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:15 vs. sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:4 vs. sg13_hv_nmos:M6:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:4 vs. sg13_hv_nmos:M6:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:8 vs. sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:8 vs. sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:1 vs. sg13_hv_nmos:M5:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:1 vs. sg13_hv_nmos:M5:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:7 vs. sg13_hv_pmos:M4:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:7 vs. sg13_hv_pmos:M4:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:0 vs. sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:0 vs. sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:2 vs. sg13_hv_pmos:M7:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:2 vs. sg13_hv_pmos:M7:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:3 vs. sg13_hv_pmos:M8:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:3 vs. sg13_hv_pmos:M8:
+Property mm_ok in circuit2 has no matching property in circuit1
+
+Subcircuit pins:
+Circuit 1: hv_nor4                         |Circuit 2: hv_nor4                         
+-------------------------------------------|-------------------------------------------
+VSS                                        |VSS                                        
+in1                                        |in1                                        
+in4                                        |in4                                        
+in3                                        |in3                                        
+in2                                        |in2                                        
+out                                        |out                                        
+VDD                                        |VDD                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes hv_nor4 and hv_nor4 are equivalent.
+
+Final result: Circuits match uniquely.
+Property errors were found.
+
+The following cells had property errors:
+ hv_nor4

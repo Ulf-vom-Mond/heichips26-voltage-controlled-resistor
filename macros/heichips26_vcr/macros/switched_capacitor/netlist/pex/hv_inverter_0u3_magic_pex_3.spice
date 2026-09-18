@@ -1,0 +1,14 @@
+* PEX produced on Sa 12. Sep 17:07:06 CEST 2026 using scripts/sak-pex.sh with m=3 and s=1 (extresist threshold=10000 mOhm, minres=1000 mOhm, mindelay=1 ps)
+* NGSPICE file created from hv_inverter_0u3_pex.ext - technology: ihp-sg13cmos5l
+
+.subckt hv_inverter_0u3_pex VDD in out VSS
+X0 out in VSS VSS.t0 sg13_hv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.45u
+X1 out in VDD VDD sg13_hv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.4u
+R0 VSS VSS.t0 0.802561
+C0 in VDD 0.27021f
+C1 out in 0.51768f
+C2 out VDD 0.16195f
+C3 out VSS 0.49698f
+C4 VDD VSS 0.59712f
+.ends
+

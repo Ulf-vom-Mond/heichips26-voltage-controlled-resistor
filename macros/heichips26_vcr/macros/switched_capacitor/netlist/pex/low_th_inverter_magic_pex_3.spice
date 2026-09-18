@@ -1,0 +1,46 @@
+* PEX produced on Sa 12. Sep 18:48:51 CEST 2026 using scripts/sak-pex.sh with m=3 and s=1 (extresist threshold=10000 mOhm, minres=1000 mOhm, mindelay=1 ps)
+* NGSPICE file created from low_th_inverter_pex.ext - technology: ihp-sg13cmos5l
+
+.subckt low_th_inverter_pex VDD vin vout VSS
+X0 VSS.t3 vin vout VSS.t2 sg13_hv_nmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X1 vout vin VSS.t1 VSS.t0 sg13_hv_nmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+X2 vout vin VDD VDD sg13_hv_pmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.4u
+X3 VDD vin vout VDD sg13_hv_pmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.4u
+R0 VSS.t2 VSS.t0 66.0202
+R1 VSS.n0 VSS.n14 17.0005
+R2 VSS.n0 VSS.n11 17.0005
+R3 VSS.n13 VSS.t1 17.0005
+R4 VSS.n3 VSS.n10 17.0005
+R5 VSS.n3 VSS.n6 17.0005
+R6 VSS.t3 VSS.n7 17.0005
+R7 VSS.n1 VSS.n3 0.00149092
+R8 VSS.n0 VSS.n1 0.00217838
+R9 VSS.t1 VSS.n12 8.49201
+R10 VSS.n8 VSS.t3 8.49201
+R11 VSS.n15 VSS.n0 5.66717
+R12 VSS.n0 VSS.n2 1.1794
+R13 VSS.n0 VSS.n5 1.27506
+R14 VSS.n5 VSS.n4 0.454372
+R15 VSS.n2 VSS.n12 0.311917
+R16 VSS.n7 VSS.n5 0.304977
+R17 VSS.n9 VSS.n2 0.383546
+R18 VSS.n10 VSS.n9 0.053412
+R19 VSS.n15 VSS.n4 0.0338028
+R20 VSS.n13 VSS.n11 0.028257
+R21 VSS.n7 VSS.n6 0.028257
+R22 VSS.n12 VSS.n11 0.0271959
+R23 VSS.n8 VSS.n6 0.0271959
+R24 VSS.n10 VSS.n8 0.0261679
+R25 VSS VSS.n15 0.0156376
+R26 VSS.n14 VSS.n4 0.0087243
+R27 VSS.n14 VSS.n13 0.00769626
+R28 VSS.n0 VSS.t0 0.063602
+R29 VSS.n1 VSS.n9 8.49331
+C0 vin vout 0.44759f
+C1 vout VDD 0.35765f
+C2 vin VDD 0.78777f
+C3 vout VSS 1.13463f
+C4 VDD VSS 0.72138f
+C5 VSS.t3 VSS 0.50109f
+.ends
+
