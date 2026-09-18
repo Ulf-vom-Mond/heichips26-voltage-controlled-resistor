@@ -8,77 +8,77 @@ E {}
 N 560 260 560 280 {lab=VGND}
 N -1260 80 -1260 100 {lab=VGND}
 N -1260 -100 -1260 -80 {lab=VAPWR}
-N 540 -60 560 -60 {lab=#net1
+N 540 -60 560 -60 {lab=c
 }
 N 360 -60 380 -60 {lab=r1
 }
 N 0 0 20 0 {lab=clk}
-N 540 160 560 160 {lab=#net1
+N 540 160 560 160 {lab=c
 }
 N 360 160 380 160 {lab=r2
 }
-N 560 160 560 200 {lab=#net1}
-N 560 -60 560 160 {lab=#net1
+N 560 160 560 200 {lab=c}
+N 560 -60 560 160 {lab=c
 }
-N 280 -100 380 -100 {lab=#net2}
+N 260 -100 380 -100 {lab=#net1}
 N -660 -120 -440 -120 {lab=ctrl}
-N 180 -20 280 -20 {lab=#net2}
-N 280 -100 280 -20 {lab=#net2}
-N 180 0 300 0 {lab=#net3}
-N 300 -80 300 0 {lab=#net3}
-N 300 -80 380 -80 {lab=#net3}
-N 180 60 280 60 {lab=#net4}
-N 280 60 280 140 {lab=#net4}
-N 280 140 380 140 {lab=#net4}
-N 180 40 300 40 {lab=#net5}
-N 300 40 300 120 {lab=#net5}
-N 300 120 380 120 {lab=#net5}
-N -240 -120 -200 -120 {lab=#net6}
-N -200 -120 -200 -20 {lab=#net6}
-N -200 -20 -140 -20 {lab=#net6}
-N -240 -340 -160 -340 {lab=#net7}
-N -160 -340 -160 20 {lab=#net7}
-N 0 40 0 260 {lab=#net8}
-N 0 40 20 40 {lab=#net8}
-N -260 100 -140 100 {lab=#net9}
-N -260 120 -140 120 {lab=#net10}
-N -220 140 -140 140 {lab=#net11}
-N -260 160 -140 160 {lab=#net12}
+N 180 -20 260 -20 {lab=#net1}
+N 260 -100 260 -20 {lab=#net1}
+N 180 0 280 0 {lab=#net2}
+N 280 -80 280 0 {lab=#net2}
+N 280 -80 380 -80 {lab=#net2}
+N 180 60 260 60 {lab=#net3}
+N 260 60 260 140 {lab=#net3}
+N 260 140 380 140 {lab=#net3}
+N 180 40 280 40 {lab=#net4}
+N 280 40 280 120 {lab=#net4}
+N 280 120 380 120 {lab=#net4}
+N -240 -120 -200 -120 {lab=#net5}
+N -200 -120 -200 -20 {lab=#net5}
+N -200 -20 -140 -20 {lab=#net5}
+N -240 -340 -160 -340 {lab=#net6}
+N -160 -340 -160 20 {lab=#net6}
+N 0 40 0 260 {lab=#net7}
+N 0 40 20 40 {lab=#net7}
+N -260 100 -140 100 {lab=#net8}
+N -260 120 -140 120 {lab=#net9}
+N -220 140 -140 140 {lab=#net10}
+N -260 160 -140 160 {lab=#net11}
 N -880 -120 -660 -120 {lab=ctrl}
-N -480 -340 -440 -340 {lab=#net13}
-N -700 100 -420 100 {lab=#net14}
-N -680 120 -420 120 {lab=#net15}
-N -660 260 0 260 {lab=#net8}
+N -480 -340 -440 -340 {lab=#net12}
+N -700 100 -420 100 {lab=#net13}
+N -680 120 -420 120 {lab=#net14}
+N -660 260 0 260 {lab=#net7}
 N -660 -120 -660 20 {lab=ctrl}
 N -660 20 -180 20 {lab=ctrl}
 N -180 20 -180 60 {lab=ctrl}
 N -660 -340 -660 -120 {lab=ctrl}
 N -660 -340 -640 -340 {lab=ctrl}
-N -680 -220 -220 -220 {lab=#net11}
-N -820 -380 -820 -220 {lab=#net11}
-N -820 -380 -800 -380 {lab=#net11}
-N -680 -360 -680 -220 {lab=#net11}
-N -820 -220 -680 -220 {lab=#net11}
-N -680 -360 -640 -360 {lab=#net11}
-N -700 -380 -640 -380 {lab=#net16}
+N -680 -220 -220 -220 {lab=#net10}
+N -820 -380 -820 -220 {lab=#net10}
+N -820 -380 -800 -380 {lab=#net10}
+N -680 -360 -680 -220 {lab=#net10}
+N -820 -220 -680 -220 {lab=#net10}
+N -680 -360 -640 -360 {lab=#net10}
+N -700 -380 -640 -380 {lab=#net15}
 N -760 -340 -760 -320 {lab=VGND}
 N -760 -440 -760 -420 {lab=VAPWR}
 N 680 260 680 280 {lab=VGND}
-N 560 160 680 160 {lab=#net1}
-N 680 160 680 200 {lab=#net1}
+N 560 160 680 160 {lab=c}
+N 680 160 680 200 {lab=c}
 N 0 -260 0 0 {lab=clk}
 N -20 0 0 0 {lab=clk}
 N -880 -20 -840 -20 {lab=clkin}
 N -880 140 -840 140 {lab=selA}
 N -880 300 -840 300 {lab=selB}
 N -880 460 -840 460 {lab=en}
-N -720 -20 -700 -20 {lab=#net17}
-N -660 260 -660 460 {lab=#net8}
-N -720 460 -660 460 {lab=#net8}
-N -720 300 -680 300 {lab=#net15}
-N -680 120 -680 300 {lab=#net15}
-N -700 100 -700 140 {lab=#net14}
-N -720 140 -700 140 {lab=#net14}
+N -720 -20 -700 -20 {lab=#net16}
+N -660 260 -660 460 {lab=#net7}
+N -720 460 -660 460 {lab=#net7}
+N -720 300 -680 300 {lab=#net14}
+N -680 120 -680 300 {lab=#net14}
+N -700 100 -700 140 {lab=#net13}
+N -720 140 -700 140 {lab=#net13}
 N 100 -220 100 -200 {lab=VGND}
 N 100 -320 100 -300 {lab=VPWR}
 N 0 -260 60 -260 {lab=clk}
@@ -109,13 +109,20 @@ N -60 100 -60 120 {lab=VGND}
 N 100 -80 100 -60 {lab=VAPWR}
 N 100 100 100 120 {lab=VGND}
 N -180 60 -140 60 {lab=ctrl}
-N -160 20 -140 20 {lab=#net7}
-N -700 -20 -700 -0 {lab=#net17}
-N -700 -0 -180 -0 {lab=#net17}
-N -180 -60 -180 0 {lab=#net17}
-N -180 -60 -140 -60 {lab=#net17}
-N -220 -220 -220 140 {lab=#net11}
-N -260 140 -220 140 {lab=#net11}
+N -160 20 -140 20 {lab=#net6}
+N -700 -20 -700 -0 {lab=#net16}
+N -700 -0 -180 -0 {lab=#net16}
+N -180 -60 -180 0 {lab=#net16}
+N -180 -60 -140 -60 {lab=#net16}
+N -220 -220 -220 140 {lab=#net10}
+N -260 140 -220 140 {lab=#net10}
+N 680 160 700 160 {lab=c}
+N 280 0 300 0 {lab=nout1
+}
+N 280 40 300 40 {lab=out2
+}
+N 260 -20 300 -20 {lab=out1}
+N 260 60 300 60 {lab=nout2}
 C {iopin.sym} 360 -60 0 1 {name=p5 lab=r1}
 C {iopin.sym} 360 160 0 1 {name=p6 lab=r2}
 C {devices/iopin.sym} -1260 -100 3 0 {name=p11 lab=VAPWR}
@@ -212,3 +219,12 @@ C {lab_pin.sym} 100 120 0 1 {name=p10 sig_type=std_logic lab=VGND}
 C {lab_pin.sym} 560 280 0 1 {name=p15 sig_type=std_logic lab=VGND}
 C {lab_pin.sym} 680 280 0 1 {name=p33 sig_type=std_logic lab=VGND}
 C {lab_pin.sym} 100 -200 0 1 {name=p42 sig_type=std_logic lab=VGND}
+C {lab_pin.sym} 700 160 0 1 {name=p44 sig_type=std_logic lab=c_sw}
+C {devices/lab_pin.sym} 300 -20 0 1 {name=l15 sig_type=std_logic lab=out1
+}
+C {devices/lab_pin.sym} 300 0 0 1 {name=l6 sig_type=std_logic lab=nout1
+}
+C {devices/lab_pin.sym} 300 60 0 1 {name=l17 sig_type=std_logic lab=nout2
+}
+C {devices/lab_pin.sym} 300 40 0 1 {name=l18 sig_type=std_logic lab=out2
+}

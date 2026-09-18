@@ -138,10 +138,10 @@ plot i(victrl)
 .endc
 "}
 C {devices/vsource.sym} 400 -770 0 0 {name=VDD value=3.3}
-C {isource.sym} 660 -690 0 0 {name=I1 value=1u
+C {isource.sym} 660 -690 0 0 {name=I1 value=100u
 spice_ignore=true}
 C {gnd.sym} 400 -720 0 0 {name=l1 lab=0}
-C {code_shown.sym} 40 -1030 0 0 {value="
+C {code_shown.sym} 1060 -650 0 0 {value="
 .ic v(c1)=0
 "
 }
@@ -152,8 +152,8 @@ C {gnd.sym} 660 -640 0 0 {name=l4 lab=0
 }
 C {sg13cmos5l_pr/cap_cmomi.sym} 1060 -770 0 0 {name=C1
 model=cap_cmomi
-w=10e-6
-l=5e-6
+w=1e-6
+l=1e-6
 mmin=1
 mmax=4
 feed=double
@@ -175,7 +175,7 @@ m=1
 mm_ok=1
 spiceprefix=X
 IC=0
-}
+spice_ignore=true}
 C {lab_pin.sym} 1140 -820 0 0 {name=p3 sig_type=std_logic lab=c2}
 C {lab_pin.sym} 1040 -840 0 0 {name=p4 sig_type=std_logic lab=c1}
 C {osc_pex.sym} 1340 -840 0 0 {name=x1}
@@ -196,7 +196,7 @@ C {lab_pin.sym} 960 -860 1 0 {name=p5 sig_type=std_logic lab=ictrl
 C {lab_pin.sym} 640 -740 0 0 {name=p6 sig_type=std_logic lab=vin
 spice_ignore=true}
 C {gnd.sym} 680 -740 0 0 {name=l9 lab=0
-}
+spice_ignore=short}
 C {noconn.sym} 2220 -880 3 1 {name=l10}
 C {noconn.sym} 2220 -860 3 1 {name=l11}
 C {noconn.sym} 2220 -820 3 1 {name=l12}

@@ -1,26 +1,26 @@
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/switched_cap_cell.sch
 .subckt switched_cap_cell ctrl VAPWR VGND r2 r1 clkin selA selB en VPWR clkout
 *.PININFO r1:B r2:B VAPWR:B VGND:B ctrl:I clkin:I selA:I selB:I en:I clkout:O VPWR:B
-XC1 net1 VGND cap_cmomi w=30e-6 l=20e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
-x2 net2 r1 net1 net3 VAPWR VGND transmission_gate
-x6 net5 r2 net1 net4 VAPWR VGND transmission_gate
-x1 VAPWR net7 net13 VGND net18 net19 net20 osc
-x4 net9 VAPWR clk VGND net7 net17 ctrl net6 net10 net11 net12 hv_mux4
-x5 VAPWR net6 VGND net21 ctrl net22 vco
-x3 net2 net3 VAPWR clk VGND net5 net4 net8 pulse_shaper_en
-x7 net15 net14 net9 net10 VAPWR VGND net11 net12 hv_binary_decoder4
-* noconn #net22
-* noconn #net18
-* noconn #net20
-* noconn #net19
-* noconn #net21
-x8 net16 ctrl net13 net11 VAPWR VGND transmission_gate
-x9 VAPWR net11 net16 VGND hv_inverter_40u
-XC2 net1 VGND cap_cmomi w=104e-6 l=20e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
-x10 VAPWR clkin net17 VGND lvl_shift_up
-x11 VAPWR selA net14 VGND lvl_shift_up
-x12 VAPWR selB net15 VGND lvl_shift_up
-x13 VAPWR en net8 VGND lvl_shift_up
+XC1 c_sw VGND cap_cmomi w=30e-6 l=20e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+x2 out1 r1 c_sw nout1 VAPWR VGND transmission_gate
+x6 out2 r2 c_sw nout2 VAPWR VGND transmission_gate
+x1 VAPWR net2 net8 VGND net13 net14 net15 osc
+x4 net4 VAPWR clk VGND net2 net12 ctrl net1 net5 net6 net7 hv_mux4
+x5 VAPWR net1 VGND net16 ctrl net17 vco
+x3 out1 nout1 VAPWR clk VGND out2 nout2 net3 pulse_shaper_en
+x7 net10 net9 net4 net5 VAPWR VGND net6 net7 hv_binary_decoder4
+* noconn #net17
+* noconn #net13
+* noconn #net15
+* noconn #net14
+* noconn #net16
+x8 net11 ctrl net8 net6 VAPWR VGND transmission_gate
+x9 VAPWR net6 net11 VGND hv_inverter_40u
+XC2 c_sw VGND cap_cmomi w=104e-6 l=20e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+x10 VAPWR clkin net12 VGND lvl_shift_up
+x11 VAPWR selA net9 VGND lvl_shift_up
+x12 VAPWR selB net10 VGND lvl_shift_up
+x13 VAPWR en net3 VGND lvl_shift_up
 x14 VPWR clk clkout VGND hv_inverter_40u
 .ends
 

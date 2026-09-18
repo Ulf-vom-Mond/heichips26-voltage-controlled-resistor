@@ -1,4 +1,4 @@
-* PEX produced on Mi 16. Sep 21:44:07 CEST 2026 using scripts/sak-pex.sh with m=3 and s=1 (extresist threshold=10000 mOhm, minres=1000 mOhm, mindelay=1 ps)
+* PEX produced on Fr 18. Sep 10:15:14 CEST 2026 using scripts/sak-pex.sh with m=3 and s=1 (extresist threshold=10000 mOhm, minres=1000 mOhm, mindelay=1 ps)
 * NGSPICE file created from osc_pex.ext - technology: ihp-sg13cmos5l
 
 .subckt osc_pex VDD out1 ictrl VSS c1 out2 c2
@@ -11,57 +11,29 @@ X5 ictrl ictrl VDD VDD sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=
 X6 c1 ictrl VDD VDD sg13_hv_pmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=2u
 X7 c1 c1 VSS.t3 VSS.t2 sg13_hv_nmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=2u
 X8 out2 c1 VSS.t1 VSS.t0 sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
-R0 VSS.n15 VSS.n9 156.667
-R1 VSS.n16 VSS.n11 68.9635
-R2 VSS.n3 VSS.n5 0.0083616
-R3 VSS.n13 VSS.n7 56.0615
-R4 VSS.n14 VSS.t0 40.6302
-R5 VSS.n15 VSS.t5 35.0005
-R6 VSS.t5 VSS.n10 28.3338
-R7 VSS.t0 VSS.n8 28.3338
-R8 VSS.n5 VSS.n6 12.3667
-R9 VSS.n5 VSS.n7 17.0005
-R10 VSS.n5 VSS.n8 17.0005
-R11 VSS.n5 VSS.n9 17.0005
-R12 VSS.n5 VSS.n10 17.0005
-R13 VSS.n5 VSS.n11 17.0005
-R14 VSS.n5 VSS.n12 17.0005
-R15 VSS.n0 VSS.n7 13.3438
-R16 VSS.n1 VSS.n12 13.342
-R17 VSS.n1 VSS.n11 12.7621
-R18 VSS.n0 VSS.n8 12.7612
-R19 VSS.n14 VSS.n9 11.26
-R20 VSS.n16 VSS.n10 11.2593
-R21 VSS.n2 VSS.n3 0.190086
-R22 VSS.n2 VSS.n15 8.5005
-R23 VSS.n4 VSS 0.163891
-R24 VSS.n6 VSS.t2 2.42565
-R25 VSS.n2 VSS.t3 5.66717
-R26 VSS.t4 VSS.n12 3.33383
-R27 VSS.n13 VSS.n6 12.8812
-R28 VSS.n2 VSS.n14 1.91512
-R29 VSS.n2 VSS.n16 1.91491
-R30 VSS.n4 VSS.t1 2.43806
-R31 VSS.n2 VSS.n13 1.62777
-R32 VSS.n2 VSS.n4 0.0787908
-R33 VSS.n2 VSS.n0 0.37141
-R34 VSS.n2 VSS.n1 0.371345
-R35 VSS.n3 VSS.t4 54.2575
-C0 ictrl c1 0.4911f
-C1 out1 VDD 2.9636f
-C2 out1 c2 0.76341f
-C3 out2 c1 0.76867f
-C4 out2 ictrl 1.18684f
-C5 VDD c1 2.24714f
-C6 c2 c1 1.35354f
-C7 VDD ictrl 13.4073f
-C8 c2 ictrl 0.74891f
-C9 out1 c1 54.8536f
-C10 out2 VDD 3.05056f
-C11 out2 c2 54.6792f
-C12 out1 ictrl 0.97024f
-C13 out2 out1 0.01655f
-C14 c2 VDD 2.19623f
+R0 VSS.t4 VSS.n0 9.09376
+R1 VSS.n1 VSS.t0 19.5402
+R2 VSS.n1 VSS.n0 0.138774
+R3 VSS.n1 VSS.t5 19.4554
+R4 VSS.n0 VSS 0.163854
+R5 VSS.n0 VSS.t3 5.66717
+R6 VSS.n0 VSS.t2 9.09228
+R7 VSS.n0 VSS.t1 2.43808
+C0 out1 VDD 2.9636f
+C1 out2 ictrl 1.18684f
+C2 out1 c1 54.8536f
+C3 c2 ictrl 0.74891f
+C4 c2 out2 54.6792f
+C5 VDD ictrl 13.4073f
+C6 c1 ictrl 0.4911f
+C7 VDD out2 3.05056f
+C8 c2 VDD 2.19623f
+C9 out2 c1 0.76867f
+C10 c2 c1 1.35354f
+C11 out1 ictrl 0.97024f
+C12 VDD c1 2.24714f
+C13 out1 out2 0.01655f
+C14 c2 out1 0.76341f
 C15 out2 VSS 4.33595f
 C16 out1 VSS 7.6006f
 C17 VDD VSS 5.72753f

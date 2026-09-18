@@ -99,17 +99,17 @@ Circuit 1: vco                             |Circuit 2: vco
 
 ---------------------------------------------------------------------------------------
 Net: vc                                    |Net: vc                                    
-  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_nmos/(1|3) = 1                   
-  sg13_hv_nmos/2 = 1                       |  sg13_hv_nmos/2 = 1                       
   sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_pmos/(1|3) = 1                   
+  sg13_hv_nmos/2 = 1                       |  sg13_hv_nmos/2 = 1                       
   sg13_hv_pmos/2 = 1                       |  sg13_hv_pmos/2 = 1                       
+  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_nmos/(1|3) = 1                   
                                            |  cap_cmomi/1 = 1                          
                                            |                                           
 Net: VSS                                   |Net: VSS                                   
-  sg13_hv_nmos/(1|3) = 21                  |  sg13_hv_nmos/(1|3) = 21                  
   sg13_hv_nmos/4 = 27                      |  sg13_hv_nmos/4 = 27                      
-  rhigh/(1|2) = 1                          |  rhigh/(1|2) = 1                          
+  sg13_hv_nmos/(1|3) = 21                  |  sg13_hv_nmos/(1|3) = 21                  
   rhigh/3 = 3                              |  rhigh/3 = 3                              
+  rhigh/(1|2) = 1                          |  rhigh/(1|2) = 1                          
   rppd/(1|2) = 1                           |  rppd/(1|2) = 1                           
   rppd/3 = 1                               |  rppd/3 = 1                               
   rsil/3 = 1                               |  rsil/3 = 1                               
@@ -129,14 +129,15 @@ Port matching may fail to disambiguate symmetries.
 Subcircuit pins:
 Circuit 1: vco                             |Circuit 2: vco                             
 -------------------------------------------|-------------------------------------------
-VSS                                        |vc **Mismatch**                            
-vc                                         |VSS **Mismatch**                           
+vc                                         |vc                                         
+VSS                                        |VSS                                        
 nout                                       |nout                                       
 vctrl                                      |vctrl                                      
-VDD                                        |VDD                                        
 out                                        |out                                        
+VDD                                        |VDD                                        
 ---------------------------------------------------------------------------------------
-Cell pin lists for vco and vco altered to match.
+Cell pin lists are equivalent.
 Device classes vco and vco are equivalent.
 
-Final result: Top level cell failed pin matching.
+Final result: Netlists do not match.
+Port matching may fail to disambiguate symmetries.

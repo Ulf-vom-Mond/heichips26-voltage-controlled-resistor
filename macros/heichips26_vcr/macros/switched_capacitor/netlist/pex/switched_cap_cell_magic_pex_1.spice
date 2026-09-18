@@ -1,6 +1,8 @@
-* NGSPICE file created from switched_cap_cell.ext - technology: ihp-sg13cmos5l
+* PEX produced on Fr 18. Sep 10:42:04 CEST 2026 using scripts/sak-pex.sh with m=1 and s=1
+* NGSPICE file created from switched_cap_cell_pex.ext - technology: ihp-sg13cmos5l
 
-.subckt switched_cap_cell clkin selA selB en r2 r1 clkout VPWR VGND VAPWR ctrl
+.subckt switched_cap_cell_pex ctrl VAPWR VGND r2 r1 clkin selA selB en VPWR
++ clkout
 X0 VAPWR transmission_gate_2.vout osc_0.c1 VAPWR sg13_hv_pmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=2u
 X1 a_11754_8302# hv_mux4_0.hv_nor4_0.in2 a_12854_8302# VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
 X2 transmission_gate_0.vout transmission_gate_0.nvctrl r2 VAPWR sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
@@ -551,5 +553,81 @@ X546 a_12854_8302# hv_mux4_0.hv_nor4_0.in2 a_11754_8302# VAPWR sg13_hv_pmos ad=3
 X547 a_9554_8302# hv_mux4_0.nsel4 hv_mux4_0.hv_nor_1.out VAPWR sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
 X548 hv_mux4_0.in3 osc_0.c2 VGND VGND sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
 X549 a_3300_3910# a_3164_1840# VGND rsil l=10u w=0.5u
+C0 clkout VGND 29.53921f
+C1 r2 VGND 37.88957f
+C2 r1 VGND 35.53887f
+C3 ctrl VGND 0.45016f
+C4 VPWR VGND 18.4046f
+C5 VAPWR VGND 0.40354p
+C6 vco_0.bias_current_generator_0.5uA- VGND 1.48947f
+C7 vco_0.bias_current_generator_0.5uA+ VGND 2.76812f
+C8 a_12880_5408# VGND 1.18f
+C9 a_12744_3966# VGND 1.18f
+C10 a_12608_5408# VGND 1.18f
+C11 a_12472_3966# VGND 1.18f
+C12 a_9116_3986# VGND 4.41855f
+C13 a_8484_3986# VGND 0.1633p
+C14 a_4252_1840# VGND 2.72973f
+C15 a_4116_3910# VGND 1.58633f
+C16 a_3980_1840# VGND 1.58633f
+C17 a_3844_3910# VGND 1.58633f
+C18 a_3708_1840# VGND 1.58633f
+C19 a_3572_3910# VGND 1.58633f
+C20 a_3436_1840# VGND 1.58633f
+C21 a_3300_3910# VGND 1.58633f
+C22 a_3164_1840# VGND 1.58633f
+C23 a_3028_3910# VGND 1.58633f
+C24 a_2892_1840# VGND 1.58633f
+C25 a_2756_3910# VGND 1.58633f
+C26 a_2620_1840# VGND 1.58633f
+C27 a_2484_3910# VGND 1.58633f
+C28 a_2348_1840# VGND 1.58633f
+C29 a_2212_3910# VGND 1.58633f
+C30 a_2076_1840# VGND 1.58633f
+C31 a_1940_3910# VGND 1.58633f
+C32 a_1804_1840# VGND 1.58633f
+C33 a_1668_3910# VGND 1.58633f
+C34 a_1532_1840# VGND 1.58633f
+C35 a_1396_3910# VGND 1.58633f
+C36 a_1260_1840# VGND 1.58633f
+C37 a_1124_3910# VGND 1.58633f
+C38 a_988_1840# VGND 1.58633f
+C39 a_852_3910# VGND 1.58633f
+C40 a_716_1840# VGND 1.58633f
+C41 a_580_3910# VGND 1.58633f
+C42 a_444_1840# VGND 1.58633f
+C43 a_308_3910# VGND 1.58633f
+C44 a_172_1840# VGND 1.58633f
+C45 a_36_1840# VGND 19.25562f
+C46 a_36_3910# VGND 1.58633f
+C47 a_4588_4120# VGND 3.68942f
+C48 a_10052_3986# VGND 0.22508f
+C49 a_10394_5544# VGND 1.78021f
+C50 a_10258_7890# VGND 1.78021f
+C51 a_9986_5544# VGND 1.78021f
+C52 a_4364_4622# VGND 5.86112f
+C53 a_2164_4622# VGND 8.46041f
+C54 a_9196_4974# VGND 0.16898p
+C55 a_9850_7890# VGND 1.78021f
+C56 a_8648_7374# VGND 9.96323f
+C57 vco_0.comp_pmos_0.+ VGND 8.41892f
+C58 transmission_gate_0.vout VGND 0.97972p
+C59 a_13954_8302# VGND 9.7666f
+C60 a_12854_8302# VGND 22.04137f
+C61 a_11754_8302# VGND 22.48746f
+C62 a_9554_8302# VGND 17.1946f
+C63 a_7354_8302# VGND 29.63295f
+C64 a_5154_8302# VGND 40.54279f
+C65 a_2954_8302# VGND 27.5447f
+C66 a_13934_11830# VGND 14.01122f
+C67 a_7334_11830# VGND 4.30424f
+C68 a_5134_11830# VGND 8.55682f
+C69 a_2934_11830# VGND 11.83882f
+C70 a_734_11830# VGND 3.89028f
+C71 a_11754_12982# VGND 14.30624f
+C72 osc_0.out2 VGND 18.7051f
+C73 pulse_shaper_en_0.hv_nor$1_0.in2 VGND 0.2528f
+C74 lvl_shift_up_1.hv_inverter_6u5_0.in VGND 1.01118f
+C75 lvl_shift_up_3.hv_inverter_6u5_0.in VGND 1.01118f
 .ends
 
