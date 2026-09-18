@@ -1,5 +1,58 @@
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/testbenches/xschem/res_tb_tran.sch
+**.subckt res_tb_tran
+VDD VDD GND {VDD}
+VS vsweep GND PWL(0 -1.5 10m 1.5)
+Vmeas vd net1 0
+.save i(vmeas)
+E2 vd GND VOL=' {Vcm}+V(vsweep)/2 '
+E3 vb GND VOL=' {Vcm}-V(vsweep)/2 '
+vc vc_p GND 0
+x1 vc_p net1 vb VDD GND vcr_bisection
+**** begin user architecture code
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
+
+
+
+* .include ../../../netlist/pex/inverter_magic_pex_3.spice
+.param VDD=3.3
+.csparam VDD=VDD
+.param Vcm=2
+.csparam Vcm=Vcm
+.param temp=27
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15
+.control
+let vcc = 1
+
+save all
+set appendwrite
+
+* DC Sweep
+tran 1u 10m
+remzerovec
+end
+write res_tb_tran.raw
+set appendwrite
+
+* Plotting
+plot v(vsweep)
+plot i(vmeas)
+
+*quit
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  vcr_bisection.sym # of pins=5
+** sym_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection.sym
 ** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection.sch
-**.subckt vcr_bisection Vctrl T1 T2 Vdd Vss
+.subckt vcr_bisection Vctrl T1 T2 Vdd Vss
 *.ipin T1
 *.ipin T2
 *.ipin Vctrl
@@ -7,14 +60,15 @@
 *.ipin Vss
 R1 vcm net2 10k
 R2 vcm net1 10k
-XM1 T1 vg T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
+XM1 T1 net5 T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
 I0 Vdd net3 25u
 I1 Vdd net4 25u
 x1 Vdd net3 net2 net2 T1 Vss Vss op_amp_ver_2
 x2 Vdd net4 net1 net1 T2 Vss Vss op_amp_ver_2
-E1 vg Vss VOL=' v(vcm)-v(Vctrl) '
-I2 Vdd net5 25u
-**.ends
+x3 Vdd net6 net5 Vctrl Vss Vss vcm voltage_diff
+I2 Vdd net6 25u
+.ends
+
 
 * expanding   symbol:  macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym # of pins=7
 ** sym_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym
@@ -148,4 +202,6 @@ XR3 net1 V2 POAVSS rhigh w=2e-6 l=20e-6 m=1 b=0 mm_ok=1
 XR4 POAVSS net1 POAVSS rhigh w=2e-6 l=20e-6 m=1 b=0 mm_ok=1
 .ends
 
+.GLOBAL GND
+.GLOBAL VDD
 .end
