@@ -1,0 +1,17 @@
+{
+    "technology": "",
+    "statements": [
+        {
+            "lib_name": "heichips26_template_small_analog",
+            "lib_path": "$HOME/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/floorplan/heichips26_template_small_analog.gds"
+        },
+        {
+            "lib_name": "vcr_bisection",
+            "lib_path": "$HOME/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/vcr_bisection/layout/vcr_bisection.klay.gds"
+        },
+        {
+            "lib_name": "YadavVCR",
+            "lib_path": "$HOME/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/yadav/layout/YadavVCR.gds"
+        }
+    ]
+}
