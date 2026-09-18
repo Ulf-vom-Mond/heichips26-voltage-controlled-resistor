@@ -28,7 +28,7 @@ X23 a_2960_11830# hv_binary_decoder4_0.lsb VGND VGND sg13_hv_nmos ad=0.57p pd=3.
 X24 transmission_gate_2.vout hv_mux4_0.nsel3 ctrl VAPWR sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
 X25 VGND hv_binary_decoder4_0.lsb hv_binary_decoder4_0.hv_nand_0.in2 VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
 X26 VGND a_8856_6546# a_8144_6546# VGND sg13_hv_nmos ad=0.228p pd=1.58u as=0.408p ps=3.08u w=1.2u l=1.5u
-X27 VGND vco_0.comp_nmos$1_0.out VAPWR VGND sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=0.45u
+X27 VGND vco_0.comp_nmos$1_0.out vco_0.hv_rs-ff$1_0.nS VGND sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=0.45u
 X28 a_1966_3910# a_2102_1840# VGND rsil l=10u w=0.5u
 X29 vco_0.comp_nmos$1_0.Ibias vco_0.comp_nmos$1_0.Ibias VGND VGND sg13_hv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=1.5u
 X30 a_1694_3910# a_1830_1840# VGND rsil l=10u w=0.5u
@@ -46,7 +46,7 @@ X41 VAPWR lvl_shift_up_1.hv_inverter_6u5_0.in hv_binary_decoder4_0.msb VAPWR sg1
 X42 VGND transmission_gate_1.vctrl transmission_gate_1.nvctrl VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
 X43 transmission_gate_2.vout hv_inverter_40u_1.out ctrl VGND sg13_hv_nmos ad=0.38p pd=2.38u as=0.68p ps=4.68u w=2u l=0.45u
 X44 hv_mux4_0.nsel2 hv_binary_decoder4_0.hv_nand_0.in1 VAPWR VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
-X45 hv_mux4_0.in2 VAPWR VAPWR VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X45 hv_mux4_0.in2 vco_0.hv_rs-ff$1_0.nS VAPWR VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
 X46 a_12906_5408# ctrl VGND rhigh l=6.78u w=0.5u
 X47 vco_0.nout vco_0.hv_rs-ff$1_0.nR VAPWR VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
 X48 r1 transmission_gate_1.nvctrl transmission_gate_1.vout VAPWR sg13_hv_pmos ad=1.7p pd=10.68u as=0.95p ps=5.38u w=5u l=0.45u
@@ -55,7 +55,7 @@ X50 a_12634_5408# a_12770_3966# VGND rhigh l=6.78u w=0.5u
 X51 a_3598_3910# a_3734_1840# VGND rsil l=10u w=0.5u
 X52 a_11300_1983# a_9954_282# VGND VGND sg13_hv_nmos ad=2.04p pd=12.68u as=1.14p ps=6.38u w=6u l=5u
 X53 a_13960_11830# pulse_shaper_en_0.hv_nand$1_0.in1 transmission_gate_0.nvctrl VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
-X54 VAPWR VAPWR hv_mux4_0.in2 VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
+X54 VAPWR vco_0.hv_rs-ff$1_0.nS hv_mux4_0.in2 VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
 X55 a_2190_4622# hv_mux4_0.in2 vco_0.nout VGND sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
 X56 VAPWR vco_0.hv_rs-ff$1_0.nR vco_0.nout VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
 X57 hv_mux4_0.hv_nor_2.out hv_mux4_0.in3 VGND VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
@@ -74,7 +74,7 @@ X69 a_11780_12982# pulse_shaper_en_0.hv_nor$1_0.in1 transmission_gate_1.vctrl VA
 X70 r2 transmission_gate_0.vctrl transmission_gate_1.vout VGND sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
 X71 a_11780_12982# pulse_shaper_en_0.hv_nor$1_0.in2 VAPWR VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
 X72 a_12880_8302# hv_mux4_0.hv_nor4_0.in2 a_11780_8302# VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
-X73 hv_mux4_0.in2 VAPWR a_4390_4622# VGND sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
+X73 hv_mux4_0.in2 vco_0.hv_rs-ff$1_0.nS a_4390_4622# VGND sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
 X74 r1 transmission_gate_1.nvctrl transmission_gate_1.vout VAPWR sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
 X75 VGND vco_0.hv_rs-ff$1_0.nR a_2190_4622# VGND sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
 X76 pulse_shaper_en_0.hv_nor$1_0.in2 pulse_shaper_en_0.en VAPWR VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
@@ -141,7 +141,7 @@ X136 transmission_gate_2.vout hv_inverter_40u_1.out ctrl VGND sg13_hv_nmos ad=0.
 X137 VAPWR hv_mux4_0.in2 a_5180_8302# VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
 X138 hv_mux4_0.hv_nor_0.out hv_mux4_0.nsel1 a_2980_8302# VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
 X139 transmission_gate_1.nvctrl transmission_gate_1.vctrl VAPWR VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
-X140 hv_mux4_0.in2 VAPWR a_4390_4622# VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X140 hv_mux4_0.in2 vco_0.hv_rs-ff$1_0.nS a_4390_4622# VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
 X141 VAPWR pulse_shaper_en_0.hv_nor$1_0.in2 a_11780_12982# VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
 X142 a_760_11830# hv_binary_decoder4_0.hv_nand_0.in2 VGND VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
 X143 VGND vco_0.hv_rs-ff$1_0.nR a_2190_4622# VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
@@ -203,7 +203,7 @@ X198 r1 transmission_gate_1.vctrl transmission_gate_1.vout VGND sg13_hv_nmos ad=
 X199 VGND hv_mux4_0.in3 hv_mux4_0.hv_nor_2.out VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
 X200 r1 transmission_gate_1.nvctrl transmission_gate_1.vout VAPWR sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
 X201 a_606_3910# a_470_1840# VGND rsil l=10u w=0.5u
-X202 hv_mux4_0.in2 VAPWR VAPWR VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
+X202 hv_mux4_0.in2 vco_0.hv_rs-ff$1_0.nS VAPWR VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
 X203 vco_0.nout vco_0.hv_rs-ff$1_0.nR VAPWR VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
 X204 clkout hv_inverter_40u_0.in VGND VGND sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
 X205 transmission_gate_1.vctrl pulse_shaper_en_0.hv_nor$1_0.in1 a_11780_12982# VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=0.4u
@@ -224,7 +224,7 @@ X219 VGND hv_binary_decoder4_0.hv_nand_0.in2 a_5160_11830# VGND sg13_hv_nmos ad=
 X220 a_9222_4974# vco_0.comp_nmos$1_0.Ibias VGND VGND sg13_hv_nmos ad=0.816p pd=5.48u as=0.456p ps=2.78u w=2.4u l=1.5u
 X221 hv_mux4_0.hv_nor_0.out hv_mux4_0.in1 VGND VGND sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=0.45u
 X222 r2 transmission_gate_0.nvctrl transmission_gate_1.vout VAPWR sg13_hv_pmos ad=1.7p pd=10.68u as=0.95p ps=5.38u w=5u l=0.45u
-X223 VAPWR vco_0.comp_nmos$1_0.out VAPWR VAPWR sg13_hv_pmos ad=2.21p pd=13.68u as=1.2813n ps=4.387m w=6.5u l=0.4u
+X223 VAPWR vco_0.comp_nmos$1_0.out vco_0.hv_rs-ff$1_0.nS VAPWR sg13_hv_pmos ad=2.21p pd=13.68u as=2.21p ps=13.68u w=6.5u l=0.4u
 X224 VAPWR vco_0.bias_current_generator$1_0.current_reference_40uA$1_0.iout vco_0.bias_current_generator$1_0.current_reference_40uA$1_0.iout VAPWR sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
 X225 hv_mux4_0.in2 vco_0.nout VAPWR VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
 X226 VAPWR vco_0.bias_current_generator$1_0.current_reference_40uA$1_0.iout a_9954_282# VAPWR sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
@@ -312,7 +312,7 @@ X307 VAPWR vco_0.hv_rs-ff$1_0.nR vco_0.nout VAPWR sg13_hv_pmos ad=3.4p pd=20.68u
 X308 VAPWR selB lvl_shift_up_1.hv_inverter_6u5_0.in VAPWR sg13_hv_pmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
 X309 VAPWR a_11300_1983# a_11300_1983# VAPWR sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
 X310 transmission_gate_2.vout hv_inverter_40u_1.out ctrl VGND sg13_hv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.45u
-X311 a_4390_4622# VAPWR hv_mux4_0.in2 VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
+X311 a_4390_4622# vco_0.hv_rs-ff$1_0.nS hv_mux4_0.in2 VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
 X312 VAPWR vco_0.bias_current_generator$1_0.current_reference_40uA$1_0.iout a_7398_318# VAPWR sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=2u
 X313 a_2190_4622# vco_0.hv_rs-ff$1_0.nR VGND VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
 X314 ctrl hv_mux4_0.nsel3 transmission_gate_2.vout VAPWR sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
@@ -423,7 +423,7 @@ X418 a_3598_3910# a_3462_1840# VGND rsil l=10u w=0.5u
 X419 VGND hv_mux4_0.hv_nor_1.out hv_inverter_40u_0.in VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
 X420 a_4390_4622# vco_0.nout VGND VGND sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
 X421 VAPWR hv_mux4_0.in2 vco_0.nout VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
-X422 a_4390_4622# VAPWR hv_mux4_0.in2 VGND sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
+X422 a_4390_4622# vco_0.hv_rs-ff$1_0.nS hv_mux4_0.in2 VGND sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
 X423 a_2960_11830# hv_binary_decoder4_0.lsb VGND VGND sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
 X424 VGND hv_binary_decoder4_0.lsb a_2960_11830# VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
 X425 ctrl hv_mux4_0.nsel3 transmission_gate_2.vout VAPWR sg13_hv_pmos ad=0.95p pd=5.38u as=0.95p ps=5.38u w=5u l=0.45u
@@ -493,7 +493,7 @@ X488 r2 transmission_gate_0.nvctrl transmission_gate_1.vout VAPWR sg13_hv_pmos a
 X489 VGND hv_binary_decoder4_0.msb hv_binary_decoder4_0.hv_nand_0.in1 VGND sg13_hv_nmos ad=1.02p pd=6.68u as=0.57p ps=3.38u w=3u l=0.45u
 X490 transmission_gate_1.vctrl pulse_shaper_en_0.hv_nor$1_0.in1 a_11780_12982# VAPWR sg13_hv_pmos ad=1.9p pd=10.38u as=1.9p ps=10.38u w=10u l=0.4u
 X491 VAPWR vco_0.nout hv_mux4_0.in2 VAPWR sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
-X492 VAPWR VAPWR hv_mux4_0.in2 VAPWR sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
+X492 VAPWR vco_0.hv_rs-ff$1_0.nS hv_mux4_0.in2 VAPWR sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=0.4u
 X493 hv_binary_decoder4_0.hv_nand_0.in1 hv_binary_decoder4_0.msb VGND VGND sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=0.45u
 X494 VGND lvl_shift_up_3.hv_inverter_6u5_0.in hv_binary_decoder4_0.lsb VGND sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=0.45u
 X495 a_8674_7374# vco_0.comp_pmos$1_0.+ a_8144_6546# VAPWR sg13_hv_pmos ad=0.38p pd=2.38u as=0.68p ps=4.68u w=2u l=0.4u

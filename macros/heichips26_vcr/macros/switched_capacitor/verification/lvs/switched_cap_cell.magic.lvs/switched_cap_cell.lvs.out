@@ -110,7 +110,7 @@ rppd (2->1)                                |rppd (1)
 rsil (32->1)                               |rsil (1)                                   
 (no matching element)                      |cap_cmomi (5)                              
 Number of devices: 158 **Mismatch**        |Number of devices: 163 **Mismatch**        
-Number of nets: 89 **Mismatch**            |Number of nets: 90 **Mismatch**            
+Number of nets: 90                         |Number of nets: 90                         
 ---------------------------------------------------------------------------------------
 NET mismatches: Class fragments follow (with fanout counts):
 Circuit 1: switched_cap_cell               |Circuit 2: switched_cap_cell               
@@ -121,6 +121,37 @@ Net: osc_0.out2                            |Net: c_sw
   sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_nmos/(1|3) = 2                   
                                            |  sg13_hv_pmos/(1|3) = 2                   
                                            |                                           
+Net: osc_0.c1                              |Net: net14                                 
+  sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_pmos/(1|3) = 1                   
+  sg13_hv_nmos/2 = 2                       |  cap_cmomi/1 = 1                          
+  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_nmos/(1|3) = 1                   
+                                           |                                           
+Net: transmission_gate_1.vout              |Net: net2                                  
+  sg13_hv_pmos/(1|3) = 2                   |  sg13_hv_pmos/(1|3) = 1                   
+  sg13_hv_nmos/(1|3) = 2                   |  cap_cmomi/2 = 1                          
+                                           |  sg13_hv_nmos/(1|3) = 1                   
+                                           |  sg13_hv_pmos/2 = 1                       
+                                           |  sg13_hv_nmos/2 = 1                       
+                                           |                                           
+Net: vco_0.vc                              |Net: net13                                 
+  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_pmos/(1|3) = 1                   
+  sg13_hv_pmos/(1|3) = 1                   |  cap_cmomi/1 = 1                          
+  sg13_hv_nmos/2 = 1                       |  sg13_hv_nmos/2 = 2                       
+  sg13_hv_pmos/2 = 1                       |  sg13_hv_nmos/(1|3) = 1                   
+                                           |                                           
+Net: hv_mux4_0.in3                         |Net: net15                                 
+  sg13_hv_nmos/2 = 1                       |  sg13_hv_pmos/(1|3) = 1                   
+  sg13_hv_pmos/2 = 1                       |  cap_cmomi/2 = 1                          
+  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_nmos/2 = 2                       
+  sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_nmos/(1|3) = 1                   
+                                           |                                           
+Net: osc_0.c2                              |Net: net17                                 
+  sg13_hv_nmos/2 = 2                       |  cap_cmomi/1 = 1                          
+  sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_nmos/(1|3) = 1                   
+  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_pmos/(1|3) = 1                   
+                                           |  sg13_hv_pmos/2 = 1                       
+                                           |  sg13_hv_nmos/2 = 1                       
+                                           |                                           
 Net: VGND                                  |Net: VGND                                  
   sg13_hv_nmos/(1|3) = 62                  |  sg13_hv_nmos/(1|3) = 62                  
   sg13_hv_nmos/4 = 76                      |  sg13_hv_nmos/4 = 76                      
@@ -130,51 +161,6 @@ Net: VGND                                  |Net: VGND
   rhigh/(1|2) = 1                          |  rhigh/(1|2) = 1                          
   rsil/3 = 1                               |  rsil/3 = 1                               
                                            |  cap_cmomi/2 = 3                          
-                                           |                                           
-Net: transmission_gate_1.vout              |Net: net14                                 
-  sg13_hv_pmos/(1|3) = 2                   |  sg13_hv_pmos/(1|3) = 1                   
-  sg13_hv_nmos/(1|3) = 2                   |  cap_cmomi/1 = 1                          
-                                           |  sg13_hv_nmos/(1|3) = 1                   
-                                           |                                           
-Net: vco_0.vc                              |Net: net2                                  
-  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_pmos/(1|3) = 1                   
-  sg13_hv_pmos/(1|3) = 1                   |  cap_cmomi/2 = 1                          
-  sg13_hv_nmos/2 = 1                       |  sg13_hv_nmos/(1|3) = 1                   
-  sg13_hv_pmos/2 = 1                       |  sg13_hv_pmos/2 = 1                       
-                                           |  sg13_hv_nmos/2 = 1                       
-                                           |                                           
-Net: hv_mux4_0.in3                         |Net: net13                                 
-  sg13_hv_nmos/2 = 1                       |  sg13_hv_pmos/(1|3) = 1                   
-  sg13_hv_pmos/2 = 1                       |  cap_cmomi/1 = 1                          
-  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_nmos/2 = 2                       
-  sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_nmos/(1|3) = 1                   
-                                           |                                           
-Net: osc_0.c2                              |Net: net15                                 
-  sg13_hv_nmos/2 = 2                       |  sg13_hv_pmos/(1|3) = 1                   
-  sg13_hv_pmos/(1|3) = 1                   |  cap_cmomi/2 = 1                          
-  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_nmos/2 = 2                       
-                                           |  sg13_hv_nmos/(1|3) = 1                   
-                                           |                                           
-Net: osc_0.c1                              |Net: net17                                 
-  sg13_hv_pmos/(1|3) = 1                   |  cap_cmomi/1 = 1                          
-  sg13_hv_nmos/2 = 2                       |  sg13_hv_nmos/(1|3) = 1                   
-  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_pmos/(1|3) = 1                   
-                                           |  sg13_hv_pmos/2 = 1                       
-                                           |  sg13_hv_nmos/2 = 1                       
-                                           |                                           
-Net: VAPWR                                 |Net: VAPWR                                 
-  sg13_hv_pmos/4 = 76                      |  sg13_hv_pmos/4 = 76                      
-  sg13_hv_pmos/(1|3) = 63                  |  sg13_hv_pmos/(1|3) = 62                  
-  rhigh/(1|2) = 1                          |  rhigh/(1|2) = 1                          
-  sg13_hv_pmos/2 = 1                       |                                           
-  sg13_hv_nmos/2 = 1                       |                                           
-  sg13_hv_nmos/(1|3) = 1                   |                                           
-                                           |                                           
-(no matching net)                          |Net: vco:5/s                               
-                                           |  sg13_hv_nmos/2 = 1                       
-                                           |  sg13_hv_pmos/2 = 1                       
-                                           |  sg13_hv_nmos/(1|3) = 1                   
-                                           |  sg13_hv_pmos/(1|3) = 1                   
 ---------------------------------------------------------------------------------------
 DEVICE mismatches: Class fragments follow (with node fanout counts):
 Circuit 1: switched_cap_cell               |Circuit 2: switched_cap_cell               
@@ -206,8 +192,7 @@ Port matching may fail to disambiguate symmetries.
 Subcircuit pins:
 Circuit 1: switched_cap_cell               |Circuit 2: switched_cap_cell               
 -------------------------------------------|-------------------------------------------
-VGND                                       |(no pin, node is vco:5/s)                  
-VAPWR                                      |VGND **Mismatch**                          
+VGND                                       |(no pin, node is net14)                    
 ctrl                                       |ctrl                                       
 VPWR                                       |VPWR                                       
 clkout                                     |clkout                                     
@@ -217,7 +202,8 @@ en                                         |en
 clkin                                      |clkin                                      
 r1                                         |r1                                         
 r2                                         |r2                                         
-(no pin, node is VAPWR)                    |VAPWR                                      
+VAPWR                                      |VAPWR                                      
+(no pin, node is osc_0.c1)                 |VGND                                       
 ---------------------------------------------------------------------------------------
 Cell pin lists for switched_cap_cell and switched_cap_cell altered to match.
 Device classes switched_cap_cell and switched_cap_cell are equivalent.
