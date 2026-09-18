@@ -38,7 +38,7 @@ C {iopin.sym} 520 -310 3 0 {name=p2 lab=vdd
 }
 C {iopin.sym} 540 -310 3 0 {name=p3 lab=ibias
 }
-C {/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/opamp_rtr/schematic/xschem/opamp_rtr.sym} 490 -200 0 0 {name=x1}
+C {../../macros/opamp_rtr/schematic/xschem/opamp_rtr.sym} 490 -200 0 0 {name=x1}
 C {sg13cmos5l_pr/rppd.sym} 280 -400 1 0 {name=R4
 w=1e-6
 l=100e-6

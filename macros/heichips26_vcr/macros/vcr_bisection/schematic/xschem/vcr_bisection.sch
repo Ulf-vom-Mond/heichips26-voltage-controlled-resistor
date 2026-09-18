@@ -44,7 +44,7 @@ N 540 -620 540 -600 {lab=ib2}
 N 670 -620 670 -600 {lab=Vss}
 N 730 -620 730 -600 {lab=ib1}
 N 40 -370 60 -370 {lab=ib2}
-N 1060 -370 1080 -370 {lab=#net3}
+N 1060 -370 1080 -370 {lab=ib1}
 N 530 -150 550 -150 {lab=ib3}
 N 230 -440 250 -440 {lab=#net1}
 N -140 -560 -140 -540 {lab=Vss}
@@ -99,16 +99,16 @@ w=15u
 spiceprefix=X
 }
 C {lab_pin.sym} 460 40 0 0 {name=p6 sig_type=std_logic lab=Vss}
-C {/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/opamp_rtr/schematic/xschem/opamp_rtr.sym} 150 -320 3 0 {name=x1}
-C {/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/opamp_rtr/schematic/xschem/opamp_rtr.sym} 1170 -320 3 0 {name=x2}
-C {/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/isource_beta/schematic/xschem/isource_beta.sym} 290 -690 0 0 {name=x3}
+C {../../macros/opamp_rtr/schematic/xschem/opamp_rtr.sym} 150 -320 3 0 {name=x1}
+C {../../macros/opamp_rtr/schematic/xschem/opamp_rtr.sym} 1170 -320 3 0 {name=x2}
+C {../../macros/isource_beta/schematic/xschem/isource_beta.sym} 290 -690 0 0 {name=x3}
 C {lab_pin.sym} 290 -780 1 0 {name=p10 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} 290 -600 3 0 {name=p11 sig_type=std_logic lab=Vss}
 C {lab_pin.sym} 730 -600 3 0 {name=p14 sig_type=std_logic lab=ib1}
-C {/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/isource_beta/schematic/xschem/isource_beta.sym} 480 -690 0 0 {name=x5}
+C {../../macros/isource_beta/schematic/xschem/isource_beta.sym} 480 -690 0 0 {name=x5}
 C {lab_pin.sym} 480 -600 3 0 {name=p16 sig_type=std_logic lab=Vss}
 C {lab_pin.sym} 540 -600 3 0 {name=p27 sig_type=std_logic lab=ib2}
-C {/home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/isource_beta/schematic/xschem/isource_beta.sym} 670 -690 0 0 {name=x6}
+C {../../macros/isource_beta/schematic/xschem/isource_beta.sym} 670 -690 0 0 {name=x6}
 C {lab_pin.sym} 670 -600 3 0 {name=p29 sig_type=std_logic lab=Vss}
 C {lab_pin.sym} 350 -600 3 0 {name=p32 sig_type=std_logic lab=ib3}
 C {lab_pin.sym} 1060 -370 0 0 {name=p18 sig_type=std_logic lab=ib1}
