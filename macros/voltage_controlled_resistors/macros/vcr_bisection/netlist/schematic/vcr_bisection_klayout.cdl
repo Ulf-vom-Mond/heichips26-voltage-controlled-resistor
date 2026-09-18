@@ -1,0 +1,127 @@
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection.sch
+.subckt vcr_bisection i3_b2 i3_b1 i3_b4 i3_b3 i1_b0 i1_b1 i1_b2 i1_b4 i1_b3 i2_b0 i2_b1 i2_b2 i2_b4 i2_b3 i3_b0 Vctrl Vdd Vss T2
++ T1
+*.PININFO T1:I T2:I Vctrl:I Vdd:I Vss:I i1_b0:I i1_b1:I i1_b2:I i1_b4:I i1_b3:I i2_b0:I i2_b1:I i2_b2:I i2_b4:I i2_b3:I i3_b0:I
+*+ i3_b1:I i3_b2:I i3_b4:I i3_b3:I
+x4 ib3 Vss vgate Vctrl Vdd Vcm voltage_sum
+MM1 T2 vgate T1 Vss sg13_hv_nmos w=15u l=10u ng=2
+x1 Vdd T1 Vss net1 ib1 net1 opamp_rtr
+x2 Vdd T2 Vss net2 ib2 net2 opamp_rtr
+x3 i3_b0 Vdd i3_b1 ib3 i3_b2 i3_b3 Vss i3_b4 isource_beta
+x5 i2_b0 Vdd i2_b1 ib2 i2_b2 i2_b3 Vss i2_b4 isource_beta
+x6 i1_b0 Vdd i1_b1 ib1 i1_b2 i1_b3 Vss i1_b4 isource_beta
+RR4 Vcm net1 12.992k $SUB=vss $[rppd] w=1e-6 l=50e-6 b=0
+RR1 net2 Vcm 12.992k $SUB=vss $[rppd] w=1e-6 l=50e-6 b=0
+RR2 Vss Vss 1.3272k $SUB=vss $[rppd] w=1e-6 l=10e-6 b=0 m=2
+MM2 T1 T1 T1 Vss sg13_hv_nmos w=15u l=10u ng=2
+.ends
+
+* expanding   symbol:  voltage_sum.sym # of pins=6
+** sym_path: ./schematic/xschem/voltage_sum.sym
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/voltage_sum.sch
+.subckt voltage_sum ibias vss vout vin1 vdd vin2
+*.PININFO vin1:B vout:B vin2:B vss:B vdd:B ibias:B
+x1 vdd net2 vss net1 ibias vout opamp_rtr
+RR4 net2 vin1 25.915k $SUB=vss $[rppd] w=1e-6 l=100e-6 b=0
+RR1 net2 vin2 25.915k $SUB=vss $[rppd] w=1e-6 l=100e-6 b=0
+RR2 vout net1 25.915k $SUB=vss $[rppd] w=1e-6 l=100e-6 b=0
+RR3 vss net1 25.915k $SUB=vss $[rppd] w=1e-6 l=100e-6 b=0
+.ends
+
+
+* expanding   symbol:
+*+  /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/opamp_rtr/schematic/xschem/opamp_rtr.sym # of pins=6
+** sym_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/opamp_rtr/schematic/xschem/opamp_rtr.sym
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/opamp_rtr/schematic/xschem/opamp_rtr.sch
+.subckt opamp_rtr vdd inp vss inn ibias out
+*.PININFO inp:I out:O vdd:B inn:I ibias:I vss:B
+MXM6 out1_n inp ncmdiff_n vss sg13_hv_nmos w=5u l=2u ng=4
+MXM1 net1 inn ncmdiff_p ncmdiff_p sg13_hv_pmos w=15u l=2u ng=4
+MXM2 ncmdiff_p inp out1_p ncmdiff_p sg13_hv_pmos w=15u l=2u ng=4
+MXM3 ncmdiff_p vbias_p vdd vdd sg13_hv_pmos w=15u l=4u ng=2
+MXM4 vss net1 net1 vss sg13_hv_nmos w=5u l=4u ng=4
+MXM5 out1_p net1 vss vss sg13_hv_nmos w=5u l=4u ng=4
+MXM7 ncmdiff_n inn net2 vss sg13_hv_nmos w=5u l=2u ng=4
+MXM8 ncmdiff_n ibias vss vss sg13_hv_nmos w=5u l=4u ng=2
+MXM9 vdd net2 out1_n vdd sg13_hv_pmos w=15u l=4u ng=4
+MXM10 net2 net2 vdd vdd sg13_hv_pmos w=15u l=4u ng=4
+MXM25 nswa vbias_p ncmdiff_p ncmdiff_p sg13_hv_pmos w=15u l=1u ng=2
+MXM26 nswa nswa vss vss sg13_hv_nmos w=5u l=4u ng=4
+MXM27 ncmdiff_n nswa vss vss sg13_hv_nmos w=5u l=4u ng=4
+MXM28 ncmdiff_n vbias_p nswb vss sg13_hv_nmos w=5u l=1u ng=2
+MXM29 nswb nswb vdd vdd sg13_hv_pmos w=15u l=4u ng=4
+MXM30 ncmdiff_p nswb vdd vdd sg13_hv_pmos w=15u l=4u ng=4
+MXM13 out1_n nabn out1_p vss sg13_hv_nmos w=5u l=1u ng=2
+MXM14 out1_p nabp out1_n vdd sg13_hv_pmos w=15u l=1u ng=2
+MXM15 out1_n vbias_p vdd vdd sg13_hv_pmos w=15u l=4u ng=2
+MXM16 out1_p nab_ref vss vss sg13_hv_nmos w=5u l=4u ng=2
+MXM23 nab_ref vbias_p vdd vdd sg13_hv_pmos w=15u l=4u ng=2
+MXM24 nab_ref nab_ref vss vss sg13_hv_nmos w=5u l=4u ng=2
+MXM17 nabn vbias_p vdd vdd sg13_hv_pmos w=15u l=4u ng=2
+MXM18 nabn nabn net3 vss sg13_hv_nmos w=5u l=1u ng=2
+MXM19 net3 net3 vss vss sg13_hv_nmos w=5u l=1u ng=2
+MXM20 nabp nab_ref vss vss sg13_hv_nmos w=5u l=4u ng=2
+MXM21 nabp nabp net4 vdd sg13_hv_pmos w=15u l=1u ng=2
+MXM22 net4 net4 vdd vdd sg13_hv_pmos w=15u l=1u ng=2
+MXM11 out out1_n vdd vdd sg13_hv_pmos w=60u l=1u ng=8
+MXM12 out out1_p vss vss sg13_hv_nmos w=20u l=1u ng=8
+MXB1 ibias ibias vss vss sg13_hv_nmos w=5u l=4u ng=2
+MXB2 vbias_p ibias vss vss sg13_hv_nmos w=5u l=4u ng=2
+MXB3 vbias_p vbias_p vdd vdd sg13_hv_pmos w=15u l=4u ng=2
+**** begin user architecture code
+
+
+*bias network
+*first stage
+
+*output control circuit
+
+
+
+**** end user architecture code
+CC3 out net5 cap_cmomf w=13.5e-6 l=21e-6
+CC2 out net6 cap_cmomf w=13.5e-6 l=21e-6
+RR4 net5 out1_n 51.16k $SUB=vss $[rhigh] w=1e-6 l=36e-6 b=0
+RR2 net6 out1_p 51.16k $SUB=vss $[rhigh] w=1e-6 l=36e-6 b=0
+MDUMMY1 ncmdiff_n ncmdiff_n ncmdiff_n vss sg13_hv_nmos w=5u l=0.45u ng=4
+MDUMMY2 ncmdiff_n ncmdiff_n ncmdiff_n vss sg13_hv_nmos w=5u l=0.45u ng=2
+MDUMMY10 out1_n out1_n out1_n vdd sg13_hv_pmos w=15u l=1u ng=2
+MDUMMY11 out1_p out1_p out1_p vss sg13_hv_nmos w=5u l=1u ng=2
+RRDUMMY vss vss 6.455k $SUB=vss $[rhigh] w=1e-6 l=9e-6 b=0 m=2
+MDUMMY3 ncmdiff_p ncmdiff_p ncmdiff_p ncmdiff_p sg13_hv_pmos w=30u l=0.4u ng=6
+MDUMMY4 vss vss vss vss sg13_hv_nmos w=22.5u l=0.45u ng=12
+MDUMMY5 vdd vdd vdd vdd sg13_hv_pmos w=60u l=0.4u ng=11
+.ends
+
+
+* expanding   symbol:
+*+  /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/isource_beta/schematic/xschem/isource_beta.sym # of pins=8
+** sym_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/isource_beta/schematic/xschem/isource_beta.sym
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/macros/isource_beta/schematic/xschem/isource_beta.sch
+.subckt isource_beta b0 vdd b1 out b2 b3 vss b4
+*.PININFO out:O vdd:B vss:B b0:B b1:B b2:B b3:B b4:B
+MM1 net1 v0 vdd vdd sg13_hv_pmos w=12u l=4u ng=4
+MM2 v0 v0 vdd vdd sg13_hv_pmos w=12u l=4u ng=4
+MM3 net1 net1 vss vss sg13_hv_nmos w=40u l=4u ng=8
+MM4 v0 net1 iref vss sg13_hv_nmos w=40u l=4u ng=8 m=3
+MM5 out v0 vdd vdd sg13_hv_pmos w=12u l=4u ng=4
+MMS1 net2 vdd vdd vdd sg13_hv_pmos w=1u l=10u ng=1
+MMS2 net2 net1 vss vss sg13_hv_nmos w=10u l=0.45u ng=2
+MMS3 v0 net2 vss vss sg13_hv_nmos w=10u l=0.45u ng=2
+RR10 iref net4 41.422k $SUB=vss $[rppd] w=1e-6 l=160e-6 b=0
+RR2 net6 vss 2.6545k $SUB=vss $[rppd] w=1e-6 l=10e-6 b=0
+MM6 iref b4 net4 vss sg13_hv_nmos w=16u l=0.45u ng=2
+RR3 net5 net6 5.239k $SUB=vss $[rppd] w=1e-6 l=20e-6 b=0
+RR4 net3 net5 10.408k $SUB=vss $[rppd] w=1e-6 l=40e-6 b=0
+RR5 net4 net3 20.746k $SUB=vss $[rppd] w=1e-6 l=80e-6 b=0
+MM7 net4 b3 net3 vss sg13_hv_nmos w=16u l=0.45u ng=2
+MM8 net3 b2 net5 vss sg13_hv_nmos w=16u l=0.45u ng=2
+MM9 net5 b1 net6 vss sg13_hv_nmos w=16u l=0.45u ng=2
+MM10 net6 b0 vss vss sg13_hv_nmos w=16u l=0.45u ng=2
+MM11 v0 v0 v0 vss sg13_hv_nmos w=100u l=0.5u ng=20
+MM12 vss vss vss vss sg13_hv_nmos w=26u l=0.45u ng=4
+RR1 vss vss 1.3272k $SUB=vss $[rppd] w=1e-6 l=10e-6 b=0 m=2
+MM13 vss vss vss vss sg13_hv_nmos w=20u l=0.5u ng=4
+MMS4 vdd vdd vdd vdd sg13_hv_pmos w=18u l=0.4u ng=6
+.ends
+
