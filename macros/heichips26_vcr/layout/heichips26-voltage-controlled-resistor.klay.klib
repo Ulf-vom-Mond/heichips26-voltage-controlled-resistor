@@ -12,6 +12,10 @@
         {
             "lib_name": "YadavVCR",
             "lib_path": "$HOME/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/yadav/layout/YadavVCR.gds"
+        },
+        {
+            "lib_name": "switched_cap_cell",
+            "lib_path": "$HOME/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/layout/switched_cap_cell.gds"
         }
     ]
 }
