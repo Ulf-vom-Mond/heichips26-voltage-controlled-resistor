@@ -1,0 +1,108 @@
+v {xschem version=3.4.8RC file_version=1.3}
+G {}
+K {}
+V {}
+S {}
+F {}
+E {}
+B 2 1640 -820 2440 -420 {flags=graph
+y1=0.858
+y2=1.518
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=-0.004
+x2=0.001
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node=i(vmeas)
+color=4
+dataset=-1
+unitx=1
+logx=0
+logy=0
+linewidth_mult=3
+autoload=0}
+T {Testbench for linearity analysis - VCR} 740 -1730 0 0 1 1 {}
+N 1110 -700 1110 -660 {lab=VDD}
+N 1110 -600 1110 -560 {lab=GND}
+N 570 -470 570 -450 {lab=vb}
+N 510 -470 570 -470 {lab=vb}
+N 570 -390 570 -370 {lab=GND}
+N 1100 -470 1120 -470 {lab=vd}
+N 1100 -470 1100 -450 {lab=vd}
+N 1100 -390 1100 -370 {lab=GND}
+N 860 -540 860 -520 {lab=VDD}
+N 860 -380 860 -360 {lab=GND}
+C {devices/launcher.sym} 1700 -1410 0 0 {name=h2
+descr="Simulate" 
+tclcommand="xschem save; xschem netlist; xschem simulate"
+}
+C {title-3.sym} 0 0 0 0 {name=l2 author="VCR authors" rev=1.0 lock=true}
+C {devices/vsource.sym} 1110 -630 0 0 {name=VDD value=\{VDD\}}
+C {devices/gnd.sym} 1110 -560 0 0 {name=l3 lab=GND}
+C {vdd.sym} 1110 -700 0 0 {name=l7 lab=VDD}
+C {devices/lab_pin.sym} 520 -470 0 1 {name=l12 sig_type=std_logic lab=vb}
+C {devices/lab_pin.sym} 1100 -470 0 0 {name=l22 sig_type=std_logic lab=vd}
+C {devices/gnd.sym} 570 -370 0 0 {name=l26 lab=GND}
+C {devices/code_shown.sym} 1960 -1410 0 0 {name=MODEL only_toplevel=true
+format="tcleval( @value )"
+value="
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
+"}
+C {devices/gnd.sym} 1100 -370 0 0 {name=l4 lab=GND}
+C {devices/vsource.sym} 570 -420 0 0 {name=VS value=1.5}
+C {devices/code_shown.sym} 90 -1550 0 0 {name=NGSPICE
+only_toplevel=true 
+value="
+* .include ../../../netlist/pex/inverter_magic_pex_3.spice
+.param VDD=3.3
+.csparam VDD=VDD
+.param Vcm=1.65
+.csparam Vcm=Vcm
+.param temp=27
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
+.control
+
+save all
+set appendwrite
+
+
+
+
+dc VS 0 3.3 1m
+remzerovec
+  
+write @schname\\\\.raw
+set appendwrite
+
+* Plotting
+plot out vd vb
+
+* Write Data
+unset appendwrite
+set wr_vecnames
+set wr_singlescale
+
+*quit
+.endc
+"}
+C {vsource_arith.sym} 1100 -420 0 0 {name=E3 VOL="0"}
+C {devices/launcher.sym} 1700 -1360 0 0 {name=h3
+descr="Annotate OP" 
+tclcommand="set show_hidden_texts 1; xschem annotate_op"
+}
+C {devices/gnd.sym} 860 -360 0 0 {name=l10 lab=GND}
+C {vdd.sym} 860 -540 0 0 {name=l11 lab=VDD}
+C {voltage_max.sym} 860 -450 0 0 {name=x1}
+C {devices/lab_pin.sym} 760 -470 0 0 {name=l6 sig_type=std_logic lab=vd}
+C {devices/lab_pin.sym} 760 -430 0 0 {name=l8 sig_type=std_logic lab=vb}
+C {devices/lab_pin.sym} 960 -450 2 0 {name=l9 sig_type=std_logic lab=out}

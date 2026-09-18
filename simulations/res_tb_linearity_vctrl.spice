@@ -1,5 +1,73 @@
+** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/testbenches/xschem/res_tb_linearity_vctrl.sch
+**.subckt res_tb_linearity_vctrl
+VDD VDD GND {VDD}
+VS vsweep GND 1.5
+Vmeas vd net1 0
+.save i(vmeas)
+E2 vd GND VOL=' {Vcm}+V(vsweep)/2 '
+E3 vb GND VOL=' {Vcm}-V(vsweep)/2 '
+vc vc_p GND 0
+x1 vc_p net1 vb VDD GND vcr_bisection
+**** begin user architecture code
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
+
+
+
+* .include ../../../netlist/pex/inverter_magic_pex_3.spice
+.param VDD=3.3
+.csparam VDD=VDD
+.param Vcm=2
+.csparam Vcm=Vcm
+.param temp=27
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-15 gmin=1e-15 rshunt=1e13
+.control
+let vcc = 0.75
+
+save all
+set appendwrite
+
+
+
+repeat 5
+  alter vc $&vcc
+
+  * DC Sweep
+  dc VS -1 1 1m
+  remzerovec
+  let vcc = vcc + 0.25
+end
+write res_tb_linearity_vctrl.raw
+set appendwrite
+
+* Plotting
+plot (dc1.v(vd) - dc1.v(vb))/(dc1.i(vmeas)) (dc2.v(vd) - dc2.v(vb))/(dc2.i(vmeas)) (dc3.v(vd) - dc3.v(vb))/(dc3.i(vmeas)) (dc4.v(vd) - dc4.v(vb))/(dc4.i(vmeas)) (dc5.v(vd) - dc5.v(vb))/(dc5.i(vmeas)) ylimit 0 10k
+
+plot dc1.i(vmeas) dc2.i(vmeas) dc3.i(vmeas) dc4.i(vmeas) dc5.i(vmeas)
+
+* Write Data
+unset appendwrite
+set wr_vecnames
+set wr_singlescale
+wrdata ../plot_simulations/data/res_tb_linearity_vctrl.txt v(vc_p) dc1.v(vsweep)/(dc1.i(Vmeas)) dc2.v(vsweep)/(dc2.i(Vmeas)) dc3.v(vsweep)/(dc3.i(Vmeas)) dc4.v(vsweep)/(dc4.i(Vmeas)) dc5.v(vsweep)/(dc5.i(Vmeas))
+
+write res_tb_linearity.raw
+
+*quit
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  vcr_bisection.sym # of pins=5
+** sym_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection.sym
 ** sch_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/vcr_bisection/schematic/xschem/vcr_bisection.sch
-**.subckt vcr_bisection Vctrl T1 T2 Vdd Vss
+.subckt vcr_bisection Vctrl T1 T2 Vdd Vss
 *.ipin T1
 *.ipin T2
 *.ipin Vctrl
@@ -7,14 +75,15 @@
 *.ipin Vss
 R1 vcm net2 10k
 R2 vcm net1 10k
-XM1 T1 vg T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
+XM1 T1 net5 T2 vcm sg13_hv_pmos w=50u l=10u ng=10 m=1 mm_ok=1
 I0 Vdd net3 25u
 I1 Vdd net4 25u
 x1 Vdd net3 net2 net2 T1 Vss Vss op_amp_ver_2
 x2 Vdd net4 net1 net1 T2 Vss Vss op_amp_ver_2
-E1 vg Vss VOL=' v(vcm)-v(Vctrl) '
-I2 Vdd net5 25u
-**.ends
+x3 Vdd net6 net5 Vctrl Vss Vss vcm voltage_diff
+I2 Vdd net6 25u
+.ends
+
 
 * expanding   symbol:  macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym # of pins=7
 ** sym_path: /home/santi/heichips26-voltage-controlled-resistor/macros/voltage_controlled_resistors/macros/opamp/schematic/xschem/op_amp_ver_2.sym
@@ -148,4 +217,6 @@ XR3 net1 V2 POAVSS rhigh w=2e-6 l=20e-6 m=1 b=0 mm_ok=1
 XR4 POAVSS net1 POAVSS rhigh w=2e-6 l=20e-6 m=1 b=0 mm_ok=1
 .ends
 
+.GLOBAL GND
+.GLOBAL VDD
 .end

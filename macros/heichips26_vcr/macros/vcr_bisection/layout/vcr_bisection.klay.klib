@@ -1,0 +1,13 @@
+{
+    "technology": "",
+    "statements": [
+        {
+            "lib_name": "opamp_rtr",
+            "lib_path": "../macros/opamp_rtr/layout/opamp_rtr.gds"
+        },
+        {
+            "lib_name": "isource_beta",
+            "lib_path": "../macros/isource_beta/layout/isource_beta.gds"
+        }
+    ]
+}

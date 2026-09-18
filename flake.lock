@@ -70,11 +70,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785453985,
-        "narHash": "sha256-rcRN0hFvN0GiIVOKh5jiSfLTYnmnl52Qm0Dhxsl712Q=",
+        "lastModified": 1786616749,
+        "narHash": "sha256-yqBaEGOVFsSJ0L0CPHtzzB5IaI5u2M2XCkMZ5uDDui0=",
         "owner": "librelane",
         "repo": "librelane",
-        "rev": "fb1291cb1fda72090841aff2b348170aa9d9d8a2",
+        "rev": "ca6adb1e2982cd75445a68b632d461213d8ca421",
         "type": "github"
       },
       "original": {
