@@ -57,25 +57,18 @@ N 320 -340 320 -320 {lab=VDD
 }
 N 320 -200 320 -180 {lab=VSS
 }
-N 220 -240 240 -240 {lab=#net4
+N 220 -240 240 -240 {lab=dis
 }
-N 40 -120 60 -120 {lab=en}
 N 320 220 320 240 {lab=VDD
 }
 N 320 360 320 380 {lab=VSS
 }
 N 220 320 240 320 {lab=en
 }
-N 100 -80 100 -60 {lab=VSS
-}
-N 100 -180 100 -160 {lab=VDD
-}
-N 40 -120 40 0 {lab=en}
-N -220 -120 40 -120 {lab=en}
-N 40 -0 220 -0 {lab=en}
-N 220 -0 220 320 {lab=en}
-N 160 -120 220 -120 {lab=#net4}
-N 220 -240 220 -120 {lab=#net4}
+N -220 -120 220 -120 {lab=en}
+N 220 -120 220 320 {lab=en}
+N -220 -140 220 -140 {lab=dis}
+N 220 -240 220 -140 {lab=dis}
 C {lab_pin.sym} -140 -60 2 0 {name=p1 sig_type=std_logic lab=VDD
 }
 C {low_th_inverter.sym} 100 280 0 0 {name=x7
@@ -142,9 +135,5 @@ C {lab_pin.sym} 320 220 2 0 {name=p11 sig_type=std_logic lab=VDD
 C {lab_pin.sym} 320 380 0 1 {name=p22 sig_type=std_logic lab=VSS
 }
 C {hv_nand.sym} 320 300 0 0 {name=x4}
-C {lab_pin.sym} 100 -180 2 0 {name=p14 sig_type=std_logic lab=VDD
-}
-C {hv_inverter_40u.sym} 100 -120 0 0 {name=x3
-}
-C {lab_pin.sym} 100 -60 0 1 {name=p15 sig_type=std_logic lab=VSS
+C {ipin.sym} -220 -140 0 0 {name=p14 lab=dis
 }

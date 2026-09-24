@@ -1,14 +1,13 @@
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/pulse_shaper_en.sch
-.subckt pulse_shaper_en out1 nout1 VDD in VSS out2 nout2 en
-*.PININFO out1:O nout1:O out2:O nout2:O in:I VSS:B VDD:B en:I
+.subckt pulse_shaper_en out1 nout1 VDD in VSS out2 nout2 en dis
+*.PININFO out1:O nout1:O out2:O nout2:O in:I VSS:B VDD:B en:I dis:I
 x7 VDD net1 net3 VSS low_th_inverter
 x8 VDD net1 net2 VSS high_th_inverter
 x10 VDD out1 nout1 VSS hv_inverter_40u
 x11 VDD nout2 out2 VSS hv_inverter_40u
 x1 VDD in net1 VSS hv_inverter_0u3
-x5 VDD net2 out1 net4 VSS hv_nor
+x5 VDD net2 out1 dis VSS hv_nor
 x4 VDD net3 nout2 en VSS hv_nand
-x3 VDD en net4 VSS hv_inverter_40u
 **** begin user architecture code
 
 
