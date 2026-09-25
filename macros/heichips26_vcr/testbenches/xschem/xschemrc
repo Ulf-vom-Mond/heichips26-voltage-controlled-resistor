@@ -45,3 +45,7 @@ set xschem_execute_scripts yes
 
 # Source top-level schematic xschemrc to pull in canonical library paths and macro libraries.
 source [file normalize [file join [file dirname [info script]] ../../schematic/xschem/xschemrc]]
+
+foreach dir [glob -nocomplain ../../macros/*/schematic/xschem] {
+    append XSCHEM_LIBRARY_PATH :$dir
+}
