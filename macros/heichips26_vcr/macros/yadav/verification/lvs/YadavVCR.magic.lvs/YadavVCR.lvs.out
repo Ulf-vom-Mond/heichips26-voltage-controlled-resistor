@@ -29,60 +29,104 @@ Circuit 1: sg13_hv_pmos                    |Circuit 2: sg13_hv_pmos
 Cell pin lists are equivalent.
 Device classes sg13_hv_pmos and sg13_hv_pmos are equivalent.
 
-Class YadavVCR (0):  Merged 1 parallel devices.
 Subcircuit summary:
 Circuit 1: YadavVCR                        |Circuit 2: YadavVCR                        
 -------------------------------------------|-------------------------------------------
 sg13_hv_nmos (12)                          |sg13_hv_nmos (12)                          
 sg13_hv_pmos (6)                           |sg13_hv_pmos (6)                           
-sg13_lv_nmos (2->1)                        |(no matching element)                      
-Number of devices: 19 **Mismatch**         |Number of devices: 18 **Mismatch**         
+Number of devices: 18                      |Number of devices: 18                      
 Number of nets: 11                         |Number of nets: 11                         
 ---------------------------------------------------------------------------------------
-NET mismatches: Class fragments follow (with fanout counts):
-Circuit 1: YadavVCR                        |Circuit 2: YadavVCR                        
-
----------------------------------------------------------------------------------------
-Net: RIN                                   |Net: Rin                                   
-  sg13_hv_nmos/2 = 2                       |  sg13_hv_nmos/2 = 2                       
-  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_nmos/(1|3) = 1                   
-  sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_pmos/(1|3) = 1                   
-  sg13_lv_nmos/2 = 1                       |                                           
-  sg13_lv_nmos/(1|3) = 2                   |                                           
-                                           |                                           
-Net: ROUT                                  |Net: Rout                                  
-  sg13_hv_nmos/2 = 2                       |  sg13_hv_nmos/2 = 2                       
-  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_nmos/(1|3) = 1                   
-  sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_pmos/(1|3) = 1                   
-                                           |                                           
-Net: VSS                                   |Net: Vss                                   
-  sg13_hv_nmos/4 = 12                      |  sg13_hv_nmos/4 = 12                      
-  sg13_hv_nmos/(1|3) = 10                  |  sg13_hv_nmos/(1|3) = 10                  
-  sg13_lv_nmos/4 = 1                       |                                           
----------------------------------------------------------------------------------------
-DEVICE mismatches: Class fragments follow (with node fanout counts):
-Circuit 1: YadavVCR                        |Circuit 2: YadavVCR                        
-
----------------------------------------------------------------------------------------
-Instance: sg13_lv_nmos:2                   |(no matching instance)                     
-  (1,3) = (7,7)                            |                                           
-  2 = 7                                    |                                           
-  4 = 23                                   |                                           
-                                           |                                           
----------------------------------------------------------------------------------------
-Netlists do not match.
-Port matching may fail to disambiguate symmetries.
+Resolving symmetries by property value.
+Resolving symmetries by pin name.
+Netlists match uniquely with property errors.
+sg13_hv_pmos:4 vs. sg13_hv_pmos:M13:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:4 vs. sg13_hv_pmos:M13:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:2 vs. sg13_hv_pmos:M16:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:2 vs. sg13_hv_pmos:M16:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:9 vs. sg13_hv_pmos:M14:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:9 vs. sg13_hv_pmos:M14:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:6 vs. sg13_hv_pmos:M18:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:6 vs. sg13_hv_pmos:M18:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:15 vs. sg13_hv_pmos:M15:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:15 vs. sg13_hv_pmos:M15:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:1 vs. sg13_hv_pmos:M17:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:1 vs. sg13_hv_pmos:M17:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:11 vs. sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:11 vs. sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:7 vs. sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:7 vs. sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:5 vs. sg13_hv_nmos:M5:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:5 vs. sg13_hv_nmos:M5:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:14 vs. sg13_hv_nmos:M6:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:14 vs. sg13_hv_nmos:M6:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:0 vs. sg13_hv_nmos:M7:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:0 vs. sg13_hv_nmos:M7:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:3 vs. sg13_hv_nmos:M8:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:3 vs. sg13_hv_nmos:M8:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:17 vs. sg13_hv_nmos:M4:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:17 vs. sg13_hv_nmos:M4:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:16 vs. sg13_hv_nmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:16 vs. sg13_hv_nmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:10 vs. sg13_hv_nmos:M9:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:10 vs. sg13_hv_nmos:M9:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:13 vs. sg13_hv_nmos:M11:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:13 vs. sg13_hv_nmos:M11:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:12 vs. sg13_hv_nmos:M12:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:12 vs. sg13_hv_nmos:M12:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:8 vs. sg13_hv_nmos:M10:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:8 vs. sg13_hv_nmos:M10:
+Property mm_ok in circuit2 has no matching property in circuit1
 
 Subcircuit pins:
 Circuit 1: YadavVCR                        |Circuit 2: YadavVCR                        
 -------------------------------------------|-------------------------------------------
-(no pin, node is VDD)                      |Vdd                                        
-(no pin, node is ROUT)                     |Rin                                        
-(no pin, node is ROUT)                     |Rout                                       
-(no pin, node is VC)                       |Vc                                         
-(no pin, node is ROUT)                     |Vss                                        
+VDD                                        |Vdd                                        
+RIN                                        |Rin                                        
+ROUT                                       |Rout                                       
+VC                                         |Vc                                         
+VSS                                        |Vss                                        
 ---------------------------------------------------------------------------------------
-Cell pin lists for YadavVCR and YadavVCR altered to match.
+Cell pin lists are equivalent.
 Device classes YadavVCR and YadavVCR are equivalent.
 
-Final result: Top level cell failed pin matching.
+Final result: Circuits match uniquely.
+Property errors were found.
+
+The following cells had property errors:
+ YadavVCR

@@ -1,4 +1,4 @@
-** sch_path: /home/raiku/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/yadav/schematic/xschem/YadavVCR.sch
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/yadav/schematic/xschem/YadavVCR.sch
 .subckt YadavVCR Vdd Rin Rout Vc Vss
 *.PININFO Vc:I Vss:B Vdd:B Rin:I Rout:O
 XM3 Vdd Rin net2 Vss sg13_hv_nmos w=0.72u l=4.14u ng=1 m=1 mm_ok=1

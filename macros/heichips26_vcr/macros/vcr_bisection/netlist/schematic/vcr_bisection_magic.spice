@@ -1,0 +1,30 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/vcr_bisection/schematic/xschem/vcr_bisection.sch
+.subckt vcr_bisection i3_b2 i3_b1 i3_b4 i3_b3 i1_b0 i1_b1 i1_b2 i1_b4 i1_b3 i2_b0 i2_b1 i2_b2 i2_b4 i2_b3 i3_b0 Vctrl Vdd Vss T2
++ T1
+*.PININFO T1:I T2:I Vctrl:I Vdd:I Vss:I i1_b0:I i1_b1:I i1_b2:I i1_b4:I i1_b3:I i2_b0:I i2_b1:I i2_b2:I i2_b4:I i2_b3:I i3_b0:I
+*+ i3_b1:I i3_b2:I i3_b4:I i3_b3:I
+x4 ib3 Vss vgate Vctrl Vdd Vcm voltage_sum
+XM1 T2 vgate T1 Vss sg13_hv_nmos w=15u l=10u ng=2 m=1 mm_ok=1
+*  x1 -  opamp_rtr  IS MISSING !!!!
+*  x2 -  opamp_rtr  IS MISSING !!!!
+*  x3 -  isource_beta  IS MISSING !!!!
+*  x5 -  isource_beta  IS MISSING !!!!
+*  x6 -  isource_beta  IS MISSING !!!!
+XR4 Vcm net1 vss rppd w=1e-6 l=50e-6 m=1 b=0 mm_ok=1
+XR1 net2 Vcm vss rppd w=1e-6 l=50e-6 m=1 b=0 mm_ok=1
+XR2 Vss Vss vss rppd w=1e-6 l=10e-6 m=2 b=0 mm_ok=1
+XM2 T1 T1 T1 Vss sg13_hv_nmos w=15u l=2u ng=2 m=1 mm_ok=1
+.ends
+
+* expanding   symbol:  voltage_sum.sym # of pins=6
+** sym_path: ./schematic/xschem/voltage_sum.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/vcr_bisection/schematic/xschem/voltage_sum.sch
+.subckt voltage_sum ibias vss vout vin1 vdd vin2
+*.PININFO vin1:B vout:B vin2:B vss:B vdd:B ibias:B
+*  x1 -  opamp_rtr  IS MISSING !!!!
+XR4 net2 vin1 vss rppd w=1e-6 l=100e-6 m=1 b=0 mm_ok=1
+XR1 net2 vin2 vss rppd w=1e-6 l=100e-6 m=1 b=0 mm_ok=1
+XR2 vout net1 vss rppd w=1e-6 l=100e-6 m=1 b=0 mm_ok=1
+XR3 vss net1 vss rppd w=1e-6 l=100e-6 m=1 b=0 mm_ok=1
+.ends
+
