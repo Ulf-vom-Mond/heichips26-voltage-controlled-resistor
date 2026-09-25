@@ -1,0 +1,101 @@
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/schematic/xschem/analog_switch_3pst.sch
+.subckt analog_switch_3pst sw1_p2 sw1_p1 VAPWR ctrl VGND sw2_p2 sw2_p1 sw3_p2 sw3_p1
+*.PININFO sw1_p1:B ctrl:B VAPWR:B VGND:B sw2_p1:B sw1_p2:B sw2_p2:B sw3_p1:B sw3_p2:B
+x6 net2 sw1_p1 sw1_p2 net1 VAPWR VGND transmission_gate
+x7 VAPWR net2 net1 VGND hv_inverter_40u
+x3 net2 sw2_p1 sw2_p2 net1 VAPWR VGND transmission_gate
+x8 VAPWR ctrl net2 VGND lvl_shift_up
+x1 net2 sw3_p1 sw3_p2 net1 VAPWR VGND transmission_gate
+.ends
+
+* expanding   symbol:  transmission_gate.sym # of pins=6
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/transmission_gate.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/transmission_gate.sch
+.subckt transmission_gate vctrl vin vout nvctrl VDD VSS
+*.PININFO vin:B vout:B vctrl:I nvctrl:I VDD:B VSS:B
+XM3 vout vctrl vin VSS sg13_hv_nmos w={tg_ngate_w*tg_ng} l={tg_ch_len} ng={tg_ng} m=1 mm_ok=1
+XM4 vout nvctrl vin VDD sg13_hv_pmos w={tg_pgate_w*tg_ng} l={tg_ch_len} ng={tg_ng} m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param tg_ch_len=0.45u
+.param tg_ngate_w=2u
+.param tg_pgate_w=5u
+.param tg_ng=20
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  hv_inverter_40u.sym # of pins=4
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_inverter_40u.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_inverter_40u.sch
+.subckt hv_inverter_40u VDD in out VSS
+*.PININFO in:I VDD:B VSS:B out:O
+XM2 out in VSS VSS sg13_hv_nmos w={n_w} l={n_l} ng={ng} m=1 mm_ok=1
+XM3 out in VDD VDD sg13_hv_pmos w={p_w} l={p_l} ng={ng} m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param w   = 10u
+.param ng  = 4
+.param n_ng = ng
+.param n_w = {3u*n_ng}
+.param n_l = 0.45u
+.param p_ng = ng
+.param p_w = {10u*p_ng}
+.param p_l = 0.4u
+
+
+**** end user architecture code
+.ends
+
+
+* expanding   symbol:  lvl_shift_up.sym # of pins=4
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/lvl_shift_up.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/lvl_shift_up.sch
+.subckt lvl_shift_up VDD in out VSS
+*.PININFO in:I VDD:B VSS:B out:O
+XM1 net1 in VSS VSS sg13_hv_nmos w={n_ng*n_w} l={n_l} ng={n_ng} m=1 mm_ok=1
+XM2 net1 in VDD VDD sg13_hv_pmos w={p_ng*p_w} l={p_l} ng={n_ng} m=1 mm_ok=1
+**** begin user architecture code
+
+
+.include ../../../macros/switched_capacitor/schematic/xschem/hv_inverter_6u5.sym
+
+.param n_ng = 2
+.param n_w = 10u
+.param n_l = 0.45u
+.param p_ng = 2
+.param p_w = 1u
+.param p_l = 0.45u
+
+
+**** end user architecture code
+x4 VDD net1 out VSS hv_inverter_6u5
+.ends
+
+
+* expanding   symbol:  hv_inverter_6u5.sym # of pins=4
+** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_inverter_6u5.sym
+** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/hv_inverter_6u5.sch
+.subckt hv_inverter_6u5 VDD in out VSS
+*.PININFO in:I VDD:B VSS:B out:O
+XM2 out in VSS VSS sg13_hv_nmos w={n_w} l={n_l} ng={ng} m=1 mm_ok=1
+XM3 out in VDD VDD sg13_hv_pmos w={p_w} l={p_l} ng={ng} m=1 mm_ok=1
+**** begin user architecture code
+
+
+.param ng  = 1
+.param n_ng = ng
+.param n_w = {2u*n_ng}
+.param n_l = 0.45u
+.param p_ng = ng
+.param p_w = {6.5u*p_ng}
+.param p_l = 0.4u
+
+
+**** end user architecture code
+.ends
+

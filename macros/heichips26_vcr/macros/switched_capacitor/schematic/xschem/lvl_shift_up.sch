@@ -6,14 +6,14 @@ S {}
 F {}
 E {}
 N -80 0 -80 60 {
-lab=vin}
+lab=in}
 N -120 0 -80 0 {
-lab=vin}
+lab=in}
 N -80 -60 -80 0 {
-lab=vin}
+lab=in}
 N 0 -120 0 -90 {lab=VDD}
-N -80 60 -40 60 {lab=vin}
-N -80 -60 -40 -60 {lab=vin}
+N -80 60 -40 60 {lab=in}
+N -80 -60 -40 -60 {lab=in}
 N 0 0 0 30 {lab=#net1}
 N 0 90 0 120 {lab=VSS}
 N 0 -60 100 -60 {lab=VDD}
@@ -49,6 +49,8 @@ C {devices/opin.sym} 280 0 0 0 {name=p6 lab=out}
 C {lab_pin.sym} 100 -120 1 0 {name=p16 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 100 120 3 0 {name=p17 sig_type=std_logic lab=VSS}
 C {code_shown.sym} 220 -230 0 0 {value="
+.include ../../../macros/switched_capacitor/schematic/xschem/hv_inverter_6u5.sym
+
 .param n_ng = 2
 .param n_w = 10u
 .param n_l = 0.45u
