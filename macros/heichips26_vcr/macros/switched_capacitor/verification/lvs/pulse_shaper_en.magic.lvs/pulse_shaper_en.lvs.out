@@ -35,70 +35,129 @@ Flattening unmatched subcell hv_inverter_0u3 in circuit pulse_shaper_en (1)(1 in
 Flattening unmatched subcell hv_nor in circuit pulse_shaper_en (1)(1 instance)
 Flattening unmatched subcell hv_nand in circuit pulse_shaper_en (1)(1 instance)
 
-Class pulse_shaper_en (0):  Merged 46 parallel devices.
+Class pulse_shaper_en (0):  Merged 40 parallel devices.
 Subcircuit summary:
 Circuit 1: pulse_shaper_en                 |Circuit 2: pulse_shaper_en                 
 -------------------------------------------|-------------------------------------------
-sg13_hv_nmos (33->10)                      |sg13_hv_nmos (9) **Mismatch**              
-sg13_hv_pmos (33->10)                      |sg13_hv_pmos (9) **Mismatch**              
-Number of devices: 20 **Mismatch**         |Number of devices: 18 **Mismatch**         
+sg13_hv_pmos (29->9)                       |sg13_hv_pmos (9)                           
+sg13_hv_nmos (29->9)                       |sg13_hv_nmos (9)                           
+Number of devices: 18                      |Number of devices: 18                      
 Number of nets: 14                         |Number of nets: 14                         
 ---------------------------------------------------------------------------------------
-NET mismatches: Class fragments follow (with fanout counts):
-Circuit 1: pulse_shaper_en                 |Circuit 2: pulse_shaper_en                 
-
----------------------------------------------------------------------------------------
-Net: hv_nor_0.in2                          |Net: dis                                   
-  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_pmos/2 = 1                       
-  sg13_hv_nmos/2 = 1                       |  sg13_hv_nmos/2 = 1                       
-  sg13_hv_pmos/2 = 1                       |                                           
-  sg13_hv_pmos/(1|3) = 1                   |                                           
-                                           |                                           
-Net: en                                    |Net: en                                    
-  sg13_hv_nmos/2 = 2                       |  sg13_hv_nmos/2 = 1                       
-  sg13_hv_pmos/2 = 2                       |  sg13_hv_pmos/2 = 1                       
-                                           |                                           
-Net: VDD                                   |Net: VDD                                   
-  sg13_hv_pmos/(1|3) = 9                   |  sg13_hv_pmos/(1|3) = 8                   
-  sg13_hv_pmos/4 = 10                      |  sg13_hv_pmos/4 = 9                       
-                                           |                                           
-Net: VSS                                   |Net: VSS                                   
-  sg13_hv_nmos/(1|3) = 9                   |  sg13_hv_nmos/(1|3) = 8                   
-  sg13_hv_nmos/4 = 10                      |  sg13_hv_nmos/4 = 9                       
----------------------------------------------------------------------------------------
-DEVICE mismatches: Class fragments follow (with node fanout counts):
-Circuit 1: pulse_shaper_en                 |Circuit 2: pulse_shaper_en                 
-
----------------------------------------------------------------------------------------
-Instance: sg13_hv_nmos:0                   |(no matching instance)                     
-  (1,3) = (19,4)                           |                                           
-  2 = 4                                    |                                           
-  4 = 19                                   |                                           
-                                           |                                           
-                                           |                                           
-Instance: sg13_hv_pmos:13                  |(no matching instance)                     
-  (1,3) = (19,4)                           |                                           
-  2 = 4                                    |                                           
-  4 = 19                                   |                                           
-                                           |                                           
----------------------------------------------------------------------------------------
-Netlists do not match.
-Port matching may fail to disambiguate symmetries.
+Netlists match uniquely with property errors.
+sg13_hv_nmos:13 vs. high_th_inverter:8/sg13_hv_nmos:M1:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:13 vs. high_th_inverter:8/sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:3 vs. low_th_inverter:7/sg13_hv_nmos:M1:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:3 vs. low_th_inverter:7/sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:10 vs. hv_inverter_40u:10/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:10 vs. hv_inverter_40u:10/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:5 vs. hv_inverter_40u:11/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:5 vs. hv_inverter_40u:11/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:57 vs. hv_inverter_0u3:1/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-07"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:57 vs. hv_inverter_0u3:1/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:57 vs. hv_inverter_0u3:1/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:8 vs. hv_nor:5/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:8 vs. hv_nor:5/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:4 vs. hv_nor:5/sg13_hv_nmos:M1:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:4 vs. hv_nor:5/sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:14 vs. hv_nand:4/sg13_hv_nmos:M2:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:14 vs. hv_nand:4/sg13_hv_nmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_nmos:24 vs. hv_nand:4/sg13_hv_nmos:M1:
+ l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_nmos:24 vs. hv_nand:4/sg13_hv_nmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:29 vs. low_th_inverter:7/sg13_hv_pmos:M2:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-06"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:29 vs. low_th_inverter:7/sg13_hv_pmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:27 vs. high_th_inverter:8/sg13_hv_pmos:M2:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:27 vs. high_th_inverter:8/sg13_hv_pmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:18 vs. hv_inverter_40u:11/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:18 vs. hv_inverter_40u:11/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:0 vs. hv_inverter_40u:10/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:0 vs. hv_inverter_40u:10/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:44 vs. hv_inverter_0u3:1/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "3e-07"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:44 vs. hv_inverter_0u3:1/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:44 vs. hv_inverter_0u3:1/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:6 vs. hv_nor:5/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:6 vs. hv_nor:5/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:12 vs. hv_nor:5/sg13_hv_pmos:M4:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:12 vs. hv_nor:5/sg13_hv_pmos:M4:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:2 vs. hv_nand:4/sg13_hv_pmos:M3:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:2 vs. hv_nand:4/sg13_hv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_hv_pmos:7 vs. hv_nand:4/sg13_hv_pmos:M4:
+ l circuit1: "4e-07"   (unresolved expression)  (property type mismatch)
+ w circuit1: "1e-05"   (unresolved expression)  (property type mismatch)
+sg13_hv_pmos:7 vs. hv_nand:4/sg13_hv_pmos:M4:
+Property mm_ok in circuit2 has no matching property in circuit1
 
 Subcircuit pins:
 Circuit 1: pulse_shaper_en                 |Circuit 2: pulse_shaper_en                 
 -------------------------------------------|-------------------------------------------
-en                                         |en                                         
-VSS                                        |VDD **Mismatch**                           
-VDD                                        |VSS **Mismatch**                           
-in                                         |in                                         
-nout1                                      |nout1                                      
-out2                                       |out2                                       
+VDD                                        |VDD                                        
+VSS                                        |VSS                                        
 out1                                       |out1                                       
 nout2                                      |nout2                                      
-(no pin, node is VDD)                      |dis                                        
+out2                                       |out2                                       
+nout1                                      |nout1                                      
+in                                         |in                                         
+dis                                        |dis                                        
+en                                         |en                                         
 ---------------------------------------------------------------------------------------
-Cell pin lists for pulse_shaper_en and pulse_shaper_en altered to match.
+Cell pin lists are equivalent.
 Device classes pulse_shaper_en and pulse_shaper_en are equivalent.
 
-Final result: Top level cell failed pin matching.
+Final result: Circuits match uniquely.
+Property errors were found.
+
+The following cells had property errors:
+ pulse_shaper_en

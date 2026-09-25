@@ -3,23 +3,25 @@
 *.PININFO r1:B r2:B VAPWR:B VGND:B ctrl:I clkin:I selA:I selB:I en:I clkout:O VPWR:B
 x2 out1 r1 c_sw nout1 VAPWR VGND transmission_gate
 x6 out2 r2 c_sw nout2 VAPWR VGND transmission_gate
-x1 VAPWR net2 net8 VGND net13 net14 net15 osc
-x4 net4 VAPWR clk VGND net2 net12 ctrl net1 net5 net6 net7 hv_mux4
-x5 VAPWR net1 VGND net16 ctrl net17 vco
-x3 out1 nout1 VAPWR clk VGND out2 nout2 net3 pulse_shaper_en
-x7 net10 net9 net4 net5 VAPWR VGND net6 net7 hv_binary_decoder4
-* noconn #net17
-* noconn #net13
+x1 VAPWR net3 net9 VGND net15 net16 net17 osc
+x4 net5 VAPWR clk VGND net3 net13 net1 net2 net6 net7 net8 hv_mux4
+x5 VAPWR net2 VGND net18 net1 net19 vco
+x3 out1 nout1 VAPWR clk VGND out2 nout2 net4 net14 pulse_shaper_en
+x7 net11 net10 net5 net6 VAPWR VGND net7 net8 hv_binary_decoder4
+* noconn #net19
 * noconn #net15
-* noconn #net14
+* noconn #net17
 * noconn #net16
-x8 net11 ctrl net8 net6 VAPWR VGND transmission_gate
-x9 VAPWR net6 net11 VGND hv_inverter_40u
-x10 VAPWR clkin net12 VGND lvl_shift_up
-x11 VAPWR selA net9 VGND lvl_shift_up
-x12 VAPWR selB net10 VGND lvl_shift_up
-x13 VAPWR en net3 VGND lvl_shift_up
+* noconn #net18
+x8 net12 ctrl net9 net7 VAPWR VGND transmission_gate
+x9 VAPWR net7 net12 VGND hv_inverter_40u
+x10 VAPWR clkin net13 VGND lvl_shift_up
+x11 VAPWR selA net10 VGND lvl_shift_up
+x12 VAPWR selB net11 VGND lvl_shift_up
+x13 VAPWR en net4 VGND lvl_shift_up
 x14 VPWR clk clkout VGND hv_inverter_40u
+x15 VAPWR net4 net14 VGND hv_inverter_40u
+x16 net4 ctrl net1 net14 VAPWR VGND transmission_gate
 .ends
 
 * expanding   symbol:  transmission_gate.sym # of pins=6
@@ -119,11 +121,11 @@ x8 40uA+ 5uA+ VDD VSS 5uA- 10uA- 40uA- bias_current_generator
 .ends
 
 
-* expanding   symbol:  pulse_shaper_en.sym # of pins=8
+* expanding   symbol:  pulse_shaper_en.sym # of pins=9
 ** sym_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/pulse_shaper_en.sym
 ** sch_path: /home/noah/Documents/freizeit/heichips/heichips26-voltage-controlled-resistor/macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/pulse_shaper_en.sch
-.subckt pulse_shaper_en out1 nout1 VDD in VSS out2 nout2 en
-*.PININFO out1:O nout1:O out2:O nout2:O in:I VSS:B VDD:B en:I
+.subckt pulse_shaper_en out1 nout1 VDD in VSS out2 nout2 en dis
+*.PININFO out1:O nout1:O out2:O nout2:O in:I VSS:B VDD:B en:I dis:I
 x7 VDD net1 net3 VSS low_th_inverter
 x8 VDD net1 net2 VSS high_th_inverter
 x10 VDD out1 nout1 VSS hv_inverter_40u
@@ -144,9 +146,8 @@ x11 VDD nout2 out2 VSS hv_inverter_40u
 
 **** end user architecture code
 x1 VDD in net1 VSS hv_inverter_0u3
-x5 VDD net2 out1 net4 VSS hv_nor
+x5 VDD net2 out1 dis VSS hv_nor
 x4 VDD net3 nout2 en VSS hv_nand
-x3 VDD en net4 VSS hv_inverter_40u
 .ends
 
 

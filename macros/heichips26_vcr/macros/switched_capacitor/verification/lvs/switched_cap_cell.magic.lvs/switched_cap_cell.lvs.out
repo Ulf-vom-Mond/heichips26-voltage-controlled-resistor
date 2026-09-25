@@ -70,7 +70,7 @@ Circuit 1: rhigh                           |Circuit 2: rhigh
 ---------------------------------------------------------------------------------------
 Cell pin lists are equivalent.
 Device classes rhigh and rhigh are equivalent.
-Flattening unmatched subcell transmission_gate in circuit switched_cap_cell (1)(3 instances)
+Flattening unmatched subcell transmission_gate in circuit switched_cap_cell (1)(4 instances)
 Flattening unmatched subcell osc in circuit switched_cap_cell (1)(1 instance)
 Flattening unmatched subcell hv_mux4 in circuit switched_cap_cell (1)(1 instance)
 Flattening unmatched subcell hv_nor4 in circuit switched_cap_cell (1)(1 instance)
@@ -97,906 +97,139 @@ Flattening unmatched subcell hv_nand in circuit switched_cap_cell (1)(4 instance
 Flattening unmatched subcell lvl_shift_up in circuit switched_cap_cell (1)(4 instances)
 Flattening unmatched subcell hv_inverter_6u5 in circuit switched_cap_cell (1)(4 instances)
 
-Class switched_cap_cell (0):  Merged 352 parallel devices.
+Class switched_cap_cell (0):  Merged 392 parallel devices.
 Class switched_cap_cell (0):  Merged 40 series devices.
 Class switched_cap_cell (1):  Merged 3 parallel devices.
 Subcircuit summary:
 Circuit 1: switched_cap_cell               |Circuit 2: switched_cap_cell               
 -------------------------------------------|-------------------------------------------
-sg13_hv_nmos (250->76)                     |sg13_hv_nmos (79->76)                      
-sg13_hv_pmos (255->77)                     |sg13_hv_pmos (77)                          
+sg13_hv_nmos (270->76)                     |sg13_hv_nmos (80->77) **Mismatch**         
+sg13_hv_pmos (275->77)                     |sg13_hv_pmos (78) **Mismatch**             
 rhigh (11->3)                              |rhigh (3)                                  
 rppd (2->1)                                |rppd (1)                                   
 rsil (32->1)                               |rsil (1)                                   
-Number of devices: 158                     |Number of devices: 158                     
-Number of nets: 90                         |Number of nets: 90                         
+Number of devices: 158 **Mismatch**        |Number of devices: 160 **Mismatch**        
+Number of nets: 90 **Mismatch**            |Number of nets: 91 **Mismatch**            
 ---------------------------------------------------------------------------------------
-Netlists match uniquely with property errors.
-rsil:206 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/rsil:R3:
- l circuit1: 0.00032   circuit2: 0.000365   (delta=13.1%, cutoff=1%)
-rsil:206 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/rsil:R3:
-Property mm_ok in circuit2 has no matching property in circuit1
-rsil:206 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/rsil:R3:
-Property mm_ok in circuit2 has no matching property in circuit1
-rppd:144 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/rppd:R2:
-Property mm_ok in circuit2 has no matching property in circuit1
-rppd:144 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/rppd:R2:
-Property mm_ok in circuit2 has no matching property in circuit1
-rhigh:90 vs. vco:5/voltage_mirror_pmos:2/rhigh:R1:
-Property mm_ok in circuit2 has no matching property in circuit1
-rhigh:90 vs. vco:5/voltage_mirror_pmos:2/rhigh:R1:
-Property mm_ok in circuit2 has no matching property in circuit1
-rhigh:169 vs. vco:5/voltage_mirror_pmos:2/rhigh:R2:
-Property mm_ok in circuit2 has no matching property in circuit1
-rhigh:169 vs. vco:5/voltage_mirror_pmos:2/rhigh:R2:
-Property mm_ok in circuit2 has no matching property in circuit1
-rhigh:113 vs. vco:5/voltage_mirror_pmos:2/rhigh:R3:
-Property mm_ok in circuit2 has no matching property in circuit1
-rhigh:113 vs. vco:5/voltage_mirror_pmos:2/rhigh:R3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:2 vs. transmission_gate:2/sg13_hv_pmos:M4:
- l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
- w circuit1: "5e-06"   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:2 vs. transmission_gate:2/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:85 vs. transmission_gate:6/sg13_hv_pmos:M4:
- l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
- w circuit1: "5e-06"   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:85 vs. transmission_gate:6/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:404 vs. osc:1/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:404 vs. osc:1/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:374 vs. osc:1/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:374 vs. osc:1/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:249 vs. osc:1/sg13_hv_pmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:249 vs. osc:1/sg13_hv_pmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:473 vs. osc:1/sg13_hv_pmos:M5:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:473 vs. osc:1/sg13_hv_pmos:M5:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:217 vs. hv_mux4:4/hv_nor4:1/sg13_hv_pmos:M4:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:217 vs. hv_mux4:4/hv_nor4:1/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:34 vs. hv_mux4:4/hv_nor4:1/sg13_hv_pmos:M8:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:34 vs. hv_mux4:4/hv_nor4:1/sg13_hv_pmos:M8:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:32 vs. hv_mux4:4/hv_nor4:1/sg13_hv_pmos:M7:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:32 vs. hv_mux4:4/hv_nor4:1/sg13_hv_pmos:M7:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:137 vs. hv_mux4:4/hv_nor:4/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:137 vs. hv_mux4:4/hv_nor:4/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:60 vs. hv_mux4:4/hv_nor:5/sg13_hv_pmos:M4:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:60 vs. hv_mux4:4/hv_nor:5/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:171 vs. hv_mux4:4/hv_nor:4/sg13_hv_pmos:M4:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:171 vs. hv_mux4:4/hv_nor:4/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:138 vs. hv_mux4:4/hv_nor:2/sg13_hv_pmos:M4:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:138 vs. hv_mux4:4/hv_nor:2/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:135 vs. hv_mux4:4/hv_nor:6/sg13_hv_pmos:M4:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:135 vs. hv_mux4:4/hv_nor:6/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:225 vs. vco:5/hv_rs-ff:1/hv_nand:4/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:225 vs. vco:5/hv_rs-ff:1/hv_nand:4/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:45 vs. vco:5/hv_rs-ff:1/hv_nand:4/sg13_hv_pmos:M4:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:45 vs. vco:5/hv_rs-ff:1/hv_nand:4/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:22 vs. vco:5/hv_rs-ff:1/hv_nand:5/sg13_hv_pmos:M4:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:22 vs. vco:5/hv_rs-ff:1/hv_nand:5/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:134 vs. vco:5/sg13_hv_pmos:M6:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:134 vs. vco:5/sg13_hv_pmos:M6:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:373 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M9:
- l circuit1: 4e-07   "p_l"  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:373 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M9:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:373 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M9:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:495 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M12:
- l circuit1: 4e-07   "p_l"  (property type mismatch)
- w circuit1: 2e-06   "p_w"  (property type mismatch)
-sg13_hv_pmos:495 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M12:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:495 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M12:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:485 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M13:
- l circuit1: 4e-07   "p_l"  (property type mismatch)
- w circuit1: 2e-06   "p_w"  (property type mismatch)
-sg13_hv_pmos:485 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M13:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:485 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M13:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:246 vs. vco:5/comp_nmos:7/sg13_hv_pmos:M1:
- l circuit1: 4e-07   "p_l"  (property type mismatch)
- w circuit1: 2e-06   "p_w"  (property type mismatch)
-sg13_hv_pmos:246 vs. vco:5/comp_nmos:7/sg13_hv_pmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:246 vs. vco:5/comp_nmos:7/sg13_hv_pmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:542 vs. vco:5/comp_nmos:7/sg13_hv_pmos:M2:
- l circuit1: 4e-07   "p_l"  (property type mismatch)
- w circuit1: 2e-06   "p_w"  (property type mismatch)
-sg13_hv_pmos:542 vs. vco:5/comp_nmos:7/sg13_hv_pmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:542 vs. vco:5/comp_nmos:7/sg13_hv_pmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:526 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_pmos:M6:
- l circuit1: 2e-06   "p_l"  (property type mismatch)
- w circuit1: 1e-05   "p_w"  (property type mismatch)
-sg13_hv_pmos:526 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_pmos:M6:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:526 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_pmos:M6:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:47 vs. vco:5/hv_rs-ff:1/hv_nand:5/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:47 vs. vco:5/hv_rs-ff:1/hv_nand:5/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:119 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M11:
- l circuit1: 4e-07   "p_l"  (property type mismatch)
- w circuit1: 2e-06   "p_w"  (property type mismatch)
-sg13_hv_pmos:119 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M11:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:119 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M11:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:89 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M25:
- l circuit1: 2e-06   "cm_p_l"  (property type mismatch)
- w circuit1: 2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:89 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M25:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:377 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M10:
- l circuit1: 4e-07   "p_l"  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:377 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M10:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:377 vs. vco:5/comp_pmos:5/sg13_hv_pmos:M10:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:192 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M26:
- l circuit1: 2e-06   "cm_p_l"  (property type mismatch)
- w circuit1: 1e-05   "cm_p_w"  (property type mismatch)
-sg13_hv_pmos:192 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M26:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:242 vs. hv_mux4:4/hv_nor4:1/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:242 vs. hv_mux4:4/hv_nor4:1/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:147 vs. hv_mux4:4/hv_nor:6/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:147 vs. hv_mux4:4/hv_nor:6/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:107 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M27:
- l circuit1: 2e-06   "cm_p_l"  (property type mismatch)
- w circuit1: 1e-05   "cm_p_w"  (property type mismatch)
-sg13_hv_pmos:107 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M27:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:158 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_pmos:M3:
- l circuit1: 2e-06   "p_l"  (property type mismatch)
- w circuit1: 1e-05   "p_w"  (property type mismatch)
-sg13_hv_pmos:158 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:158 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:139 vs. pulse_shaper_en:3/hv_inverter_40u:10/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:139 vs. pulse_shaper_en:3/hv_inverter_40u:10/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:17 vs. pulse_shaper_en:3/hv_inverter_40u:11/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:17 vs. pulse_shaper_en:3/hv_inverter_40u:11/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:345 vs. pulse_shaper_en:3/hv_inverter_0u3:1/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 3e-07   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:345 vs. pulse_shaper_en:3/hv_inverter_0u3:1/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:345 vs. pulse_shaper_en:3/hv_inverter_0u3:1/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:66 vs. hv_mux4:4/hv_nor:5/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:66 vs. hv_mux4:4/hv_nor:5/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:63 vs. hv_mux4:4/hv_nor:2/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:63 vs. hv_mux4:4/hv_nor:2/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:10 vs. pulse_shaper_en:3/hv_nor:5/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:10 vs. pulse_shaper_en:3/hv_nor:5/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:69 vs. pulse_shaper_en:3/hv_nor:5/sg13_hv_pmos:M4:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:69 vs. pulse_shaper_en:3/hv_nor:5/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:301 vs. pulse_shaper_en:3/hv_nand:4/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:301 vs. pulse_shaper_en:3/hv_nand:4/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:262 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_pmos:M6:
- l circuit1: 2e-06   "p_l"  (property type mismatch)
- w circuit1: 1.9e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:262 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_pmos:M6:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:152 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M11:
- l circuit1: 2e-06   "cm_p_l"  (property type mismatch)
- w circuit1: 1e-05   "cm_p_w"  (property type mismatch)
-sg13_hv_pmos:152 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M11:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:228 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_pmos:M4:
- l circuit1: 2e-06   "p_l"  (property type mismatch)
- w circuit1: 1e-05   "p_w"  (property type mismatch)
-sg13_hv_pmos:228 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:228 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:88 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M13:
- l circuit1: 2e-06   "cm_p_l"  (property type mismatch)
- w circuit1: 1e-05   "cm_p_w"  (property type mismatch)
-sg13_hv_pmos:88 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M13:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:76 vs. pulse_shaper_en:3/hv_inverter_40u:3/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:76 vs. pulse_shaper_en:3/hv_inverter_40u:3/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:58 vs. pulse_shaper_en:3/low_th_inverter:7/sg13_hv_pmos:M2:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:58 vs. pulse_shaper_en:3/low_th_inverter:7/sg13_hv_pmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:6 vs. pulse_shaper_en:3/high_th_inverter:8/sg13_hv_pmos:M2:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:6 vs. pulse_shaper_en:3/high_th_inverter:8/sg13_hv_pmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:331 vs. hv_binary_decoder4:7/hv_nand:9/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:331 vs. hv_binary_decoder4:7/hv_nand:9/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:148 vs. hv_binary_decoder4:7/hv_nand:7/sg13_hv_pmos:M4:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:148 vs. hv_binary_decoder4:7/hv_nand:7/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:81 vs. hv_binary_decoder4:7/hv_nand:7/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:81 vs. hv_binary_decoder4:7/hv_nand:7/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:133 vs. hv_binary_decoder4:7/hv_inverter_40u:10/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:133 vs. hv_binary_decoder4:7/hv_inverter_40u:10/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:64 vs. hv_binary_decoder4:7/hv_inverter_40u:3/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:64 vs. hv_binary_decoder4:7/hv_inverter_40u:3/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:207 vs. hv_binary_decoder4:7/hv_nand:11/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:207 vs. hv_binary_decoder4:7/hv_nand:11/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:267 vs. hv_binary_decoder4:7/hv_nand:11/sg13_hv_pmos:M4:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:267 vs. hv_binary_decoder4:7/hv_nand:11/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:266 vs. osc:1/sg13_hv_pmos:M6:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:266 vs. osc:1/sg13_hv_pmos:M6:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:173 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M12:
- l circuit1: 2e-06   "cm_p_l"  (property type mismatch)
- w circuit1: 1e-05   "cm_p_w"  (property type mismatch)
-sg13_hv_pmos:173 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M12:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:96 vs. hv_binary_decoder4:7/hv_nand:8/sg13_hv_pmos:M4:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:96 vs. hv_binary_decoder4:7/hv_nand:8/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:40 vs. hv_binary_decoder4:7/hv_nand:9/sg13_hv_pmos:M4:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:40 vs. hv_binary_decoder4:7/hv_nand:9/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:38 vs. hv_binary_decoder4:7/hv_nand:8/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:38 vs. hv_binary_decoder4:7/hv_nand:8/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:8 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M1:
- l circuit1: 2e-06   "cm_p_l"  (property type mismatch)
- w circuit1: 1e-05   "cm_p_w"  (property type mismatch)
-sg13_hv_pmos:8 vs. vco:5/bias_current_generator:8/sg13_hv_pmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:7 vs. transmission_gate:8/sg13_hv_pmos:M4:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 0.0001   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:7 vs. transmission_gate:8/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:168 vs. hv_inverter_40u:9/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:168 vs. hv_inverter_40u:9/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:392 vs. vco:5/hv_inverter_6u5:6/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 6.5e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:392 vs. vco:5/hv_inverter_6u5:6/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:392 vs. vco:5/hv_inverter_6u5:6/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:223 vs. vco:5/hv_inverter_6u5:3/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 6.5e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:223 vs. vco:5/hv_inverter_6u5:3/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:223 vs. vco:5/hv_inverter_6u5:3/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:177 vs. lvl_shift_up:10/hv_inverter_6u5:4/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 6.5e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:177 vs. lvl_shift_up:10/hv_inverter_6u5:4/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:177 vs. lvl_shift_up:10/hv_inverter_6u5:4/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:116 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_pmos:M1:
- l circuit1: 2e-06   "p_l"  (property type mismatch)
- w circuit1: 1e-05   "p_w"  (property type mismatch)
-sg13_hv_pmos:116 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_pmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:116 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_pmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:97 vs. vco:5/comp_nmos:7/sg13_hv_pmos:M6:
- l circuit1: 4e-07   "p_l"  (property type mismatch)
- w circuit1: 2e-06   "p_w"  (property type mismatch)
-sg13_hv_pmos:97 vs. vco:5/comp_nmos:7/sg13_hv_pmos:M6:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:97 vs. vco:5/comp_nmos:7/sg13_hv_pmos:M6:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:482 vs. lvl_shift_up:11/hv_inverter_6u5:4/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 6.5e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:482 vs. lvl_shift_up:11/hv_inverter_6u5:4/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:482 vs. lvl_shift_up:11/hv_inverter_6u5:4/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:41 vs. lvl_shift_up:12/hv_inverter_6u5:4/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 6.5e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:41 vs. lvl_shift_up:12/hv_inverter_6u5:4/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:41 vs. lvl_shift_up:12/hv_inverter_6u5:4/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:213 vs. lvl_shift_up:13/sg13_hv_pmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:213 vs. lvl_shift_up:13/sg13_hv_pmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:146 vs. lvl_shift_up:11/sg13_hv_pmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:146 vs. lvl_shift_up:11/sg13_hv_pmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:308 vs. lvl_shift_up:12/sg13_hv_pmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:308 vs. lvl_shift_up:12/sg13_hv_pmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:9 vs. lvl_shift_up:10/sg13_hv_pmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:9 vs. lvl_shift_up:10/sg13_hv_pmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:13 vs. pulse_shaper_en:3/hv_nand:4/sg13_hv_pmos:M4:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:13 vs. pulse_shaper_en:3/hv_nand:4/sg13_hv_pmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:5 vs. lvl_shift_up:13/hv_inverter_6u5:4/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 6.5e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:5 vs. lvl_shift_up:13/hv_inverter_6u5:4/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:5 vs. lvl_shift_up:13/hv_inverter_6u5:4/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_pmos:248 vs. hv_inverter_40u:14/sg13_hv_pmos:M3:
- l circuit1: 4e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_pmos:248 vs. hv_inverter_40u:14/sg13_hv_pmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:12 vs. transmission_gate:2/sg13_hv_nmos:M3:
- l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
- w circuit1: "2e-06"   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:12 vs. transmission_gate:2/sg13_hv_nmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:11 vs. transmission_gate:6/sg13_hv_nmos:M3:
- l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
- w circuit1: "2e-06"   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:11 vs. transmission_gate:6/sg13_hv_nmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:378 vs. hv_mux4:4/hv_nor4:1/sg13_hv_nmos:M5:
- l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
- w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:378 vs. hv_mux4:4/hv_nor4:1/sg13_hv_nmos:M5:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:256 vs. hv_mux4:4/hv_nor4:1/sg13_hv_nmos:M2:
- l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
- w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:256 vs. hv_mux4:4/hv_nor4:1/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:195 vs. hv_mux4:4/hv_nor4:1/sg13_hv_nmos:M1:
- l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
- w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:195 vs. hv_mux4:4/hv_nor4:1/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:115 vs. hv_mux4:4/hv_nor4:1/sg13_hv_nmos:M6:
- l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
- w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:115 vs. hv_mux4:4/hv_nor4:1/sg13_hv_nmos:M6:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:94 vs. hv_mux4:4/hv_nor:4/sg13_hv_nmos:M1:
- l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
- w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:94 vs. hv_mux4:4/hv_nor:4/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:37 vs. hv_mux4:4/hv_nor:5/sg13_hv_nmos:M2:
- l circuit1: "4.5e-07"   (unresolved expression)  (property type mismatch)
- w circuit1: "3e-06"   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:37 vs. hv_mux4:4/hv_nor:5/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:39 vs. vco:5/sg13_hv_nmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:39 vs. vco:5/sg13_hv_nmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:73 vs. vco:5/hv_rs-ff:1/hv_nand:4/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:73 vs. vco:5/hv_rs-ff:1/hv_nand:4/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:254 vs. vco:5/hv_rs-ff:1/hv_nand:4/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:254 vs. vco:5/hv_rs-ff:1/hv_nand:4/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:55 vs. vco:5/hv_rs-ff:1/hv_nand:5/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:55 vs. vco:5/hv_rs-ff:1/hv_nand:5/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:302 vs. vco:5/comp_pmos:5/sg13_hv_nmos:M16:
- l circuit1: 1.5e-06   "n_l"  (property type mismatch)
- w circuit1: 1.2e-06   "n_w"  (property type mismatch)
-sg13_hv_nmos:302 vs. vco:5/comp_pmos:5/sg13_hv_nmos:M16:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:302 vs. vco:5/comp_pmos:5/sg13_hv_nmos:M16:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:287 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M8:
- l circuit1: 1.5e-06   "n_l"  (property type mismatch)
- w circuit1: 1.2e-06   "n_w"  (property type mismatch)
-sg13_hv_nmos:287 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M8:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:287 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M8:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:283 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M3:
- l circuit1: 1.5e-06   "n_l"  (property type mismatch)
- w circuit1: 1.2e-06   "n_w"  (property type mismatch)
-sg13_hv_nmos:283 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:283 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:220 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M4:
- l circuit1: 1.5e-06   "n_l"  (property type mismatch)
- w circuit1: 2.4e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:220 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:220 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M4:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:414 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M5:
- l circuit1: 1.5e-06   "n_l"  (property type mismatch)
- w circuit1: 2.4e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:414 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M5:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:414 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M5:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:527 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_nmos:M5:
- l circuit1: 5e-06   "n_l"  (property type mismatch)
- w circuit1: 6e-06   "n_w"  (property type mismatch)
-sg13_hv_nmos:527 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_nmos:M5:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:527 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_nmos:M5:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:26 vs. vco:5/comp_pmos:5/sg13_hv_nmos:M14:
- l circuit1: 1.5e-06   "n_l"  (property type mismatch)
- w circuit1: 1.2e-06   "n_w"  (property type mismatch)
-sg13_hv_nmos:26 vs. vco:5/comp_pmos:5/sg13_hv_nmos:M14:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:26 vs. vco:5/comp_pmos:5/sg13_hv_nmos:M14:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:150 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_nmos:M3:
- l circuit1: 5e-06   "n_l"  (property type mismatch)
- w circuit1: 6e-06   "n_w"  (property type mismatch)
-sg13_hv_nmos:150 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_nmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:335 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M15:
- l circuit1: 5e-06   "cm_n_l"  (property type mismatch)
- w circuit1: 6e-06   "cm_n_w"  (property type mismatch)
-sg13_hv_nmos:335 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M15:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:335 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M15:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:221 vs. hv_mux4:4/hv_nor:2/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:221 vs. hv_mux4:4/hv_nor:2/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:57 vs. hv_mux4:4/hv_nor:5/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:57 vs. hv_mux4:4/hv_nor:5/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:260 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_nmos:M7:
- l circuit1: 5e-06   "n_l"  (property type mismatch)
- w circuit1: 6e-06   "n_w"  (property type mismatch)
-sg13_hv_nmos:260 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_nmos:M7:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:260 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_nmos:M7:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:154 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M3:
- l circuit1: 5e-06   "cm_n_l"  (property type mismatch)
- w circuit1: 6e-06   "cm_n_w"  (property type mismatch)
-sg13_hv_nmos:154 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:154 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:282 vs. hv_mux4:4/hv_nor:2/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:282 vs. hv_mux4:4/hv_nor:2/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:263 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_nmos:M8:
- l circuit1: 5e-06   "n_l"  (property type mismatch)
- w circuit1: 6e-06   "n_w"  (property type mismatch)
-sg13_hv_nmos:263 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_nmos:M8:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:263 vs. vco:5/bias_current_generator:8/current_reference_40uA:4/sg13_hv_nmos:M8:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:188 vs. hv_mux4:4/hv_nor:6/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:188 vs. hv_mux4:4/hv_nor:6/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:163 vs. hv_mux4:4/hv_nor:4/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:163 vs. hv_mux4:4/hv_nor:4/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:132 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M2:
- l circuit1: 5e-06   "cm_n_l"  (property type mismatch)
- w circuit1: 2.4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:132 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:52 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M5:
- l circuit1: 5e-06   "cm_n_l"  (property type mismatch)
- w circuit1: 6e-06   "cm_n_w"  (property type mismatch)
-sg13_hv_nmos:52 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M5:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:52 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M5:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:36 vs. hv_mux4:4/hv_nor:6/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:36 vs. hv_mux4:4/hv_nor:6/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:29 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M7:
- l circuit1: 1.5e-06   "n_l"  (property type mismatch)
- w circuit1: 1.2e-06   "n_w"  (property type mismatch)
-sg13_hv_nmos:29 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M7:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:29 vs. vco:5/comp_nmos:7/sg13_hv_nmos:M7:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:416 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M29:
- l circuit1: 5e-06   "cm_n_l"  (property type mismatch)
- w circuit1: 6e-06   "cm_n_w"  (property type mismatch)
-sg13_hv_nmos:416 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M29:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:416 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M29:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:385 vs. osc:1/sg13_hv_nmos:M12:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:385 vs. osc:1/sg13_hv_nmos:M12:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:75 vs. vco:5/hv_rs-ff:1/hv_nand:5/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:75 vs. vco:5/hv_rs-ff:1/hv_nand:5/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:238 vs. pulse_shaper_en:3/hv_inverter_40u:11/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:238 vs. pulse_shaper_en:3/hv_inverter_40u:11/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:42 vs. pulse_shaper_en:3/hv_inverter_40u:10/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:42 vs. pulse_shaper_en:3/hv_inverter_40u:10/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:499 vs. pulse_shaper_en:3/hv_inverter_0u3:1/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 3e-07   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:499 vs. pulse_shaper_en:3/hv_inverter_0u3:1/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:499 vs. pulse_shaper_en:3/hv_inverter_0u3:1/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:53 vs. pulse_shaper_en:3/hv_nand:4/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:53 vs. pulse_shaper_en:3/hv_nand:4/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:300 vs. pulse_shaper_en:3/hv_inverter_40u:3/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:300 vs. pulse_shaper_en:3/hv_inverter_40u:3/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:123 vs. pulse_shaper_en:3/high_th_inverter:8/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:123 vs. pulse_shaper_en:3/high_th_inverter:8/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:3 vs. pulse_shaper_en:3/low_th_inverter:7/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:3 vs. pulse_shaper_en:3/low_th_inverter:7/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:160 vs. hv_binary_decoder4:7/hv_nand:7/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:160 vs. hv_binary_decoder4:7/hv_nand:7/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:91 vs. hv_binary_decoder4:7/hv_nand:7/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:91 vs. hv_binary_decoder4:7/hv_nand:7/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:23 vs. hv_binary_decoder4:7/hv_nand:9/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:23 vs. hv_binary_decoder4:7/hv_nand:9/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:191 vs. hv_binary_decoder4:7/hv_inverter_40u:3/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:191 vs. hv_binary_decoder4:7/hv_inverter_40u:3/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:25 vs. hv_binary_decoder4:7/hv_inverter_40u:10/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:25 vs. hv_binary_decoder4:7/hv_inverter_40u:10/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:280 vs. hv_binary_decoder4:7/hv_nand:11/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:280 vs. hv_binary_decoder4:7/hv_nand:11/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:80 vs. hv_binary_decoder4:7/hv_nand:9/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:80 vs. hv_binary_decoder4:7/hv_nand:9/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:59 vs. hv_binary_decoder4:7/hv_nand:8/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:59 vs. hv_binary_decoder4:7/hv_nand:8/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:316 vs. pulse_shaper_en:3/hv_nand:4/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:316 vs. pulse_shaper_en:3/hv_nand:4/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:219 vs. hv_binary_decoder4:7/hv_nand:11/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:219 vs. hv_binary_decoder4:7/hv_nand:11/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:0 vs. hv_binary_decoder4:7/hv_nand:8/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:0 vs. hv_binary_decoder4:7/hv_nand:8/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:43 vs. transmission_gate:8/sg13_hv_nmos:M3:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 4e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:43 vs. transmission_gate:8/sg13_hv_nmos:M3:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:67 vs. hv_inverter_40u:9/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:67 vs. hv_inverter_40u:9/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:469 vs. osc:1/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:469 vs. osc:1/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:343 vs. osc:1/sg13_hv_nmos:M11:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:343 vs. osc:1/sg13_hv_nmos:M11:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:303 vs. vco:5/hv_inverter_6u5:6/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:303 vs. vco:5/hv_inverter_6u5:6/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:303 vs. vco:5/hv_inverter_6u5:6/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:259 vs. lvl_shift_up:10/hv_inverter_6u5:4/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:259 vs. lvl_shift_up:10/hv_inverter_6u5:4/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:259 vs. lvl_shift_up:10/hv_inverter_6u5:4/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:245 vs. osc:1/sg13_hv_nmos:M8:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:245 vs. osc:1/sg13_hv_nmos:M8:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:194 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M14:
- l circuit1: 5e-06   "cm_n_l"  (property type mismatch)
- w circuit1: 6e-06   "cm_n_w"  (property type mismatch)
-sg13_hv_nmos:194 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M14:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:194 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M14:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:130 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_nmos:M2:
- l circuit1: 5e-06   "n_l"  (property type mismatch)
- w circuit1: 6e-06   "n_w"  (property type mismatch)
-sg13_hv_nmos:130 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:130 vs. vco:5/voltage_mirror_pmos:2/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:103 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M28:
- l circuit1: 5e-06   "cm_n_l"  (property type mismatch)
- w circuit1: 6e-06   "cm_n_w"  (property type mismatch)
-sg13_hv_nmos:103 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M28:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:103 vs. vco:5/bias_current_generator:8/sg13_hv_nmos:M28:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:27 vs. vco:5/hv_inverter_6u5:3/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:27 vs. vco:5/hv_inverter_6u5:3/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:27 vs. vco:5/hv_inverter_6u5:3/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:18 vs. vco:5/comp_pmos:5/sg13_hv_nmos:M15:
- l circuit1: 1.5e-06   "n_l"  (property type mismatch)
- w circuit1: 1.2e-06   "n_w"  (property type mismatch)
-sg13_hv_nmos:18 vs. vco:5/comp_pmos:5/sg13_hv_nmos:M15:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:18 vs. vco:5/comp_pmos:5/sg13_hv_nmos:M15:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:494 vs. lvl_shift_up:11/hv_inverter_6u5:4/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:494 vs. lvl_shift_up:11/hv_inverter_6u5:4/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:494 vs. lvl_shift_up:11/hv_inverter_6u5:4/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:417 vs. lvl_shift_up:12/hv_inverter_6u5:4/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:417 vs. lvl_shift_up:12/hv_inverter_6u5:4/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:417 vs. lvl_shift_up:12/hv_inverter_6u5:4/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:321 vs. lvl_shift_up:13/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:321 vs. lvl_shift_up:13/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:294 vs. lvl_shift_up:11/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:294 vs. lvl_shift_up:11/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:31 vs. lvl_shift_up:12/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:31 vs. lvl_shift_up:12/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:20 vs. lvl_shift_up:10/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:20 vs. lvl_shift_up:10/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:109 vs. pulse_shaper_en:3/hv_nor:5/sg13_hv_nmos:M1:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:109 vs. pulse_shaper_en:3/hv_nor:5/sg13_hv_nmos:M1:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:19 vs. pulse_shaper_en:3/hv_nor:5/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:19 vs. pulse_shaper_en:3/hv_nor:5/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:15 vs. lvl_shift_up:13/hv_inverter_6u5:4/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 2e-06   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:15 vs. lvl_shift_up:13/hv_inverter_6u5:4/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:15 vs. lvl_shift_up:13/hv_inverter_6u5:4/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
-sg13_hv_nmos:122 vs. hv_inverter_40u:14/sg13_hv_nmos:M2:
- l circuit1: 4.5e-07   (unresolved expression)  (property type mismatch)
- w circuit1: 1.2e-05   (unresolved expression)  (property type mismatch)
-sg13_hv_nmos:122 vs. hv_inverter_40u:14/sg13_hv_nmos:M2:
-Property mm_ok in circuit2 has no matching property in circuit1
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: switched_cap_cell               |Circuit 2: switched_cap_cell               
+
+---------------------------------------------------------------------------------------
+Net: pulse_shaper_en_0.en                  |Net: net15                                 
+  sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_pmos/(1|3) = 1                   
+  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_nmos/2 = 2                       
+  sg13_hv_pmos/2 = 2                       |  sg13_hv_nmos/(1|3) = 1                   
+  sg13_hv_nmos/2 = 2                       |                                           
+                                           |                                           
+Net: VGND                                  |Net: VGND                                  
+  sg13_hv_nmos/4 = 76                      |  sg13_hv_nmos/4 = 77                      
+  sg13_hv_nmos/(1|3) = 62                  |  sg13_hv_nmos/(1|3) = 62                  
+  rhigh/3 = 3                              |  rhigh/3 = 3                              
+  rhigh/(1|2) = 2                          |  rhigh/(1|2) = 1                          
+  rppd/(1|2) = 1                           |  rppd/(1|2) = 1                           
+  rppd/3 = 1                               |  rppd/3 = 1                               
+  rsil/3 = 1                               |  rsil/3 = 1                               
+  sg13_hv_pmos/(1|3) = 62                  |                                           
+  sg13_hv_pmos/4 = 75                      |                                           
+  sg13_hv_nmos/2 = 1                       |                                           
+                                           |                                           
+Net: transmission_gate_3.nvctrl            |Net: net1                                  
+  sg13_hv_pmos/2 = 2                       |  sg13_hv_pmos/2 = 1                       
+  sg13_hv_pmos/(1|3) = 1                   |  sg13_hv_nmos/2 = 1                       
+  sg13_hv_nmos/2 = 1                       |  rhigh/(1|2) = 1                          
+  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_nmos/(1|3) = 1                   
+                                           |  sg13_hv_pmos/(1|3) = 1                   
+                                           |                                           
+Net: ctrl                                  |Net: ctrl                                  
+  sg13_hv_nmos/(1|3) = 2                   |  sg13_hv_nmos/(1|3) = 2                   
+  sg13_hv_pmos/(1|3) = 2                   |  sg13_hv_pmos/(1|3) = 2                   
+  rhigh/(1|2) = 1                          |                                           
+  sg13_hv_pmos/2 = 1                       |                                           
+  sg13_hv_nmos/2 = 1                       |                                           
+                                           |                                           
+Net: osc_0.ictrl                           |Net: net4                                  
+  sg13_hv_pmos/(1|3) = 2                   |  sg13_hv_pmos/2 = 2                       
+  sg13_hv_nmos/(1|3) = 1                   |  sg13_hv_nmos/2 = 3                       
+  sg13_hv_pmos/2 = 4                       |  sg13_hv_nmos/(1|3) = 1                   
+                                           |  sg13_hv_pmos/(1|3) = 1                   
+                                           |                                           
+Net: transmission_gate_0.VDD               |Net: net9                                  
+  sg13_hv_pmos/4 = 1                       |  sg13_hv_pmos/2 = 5                       
+                                           |  sg13_hv_pmos/(1|3) = 2                   
+                                           |  sg13_hv_nmos/(1|3) = 1                   
+                                           |                                           
+Net: transmission_gate_3.vctrl             |Net: VAPWR                                 
+  sg13_hv_nmos/2 = 1                       |  sg13_hv_pmos/4 = 77                      
+                                           |  sg13_hv_pmos/(1|3) = 62                  
+                                           |  rhigh/(1|2) = 1                          
+                                           |                                           
+(no matching net)                          |Net: net14                                 
+                                           |  sg13_hv_pmos/2 = 2                       
+                                           |  sg13_hv_nmos/2 = 1                       
+                                           |  sg13_hv_nmos/(1|3) = 1                   
+                                           |  sg13_hv_pmos/(1|3) = 1                   
+---------------------------------------------------------------------------------------
+DEVICE mismatches: Class fragments follow (with node fanout counts):
+Circuit 1: switched_cap_cell               |Circuit 2: switched_cap_cell               
+
+---------------------------------------------------------------------------------------
+Instance: sg13_hv_nmos:299                 |Instance: osc:1/sg13_hv_nmos:M11           
+  (1,3) = (284,284)                        |  (1,3) = (146,4)                          
+  2 = 284                                  |  2 = 4                                    
+  4 = 284                                  |  4 = 146                                  
+                                           |                                           
+Instance: sg13_hv_nmos:326                 |Instance: hv_inverter_40u:15/sg13_hv_nmos: 
+  (1,3) = (284,5)                          |  (1,3) = (146,5)                          
+  2 = 6                                    |  2 = 7                                    
+  4 = 284                                  |  4 = 146                                  
+                                           |                                           
+Instance: sg13_hv_pmos:77                  |Instance: transmission_gate:16/sg13_hv_nmo 
+  (1,3) = (284,5)                          |  (1,3) = (5,4)                            
+  2 = 6                                    |  2 = 7                                    
+  4 = 284                                  |  4 = 146                                  
+                                           |                                           
+Instance: sg13_hv_pmos:203                 |Instance: osc:1/sg13_hv_pmos:M2            
+  (1,3) = (284,284)                        |  (1,3) = (140,4)                          
+  2 = 7                                    |  2 = 8                                    
+  4 = 284                                  |  4 = 140                                  
+                                           |                                           
+Instance: sg13_hv_pmos:436                 |Instance: osc:1/sg13_hv_pmos:M6            
+  (1,3) = (284,7)                          |  (1,3) = (140,8)                          
+  2 = 7                                    |  2 = 8                                    
+  4 = 284                                  |  4 = 140                                  
+                                           |                                           
+(no matching instance)                     |Instance: hv_inverter_40u:15/sg13_hv_pmos: 
+                                           |  (1,3) = (140,5)                          
+                                           |  2 = 7                                    
+                                           |  4 = 140                                  
+                                           |                                           
+                                           |                                           
+(no matching instance)                     |Instance: transmission_gate:16/sg13_hv_pmo 
+                                           |  (1,3) = (5,4)                            
+                                           |  2 = 5                                    
+                                           |  4 = 140                                  
+                                           |                                           
+---------------------------------------------------------------------------------------
+Netlists do not match.
+Port matching may fail to disambiguate symmetries.
 
 Subcircuit pins:
 Circuit 1: switched_cap_cell               |Circuit 2: switched_cap_cell               
 -------------------------------------------|-------------------------------------------
-ctrl                                       |ctrl                                       
-VAPWR                                      |VAPWR                                      
-VGND                                       |VGND                                       
+VGND                                       |ctrl **Mismatch**                          
+ctrl                                       |(no pin, node is net14)                    
 r1                                         |r1                                         
 r2                                         |r2                                         
-en                                         |en                                         
+clkin                                      |clkin                                      
 selA                                       |selA                                       
 selB                                       |selB                                       
-clkin                                      |clkin                                      
+en                                         |en                                         
 VPWR                                       |VPWR                                       
 clkout                                     |clkout                                     
+(no pin, node is transmission_gate_3.vctrl |VAPWR                                      
+(no pin, node is transmission_gate_3.vctrl |VGND                                       
 ---------------------------------------------------------------------------------------
-Cell pin lists are equivalent.
+Cell pin lists for switched_cap_cell and switched_cap_cell altered to match.
 Device classes switched_cap_cell and switched_cap_cell are equivalent.
 
-Final result: Circuits match uniquely.
-Property errors were found.
-
-The following cells had property errors:
- switched_cap_cell
+Final result: Top level cell failed pin matching.
