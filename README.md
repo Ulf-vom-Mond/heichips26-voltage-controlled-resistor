@@ -35,7 +35,7 @@ All three designs can be connected to the analog I/O pins via independent analog
 
 The top-level schematic can be found in `macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/switched_cap_cell.sch`.
 
-A pdf plot of all relevant schematics is found at `macros/heichips26_vcr/macros/switched_capacitor/final/render/xschem_plot.pdf`.
+A pdf plot of all relevant schematics is found at [`macros/heichips26_vcr/macros/switched_capacitor/final/render/xschem_plot.pdf`](https://github.com/Ulf-vom-Mond/heichips26-voltage-controlled-resistor/blob/main/macros/heichips26_vcr/macros/switched_capacitor/final/render/xschem_plot.pdf).
 
 ### Principle of Operation
 
