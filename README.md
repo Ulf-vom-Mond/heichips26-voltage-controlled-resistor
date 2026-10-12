@@ -35,6 +35,8 @@ All three designs can be connected to the analog I/O pins via independent analog
 
 The top-level schematic can be found in `macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/switched_cap_cell.sch`.
 
+A pdf plot of all relevant schematics is found at `macros/heichips26_vcr/macros/switched_capacitor/final/render/xschem_plot.pdf`.
+
 ### Principle of Operation
 
 A capacitor is connected in a T-style circuit with the two virtual resistor terminals via two analog switches (aka transmission gates). During operation, both switches are closed in an alternating pattern. Both switches are never closed simultaneously. This way, the capacitor will be connected either between terminal A and ground or between terminal B and ground. When one of the switches closes, the capacitor will be charged to the voltage applied to the respective terminal. With the capacitance $C$ and the voltages on the terminals $V_A$ and $V_B$, the transferred charge on each cycle $Q$ can be calculated:
@@ -85,14 +87,14 @@ $$
 Assuming a constant $dv/dt = \Delta v/\Delta t$ and rearranging for $1/\Delta t$:
 
 $$
-\frac{1}{\Delta t} = \frac{i}{C \cdot \Delta V}
+\frac{1}{\Delta t} = \frac{i}{C \cdot \Delta v}
 $$
 
 So the frequency ($f = 1/t$) is inversely proportional to the difference between the threshold voltages. Because the VCR resistance is also inversely proportional to the frequency, a direct proportionality between resistance and control voltage arises.
 
 The following values are obtained from the simulation:
 
-| $V_{ctrl}$ | $f_{vco}$ |
+| $V_{ctrl}$ | $f_{VCO}$ |
 |------------|-----------|
 | 0 V | 12.3 MHz |
 | 3.3 V | 875 kHz |
@@ -101,19 +103,19 @@ The following values are obtained from the simulation:
 
 (`macros/heichips26_vcr/macros/switched_capacitor/schematic/xschem/osc.sch`)
 
-This oscillator was inspired by the classic astable multivibrator circuit constructed from two bipolar junction transistors. Some adaptions are necessary when using MOS devices for the implementation. The idea reverses the principle of the VCO from above: two capacitors are charged and discharged with constant threshold voltages, but with a variable current. According to the capacitor equations above, a direct proportionality exists between the frequency and the current which gives an indirect proportionality between the resistance and the current. This might be useful because of the logarithm-like behaviour of the $1/x$ function which gives a fine resistance resolution at low frequency values and a large resistance range at high frequency values. However, those non-linearities are usually unfavorable. For those applications, the vco might be more suitable.
+This oscillator was inspired by the classic astable multivibrator circuit constructed from two bipolar junction transistors. Some adaptions are necessary when using MOS devices for the implementation. The idea reverses the principle of the VCO from above: two capacitors are charged and discharged with constant threshold voltages, but with a variable current. According to the capacitor equations above, a direct proportionality exists between the frequency and the current which gives an indirect proportionality between the resistance and the current. This might be useful because of the logarithm-like behaviour of the $1/x$ function which gives a fine resistance resolution at low frequency values and a large resistance range at high frequency values. However, those non-linearities are usually unfavorable. For those applications, the VCO might be more suitable.
 
 In theory, this oscillator is current-controlled, however, due to the large resistance of the input source-drain channel, an implicit voltage to current conversion happens.
 
 The following values are obtained from the simulation:
 
-| $V_{ctrl}$ | $I_{ctrl}$ | $f_{osc}$ |
+| $V_{ctrl}$ | $I_{ctrl}$ | $f_{OSC}$ |
 |------------|------------|-----------|
 | 0 V | 440 µA | 193 MHz |
 | 2.02 V | 30 µA | 13.9 MHz |
 | 2.5 V | 1 µA | 1.41 MHz |
 
-This makes this oscillator considerably faster than the vco. For higher control currents, even higher oscillation frequencies can be simulated.
+This makes this oscillator considerably faster than the VCO. For higher control currents, even higher oscillation frequencies can be simulated.
 
 #### External
 
